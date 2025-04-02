@@ -17,14 +17,14 @@
         <fieldset>
             <legend>Personal Information</legend>
             <label for="first-name">First Name</label>
-            <input type="text" name="first-name" id="first-name" placeholder="First Name"> <!--max 20 alpha characters-->
+            <input type="text" name="first-name" id="first-name" placeholder="First Name" required> <!--add regex - max 20 alpha characters-->
             <label for="last-name">Last Name</label>
-            <input type="text" name="last-name" id="last-name" placeholder="Last Name"> <!--max 20 alpha characters-->
+            <input type="text" name="last-name" id="last-name" placeholder="Last Name" required> <!--add regex - max 20 alpha characters-->
             <label for="dob">Date of Birth</label>
-            <input type="text" name="dob" id="dob" placeholder="dd/mm/yyyy"> <!--add regex for format-->
+            <input type="text" name="dob" id="dob" placeholder="dd/mm/yyyy" required> <!--add regex for format-->
             <fieldset>
                 <legend>Gender</legend>
-                <input type="radio" name="gender" id="female" value="female">
+                <input type="radio" name="gender" id="female" value="female" required>
                 <label for="female">Female</label>
                 <input type="radio" name="gender" id="male" value="male">
                 <label for="male">Male</label>
@@ -34,8 +34,30 @@
         </fieldset>
         <fieldset>
             <legend>Address</legend>
-            
+            <label for="address">Street Address</label>
+            <input type="text" name="address" id="address" required> <!--add regex - max 40 characters-->
+            <label for="suburb">Suburb</label>
+            <input type="text" name="suburb" id="suburb" required> <!--add regex - max 40 characters-->
+            <label for="state">State</label>
+            <select name="state" id="state">
+                <option value="vic">VIC</option>
+                <option value="nsw">NSW</option>
+                <option value="qld">QLD</option>
+                <option value="nt">NT</option>
+                <option value="wa">WA</option>
+                <option value="sa">SA</option>
+                <option value="tas">TAS</option>
+                <option value="act">ACT</option>
+            </select>
+            <label for="postcode">Postcode</label>
+            <input type="text" name="postcode" id="postcode" required>
         </fieldset>
+        <label for="email">Email Address</label>
+        <input type="text" name="email" id="email" required> <!--add regex for email format-->
+        <label for="number">Phone Number</label>
+        <input type="text" name="number" id="number" required> <!--add regex - 8 to 12 digits or spaces-->
+        <label for="skills">Relevant technical skills</label>
+        
     </form>
 </body>
 </html>
