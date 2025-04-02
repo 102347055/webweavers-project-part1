@@ -25,7 +25,7 @@
             <label for="last-name">Last Name</label>
             <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
             <label for="dob">Date of Birth</label>
-            <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" maxlength="10" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+            <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" maxlength="10" pattern="\d{1,2}/\d{1,2}/\d{4}" required> <!--possibly change to date input type-->
             <fieldset>
                 <legend>Gender</legend>     <!--Gender radio buttons in fieldset-->
                 <input type="radio" name="gender" id="female" value="female" required>
@@ -66,18 +66,18 @@
         </fieldset>
         <fieldset>
             <legend>Skills</legend>
-            <label for="skills">Required technical skills</label>   <!--Technical skills checkboxes - edit to add actual skills-->
-            <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
-            <label for="skill01">Skill 1</label>
-            <input type="checkbox" name="skill02" id="skill02" value="skill02">
-            <label for="skill02">Skill 2</label>
-            <input type="checkbox" name="skill03" id="skill03" value="skill03">
-            <label for="skill03">Skill 3</label>
-            <input type="checkbox" name="skill04" id="skill04" value="skill04">
-            <label for="skill04">Skill 4</label>
-            <input type="checkbox" name="skill05" id="skill05" value="skill05">
-            <label for="skill05">Skill 5</label>
-            <br>
+            <p>Required technical skills   <!--Technical skills checkboxes - edit to add actual skills-->
+                <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
+                <label for="skill01">Skill 1</label>
+                <input type="checkbox" name="skill02" id="skill02" value="skill02">
+                <label for="skill02">Skill 2</label>
+                <input type="checkbox" name="skill03" id="skill03" value="skill03">
+                <label for="skill03">Skill 3</label>
+                <input type="checkbox" name="skill04" id="skill04" value="skill04">
+                <label for="skill04">Skill 4</label>
+                <input type="checkbox" name="skill05" id="skill05" value="skill05">
+                <label for="skill05">Skill 5</label>
+            </p>
             <label for="other-skills">Other Skills</label><br>
             <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
         </fieldset>
