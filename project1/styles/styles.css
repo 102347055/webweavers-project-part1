@@ -13,6 +13,7 @@ description: styles for Web Weavers Website
 */
 
 /*index*/
+
 *{
     margin: 0;
     padding: 0;
@@ -81,4 +82,21 @@ article {
 footer {
     position: absolute;
     top: 500px;
+}
+
+/* apply page styles */
+
+select, input[type="text"], textarea {
+    width: 100%;
+    height: 3em;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+fieldset {
+    border: none;
+}
+
+form {
+    margin: 5% 10%;
 }
