@@ -44,7 +44,7 @@ h2 {
 
 h1 {
     font-family: "Economica", sans-serif;
-    font-size: 300%;
+    font-size: 500%;
 }
 
 header {
@@ -76,13 +76,16 @@ nav {
 }
 
 article {
-    position: absolute;
-    top: 300px;
+    position: relative;
+    top: 250px;
 }
 footer {
     position: absolute;
     top: 500px;
+    text-align: right;
 }
+
+
 
 /* apply page styles */
 
