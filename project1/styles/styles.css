@@ -11,3 +11,18 @@ last modified: 03/04/2025
 description: styles for Web Weavers Website
 
 */
+
+/*index*/
+section {
+    height: auto;
+    max-width: 100%;
+}
+
+nav {
+    background: navy;
+    display: inline-block;
+}
+
+footer {
+    display: inline-block;
+}
