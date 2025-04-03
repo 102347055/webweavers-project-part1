@@ -13,16 +13,51 @@ description: styles for Web Weavers Website
 */
 
 /*index*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif
+    
+}
 section {
     height: auto;
     max-width: 100%;
 }
 
 nav {
-    background: navy;
+    background: grey;
     display: inline-block;
 }
 
-footer {
-    display: inline-block;
+body {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 150%;
+}
+
+h1 {
+    font-size: 300%;
+}
+
+ul {
+    line-height: 150%;
+}
+
+body {
+    max-width: 20em;
+}
+
+nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 33px 9%;
+    background: transparent;
 }
