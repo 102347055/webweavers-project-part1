@@ -17,8 +17,11 @@ description: styles for Web Weavers Website
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif
-    
+    font-family: "Poppins", sans-serif;  
+}
+
+#wrap {
+    position: relative;
 }
 section {
     height: auto;
@@ -39,25 +42,43 @@ h2 {
 }
 
 h1 {
+    font-family: "Economica", sans-serif;
     font-size: 300%;
+}
+
+header {
+    position: absolute;
+    top: 150px;
 }
 
 ul {
     line-height: 150%;
 }
 
-body {
-    max-width: 20em;
-}
-
 nav {
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1000;
+    position: sticky;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 33px 9%;
-    background: transparent;
+    justify-content: space-evenly;
+    padding: 10px;
+    background: #ebeffe;
+    align-items: center;
+}
+
+
+
+#home_logo {
+    position: relative;
+    left: -150px;
+    width: 150px;
+    height: auto;
+}
+
+article {
+    position: absolute;
+    top: 300px;
+}
+footer {
+    position: absolute;
+    top: 500px;
 }
