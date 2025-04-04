@@ -50,35 +50,26 @@ header {
     position: absolute;
     top: 150px;
 }
+
 #home_pic {
     width: 100%;
     height: auto;
-}
-ul {
-    line-height: 150%;
 }
 
 nav {
     position: sticky;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    padding: 40px;
+    padding: 5px;
     background: #ebeffe;
     align-items: center;
-    line-height: 150px;
     
-}
-
-#next_to_logo{
-    position: absolute;
-    left: 20px;
 }
 
 #nav_buttons {
     position: fixed;
     right: 20px;
-    top: -35px;
+    top: 15px;
 }
 
 .nav_options {
@@ -86,20 +77,16 @@ nav {
     margin: 0 5px;
 }
 
-nav ul {
-    position: absolute;
-    line-height: 150px; 
-    
-}
-
 nav ul li {
     margin: 0 5px;
     display: inline-block;
     
 }
+
 nav ul li a {
     text-decoration: none;
 }
+
 button {
     background-color: #5a3e71;
     font-family: "Poppins", sans-serif;
@@ -116,20 +103,17 @@ button a {
     color: white;
 }
 
-
-
 #home_logo {
-    position: absolute;
-    left: 20px;
     width: 150px;
     height: auto;
-    top:0;
+    top: 0;
 }
 
 article {
     position: relative;
     top: 250px;
 }
+
 footer {
     position: relative;
     bottom: 0;
