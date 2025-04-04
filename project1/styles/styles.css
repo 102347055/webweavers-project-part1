@@ -67,6 +67,7 @@ nav {
     background: #ebeffe;
     align-items: center;
     line-height: 150px;
+    
 }
 
 .nav_options{
@@ -77,13 +78,31 @@ nav {
 nav ul {
     position: absolute;
     line-height: 150px;
+    
 }
 
 nav ul li {
     display: inline-block;
     margin: 0 5px;
+    
+}
+nav ul li a {
+    text-decoration: none;
+}
+button {
+    background-color: #5a3e71;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    padding: 9px;
+    color:white;
+    border-radius: 10px;
+    border: none;
 }
 
+button a {
+    text-decoration: none;
+    color: white;
+}
 #home_logo {
     position: absolute;
     left: 20px;
