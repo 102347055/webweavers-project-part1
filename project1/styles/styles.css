@@ -21,37 +21,39 @@ description: styles for Web Weavers Website
     font-family: "Poppins", sans-serif;  
 }
 
-#wrap {
+/*#wrap {
     position: relative;
-}
-section {
-    height: auto;
-    max-width: 100%;
-}
-
-nav {
-    background: grey;
-    display: inline-block;
-}
+}*/
 
 body {
-    font-size: 16px;
-}
-
-h2 {
-    font-size: 150%;
+    font-size: 20px;
 }
 
 h1 {
     font-family: "Economica", sans-serif;
-    font-size: 500%;
+    font-size: 1000%;
+    position: relative;
+    bottom: 0;
+}
+
+h2 {
+    font-family: "Economica", sans-serif;
+    font-size: 150%;
+}
+
+.purple_web{
+    color: #5a3e71;
+    font-family: "Economica", sans-serif;
 }
 
 header {
     position: absolute;
     top: 150px;
 }
-
+#home_pic {
+    width: 100%;
+    height: auto;
+}
 ul {
     line-height: 150%;
 }
@@ -74,7 +76,6 @@ nav {
 
 nav ul {
     position: absolute;
-    right: 20px;
     line-height: 150px;
 }
 
@@ -96,9 +97,14 @@ article {
     top: 250px;
 }
 footer {
-    position: absolute;
-    top: 500px;
+    position: relative;
+    bottom: 0;
     text-align: right;
+    list-style-type: none;
+}
+
+nav, header, article {
+    flex:1;
 }
 
 
