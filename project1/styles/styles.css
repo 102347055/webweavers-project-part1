@@ -70,7 +70,12 @@ nav {
     
 }
 
-.nav_options{
+.next_to_logo li{
+    position: absolute;
+    left: 20px;
+}
+
+.nav_options {
     list-style: none;
     margin: 0 5px;
 }
@@ -103,6 +108,9 @@ button a {
     text-decoration: none;
     color: white;
 }
+
+
+
 #home_logo {
     position: absolute;
     left: 20px;
@@ -120,6 +128,11 @@ footer {
     bottom: 0;
     text-align: right;
     list-style-type: none;
+    background-color:#ebeffe;
+    
+}
+footer li a, footer a {
+    text-decoration: none;
 }
 
 nav, header, article {
