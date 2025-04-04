@@ -134,21 +134,37 @@ nav, header, article {
     flex:1;
 }
 
-
-
 /* apply page styles */
 
-select, input[type="text"], textarea {
-    width: 100%;
-    height: 3em;
-    padding: 0.5em;
+#apply-body {
+    background-color: #7c648f;
+}
+
+#apply-heading {
+    font-size: 3em;
     margin: 0.5em;
+}
+
+form {
+    background-color: #ebeffe;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1em;
+    padding: 1em;
+    margin: 1em;
 }
 
 fieldset {
     border: none;
 }
 
-form {
-    margin: 5% 10%;
+/*
+select, input[type="text"], textarea {
+    width: 100%;
+    height: 3em;
+    padding: 0.5em;
+    margin: 0.5em;
 }
+*/
