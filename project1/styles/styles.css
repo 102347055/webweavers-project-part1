@@ -21,12 +21,20 @@ description: styles for Web Weavers Website
     font-family: "Poppins", sans-serif;  
 }
 
-/*#wrap {
-    position: relative;
-}*/
-
 body {
-    font-size: 20px;
+    font-size: 1.25em;
+}
+
+/*background image on homepage*/
+
+header {
+    background-image: url(images/homepage-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10em 1em;
+    margin: 0;
 }
 
 h1 {
@@ -46,10 +54,6 @@ h2 {
     font-family: "Economica", sans-serif;
 }
 
-header {
-    position: absolute;
-    top: 150px;
-}
 
 #home_pic {
     width: 100%;
