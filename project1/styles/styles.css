@@ -27,7 +27,7 @@ body {
 
 /*background image on homepage*/
 
-header {
+#home-header {
     background-image: url(images/homepage-background.jpg);
     background-position: center;
     background-repeat: no-repeat;
