@@ -70,9 +70,15 @@ nav {
     
 }
 
-.next_to_logo li{
+#next_to_logo{
     position: absolute;
     left: 20px;
+}
+
+#nav_buttons {
+    position: fixed;
+    right: 20px;
+    top: -35px;
 }
 
 .nav_options {
@@ -82,13 +88,17 @@ nav {
 
 nav ul {
     position: absolute;
-    line-height: 150px;
+    line-height: 150px; 
     
 }
 
+#aacurrent_jobs_link {
+    float: left;
+}
+
 nav ul li {
-    display: inline-block;
     margin: 0 5px;
+    display: inline-block;
     
 }
 nav ul li a {
@@ -102,6 +112,7 @@ button {
     color:white;
     border-radius: 10px;
     border: none;
+    margin: 4px;
 }
 
 button a {
