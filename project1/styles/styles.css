@@ -13,51 +13,158 @@ description: styles for Web Weavers Website
 */
 
 /*index*/
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif
-    
-}
-section {
-    height: auto;
-    max-width: 100%;
-}
-
-nav {
-    background: grey;
-    display: inline-block;
+    font-family: "Poppins", sans-serif;  
 }
 
 body {
-    font-size: 16px;
+    font-size: 1.25em;
 }
 
-h2 {
-    font-size: 150%;
+/*background image on homepage*/
+
+#home-header {
+    background-image: url(images/homepage-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10em 1em;
+    margin: 0;
 }
 
 h1 {
-    font-size: 300%;
+    font-family: "Economica", sans-serif;
+    font-size: 1000%;
+    position: relative;
+    bottom: 0;
 }
 
-ul {
-    line-height: 150%;
+h2 {
+    font-family: "Economica", sans-serif;
+    font-size: 150%;
 }
 
-body {
-    max-width: 20em;
+.purple_web{
+    color: #5a3e71;
+    font-family: "Economica", sans-serif;
+}
+
+
+#home_pic {
+    width: 100%;
+    height: auto;
 }
 
 nav {
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1000;
+    position: sticky;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 33px 9%;
-    background: transparent;
+    padding: 5px;
+    background: #ebeffe;
+    align-items: center;
+    
 }
+
+#nav_buttons {
+    position: fixed;
+    right: 20px;
+    top: 15px;
+}
+
+.nav_options {
+    list-style: none;
+    margin: 0 5px;
+}
+
+nav ul li {
+    margin: 0 5px;
+    display: inline-block;
+    
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #5a3e71;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    padding: 9px;
+    color:white;
+    border-radius: 10px;
+    border: none;
+    margin: 4px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+#home_logo {
+    width: 150px;
+    height: auto;
+    top: 0;
+}
+
+article {
+    position: relative;
+    top: 250px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    text-align: right;
+    list-style-type: none;
+    background-color:#ebeffe;
+    
+}
+footer li a, footer a {
+    text-decoration: none;
+}
+
+nav, header, article {
+    flex:1;
+}
+
+/* apply page styles */
+
+#apply-body {
+    background-color: #7c648f;
+}
+
+#apply-heading {
+    font-size: 3em;
+    margin: 0.5em;
+}
+
+form {
+    background-color: #ebeffe;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1em;
+    padding: 1em;
+    margin: 1em;
+}
+
+fieldset {
+    border: none;
+}
+
+/*
+select, input[type="text"], textarea {
+    width: 100%;
+    height: 3em;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+*/

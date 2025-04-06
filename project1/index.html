@@ -24,37 +24,170 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 <body>
-    <nav>
-        <section id = "home_logo">
-        <a href = "./index.html"><img src="./images/web_weavers_logo_only_pic.jpg" 
-                alt="Web Weavers Technology Company Logo; black spiderweb against a white background" 
-                title="Web Weavers Technology Company Logo"></a></section>
-         <a href="#jobs">Current Opportunities</a> 
-         <a href="#apply">Apply Now</a> 
-         <a href="#about">About Us</a> 
-         <div class="bx bx-menu" id="menu-icon"></div>
-      </nav>
-
-   <header>
-     <h1>Web Weevers</h1>
-    <h2>Spinning a Faster, Safer, and Seamless Cloud for You.</h2>
-    <h2>"Instant access, secure storage, and seamless sharing—your cloud, your control."</h2>
-      <hr />
-   </header>
-
-   <h3> Why choose us? </h3>
-    <ul>
-        <li>Instant Access</li>
-        <li>Encrypted Storage</li>
-        <li>Seamless Syncing</li>
-    </ul>
-
-    <hr>
+    <div id = "wrap">
+    <header>
+      <nav>
+          <a href = "./index.html"><img src="./images/web_weavers_logo.jpg" id = "home_logo"
+                  alt="Web Weavers Technology Company Logo; black spiderweb against a white background" 
+                  title="Web Weavers Company Logo"></a>
+          <ul class = "nav_options">
+                  <li><a href="./jobs.html">Current Opportunities</a></li>
+                  <li><a href="./apply.html">Apply Now</a></li> 
+                  <li><a href="./about.html">About Us</a></li> 
+              <span id = "nav_buttons">
+                  <button><a href="./index.html">Log In</a></button>
+                  <button><a href="./index.html">Get Started</a></button>
+              <!--<li><div class="bx bx-menu" id="menu-icon"></div></li>-->
+              </span>
+          </ul>
+        </nav>
+        <div id="home-header">
+          <h1><span class="purple_web">Web</span> Weavers</h1>
+         <div class = "check"> <h2>Spinning a Faster, Safer, and Seamless Cloud for You.</h2></div>
+         <h2>"Instant access, secure storage, and seamless sharing—your cloud, your control."</h2>
+        </div>
+    </header>
+   
+   <article>
+        <h3> Why choose us? </h3>
+        <ul>
+            <section id="security">
+                <h2>🔐 Security Is Always the Priority</h2>
+                <p>
+                  At <strong>Web Weavers</strong>, security never takes a back seat. With industry-leading encryption, tamper-proof document protection, version history, and reliable recovery tools, your intellectual property stays safe—never sold, never shared.
+                </p>
+              </section>
+            
+              <section id="collaboration">
+                <h2>🌍 Collaborate Anywhere, Anytime, with Anyone</h2>
+                <p>
+                  Whether you're in the office or across the world, Web Weavers enables seamless collaboration. Share files effortlessly, stay organised, and work with anyone—even those without an account—on any device.
+                </p>
+              </section>
+            
+              <section id="storage">
+                <h2>☁️ Cloud Storage, Simplified</h2>
+                <p>
+                  Secure, scalable cloud storage for individuals and teams of any size. Upload, access, and edit your files from any device with ease.
+                </p>
+              </section>
+            
+              <section id="workflow">
+                <h2>🧠 Work Smarter, Not Harder</h2>
+                <p>
+                  Manage, edit, and organise your content in one central place—built for speed, simplicity, and smarter workflows.
+                </p>
+              </section>
+            
+              <section id="teamwork">
+                <h2>🤝 Teamwork Without the Tangle</h2>
+                <p>
+                  Empower your team with streamlined content collaboration. Web Weavers brings your workflow together—intuitive, unified, and built for results.
+                </p>
+              </section>
+            
+              <section id="zero-trust">
+                <h2>🔒 Zero-Trust, Maximum Security</h2>
+                <p>
+                  Web Weavers' zero-trust architecture includes client-side encryption and secure vaults to keep your data locked down and protected at all times.
+                </p>
+              </section>
+            <li>Instant Access</li>
+            <li>Encrypted Storage</li>
+            <li>Seamless Syncing</li>
+        </ul>
+        <h3> Our Plans </h3>
+        <ol>
+            <div class="plan-card">
+                <h4>Starter Cloud</h4>
+                <p><strong>Price:</strong> $0/month</p>
+                <ul>
+                  <li>5 GB Storage</li>
+                  <li>Standard encryption</li>
+                  <li>Sync across 2 devices</li>
+                  <li>7-day file version history</li>
+                  <li>Community support</li>
+                </ul>
+                <button>Get Started</button>
+              </div>
+          
+              <!-- Pro Plan -->
+              <div class="plan-card">
+                <h4>Cloud Pro</h4>
+                <p><strong>Price:</strong> $9.99/month</p>
+                <ul>
+                  <li>1 TB Storage</li>
+                  <li>End-to-end encryption</li>
+                  <li>Unlimited devices</li>
+                  <li>30-day file version history</li>
+                  <li>File sharing & password-protected links</li>
+                  <li>Email + priority chat support</li>
+                </ul>
+                <button>Upgrade</button>
+              </div>
+          
+              <!-- Business Plan -->
+              <div class="plan-card">
+                <h4>Cloud Enterprise</h4>
+                <p><strong>Price:</strong> $49.99/month</p>
+                <ul>
+                  <li>10 TB Storage (expandable)</li>
+                  <li>Up to 20 team members</li>
+                  <li>Enterprise-grade encryption, SSO, 2FA</li>
+                  <li>180-day file version history</li>
+                  <li>Admin dashboard, audit logs</li>
+                  <li>Integrations with Slack, Google, Microsoft</li>
+                  <li>24/7 dedicated support team</li>
+                </ul>
+                <button>Contact Sales</button>
+              </div>
+        </ol>
+    </article>
+    <div class="faq-container">
+        <h1>Cloud Storage FAQs</h1>
+        
+        <div class="faq">
+            <p class="question" onclick="toggleAnswer('answer1')">1. What makes Web Weavers’ cloud storage different from other providers?</p>
+            <p class="answer" id="answer1">Web Weavers offers high-speed, secure, and scalable cloud storage with built-in redundancy and zero-downtime guarantees.</p>
+        </div>
+        
+        <div class="faq">
+            <p class="question" onclick="toggleAnswer('answer2')">2. How secure is my data on Web Weavers’ cloud storage?</p>
+            <p class="answer" id="answer2">We use end-to-end encryption, multi-factor authentication (MFA), and AI-driven threat detection to ensure maximum security.</p>
+        </div>
+        
+        <div class="faq">
+            <p class="question" onclick="toggleAnswer('answer3')">3. Can I easily scale my storage as my business grows?</p>
+            <p class="answer" id="answer3">Yes! Web Weavers offers on-demand scalability with pay-as-you-go pricing, so you only pay for what you use.</p>
+        </div>
+        
+        <div class="faq">
+            <p class="question" onclick="toggleAnswer('answer4')">4. What happens if I lose access to my account?</p>
+            <p class="answer" id="answer4">Our account recovery system helps you regain access through identity verification. We also provide backup recovery solutions.</p>
+        </div>
+        
+        <div class="faq">
+            <p class="question" onclick="toggleAnswer('answer5')">5. Does Web Weavers support third-party integrations?</p>
+            <p class="answer" id="answer5">Yes! Web Weavers integrates with popular business tools, including productivity suites and project management platforms.</p>
+        </div>
+    </div>
     <footer>
+        <hr>
         <p>&copy; &nbsp; Web Weavers
             <!--push below to end w css-->
+        <li><a href="./jobs.html">Current Opportunities</a></li>
+        <li><a href="./jobs.html">Current Opportunities</a></li>
+        <li><a href="./apply.html">Apply Now</a></li> 
+        <li><a href="./about.html">About Us</a></li>    
         Email: <a href="webweavers.swin.edu.au">webweavers.swin.edu.au</a>
-        Link: <a href="https://tyler105919952.atlassian.net/jira/software/projects/WW/boards/2/backlog?atlOrigin=eyJpIjoiMWI2MDViNjI2NWRhNDQ3Zjg2NDYzNTE1NDMwMmEyZmYiLCJwIjoiaiJ9"> Web Weavers Jira Project</a></p>
+        Link: <a href="https://tyler105919952.atlassian.net/jira/software/projects/WW/boards/2/backlog?atlOrigin=eyJpIjoiMWI2MDViNjI2NWRhNDQ3Zjg2NDYzNTE1NDMwMmEyZmYiLCJwIjoiaiJ9"> Web Weavers Jira Project</a>
+        </p>
     </footer>
+    </div>
 </body>
+</html>
