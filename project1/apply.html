@@ -43,7 +43,7 @@
             <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
             <label for="dob">Date of Birth</label>
             <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" maxlength="10" pattern="\d{1,2}/\d{1,2}/\d{4}" required> <!--possibly change to date input type-->
-            <fieldset>
+            <fieldset id="gender-field">
                 <legend>Gender</legend>     <!--Gender radio buttons in fieldset-->
                 <input type="radio" name="gender" id="female" value="female" required>
                 <label for="female">Female</label>
@@ -59,20 +59,22 @@
             <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
             <label for="suburb">Suburb</label>
             <input type="text" name="suburb" id="suburb" maxlength="40" required>
-            <label for="state">State</label>
-            <select name="state" id="state">    <!--State dropdown selector-->
-                <option value=" ">Please Select</option>
-                <option value="vic">VIC</option>
-                <option value="nsw">NSW</option>
-                <option value="qld">QLD</option>
-                <option value="nt">NT</option>
-                <option value="wa">WA</option>
-                <option value="sa">SA</option>
-                <option value="tas">TAS</option>
-                <option value="act">ACT</option>
-            </select>
-            <label for="postcode">Postcode</label>
-            <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
+            <!--<div id="state-post">-->
+                <label for="state">State</label>
+                <select name="state" id="state">    <!--State dropdown selector-->
+                    <option value=" ">Please Select</option>
+                    <option value="vic">VIC</option>
+                    <option value="nsw">NSW</option>
+                    <option value="qld">QLD</option>
+                    <option value="nt">NT</option>
+                    <option value="wa">WA</option>
+                    <option value="sa">SA</option>
+                    <option value="tas">TAS</option>
+                    <option value="act">ACT</option>
+                </select>
+                <label for="postcode">Postcode</label>
+                <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
+            <!--</div>-->
         </fieldset>
         <fieldset>
             <legend>Contact Details</legend>
@@ -99,6 +101,7 @@
             <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
         </fieldset>
         <input type="submit" value="Apply">
+        <!--add reset?-->
     </form>
 </body>
 </html>

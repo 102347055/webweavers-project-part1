@@ -141,7 +141,7 @@ nav, header, article {
 }
 
 #apply-heading {
-    font-size: 3em;
+    font-size: 4em;
     font-family: "Economica", sans-serif;
     margin: 0.5em;
 }
@@ -152,26 +152,77 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 1em;
     padding: 1em;
-    margin: 1em;
+    margin: 2em;
 }
 
 fieldset {
     border: none;
+    border-top: 0.5px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset legend {
+    padding: 0.5em;
+    margin: 0.5em;    
+    text-align: center;
+}
+
+#gender-field {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    border: none;
+}
+
+#gender-field legend {
+    justify-self: flex-start;
+    text-align: right;
+    width: 15%;
+}
+
+#gender-field label {
+    text-align: left;
 }
 
 select, input[type="text"], textarea {
-    width: 100%;
+    width: 80%;
     height: 3em;
     padding: 0.5em;
     margin: 0.5em;
+    align-self: flex-end;
+    border-radius: 0.5em;
 }
+
+label {
+    width: 15%;
+    text-align: right;
+}
+
+/*
+#state-post {
+    display: flex;
+    flex-direction: row;
+}
+
+#state-post label {
+    text-align: right;
+    display: inline-block;
+}
+*/
 
 textarea {
     height: 10em;
     width: 80%;
-    justify-self: center;
+}
+
+input[type="submit"] {
+    width: 70%;
+    height: 3em;
+    align-self: center;
+    border-radius: 0.5em;
+    margin: 1em;
 }
 
 
