@@ -206,7 +206,7 @@ select, input[type="text"], textarea {
     border-radius: 0.5em;
 }
 
-label {
+label {     /* try nesting input within label on html */
     width: 18%;
     text-align: right;
 }
