@@ -160,6 +160,19 @@ fieldset {
     border: none;
 }
 
+/* about page */
+#group_image {
+    float: right;
+    border: 2px solid #000; /* Adjust the border width, style, and color as needed */
+    margin: 10px; /* Optional: Add some margin for spacing */
+    width: 300px; /* Set the desired width */
+    height: auto; 
+}
+
+
+
+
+
 /*
 select, input[type="text"], textarea {
     width: 100%;
