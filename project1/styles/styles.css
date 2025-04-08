@@ -179,11 +179,22 @@ fieldset legend {
 #gender-field legend {
     justify-self: flex-start;
     text-align: right;
-    width: 15%;
+    width: 18%;
 }
 
 #gender-field label {
     text-align: left;
+}
+
+#tech-skills {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.5em;
+}
+
+#tech-skills label {
+    text-align: left;
+    margin-left: 0.25em;
 }
 
 select, input[type="text"], textarea {
@@ -196,7 +207,7 @@ select, input[type="text"], textarea {
 }
 
 label {
-    width: 15%;
+    width: 18%;
     text-align: right;
 }
 
@@ -223,6 +234,11 @@ input[type="submit"] {
     align-self: center;
     border-radius: 0.5em;
     margin: 1em;
+}
+
+input[type="submit"]:hover {
+    background-color: #cca7ea;
+    cursor: pointer;
 }
 
 

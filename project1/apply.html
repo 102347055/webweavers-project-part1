@@ -28,7 +28,7 @@
     </header>
     <h1 id="apply-heading">Apply for a position</h1>
     <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">     <!--Job application form-->
-        <label for="reference-no">Reference Number</label>
+        <label for="reference-no">Job Reference Number</label>
         <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector - edit to add ref numbers from job listings-->
             <option value=" ">Please Select</option>
             <option value="JOB1">JOB1</option>
@@ -85,7 +85,8 @@
         </fieldset>
         <fieldset>
             <legend>Skills</legend>
-            <p>Required technical skills   <!--Technical skills checkboxes - edit to add actual skills-->
+            <p>Required technical skills:</p>
+            <div id="tech-skills">   <!--Technical skills checkboxes - edit to add actual skills-->
                 <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
                 <label for="skill01">Skill 1</label>
                 <input type="checkbox" name="skill02" id="skill02" value="skill02">
@@ -96,7 +97,7 @@
                 <label for="skill04">Skill 4</label>
                 <input type="checkbox" name="skill05" id="skill05" value="skill05">
                 <label for="skill05">Skill 5</label>
-            </p>
+            </div>
             <label for="other-skills">Other Skills</label><br>
             <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
         </fieldset>
