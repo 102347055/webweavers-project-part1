@@ -12,7 +12,8 @@ description: styles for Web Weavers Website
 
 */
 
-/*index*/
+/***************************************************** index **************************************************************/
+
 /*general page set-up*/
 *{
     margin: 0;
@@ -258,6 +259,8 @@ footer {
     }
   }
 
+/***************************************************** apply page **************************************************************/
+
 #apply-heading {
     font-size: 4em;
     font-family: "Economica", sans-serif;
@@ -315,7 +318,7 @@ fieldset legend {
     margin-left: 0.25em;
 }
 
-select, input[type="text"], textarea {
+select, input[type="text"], textarea, input[type="date"] {
     width: 80%;
     height: 3em;
     padding: 0.5em;
@@ -324,7 +327,8 @@ select, input[type="text"], textarea {
     border-radius: 0.5em;
 }
 
-label {     /* try nesting input within label on html */
+/*
+label {                  try nesting input within label on html 
     width: 18%;
     text-align: right;
 }
@@ -360,7 +364,8 @@ input[type="submit"]:hover {
 }
 
 
-/* about page */
+/***************************************************** about page **************************************************************/
+
 #group_image {
     float: right;
     border: 2px solid #000; 
