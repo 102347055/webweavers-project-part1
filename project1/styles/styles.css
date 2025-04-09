@@ -333,7 +333,6 @@ select, input[type="text"], textarea, input[type="date"] {
     height: 3em;
     padding: 0.5em;
     margin: 0.5em;
-    align-self: flex-end;
     border: 1px solid #5a3e71;
     border-radius: 0.5em;
 }
