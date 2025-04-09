@@ -311,13 +311,19 @@ fieldset legend {
 
 #tech-skills {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0.5em;
+    justify-content: center;
+    margin: 2em;
+}
+
+#tech-skills p {
+    text-align: right;
+    margin-right: 2em;
 }
 
 #tech-skills label {
     text-align: left;
-    margin-left: 0.25em;
+    margin-right: 2em;
+    margin-left: 0.5em;
 }
 
 /* styling inputs */
@@ -355,6 +361,7 @@ label {
 
 textarea {
     height: 10em;
+    padding: 1em;
 }
 
 #submit-reset {
@@ -381,6 +388,8 @@ textarea {
     background-color: lightgrey;
     box-shadow: 2px 2px 3px black;
 }
+
+/* add adjustments for smaller screen size */
 
 
 /***************************************************** about page **************************************************************/
