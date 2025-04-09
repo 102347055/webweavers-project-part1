@@ -7,12 +7,28 @@
     <meta name="keywords" content="Job, Application, Form">
     <meta name="author" content="Rose Healy">
     <link rel="stylesheet" href="styles/styles.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Apply</title>
 </head>
 <body id="apply-body">
+    <header>
+        <nav>
+            <a href = "./index.html"><img src="./images/web_weavers_logo.jpg" id = "home_logo"
+                    alt="Web Weavers Technology Company Logo; black spiderweb against a white background" 
+                    title="Web Weavers Company Logo"></a>
+            <ul class = "nav_options">
+                    <li><a href="./jobs.html">Current Opportunities</a></li>
+                    <li><a href="./apply.html">Apply Now</a></li> 
+                    <li><a href="./about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1 id="apply-heading">Apply for a position</h1>
     <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">     <!--Job application form-->
-        <label for="reference-no">Reference Number</label>
+        <label for="reference-no">Job Reference Number</label>
         <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector - edit to add ref numbers from job listings-->
             <option value=" ">Please Select</option>
             <option value="JOB1">JOB1</option>
@@ -27,7 +43,7 @@
             <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
             <label for="dob">Date of Birth</label>
             <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" maxlength="10" pattern="\d{1,2}/\d{1,2}/\d{4}" required> <!--possibly change to date input type-->
-            <fieldset>
+            <fieldset id="gender-field">
                 <legend>Gender</legend>     <!--Gender radio buttons in fieldset-->
                 <input type="radio" name="gender" id="female" value="female" required>
                 <label for="female">Female</label>
@@ -43,20 +59,22 @@
             <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
             <label for="suburb">Suburb</label>
             <input type="text" name="suburb" id="suburb" maxlength="40" required>
-            <label for="state">State</label>
-            <select name="state" id="state">    <!--State dropdown selector-->
-                <option value=" ">Please Select</option>
-                <option value="vic">VIC</option>
-                <option value="nsw">NSW</option>
-                <option value="qld">QLD</option>
-                <option value="nt">NT</option>
-                <option value="wa">WA</option>
-                <option value="sa">SA</option>
-                <option value="tas">TAS</option>
-                <option value="act">ACT</option>
-            </select>
-            <label for="postcode">Postcode</label>
-            <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
+            <!--<div id="state-post">-->
+                <label for="state">State</label>
+                <select name="state" id="state">    <!--State dropdown selector-->
+                    <option value=" ">Please Select</option>
+                    <option value="vic">VIC</option>
+                    <option value="nsw">NSW</option>
+                    <option value="qld">QLD</option>
+                    <option value="nt">NT</option>
+                    <option value="wa">WA</option>
+                    <option value="sa">SA</option>
+                    <option value="tas">TAS</option>
+                    <option value="act">ACT</option>
+                </select>
+                <label for="postcode">Postcode</label>
+                <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
+            <!--</div>-->
         </fieldset>
         <fieldset>
             <legend>Contact Details</legend>
@@ -67,7 +85,8 @@
         </fieldset>
         <fieldset>
             <legend>Skills</legend>
-            <p>Required technical skills   <!--Technical skills checkboxes - edit to add actual skills-->
+            <p>Required technical skills:</p>
+            <div id="tech-skills">   <!--Technical skills checkboxes - edit to add actual skills-->
                 <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
                 <label for="skill01">Skill 1</label>
                 <input type="checkbox" name="skill02" id="skill02" value="skill02">
@@ -78,11 +97,12 @@
                 <label for="skill04">Skill 4</label>
                 <input type="checkbox" name="skill05" id="skill05" value="skill05">
                 <label for="skill05">Skill 5</label>
-            </p>
+            </div>
             <label for="other-skills">Other Skills</label><br>
             <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
         </fieldset>
         <input type="submit" value="Apply">
+        <!--add reset?-->
     </form>
 </body>
 </html>
