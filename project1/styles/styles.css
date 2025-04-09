@@ -154,7 +154,8 @@ nav, header, article {
 }
 
 #apply-heading {
-    font-size: 3em;
+    font-size: 4em;
+    font-family: "Economica", sans-serif;
     margin: 0.5em;
 }
 
@@ -164,20 +165,127 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 1em;
     padding: 1em;
-    margin: 1em;
+    margin: 2em;
 }
 
 fieldset {
     border: none;
+    border-top: 0.5px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
-/*
+fieldset legend {
+    padding: 0.5em;
+    margin: 0.5em;    
+    text-align: center;
+}
+
+#gender-field {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    border: none;
+}
+
+#gender-field legend {
+    justify-self: flex-start;
+    text-align: right;
+    width: 18%;
+}
+
+#gender-field label {
+    text-align: left;
+}
+
+#tech-skills {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.5em;
+}
+
+#tech-skills label {
+    text-align: left;
+    margin-left: 0.25em;
+}
+
 select, input[type="text"], textarea {
-    width: 100%;
+    width: 80%;
     height: 3em;
     padding: 0.5em;
     margin: 0.5em;
+    align-self: flex-end;
+    border-radius: 0.5em;
+}
+
+label {     /* try nesting input within label on html */
+    width: 18%;
+    text-align: right;
+}
+
+/*
+#state-post {
+    display: flex;
+    flex-direction: row;
+}
+
+#state-post label {
+    text-align: right;
+    display: inline-block;
 }
 */
+
+textarea {
+    height: 10em;
+    width: 80%;
+}
+
+input[type="submit"] {
+    width: 70%;
+    height: 3em;
+    align-self: center;
+    border-radius: 0.5em;
+    margin: 1em;
+}
+
+input[type="submit"]:hover {
+    background-color: #cca7ea;
+    cursor: pointer;
+}
+
+
+/* about page */
+#group_image {
+    float: right;
+    border: 2px solid #000; 
+    margin: 10px; 
+    width: 300px; 
+    height: auto; 
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+#interests-table {
+    border-collapse: collapse;
+    width: 80%; /* Adjust the width  */
+}
+
+#interests-table th {
+    font-weight: bold;
+    background-color: #f2f2f2; /* Background color for headings */
+}
+
+#interests-table td {
+    background-color: #e0e0e0; /* Background color for table cells */
+    padding: 8px;
+    text-align: left;
+}
+
+#interests-table tr:hover td {
+    background-color: #d0d0d0; /* Hover effect for table cells */
+}
+
