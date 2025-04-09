@@ -270,6 +270,7 @@ footer {
 form {
     background-color: #ebeffe;
     border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -290,22 +291,23 @@ fieldset legend {
     text-align: center;
 }
 
+/* gender radio button fieldset */
+
 #gender-field {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     gap: 1em;
     border: none;
 }
 
 #gender-field legend {
-    justify-self: flex-start;
     text-align: right;
-    width: 18%;
+    float: left;
+    margin-left: 20%;
 }
 
-#gender-field label {
-    text-align: left;
-}
+/* technical skills checkboxes */
 
 #tech-skills {
     display: flex;
@@ -318,19 +320,25 @@ fieldset legend {
     margin-left: 0.25em;
 }
 
+/* styling inputs */
+
 select, input[type="text"], textarea, input[type="date"] {
-    width: 80%;
+    width: 70%;
     height: 3em;
     padding: 0.5em;
     margin: 0.5em;
     align-self: flex-end;
+    border: 1px solid #5a3e71;
     border-radius: 0.5em;
 }
 
-/*
-label {                  try nesting input within label on html 
-    width: 18%;
-    text-align: right;
+label {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: center;
+   margin-right: 1em;
+   gap: 1em;
 }
 
 /*
@@ -347,20 +355,31 @@ label {                  try nesting input within label on html
 
 textarea {
     height: 10em;
-    width: 80%;
 }
 
-input[type="submit"] {
-    width: 70%;
-    height: 3em;
+#submit-reset {
+    text-align: center;
+}
+
+.button {
+    font-size: 0.75em;
+    width: 30%;
+    height: 4em;
     align-self: center;
     border-radius: 0.5em;
-    margin: 1em;
+    margin: 2em;
 }
 
-input[type="submit"]:hover {
+.button:hover {
     background-color: #cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+#reset:hover {
+    background-color: lightgrey;
+    box-shadow: 2px 2px 3px black;
 }
 
 
