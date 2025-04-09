@@ -13,72 +13,48 @@ description: styles for Web Weavers Website
 */
 
 /*index*/
-
+/*general page set-up*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;  
+    font-family: "Poppins", sans-serif;
 }
 
 body {
     font-size: 1.25em;
 }
 
-/*background image on homepage*/
-
-#home-header {
-    background-image: url(images/homepage-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    padding: 10em 1em;
-    margin: 0;
-}
-
-h1 {
-    font-family: "Economica", sans-serif;
-    font-size: 1000%;
-    position: relative;
-    bottom: 0;
-}
-
-h2 {
-    font-family: "Economica", sans-serif;
-    font-size: 150%;
-}
-
-.purple_web{
-    color: #5a3e71;
-    font-family: "Economica", sans-serif;
-}
-
-
-#home_pic {
-    width: 100%;
-    height: auto;
-}
-
+/*navbar styles*/
 nav {
     position: sticky;
     width: 100%;
     display: flex;
     padding: 5px;
-    background: #ebeffe;
+    background-color:#ebeffe;
     align-items: center;
-    
 }
 
 #nav_buttons {
-    position: fixed;
-    right: 20px;
-    top: 15px;
+    position: absolute;
+    
 }
+
+#nav_buttons a:hover{
+    color:#7c648f;
+}
+
+#three_together a:hover{
+    background-color:#5a3e71;
+    color: white;
+}
+
+
 
 .nav_options {
     list-style: none;
     margin: 0 5px;
+    overflow: hidden;
 }
 
 nav ul li {
@@ -112,6 +88,43 @@ button a {
     height: auto;
     top: 0;
 }
+
+/*background image on homepage*/
+#home-header {
+    background-image: url(images/homepage-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10em 1em;
+    margin: 0;
+}
+
+/*heading styles*/
+
+h1 {
+    font-family: "Economica", sans-serif;
+    font-size: 1000%;
+    position: relative;
+    bottom: 0;
+}
+
+h2 {
+    font-family: "Economica", sans-serif;
+    font-size: 150%;
+}
+
+.purple_web{
+    color: #5a3e71;
+    font-family: "Economica", sans-serif;
+}
+
+
+
+
+
+
+
 
 article {
     position: relative;
