@@ -7,27 +7,47 @@
     <meta name="keywords" content="Job, Application, Form">
     <meta name="author" content="Rose Healy">
     <link rel="stylesheet" href="styles/styles.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Apply</title>
 </head>
 <body id="apply-body">
+    <header>
+        <nav>
+            <a href = "./index.html"><img src="./images/web_weavers_logo.jpg" id = "home_logo"
+                    alt="Web Weavers Technology Company Logo; black spiderweb against a white background" 
+                    title="Web Weavers Company Logo"></a>
+            <ul class = "nav_options">
+                    <li><a href="./jobs.html">Current Opportunities</a></li>
+                    <li><a href="./apply.html">Apply Now</a></li> 
+                    <li><a href="./about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1 id="apply-heading">Apply for a position</h1>
     <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">     <!--Job application form-->
-        <label for="reference-no">Reference Number</label>
-        <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector - edit to add ref numbers from job listings-->
-            <option value=" ">Please Select</option>
-            <option value="JOB1">JOB1</option>
-            <option value="JOB2">JOB2</option>
-            <option value="JOB3">JOB3</option>
-        </select>
+        <label for="reference-no">Job Reference Number
+            <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector - edit to add ref numbers from job listings-->
+                <option value=" ">Please Select</option>
+                <option value="JOB1">JOB1</option>
+                <option value="JOB2">JOB2</option>
+                <option value="JOB3">JOB3</option>
+            </select>
+        </label>
         <fieldset>
             <legend>Personal Information</legend>
-            <label for="first-name">First Name</label>
-            <input type="text" name="first-name" id="first-name" maxlength="20" pattern="[A-Za-z]+" required>   <!--Maxiumum of 20 alpha characters-->
-            <label for="last-name">Last Name</label>
-            <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
-            <label for="dob">Date of Birth</label>
-            <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" maxlength="10" pattern="\d{1,2}/\d{1,2}/\d{4}" required> <!--possibly change to date input type-->
-            <fieldset>
+            <label for="first-name">First Name
+                <input type="text" name="first-name" id="first-name" maxlength="20" pattern="[A-Za-z]+" required>   <!--Maxiumum of 20 alpha characters-->
+            </label>
+            <label for="last-name">Last Name
+                <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
+            </label>
+            <label for="dob">Date of Birth
+                <input type="date" name="dob" id="dob" required>
+            </label>
+            <fieldset id="gender-field">
                 <legend>Gender</legend>     <!--Gender radio buttons in fieldset-->
                 <input type="radio" name="gender" id="female" value="female" required>
                 <label for="female">Female</label>
@@ -39,35 +59,44 @@
         </fieldset>
         <fieldset>
             <legend>Address</legend>    <!--Address details-->
-            <label for="address">Street Address</label>
-            <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
-            <label for="suburb">Suburb</label>
-            <input type="text" name="suburb" id="suburb" maxlength="40" required>
-            <label for="state">State</label>
-            <select name="state" id="state">    <!--State dropdown selector-->
-                <option value=" ">Please Select</option>
-                <option value="vic">VIC</option>
-                <option value="nsw">NSW</option>
-                <option value="qld">QLD</option>
-                <option value="nt">NT</option>
-                <option value="wa">WA</option>
-                <option value="sa">SA</option>
-                <option value="tas">TAS</option>
-                <option value="act">ACT</option>
-            </select>
-            <label for="postcode">Postcode</label>
-            <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
+            <label for="address">Street Address
+                <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
+            </label>
+            <label for="suburb">Suburb
+                <input type="text" name="suburb" id="suburb" maxlength="40" required>
+            </label>
+            <!--<div id="state-post">-->
+            <label for="state">State
+                <select name="state" id="state">    <!--State dropdown selector-->
+                    <option value=" ">Please Select</option>
+                    <option value="vic">VIC</option>
+                    <option value="nsw">NSW</option>
+                    <option value="qld">QLD</option>
+                    <option value="nt">NT</option>
+                    <option value="wa">WA</option>
+                    <option value="sa">SA</option>
+                    <option value="tas">TAS</option>
+                    <option value="act">ACT</option>
+                </select>
+            </label>
+            <label for="postcode">Postcode
+                <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
+            </label>
+            <!--</div>-->
         </fieldset>
         <fieldset>
             <legend>Contact Details</legend>
-            <label for="email">Email Address</label>
-            <input type="text" name="email" id="email" pattern="[A-Za-z\d]+@[A-Za-z\d]+\.[A-Za-z]{1,3}" required>   <!--Email entered with text input, verified with regex-->
-            <label for="number">Phone Number</label>
-            <input type="text" name="number" id="number" maxlength="12" pattern="[\d\s]{8,12}" required>    <!--Phone number - only digits or spaces, 8 to 12 characters-->
+            <label for="email">Email Address
+                <input type="text" name="email" id="email" pattern="[A-Za-z\d]+@[A-Za-z\d]+\.[A-Za-z]{1,3}" required>   <!--Email entered with text input, verified with regex-->
+            </label>
+            <label for="number">Phone Number
+                <input type="text" name="number" id="number" maxlength="12" pattern="[\d\s]{8,12}" required>    <!--Phone number - only digits or spaces, 8 to 12 characters-->
+            </label>
         </fieldset>
         <fieldset>
             <legend>Skills</legend>
-            <p>Required technical skills   <!--Technical skills checkboxes - edit to add actual skills-->
+            <div id="tech-skills">   <!--Technical skills checkboxes - edit to add actual skills-->
+                <p>Required technical skills</p>
                 <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
                 <label for="skill01">Skill 1</label>
                 <input type="checkbox" name="skill02" id="skill02" value="skill02">
@@ -78,11 +107,15 @@
                 <label for="skill04">Skill 4</label>
                 <input type="checkbox" name="skill05" id="skill05" value="skill05">
                 <label for="skill05">Skill 5</label>
-            </p>
-            <label for="other-skills">Other Skills</label><br>
-            <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
+            </div>
+            <label for="other-skills">Other Skills
+                <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
+            </label>
         </fieldset>
-        <input type="submit" value="Apply">
+        <div id="submit-reset">
+            <input type="submit" value="Apply" class="button" id="submit">
+            <input type="reset" value="Reset" class="button" id="reset">
+        </div>
     </form>
 </body>
 </html>
