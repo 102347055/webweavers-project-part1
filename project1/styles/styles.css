@@ -37,6 +37,8 @@ nav {
 
 #nav_buttons {
     position: absolute;
+    right: 20px;
+    top: 17.5px;
     
 }
 
@@ -48,8 +50,6 @@ nav {
     background-color:#5a3e71;
     color: white;
 }
-
-
 
 .nav_options {
     list-style: none;
@@ -96,8 +96,18 @@ button a {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: auto;
     padding: 10em 1em;
     margin: 0;
+}
+
+#big_company_heading{
+    position: relative;
+    bottom: 0;
+}
+.check{
+    position: relative;
+    bottom: 0;
 }
 
 /*heading styles*/
@@ -111,7 +121,7 @@ h1 {
 
 h2 {
     font-family: "Economica", sans-serif;
-    font-size: 150%;
+    font-size: 500%;
 }
 
 .purple_web{
@@ -119,16 +129,64 @@ h2 {
     font-family: "Economica", sans-serif;
 }
 
+/*table*/
+#why_us {
+    background-color:#ebeffe;
+    border-radius: 20px;
+    border: none;
+    margin: 20px;
+}
+#why_us_table{
+    border-spacing: 2rem 2rem
+}
 
+#our_plans_table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
 
-
-
-
+#our_plans_table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  #our_plans_table td {
+    width: 33.33%;
+    padding: 20px;
+    vertical-align: top;
+  }
+  
+  #our_plans_table ul {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+  
+  #our_plans_table button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color:#5a3e71;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #our_plans_table button:hover {
+    background-color: #357bd8;
+  }
 
 
 article {
     position: relative;
-    top: 250px;
+    top:20px;
+}
+
+.side_heading {
+    float: left;
 }
 
 footer {
@@ -139,19 +197,66 @@ footer {
     background-color:#ebeffe;
     
 }
-footer li a, footer a {
-    text-decoration: none;
-}
+/*footer*/
+ /* Container for both footer columns */
+ .footer-container {
+    display: flex;                 /* Use Flexbox layout */
+    justify-content: space-between; /* Push columns to far left and right */
+    padding: 1rem 2rem;           /* Add space inside footer (top/bottom: 1rem, sides: 2rem) */
+    flex-wrap: wrap;              /* Allow wrapping on smaller screens */
+  }
 
-nav, header, article {
-    flex:1;
-}
+  /* Individual left and right column containers */
+  .footer-left, .footer-right {
+    flex: 0 1 auto;               /* Don't stretch columns, keep natural size */
+    max-width: 45%;               /* Keep each column from getting too wide */
+  }
 
-/* apply page styles */
+  /* Style applied to both content columns */
+  .footer-col {
+    text-align: left;             /* Make sure all text inside is left-aligned */
+  }
 
-#apply-body {
-    background-color: #7c648f;
-}
+  /* Remove default list styles from <ul> */
+  .footer-col ul {
+    list-style: none;             /* Remove bullets */
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Add spacing between each <li> */
+  .footer-col ul li {
+    margin-bottom: 0.5rem;        /* Space between list items */
+  }
+
+  /* Link styling */
+  footer a {
+    text-decoration: none;        /* Remove underline by default */
+    color:#5a3e71;               /* Purple link color */
+  }
+
+  /* Add underline on hover for links */
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Space under the horizontal rule */
+  footer hr {
+    margin-bottom: 1rem;
+  }
+
+  /* Responsive layout for smaller screens (phones/tablets) */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;     /* Stack the columns vertically */
+      align-items: flex-start;    /* Left-align everything when stacked */
+    }
+
+    .footer-left, .footer-right {
+      max-width: 100%;            /* Full width when stacked */
+      margin-bottom: 1rem;        /* Add spacing between stacked sections */
+    }
+  }
 
 #apply-heading {
     font-size: 4em;
