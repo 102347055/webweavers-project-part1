@@ -12,7 +12,7 @@ description: styles for Web Weavers Website
 
 */
 
-/***************************************************** index **************************************************************/
+/***************************************************** universal ***********************************************************/
 
 /*general page set-up*/
 *{
@@ -34,6 +34,7 @@ nav {
     padding: 5px;
     background-color:#ebeffe;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #nav_buttons {
@@ -90,6 +91,14 @@ button a {
     top: 0;
 }
 
+/***************************************************** index **************************************************************/
+
+#big_company_heading{
+    background-color: #ebeffe;
+    border-radius: 20px;
+    opacity: 80%;
+    padding: 20px;
+}
 /*background image on homepage*/
 #home-header {
     background-image: url(images/homepage-background.jpg);
@@ -387,6 +396,10 @@ textarea {
 }
 
 /* add adjustments for smaller screen size */
+
+@media only screen and (max-width: 800px) {
+    
+  }
 
 
 /***************************************************** about page **************************************************************/
