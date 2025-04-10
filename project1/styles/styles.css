@@ -388,6 +388,10 @@ textarea {
 
 /* add adjustments for smaller screen size */
 
+@media only screen and (max-width: 800px) {
+    
+  }
+
 
 /***************************************************** about page **************************************************************/
 
