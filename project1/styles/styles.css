@@ -141,17 +141,14 @@ h2 {
     border-spacing: 2rem 2rem
 }
 
-#our_plans_table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
 
 #our_plans_table {
-    width: 100%;
     table-layout: fixed;
+    width: 100%;
     text-align: center;
-    margin: 0 auto;
+    margin: 20px;
+    background-color: #ebeffe;
+    border-radius: 20px;
   }
   
   #our_plans_table td {
@@ -163,6 +160,7 @@ h2 {
   #our_plans_table ul {
     list-style-position: inside;
     padding-left: 0;
+    
   }
   
   #our_plans_table button {
