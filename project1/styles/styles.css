@@ -422,10 +422,37 @@ textarea {
     border-radius: 50px;
     border-style:solid;}
     
-#tutor {text-align: center;}
+#tutor {text-align: center;
+    font-size: 2em;}
 
+.favourites ul {
+    list-style-type: none; /* Gets rid the default bullet points from list */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows the items to move to the next line on smaller screens */
+    gap: 20px;
+}
 
+.favourites ul li {
+    border: 1px solid #ccc; 
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px; /* Rounded corners */
+    width: 300px;
+    box-shadow: 2px 2px 8px #000; /* 3d effect */
+}
 
+.favourites u {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.favourites li ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc; /* Adds dot points */
+}
 
 #nick {
     text-shadow: 2px 2px 5px #8d7296;
