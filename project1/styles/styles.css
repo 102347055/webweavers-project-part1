@@ -34,7 +34,9 @@ nav {
     padding: 5px;
     background-color:#ebeffe;
     align-items: center;
+    flex-wrap: wrap;
 }
+
 
 #nav_buttons {
     position: absolute;
@@ -89,7 +91,11 @@ button a {
     height: auto;
     top: 0;
 }
-
+#big_company_heading{
+    background-color: #ebeffe;
+    border-radius: 20px;
+    opacity: 80%;
+}
 /*background image on homepage*/
 #home-header {
     background-image: url(images/homepage-background.jpg);
@@ -403,17 +409,19 @@ textarea {
     height: auto; 
 }
 
+#about_page {background-color: #ebeffe;
+        padding: 9px;
+        border-radius: 10px;
+        border: none;}
+
+
+
 #photoheading {
     text-align: right;
   }
 
-section {
-    display: flex;
-    justify-content: center;
-}
-
 #interests-table {
-    border-collapse: collapse;
+    border-collapse: collapse; /* Merges cells together rather than spererate */
     width: 80%; /* Adjust the width  */
 }
 
@@ -425,7 +433,7 @@ section {
 #interests-table td {
     background-color: #e0e0e0; /* Background color for table cells */
     padding: 8px;
-    text-align: left;
+    text-align: left; /* Text is moved to left of tabel cell */
 }
 
 #interests-table tr:hover td {
