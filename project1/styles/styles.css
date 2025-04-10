@@ -34,7 +34,9 @@ nav {
     padding: 5px;
     background-color:#ebeffe;
     align-items: center;
+    flex-wrap: wrap;
 }
+
 
 #nav_buttons {
     position: absolute;
@@ -89,7 +91,11 @@ button a {
     height: auto;
     top: 0;
 }
-
+#big_company_heading{
+    background-color: #ebeffe;
+    border-radius: 20px;
+    opacity: 80%;
+}
 /*background image on homepage*/
 #home-header {
     background-image: url(images/homepage-background.jpg);
