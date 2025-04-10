@@ -390,17 +390,11 @@ textarea {
     transition: 0.3s;
 }
 
-#reset:hover {
-    background-color: lightgrey;
-    box-shadow: 2px 2px 3px black;
-}
-
 /* add adjustments for smaller screen size */
 
 @media only screen and (max-width: 800px) {
     
   }
-
 
 /***************************************************** about page **************************************************************/
 
@@ -412,12 +406,12 @@ textarea {
     height: auto; 
 }
 
-#about_page {background-color: #ebeffe;
+#about_page {
+    background-color: #ebeffe;
         padding: 9px;
         border-radius: 10px;
-        border: none;}
-
-
+        border: none;
+}
 
 #photoheading {
     text-align: right;
