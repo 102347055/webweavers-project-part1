@@ -430,3 +430,46 @@ section {
     background-color: #d0d0d0; /* Hover effect for table cells */
 }
 
+/***************************************************** Jobs Page **************************************************************/
+
+html {
+    scroll-behavior: smooth;
+}
+
+#cloud_engineer, #cloud_systems_administrator, #why_sign_up {
+    background: #ebeffe;
+    scroll-margin-top: 5vw;
+    padding: 2vw;
+    margin: 2vw auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #5a3e71;
+    max-width: 90%;
+    line-height: 1.6;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+#job_heading1 {
+    font-size: 3em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+}
+
+
+#job_heading2 {
+    font-size: 2.5em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+}
+
+#job_heading3 {
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+}
+
