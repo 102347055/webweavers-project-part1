@@ -422,7 +422,14 @@ textarea {
     border-radius: 50px;
     border-style:solid;}
     
+#tutor {text-align: center;}
 
+
+
+
+#nick {
+    text-shadow: 2px 2px 5px #8d7296;
+  }
 
 #photoheading {
     text-align: right;
