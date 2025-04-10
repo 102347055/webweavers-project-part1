@@ -404,6 +404,11 @@ textarea {
         border-radius: 10px;
         border: none;}
 
+#class_header { background-color: #8d7296;
+    padding: 10px;
+    border-radius: 50px;
+    border-style:solid;}
+    
 
 
 #photoheading {
@@ -412,7 +417,7 @@ textarea {
 
 #interests-table {
     border-collapse: collapse; /* Merges cells together rather than spererate */
-    width: 80%; /* Adjust the width  */
+    width: 80%; /* Change the width  */
 }
 
 #interests-table th {
