@@ -97,6 +97,7 @@ button a {
     background-color: #ebeffe;
     border-radius: 20px;
     opacity: 80%;
+    padding: 20px;
 }
 /*background image on homepage*/
 #home-header {
