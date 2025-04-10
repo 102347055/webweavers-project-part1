@@ -12,7 +12,7 @@ description: styles for Web Weavers Website
 
 */
 
-/***************************************************** index **************************************************************/
+/***************************************************** universal ***********************************************************/
 
 /*general page set-up*/
 *{
@@ -36,7 +36,6 @@ nav {
     align-items: center;
     flex-wrap: wrap;
 }
-
 
 #nav_buttons {
     position: absolute;
@@ -91,6 +90,9 @@ button a {
     height: auto;
     top: 0;
 }
+
+/***************************************************** index **************************************************************/
+
 #big_company_heading{
     background-color: #ebeffe;
     border-radius: 20px;
