@@ -6,13 +6,14 @@ author: Web Weavers
 
 created: 03/04/2025
 
-last modified: 03/04/2025
+last modified: 10/04/2025
 
 description: styles for Web Weavers Website
 
 */
 
-/*index*/
+/***************************************************** index **************************************************************/
+
 /*general page set-up*/
 *{
     margin: 0;
@@ -256,6 +257,8 @@ footer {
     }
   }
 
+/***************************************************** apply page **************************************************************/
+
 #apply-heading {
     font-size: 4em;
     font-family: "Economica", sans-serif;
@@ -265,6 +268,7 @@ footer {
 form {
     background-color: #ebeffe;
     border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -285,46 +289,59 @@ fieldset legend {
     text-align: center;
 }
 
+/* gender radio button fieldset */
+
 #gender-field {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     gap: 1em;
     border: none;
 }
 
 #gender-field legend {
-    justify-self: flex-start;
     text-align: right;
-    width: 18%;
+    float: left;
+    margin-left: 20%;
 }
 
-#gender-field label {
-    text-align: left;
-}
+/* technical skills checkboxes */
 
 #tech-skills {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0.5em;
+    justify-content: center;
+    margin: 2em;
+}
+
+#tech-skills p {
+    text-align: right;
+    margin-right: 2em;
 }
 
 #tech-skills label {
     text-align: left;
-    margin-left: 0.25em;
+    margin-right: 2em;
+    margin-left: 0.5em;
 }
 
-select, input[type="text"], textarea {
-    width: 80%;
+/* styling inputs */
+
+select, input[type="text"], textarea, input[type="date"] {
+    width: 70%;
     height: 3em;
     padding: 0.5em;
     margin: 0.5em;
-    align-self: flex-end;
+    border: 1px solid #5a3e71;
     border-radius: 0.5em;
 }
 
-label {     /* try nesting input within label on html */
-    width: 18%;
-    text-align: right;
+label {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: center;
+   margin-right: 1em;
+   gap: 1em;
 }
 
 /*
@@ -341,24 +358,39 @@ label {     /* try nesting input within label on html */
 
 textarea {
     height: 10em;
-    width: 80%;
+    padding: 1em;
 }
 
-input[type="submit"] {
-    width: 70%;
-    height: 3em;
+#submit-reset {
+    text-align: center;
+}
+
+.button {
+    font-size: 0.75em;
+    width: 30%;
+    height: 4em;
     align-self: center;
     border-radius: 0.5em;
-    margin: 1em;
+    margin: 2em;
 }
 
-input[type="submit"]:hover {
+.button:hover {
     background-color: #cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+#reset:hover {
+    background-color: lightgrey;
+    box-shadow: 2px 2px 3px black;
+}
 
-/* about page */
+/* add adjustments for smaller screen size */
+
+
+/***************************************************** about page **************************************************************/
+
 #group_image {
     float: right;
     border: 2px solid #000; 
@@ -366,6 +398,10 @@ input[type="submit"]:hover {
     width: 300px; 
     height: auto; 
 }
+
+#photoheading {
+    text-align: right;
+  }
 
 section {
     display: flex;
@@ -390,5 +426,48 @@ section {
 
 #interests-table tr:hover td {
     background-color: #d0d0d0; /* Hover effect for table cells */
+}
+
+/***************************************************** Jobs Page **************************************************************/
+
+html {
+    scroll-behavior: smooth;
+}
+
+#cloud_engineer, #cloud_systems_administrator, #why_sign_up {
+    background: #ebeffe;
+    scroll-margin-top: 5vw;
+    padding: 2vw;
+    margin: 2vw auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #5a3e71;
+    max-width: 90%;
+    line-height: 1.6;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+#job_heading1 {
+    font-size: 3em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+}
+
+
+#job_heading2 {
+    font-size: 2.5em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+}
+
+#job_heading3 {
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
 }
 
