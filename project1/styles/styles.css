@@ -95,6 +95,16 @@ button a {
     top: 0;
 }
 
+#simplified-footer {
+    padding: 0.5em;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer img {
+    height: 50px;
+}
+
 /***************************************************** index **************************************************************/
 
 #big_company_heading{
