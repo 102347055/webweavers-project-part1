@@ -28,7 +28,7 @@
     </header>
     <h1 id="apply-heading">Apply for a position</h1>
     <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">     <!--Job application form-->
-        <label for="reference-no">Job Reference Number
+        <label for="reference-no" class="apply-input">Job Reference Number:
             <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector - edit to add ref numbers from job listings-->
                 <option value=" ">Please Select</option>
                 <option value="JOB1">JOB1</option>
@@ -37,13 +37,13 @@
         </label>
         <fieldset>
             <legend>Personal Information</legend>
-            <label for="first-name">First Name
+            <label for="first-name">First Name:
                 <input type="text" name="first-name" id="first-name" maxlength="20" pattern="[A-Za-z]+" required>   <!--Maxiumum of 20 alpha characters-->
             </label>
-            <label for="last-name">Last Name
+            <label for="last-name">Last Name:
                 <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
             </label>
-            <label for="dob">Date of Birth
+            <label for="dob">Date of Birth:
                 <input type="date" name="dob" id="dob" required>
             </label>
             <fieldset id="gender-field">
@@ -64,14 +64,13 @@
         </fieldset>
         <fieldset>
             <legend>Address</legend>    <!--Address details-->
-            <label for="address">Street Address
+            <label for="address">Street Address:
                 <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
             </label>
-            <label for="suburb">Suburb
+            <label for="suburb">Suburb:
                 <input type="text" name="suburb" id="suburb" maxlength="40" required>
             </label>
-            <!--<div id="state-post">-->
-            <label for="state">State
+            <label for="state">State:
                 <select name="state" id="state">    <!--State dropdown selector-->
                     <option value=" ">Please Select</option>
                     <option value="vic">VIC</option>
@@ -84,17 +83,16 @@
                     <option value="act">ACT</option>
                 </select>
             </label>
-            <label for="postcode">Postcode
+            <label for="postcode">Postcode:
                 <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
             </label>
-            <!--</div>-->
         </fieldset>
         <fieldset>
             <legend>Contact Details</legend>
-            <label for="email">Email Address
+            <label for="email">Email Address:
                 <input type="text" name="email" id="email" pattern="[A-Za-z\d]+@[A-Za-z\d]+\.[A-Za-z]{1,3}" required>   <!--Email entered with text input, verified with regex-->
             </label>
-            <label for="number">Phone Number
+            <label for="number">Phone Number:
                 <input type="text" name="number" id="number" maxlength="12" pattern="[\d\s]{8,12}" required>    <!--Phone number - only digits or spaces, 8 to 12 characters-->
             </label>
         </fieldset>
