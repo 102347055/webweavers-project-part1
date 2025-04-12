@@ -332,17 +332,17 @@ fieldset legend {
 
 #tech-skills {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin: 2em;
 }
 
 #tech-skills p {
-    text-align: right;
     margin-right: 2em;
 }
 
 #tech-skills label {
     text-align: left;
+    justify-content: flex-start;
     margin-right: 2em;
     margin-left: 0.5em;
 }
