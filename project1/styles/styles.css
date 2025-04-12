@@ -316,16 +316,15 @@ fieldset legend {
 
 #gender-field {
     flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
     border: none;
 }
 
 #gender-field legend {
-    text-align: right;
     float: left;
-    margin-left: 20%;
 }
 
 /* technical skills checkboxes */
@@ -333,17 +332,12 @@ fieldset legend {
 #tech-skills {
     display: flex;
     flex-direction: column;
-    margin: 2em;
-}
-
-#tech-skills p {
-    margin-right: 2em;
+    margin: 2em 2em 2em 20%;
+    gap: 1em;
 }
 
 #tech-skills label {
-    text-align: left;
     justify-content: flex-start;
-    margin-right: 2em;
     margin-left: 0.5em;
 }
 
@@ -382,6 +376,7 @@ label {
 textarea {
     height: 10em;
     padding: 1em;
+    resize: none;
 }
 
 #submit-reset {

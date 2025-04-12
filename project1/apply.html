@@ -33,7 +33,6 @@
                 <option value=" ">Please Select</option>
                 <option value="JOB1">JOB1</option>
                 <option value="JOB2">JOB2</option>
-                <option value="JOB3">JOB3</option>
             </select>
         </label>
         <fieldset>
@@ -48,13 +47,19 @@
                 <input type="date" name="dob" id="dob" required>
             </label>
             <fieldset id="gender-field">
-                <legend>Gender</legend>     <!--Gender radio buttons in fieldset-->
-                <input type="radio" name="gender" id="female" value="female" required>
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="male" value="male">
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="other" value="other">
-                <label for="other">Other/Unspecified</label>
+                <legend>Gender:</legend>     <!--Gender radio buttons in fieldset-->
+                <label for="female">
+                    <input type="radio" name="gender" id="female" value="female" required>
+                    Female
+                </label>
+                <label for="male">
+                    <input type="radio" name="gender" id="male" value="male">
+                    Male
+                </label>
+                <label for="other">
+                    <input type="radio" name="gender" id="other" value="other">
+                    Other/Unspecified
+                </label>
             </fieldset>
         </fieldset>
         <fieldset>
@@ -97,28 +102,28 @@
             <legend>Skills</legend>
             <div id="tech-skills">   <!--Technical skills checkboxes - edit to add actual skills-->
                 <p>Required technical skills:</p>
-                <label for="skill01">
-                    <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
-                    Knowledge of AWS/Azure
+                <label for="aws-azure">
+                    <input type="checkbox" name="aws-azure" id="aws-azure" value="aws-azure" checked>
+                    Knowledge of AWS/Azure cloud platforms
                 </label>
-                <label for="skill02">
-                    <input type="checkbox" name="skill02" id="skill02" value="skill02">
-                    Familiarity with scripting languages
+                <label for="script-lang">
+                    <input type="checkbox" name="script-lang" id="script-lang" value="script-lang">
+                    Familiarity with scripting languages (e.g. Bash, Python)
                 </label>
-                <label for="skill03">
-                    <input type="checkbox" name="skill03" id="skill03" value="skill03">
+                <label for="sys-admin">
+                    <input type="checkbox" name="sys-admin" id="sys-admin" value="sys-admin">
                     System administration skills
                 </label>
-                <label for="skill04">
-                    <input type="checkbox" name="skill04" id="skill04" value="skill04">
+                <label for="automation">
+                    <input type="checkbox" name="automation" id="automation" value="automation">
                     Cloud automation proficiency
                 </label>
-                <label for="skill05">
-                    <input type="checkbox" name="skill05" id="skill05" value="skill05">
-                    Knowledge of cloud security practices
+                <label for="security">
+                    <input type="checkbox" name="security" id="security" value="security">
+                    Knowledge of cloud security best practices
                 </label>
             </div>
-            <label for="other-skills">Other Skills
+            <label for="other-skills">Other Skills:
                 <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
             </label>
         </fieldset>
