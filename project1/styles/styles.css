@@ -151,7 +151,7 @@ nav ul li {
     .page-links {
         margin: 0 10px 10px 10px;
         width: 90%;
-        background-color:#cca7ea;   /* make outline of nav links visible for easier mobile navigation */
+        background-color: #cca7ea;    /* make outline of nav links visible for easier mobile navigation */
         box-shadow: 2px 2px 3px #5a3e71;
         border-radius: 10px;
     }
@@ -506,7 +506,7 @@ textarea {
 
 @media only screen and (max-width: 800px) {
     #apply-body {
-        padding-top: none;
+        padding-top: 0;
     }
 
     #apply-heading {
