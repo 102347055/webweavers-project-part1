@@ -28,7 +28,7 @@ html {
 
 body {
     font-size: 1.25em;
-    margin-top: 20vh;
+    margin-top: 15vh;
 }
 
 /* Navbar layout */
@@ -183,8 +183,8 @@ nav ul li a {
     }
 }
 
-  /* Buttons */
-  button {
+/* Buttons */
+button {
     background-color: #5a3e71;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
@@ -193,14 +193,14 @@ nav ul li a {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-  }
+}
   
-  button a {
+button a {
     text-decoration: none;
     color: white;
-  }
+}
   
-  button:hover {
+button:hover {
     background-color: #cca7ea; /* buttons turn purple on hover */
     box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
@@ -478,6 +478,10 @@ summary::marker {
 
 /***************************************************** apply page **************************************************************/
 
+#apply-body {
+    padding-top: 1px;
+}
+
 #apply-heading {
     font-size: 4em;
     font-family: "Economica", sans-serif;
@@ -586,6 +590,10 @@ textarea {
 /* adjustments for smaller screen size */
 
 @media only screen and (max-width: 800px) {
+    #apply-body {
+        padding-top: none;
+    }
+
     #apply-heading {
         font-size: 3em; /* heading is smaller - more appropriate size in relation to screen */
         text-align: center;
@@ -806,6 +814,10 @@ h2, h3, h4 {
 
 
 /***************************************************** Jobs Page **************************************************************/
+
+#jobs_body {
+    padding-top: 1vw;
+}
 
 #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
     background: #ebeffe;
