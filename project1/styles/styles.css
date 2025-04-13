@@ -432,7 +432,7 @@ fieldset {
     border-radius: 10px;
     margin: 20px;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: #ebeffe;
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
 
@@ -455,17 +455,17 @@ h2, h3, h4 {
 }
 
 #about_page {
-    background-color: #ebeffe;
+    background-color: #ffffff;
         padding: 9px;
         border-radius: 10px;
         border: none;}
 
 #class_header {
-    background-color: #8d7296;
+    background-color: #ebeffe;
     padding: 10px;
     border-radius: 50px;
     border-style: solid;
-    color: white;
+    color: black;
     
 }
 
