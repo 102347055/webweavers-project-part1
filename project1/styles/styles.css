@@ -426,7 +426,24 @@ textarea {
   }
 
 /***************************************************** about page **************************************************************/
-fieldset {
+#about_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+#student_id{
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+#class_header{
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
