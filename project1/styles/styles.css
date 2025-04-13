@@ -64,7 +64,6 @@ nav ul li a {
     flex-direction: row;
     align-items: center;
     flex: 1; /* Take up remaining space */
-    list-style: none;
 }
 
 .page-links {
@@ -149,9 +148,9 @@ nav ul li {
     }
 
     .page-links {
-        margin: 0 10px 10px 10px;
-        width: 90%;
-        background-color: #cca7ea;    /* make outline of nav links visible for easier mobile navigation */
+        margin: 0 5px 5px 5px;
+        width: 70%;
+        background-color: white;    /* make outline of nav links visible for easier mobile navigation */
         box-shadow: 2px 2px 3px #5a3e71;
         border-radius: 10px;
     }
@@ -759,6 +758,7 @@ h2, h3, h4 {
 
 #why_sign_up ol{
     list-style-type: upper-roman;
+    list-style-position: inside;
 }
 
 #job_heading_links {
