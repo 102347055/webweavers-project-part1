@@ -426,7 +426,6 @@ textarea {
   }
 
 /***************************************************** about page **************************************************************/
-
 fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -440,25 +439,48 @@ h2, h3, h4 {
     color: #5a3e71;
 }
 
-#group_image {
+.interests-and-photo {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+
+  .interests-content {
+    flex: 1;
+  }
+
+  .group-photo-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  #group_image {
     border: 2px solid #5a3e71;
-    margin-top: 40px;
     width: 300px;
     height: auto;
     border-radius: 10px;
-    float: right;
-}
+  }
 
-#photoheading {
-    text-align: right;
-    margin-top: 30px;
-}
+  #photoheading {
+    margin-bottom: 10px;
+    color: #5a3e71;
+  }
+
+  #photoheading {
+    margin-bottom: 10px;
+    color: #5a3e71;
+  }
 
 .about_page {
     background-color: #ffffff;
-        border-radius: 10px;
-        padding: 9px;
-        border: none;}
+    border-radius: 10px;
+    padding: 9px;
+    border: none;
+}
 
 #class_header {
     background-color: #ebeffe;
@@ -466,15 +488,12 @@ h2, h3, h4 {
     border-radius: 15px;
     border-style: solid;
     color: black;
-    
 }
 
-#class_header ul{
+#class_header ul {
     list-style-type: none;
 }
 
-#tutor {text-align: center;
-    font-size: 2em;}
 
 .favourites-section {
     display: flex;
@@ -508,7 +527,6 @@ h2, h3, h4 {
     justify-content: flex-start;
 }
 
-
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
@@ -525,7 +543,6 @@ h2, h3, h4 {
     gap: 10px;
 }
 
-
 .favourites li ul li {
     padding: 10px;
     background-color: #fff;
@@ -536,7 +553,7 @@ h2, h3, h4 {
 }
 
 #student_id ul {
-    list-style-type: none; 
+    list-style-type: none;
 }
 
 #student_id u, #group_jobs u, .favourites u {
@@ -544,15 +561,13 @@ h2, h3, h4 {
     font-weight: 600;
 }
 
-
 #tutor:hover {
     transform: scale(1.05);
 }
 
 #interests-table {
     border-collapse: collapse;
-    width: 80%;
-    margin: auto;
+    width: 100%;
     background-color: #ebeffe;
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
@@ -576,8 +591,9 @@ h2, h3, h4 {
 }
 
 #interests-table tr:hover td {
-    background-color: #d0d0d0; /* Hover effect for table cells */
+    background-color: #d0d0d0;
 }
+
 
 /***************************************************** Jobs Page **************************************************************/
 
