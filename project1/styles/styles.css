@@ -466,8 +466,13 @@ h2, h3, h4 {
     border-radius: 50px;
     border-style: solid;
     color: white;
-}
     
+}
+
+#class_header ul{
+    list-style-type: none;
+}
+
 #tutor {text-align: center;
     font-size: 2em;}
 
