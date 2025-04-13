@@ -459,6 +459,7 @@ h2, h3, h4 {
         padding: 9px;
         border-radius: 10px;
         border: none;}
+
 #class_header {
     background-color: #8d7296;
     padding: 10px;
@@ -533,9 +534,14 @@ h2, h3, h4 {
     list-style-type: none; 
 }
 
-#nick, #student_id u, #group_jobs u, .favourites u {
+#student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
+}
+
+
+#tutor:hover {
+    transform: scale(1.05);
 }
 
 #interests-table {
