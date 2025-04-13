@@ -678,10 +678,17 @@ h2, h3, h4 {
     margin: 0.5em;
 }
 
+#job_heading4 {
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+}
+
 #apply_now{
     display: flex;
     justify-content: center;
 }
+
 
 /* Used Gen AI to suggest how I can get as close as possible to the CSS styling of the buttons on the apply page using a snip of Roses apply button.*/
 a.apply_link {
@@ -710,6 +717,17 @@ a.apply_link:hover {
     align-items: center;
 }
 
+.position_aside{
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    box-shadow: inset 5px 0 4px -6px #5a3e71;
+    font-style: italic;
+    color: #5a3e71;
+    float: right;
+}
+
+
 @media (max-width: 800px) {
     #cloud_engineer, #cloud_systems_administrator, #why_sign_up, #job_heading_links {
         padding: 4vw;
@@ -725,6 +743,10 @@ a.apply_link:hover {
     }
 
     #job_heading3 {
+        font-size: 1.5em;
+    }
+
+    #job_heading4 {
         font-size: 1.5em;
     }
 
