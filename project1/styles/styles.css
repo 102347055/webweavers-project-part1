@@ -180,6 +180,7 @@ nav ul li a {
       display: flex;
       flex-direction: column;
       width: 100%;
+      flex-wrap: wrap;
     }
   
     #page-links,
@@ -200,7 +201,7 @@ nav ul li a {
     #nav_buttons {
         width: 100%;
         align-items:flex-end; /* Align buttons to the right */
-        justify-content:right;
+        justify-content:flex-start;
     }
   }
 
