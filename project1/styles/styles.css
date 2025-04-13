@@ -749,4 +749,9 @@ a.apply_link:hover {
     body {
         margin-top: 40%;
     }
+
+    /* To prevent content from being covered up when jobs nav snaps to content */
+    #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
+        scroll-margin-top: 30vw;
+    }
 }
