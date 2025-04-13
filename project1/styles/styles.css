@@ -435,12 +435,19 @@ fieldset {
 h2, h3, h4 {
     color: #5a3e71;
 }
+
 #group_image {
+    border: 2px solid #5a3e71;
+    margin-top: 40px;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
     float: right;
-    border: 2px solid #000; 
-    margin: 10px; 
-    width: 300px; 
-    height: auto; 
+}
+
+#photoheading {
+    text-align: right;
+    margin-top: 30px;
 }
 
 #about_page {
@@ -521,9 +528,6 @@ h2, h3, h4 {
     font-weight: 600;
 }
 
-#photoheading {
-    text-align: right;
-  }
 
 #interests-table {
     border-collapse: collapse; /* Merges cells together rather than spererate */
