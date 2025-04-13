@@ -423,6 +423,14 @@ textarea {
 
 /***************************************************** about page **************************************************************/
 
+fieldset {
+    border: 2px solid #5a3e71;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+}
 
 #group_image {
     float: right;
