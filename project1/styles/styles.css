@@ -99,6 +99,16 @@ button a {
     top: 0;
 }
 
+#simplified-footer {
+    padding: 0.5em;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer img {
+    height: 50px;
+}
+
 /***************************************************** index **************************************************************/
 
 #big_company_heading{
@@ -285,9 +295,9 @@ footer {
 form {
     background-color: #ebeffe;
     border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
+    box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* form items appear stacked on top of each other */
     justify-content: space-evenly;
     padding: 1em;
     margin: 2em;
@@ -295,7 +305,7 @@ form {
 
 fieldset {
     border: none;
-    border-top: 0.5px solid black;
+    border-top: 0.5px solid black; /* replace removed border with single line to separate form into relevant sections */
     display: flex;
     flex-direction: column;
 }
@@ -310,34 +320,28 @@ fieldset legend {
 
 #gender-field {
     flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
     border: none;
 }
 
 #gender-field legend {
-    text-align: right;
     float: left;
-    margin-left: 20%;
 }
 
 /* technical skills checkboxes */
 
 #tech-skills {
     display: flex;
-    justify-content: center;
-    margin: 2em;
-}
-
-#tech-skills p {
-    text-align: right;
-    margin-right: 2em;
+    flex-direction: column;
+    margin: 2em 2em 2em 20%;
+    gap: 1em;
 }
 
 #tech-skills label {
-    text-align: left;
-    margin-right: 2em;
+    justify-content: flex-start;
     margin-left: 0.5em;
 }
 
@@ -354,28 +358,17 @@ select, input[type="text"], textarea, input[type="date"] {
 
 label {
    display: flex;
-   flex-direction: row;
+   flex-direction: row; /* input nested in label so they appear side by side */
    justify-content: flex-end;
-   align-items: center;
+   align-items: center; /* ensure label and input are lined up on page */
    margin-right: 1em;
    gap: 1em;
 }
 
-/*
-#state-post {
-    display: flex;
-    flex-direction: row;
-}
-
-#state-post label {
-    text-align: right;
-    display: inline-block;
-}
-*/
-
 textarea {
     height: 10em;
     padding: 1em;
+    resize: none; /* removes toggle to change input area size */
 }
 
 #submit-reset {
@@ -392,26 +385,73 @@ textarea {
 }
 
 .button:hover {
-    background-color: #cca7ea;
-    box-shadow: 2px 2px 3px #5a3e71;
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
     transition: 0.3s;
 }
 
-/* add adjustments for smaller screen size */
+/* adjustments for smaller screen size */
 
 @media only screen and (max-width: 800px) {
-    
+    #apply-heading {
+        font-size: 3em; /* heading is smaller - more appropriate size in relation to screen */
+        text-align: center;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column; /* labels display on top of input instead of to the side */
+        text-align: center;
+    }
+
+    select, input[type="text"], textarea, input[type="date"] { /* inputs are taller and wider for easier use */
+        width: 95%;
+        height: 5em;
+    }
+
+    #gender-field legend {
+        float: none; /* stops legend from appearing inline */
+    }
+
+    textarea {
+        height: 10em; /* taller textarea so the input can be read */
+    }
+
+    .button {
+        height: 6em;
+        width: 95%;
+        margin: 0.5em;
+    }
   }
 
 /***************************************************** about page **************************************************************/
 
+fieldset {
+    border: 2px solid #5a3e71;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+}
+
+h2, h3, h4 {
+    color: #5a3e71;
+}
+
 #group_image {
+    border: 2px solid #5a3e71;
+    margin-top: 40px;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
     float: right;
-    border: 2px solid #000; 
-    margin: 10px; 
-    width: 300px; 
-    height: auto; 
+}
+
+#photoheading {
+    text-align: right;
+    margin-top: 30px;
 }
 
 #about_page {
@@ -428,41 +468,70 @@ textarea {
 #tutor {text-align: center;
     font-size: 2em;}
 
+.favourites-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
 .favourites ul {
-    list-style-type: none; /* Gets rid the default bullet points from list */
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Allows the items to move to the next line on smaller screens */
-    gap: 20px;}
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
 
 .favourites ul li {
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
     background-color: #f9f9f9;
     padding: 15px;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
     width: 300px;
-    box-shadow: 2px 2px 8px #000; /* 3d effect */
+    box-shadow: 2px 2px 8px #000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
+
 
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
+    margin-bottom: 10px;
 }
 
 .favourites li ul {
     margin-top: 10px;
-    padding-left: 20px;
-    list-style-type: disc; /* Adds dot points */
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#nick {
-    text-shadow: 2px 2px 5px #8d7296;
-  }
 
-#photoheading {
-    text-align: right;
-  }
+.favourites li ul li {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#nick, #student_id u, #group_jobs u, .favourites u {
+    color: #5a3e71;
+    font-weight: 600;
+}
+
 
 #interests-table {
     border-collapse: collapse; /* Merges cells together rather than spererate */
