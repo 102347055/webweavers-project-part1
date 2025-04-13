@@ -29,7 +29,10 @@ html {
 body {
     font-size: 1.25em;
     margin-top: 15vh;
+    margin-top: 5rem;
 }
+
+
 
 /* Navbar layout */
 nav {
@@ -46,6 +49,29 @@ nav {
     min-width: 60vh;
 }
 
+nav ul li {
+    margin: 0 5px;
+    display: inline-block;   
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+.nav_options {
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1; /* Take up remaining space */
+    margin-left: 20px;
+    list-style: none;
+    padding: 0;
+}
+
 #nav_buttons {
     display: flex;
     align-content: center;
@@ -56,25 +82,9 @@ nav {
     color: white;
 }
 
-.nav_options {
-    list-style: none;
-    overflow: hidden;
-}
-
-nav ul li {
-    margin: 0 5px;
-    display: inline-block;
-    
-}
-
-nav ul li a {
-    text-decoration: none;
-}
-
-button {
+#nav_buttons button {
     background-color: #5a3e71;
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
     padding: 9px;
     color:white;
     border-radius: 10px;
@@ -82,9 +92,17 @@ button {
     margin: 4px;
 }
 
-button a {
+#nav_buttons button a {
     text-decoration: none;
     color: white;
+}
+
+/*from Rose's code*/
+#nav_buttons button:hover{
+        background-color: #cca7ea; /* buttons turn purple on hover */
+        box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+        cursor: pointer;
+        transition: 0.3s;
 }
 
 #home_logo {
@@ -92,27 +110,14 @@ button a {
     height: auto;
 }
   
-/* Nav list layout */
-.nav_options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1; /* Take up remaining space */
-    margin-left: 20px;
-    list-style: none;
-    padding: 0;
-}
-  
 /* Grouping sections in nav bar */
-#page-links,
-#nav_buttons {
+  #page-links, #nav_buttons {
     display: flex;
     align-items: center;
 }
   
-/* Add spacing between each nav item */
-#page-links li,
-#nav_buttons li {
+  /* Add spacing between each nav item */
+  #page-links li, #nav_buttons li {
     margin: 0 16px;
 }
   
@@ -122,24 +127,85 @@ nav ul li a {
     font-weight: 500;
 }
 
-#page-links{
-    color: #5a3e71;
-}
+  #page-links li a{
+    color:#5a3e71;
+  }
   
-/* Hover effects */
-#nav_buttons a:hover {
-    color: #7c648f;
-}
+  /* Hover effects */
+
   
 #page-links a:hover {
     background-color: #5a3e71;
     color: white;
     padding: 5px 8px;
     border-radius: 5px;
-}
+  }
+
+  #contact {
+    color: #5a3e71;
+  }
+ /* @media (max-width: 1000px) {
+    nav {
+      flex-direction: column;
+      align-items: stretch;
+    }
   
+    .nav_options {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    #page-links,
+    #nav_buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+  
+    #page-links li,
+    #nav_buttons li {
+      margin: 5px 0;
+    }
+  }*/
+
+  @media (max-width: 1000px) {
+    nav {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .nav_options {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    #page-links,
+    #nav_buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    #page-links{
+        align-items: flex-start;
+    }
+    #page-links li,
+    #nav_buttons li {
+      margin: 5px 0;
+    }
+  
+    #nav_buttons {
+      align-items: flex-end; /* Align buttons to the right */
+      justify-content: center;
+    }
+  }
+
   /* Responsive: Stack nav items vertically on small screens */
-@media (max-width: 1000px) {
+/*@media (max-width: 1000px) {
     nav {
         flex-direction: row;
         flex-wrap: wrap;
@@ -180,8 +246,90 @@ nav ul li a {
     #page-links a,
     #nav_buttons button {
         text-align: left;
-    }
-}
+      }
+    }*/
+
+    /*@media (max-width: 1000px) {
+        nav {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      
+        .nav_options {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          width: 100%;
+        }
+      
+        #page-links {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          flex: 1;
+        }
+      
+        #nav_buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          flex: none;
+        }
+      
+        #page-links li,
+        #nav_buttons li {
+          margin: 5px 0;
+        }
+      
+        #nav_buttons button {
+          width: auto;
+        }
+      }*/
+      
+      /*@media (max-width: 1000px) {
+        nav {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+        }
+      
+        .nav_options {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+      
+        #page-links {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          align-items: flex-start;
+        }
+      
+        #nav_buttons {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          align-items: flex-end;
+          justify-content: flex-start;
+        }
+      
+        #page-links li,
+        #nav_buttons li {
+          margin: 8px 0;
+        }
+      
+        #nav_buttons button {
+          width: max-content;
+        }
+      }*/
+
 
 /* Buttons */
 button {
@@ -241,7 +389,7 @@ footer a:hover {
 
 @media(max-width: 1000px) {
     h1 {
-      font-size:700%;
+      font-size:500%;
     }
   }
 
