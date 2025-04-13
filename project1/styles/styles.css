@@ -2,7 +2,7 @@
 
 filename: styles.css
 
-author: Web Weavers
+author: Web Weavers - Rayan Arain, Rose Healy, Damian Moisidis, Tyler Graziano
 
 created: 03/04/2025
 
@@ -19,7 +19,7 @@ html {
     scroll-behavior: smooth;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -28,7 +28,7 @@ html {
 
 body {
     font-size: 1.25em;
-    margin-top: 5rem;
+    margin-top: 15vh;
 }
 
 
@@ -118,14 +118,13 @@ nav ul li a {
   /* Add spacing between each nav item */
   #page-links li, #nav_buttons li {
     margin: 0 16px;
-  }
+}
   
-  /* Links in nav */
-  nav ul li a {
+/* Links in nav */
+nav ul li a {
     text-decoration: none;
     font-weight: 500;
-    
-  }
+}
 
   #page-links li a{
     color:#5a3e71;
@@ -134,7 +133,7 @@ nav ul li a {
   /* Hover effects */
 
   
-  #page-links a:hover {
+#page-links a:hover {
     background-color: #5a3e71;
     color: white;
     padding: 5px 8px;
@@ -212,40 +211,40 @@ nav ul li a {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-      }
+    }
     
-      .nav_options {
+    .nav_options {
         display: flex;
         justify-content: space-between;
         width: 100%;
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 10px;
-      }
+    }
     
-      #page-links {
+    #page-links {
         display: flex;
         flex-direction: column;
         width: auto;
         flex: 1;
-      }
+    }
     
-      #nav_buttons {
+    #nav_buttons {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         width: auto;
         flex: 1;
         gap:10px;
-      }
+    }
     
-      #page-links li,
-      #nav_buttons button {
+    #page-links li,
+    #nav_buttons button {
         width: 100%;
-      }
+    }
     
-      #page-links a,
-      #nav_buttons button {
+    #page-links a,
+    #nav_buttons button {
         text-align: left;
       }
     }*/
@@ -332,8 +331,8 @@ nav ul li a {
       }*/
 
 
-  /* Buttons */
-  button {
+/* Buttons */
+button {
     background-color: #5a3e71;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
@@ -342,14 +341,14 @@ nav ul li a {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-  }
+}
   
-  button a {
+button a {
     text-decoration: none;
     color: white;
-  }
+}
   
-  button:hover {
+button:hover {
     background-color: #cca7ea; /* buttons turn purple on hover */
     box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
@@ -396,7 +395,7 @@ footer a:hover {
 
 /*background image on homepage*/
 #home-header {
-    background-image: url(images/homepage-background.jpg);
+    background-image: url(images/homepage-background.jpg);  /* image source: https://keebs.com/work/lofi-study/ */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -486,20 +485,22 @@ h2 {
 #why_choose_us_title{
     padding: 20px;
 }
+
  #our_plans_title {
     padding:20px;
- }
-  /*plans container*/
-  /* Container for the 3 plans, displayed side-by-side */
+}
+
+/*plans container*/
+/* Container for the 3 plans, displayed side-by-side */
 .plans-container {
     display: flex;              /* Arrange plans in a row */
     gap: 20px;                  /* Space between columns */
     justify-content: space-between;
     margin:20px;
-  }
+}
   
-  /* Individual plan card styling */
-  .plan {
+/* Individual plan card styling */
+.plan {
     flex: 1;                    /* Equal width for each column */
     border: 1px solid black;
     border-radius: 8px;
@@ -509,16 +510,16 @@ h2 {
     display: flex;
     flex-direction: column;    /* So that UL stretches vertically */
     background-color: #ebeffe;
-  }
+}
   
-  /* Plan title */
-  .plan h3 {
+/* Plan title */
+.plan h3 {
     text-align: center;
     margin-bottom: 12px;
-  }
+}
   
-  /* List layout using CSS Grid to make all rows equal height */
-  .plan ul {
+/* List layout using CSS Grid to make all rows equal height */
+.plan ul {
     list-style: none;          /* Remove bullet points */
     padding: 0;
     margin: 0;
@@ -526,26 +527,26 @@ h2 {
     grid-template-rows: repeat(11, 1fr); /* 11 equal-height rows */
     height: 100%;              /* Full height of the section */
     gap: 0.5px;                  /* Space between items */
-  }
+}
   
-  /* Each item in the plan list */
-  .plan li {
-    /*border-bottom: 1px solid black;*/
+/* Each item in the plan list */
+.plan li {
+/*border-bottom: 1px solid black;*/
     display: flex;             /* Center content inside each <li> */
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
     text-align: center;
     padding: 8px;
     min-height: 40px;          /* Optional: enforce minimum row height */
-  }
+}
   
-  /* Remove bottom border on the last item */
-  .plan li:last-child {
+/* Remove bottom border on the last item */
+.plan li:last-child {
     border-bottom: none;
-  }
+}
   
-  /* Button styling inside each plan */
-  .plan_button {
+/* Button styling inside each plan */
+.plan_button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -553,10 +554,10 @@ h2 {
     color: white;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
   
-  /* Button hover effect */
-  .plan_button{
+/* Button hover effect */
+.plan_button{
     width: 100%;
     align-self: center;
     padding: 10px;
@@ -569,7 +570,7 @@ h2 {
     transition: 0.3s;
 }
 
-  /* Responsive: stack plans vertically on small screens */
+/* Responsive: stack plans vertically on small screens */
 @media (max-width: 1000px) {
     .plans-container {
       flex-direction: column;  /* Stack vertically instead of side-by-side */
@@ -581,50 +582,53 @@ h2 {
   
     .plan ul {
       grid-template-rows: repeat(11, auto); /* Let rows adjust naturally */
-    }
-    
-  }
+    } 
+}
 
 #index_article {
     position: relative;
     top:20px;
 }
-/**/
+
 .faq-container {
     max-width: 100%;
     margin: 20px;
     font-family: sans-serif;
-  }
+}
 
-  .faq {
+.faq {
     margin-bottom: 1em;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px;
     background-color: #f9f9f9;
-  }
+}
 
-  summary {
+summary {
     font-weight: bold;
     cursor: pointer;
     outline: none;
-  }
+}
 
-  summary::marker {
+summary::marker {
     color:#5a3e71;
-  }
+}
 
-  .faq p {
+.faq p {
     margin-top: 0.5em;
     padding-left: 1em;
     color: #444;
-  }
+}
 
 .side_heading {
     float: left;
 }
 
 /***************************************************** apply page **************************************************************/
+
+#apply-body {
+    padding-top: 1px;
+}
 
 #apply-heading {
     font-size: 4em;
@@ -734,6 +738,10 @@ textarea {
 /* adjustments for smaller screen size */
 
 @media only screen and (max-width: 800px) {
+    #apply-body {
+        padding-top: none;
+    }
+
     #apply-heading {
         font-size: 3em; /* heading is smaller - more appropriate size in relation to screen */
         text-align: center;
@@ -763,9 +771,10 @@ textarea {
         width: 95%;
         margin: 0.5em;
     }
-  }
+}
 
 /***************************************************** about page **************************************************************/
+
 #about_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -804,33 +813,33 @@ h2, h3, h4 {
     gap: 30px;
     margin: 40px auto;
     max-width: 1200px;
-  }
+}
 
-  .interests-content {
+.interests-content {
     flex: 1;
-  }
+}
 
-  .group-photo-wrapper {
+.group-photo-wrapper {
     flex-shrink: 0;
     text-align: center;
-  }
+}
 
-  #group_image {
+#group_image {
     border: 2px solid #5a3e71;
     width: 300px;
     height: auto;
     border-radius: 10px;
-  }
+}
 
-  #photoheading {
+#photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
-  }
+}
 
-  #photoheading {
+#photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
-  }
+}
 
 .about_page {
     background-color: #ffffff;
@@ -953,6 +962,10 @@ h2, h3, h4 {
 
 
 /***************************************************** Jobs Page **************************************************************/
+
+#jobs_body {
+    padding-top: 1vw;
+}
 
 #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
     background: #ebeffe;
