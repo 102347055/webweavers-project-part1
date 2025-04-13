@@ -485,9 +485,10 @@ h2, h3, h4 {
     list-style-type: disc; /* Adds dot points */
 }
 
-#nick {
-    text-shadow: 2px 2px 5px #8d7296;
-  }
+#nick, #student_id u, #group_jobs u, .favourites u {
+    color: #5a3e71;
+    font-weight: 600;
+}
 
 #photoheading {
     text-align: right;
