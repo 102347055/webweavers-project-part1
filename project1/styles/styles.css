@@ -455,11 +455,13 @@ h2, h3, h4 {
         padding: 9px;
         border-radius: 10px;
         border: none;}
-
-#class_header {background-color: #8d7296;
+#class_header {
+    background-color: #8d7296;
     padding: 10px;
     border-radius: 50px;
-    border-style:solid;}
+    border-style: solid;
+    color: white;
+}
     
 #tutor {text-align: center;
     font-size: 2em;}
@@ -528,21 +530,30 @@ h2, h3, h4 {
     font-weight: 600;
 }
 
-
 #interests-table {
-    border-collapse: collapse; /* Merges cells together rather than spererate */
-    width: 80%; /* Change the width  */
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+}
+
+#interests-table caption {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #5a3e71;
+}
+
+#interests-table th,
+#interests-table td {
+    border: 1px solid #cca7ea;
+    padding: 10px;
+    text-align: left;
 }
 
 #interests-table th {
-    font-weight: bold;
-    background-color: #f2f2f2; /* Background color for headings */
-}
-
-#interests-table td {
-    background-color: #e0e0e0; /* Background color for table cells */
-    padding: 8px;
-    text-align: left; /* Text is moved to left of tabel cell */
+    background-color: #cca7ea;
+    color: #fff;
 }
 
 #interests-table tr:hover td {
