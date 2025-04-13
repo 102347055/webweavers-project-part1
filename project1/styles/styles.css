@@ -28,7 +28,7 @@ html {
 
 body {
     font-size: 1.25em;
-    margin-top: 15vh;
+    margin-top: 12vh;
 }
 
 /* Navbar layout */
@@ -42,12 +42,12 @@ nav {
     z-index: 1000;
     background-color:#ebeffe;
     box-shadow: 2px 2px 3px #5a3e71;
-    min-width: 60vh;
 }
 
 nav ul li {
     margin: 0 5px;
-    display: inline-block;   
+    display: inline-block; 
+    text-align: center;
     text-decoration: none;
     font-weight: 500;
 }
@@ -63,12 +63,29 @@ nav ul li a {
     flex-direction: row;
     align-items: center;
     flex: 1; /* Take up remaining space */
-    margin-left: 20px;
     list-style: none;
 }
 
-.page-links a:hover{
-    background-color:#5a3e71;
+.page-links {
+    padding: 9px;
+    margin: 4px;
+}
+
+.page-links a {
+    padding: 9px;
+    margin: 4px;
+    width: 100%;
+}
+
+.page-links:hover{
+    background-color:#cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.page-links a:hover {
     color: white;
 }
 
@@ -76,7 +93,6 @@ nav ul li a {
     background-color: #5a3e71;
     font-family: "Poppins", sans-serif;
     padding: 9px;
-    color:white;
     border-radius: 10px;
     border: none;
     margin: 4px;
@@ -84,13 +100,14 @@ nav ul li a {
 
 .nav_buttons li a {
     font-size: 0.75em;
-    padding: 0.5em;
+    padding: 9px;
     text-decoration: none;
     color: white;
 }
 
 /*from Rose's code*/
 .nav_buttons li:hover{
+    color: white;
     background-color: #cca7ea; /* buttons turn purple on hover */
     box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
@@ -101,26 +118,23 @@ nav ul li a {
     width: 150px;
     height: auto;
 }
-  
-/* Grouping sections in nav bar */
-.page-links {
-    float: left;
-}
-  
-  /* Add spacing between each nav item */
+
+/* Add spacing between each nav item */
 nav ul li {
     margin: 0 16px;
-}
-  
-/* Links in nav */
-nav ul li a {
-    text-decoration: none;
-    font-weight: 500;
 }
 
 /* navbar adjusted for small screens */
 
 @media only screen and (max-width: 800px) {
+    nav {
+        position: static;
+    }
+
+    body {
+        margin-top: 0;
+    }
+
     .nav_buttons {
         display: none;  /* removes login buttons */
     }
@@ -131,7 +145,19 @@ nav ul li a {
 
     .navbar {
         flex-direction: column; /* vertical list */
+        width: 100%;
         gap: 1.5em;
+    }
+
+    .page-links {
+        margin: 0 10px 5px 10px;
+        width: 90%;
+    }
+
+    .page-links a {
+        padding: 20px;
+        width: 100%;
+        display: block;
     }
 }
 
@@ -168,7 +194,7 @@ footer a:hover {
     padding: 20px;
 }
 
-@media(max-width: 1000px) {
+@media(max-width: 800px) {
     h1 {
       font-size:500%;
     }
@@ -199,6 +225,7 @@ h1 {
 h2 {
     font-family: "Economica", sans-serif;
     font-size: 500%;
+    padding: 20px;
 }
 
 .purple_web{
@@ -215,14 +242,6 @@ h2 {
 }
 #why_us_table{
     border-spacing: 2rem 2rem
-}
-
-#why_choose_us_title{
-    padding: 20px;
-}
-
- #our_plans_title {
-    padding:20px;
 }
 
 /*plans container*/
@@ -306,7 +325,7 @@ h2 {
 }
 
 /* Responsive: stack plans vertically on small screens */
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     .plans-container {
       flex-direction: column;  /* Stack vertically instead of side-by-side */
     }
@@ -327,12 +346,14 @@ h2 {
 
 .faq-container {
     max-width: 100%;
-    margin: 20px;
     font-family: sans-serif;
 }
 
+
 .faq {
     margin-bottom: 1em;
+    margin-left: 20px;
+    margin-right: 20px;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px;
@@ -868,7 +889,6 @@ a.apply_link:hover {
     float: right;
 }
 
-
 @media (max-width: 800px) {
     #cloud_engineer, #cloud_systems_administrator, #why_sign_up, #job_heading_links {
         padding: 4vw;
@@ -893,18 +913,5 @@ a.apply_link:hover {
 
     #job_nav {
         min-width: 95%;
-    }
-}
-
-/* To prevent content from being covered by nav bar */
-@media (max-width: 570px) { 
-
-    body {
-        margin-top: 40%;
-    }
-
-    /* To prevent content from being covered up when jobs nav snaps to content */
-    #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
-        scroll-margin-top: 30vw;
     }
 }
