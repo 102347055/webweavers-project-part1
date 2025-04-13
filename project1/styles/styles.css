@@ -457,13 +457,24 @@ h2, h3, h4 {
 #tutor {text-align: center;
     font-size: 2em;}
 
+.favourites-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
 .favourites ul {
-    list-style-type: none; /* Gets rid the default bullet points from list */
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Allows the items to move to the next line on smaller screens */
-    gap: 20px;}
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
 
 .favourites ul li {
     border: 1px solid #ccc; 
