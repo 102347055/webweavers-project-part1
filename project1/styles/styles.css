@@ -28,10 +28,12 @@ html {
 
 body {
     font-size: 1.25em;
+    margin-top: 20vh;
 }
 
 /* Navbar layout */
 nav {
+<<<<<<< HEAD
     position: sticky;
     top: 0;
     width: 100%;
@@ -44,6 +46,69 @@ nav {
   
   /* Logo styling */
   #home_logo {
+=======
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    z-index: 1000;
+    padding: 1vw 0;
+    background-color:#ebeffe;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 2px 2px 3px #5a3e71;
+    min-width: 60vh;
+}
+
+#nav_buttons {
+    position: absolute;
+    right: 20px;
+    top: 17.5px;
+    
+}
+
+#nav_buttons a:hover{
+    color:#7c648f;
+}
+
+#three_together a:hover{
+    background-color:#5a3e71;
+    color: white;
+}
+
+.nav_options {
+    list-style: none;
+    overflow: hidden;
+}
+
+nav ul li {
+    margin: 0 5px;
+    display: inline-block;
+    
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #5a3e71;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    padding: 9px;
+    color:white;
+    border-radius: 10px;
+    border: none;
+    margin: 4px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+#home_logo {
+>>>>>>> 8dbe73943527badfccce2326672d6289e1c6a58d
     width: 150px;
     height: auto;
   }
@@ -384,7 +449,7 @@ h2 {
     
   }
 
-article {
+#index_article {
     position: relative;
     top:20px;
 }
@@ -639,84 +704,191 @@ textarea {
   }
 
 /***************************************************** about page **************************************************************/
-
-#group_image {
-    float: right;
-    border: 2px solid #000; 
-    margin: 10px; 
-    width: 300px; 
-    height: auto; 
+#about_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-#about_page {
+#student_id{
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
     background-color: #ebeffe;
-        padding: 9px;
-        border-radius: 10px;
-        border: none;}
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+#class_header{
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
 
-#class_header {background-color: #8d7296;
+h2, h3, h4 {
+    color: #5a3e71;
+}
+
+.interests-and-photo {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+
+  .interests-content {
+    flex: 1;
+  }
+
+  .group-photo-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  #group_image {
+    border: 2px solid #5a3e71;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  #photoheading {
+    margin-bottom: 10px;
+    color: #5a3e71;
+  }
+
+  #photoheading {
+    margin-bottom: 10px;
+    color: #5a3e71;
+  }
+
+.about_page {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 9px;
+    border: none;
+}
+
+#class_header {
+    background-color: #ebeffe;
     padding: 10px;
-    border-radius: 50px;
-    border-style:solid;}
-    
-#tutor {text-align: center;
-    font-size: 2em;}
+    border-radius: 15px;
+    border-style: solid;
+    color: black;
+}
+
+#class_header ul {
+    list-style-type: none;
+}
+
+
+.favourites-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
 
 .favourites ul {
-    list-style-type: none; /* Gets rid the default bullet points from list */
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Allows the items to move to the next line on smaller screens */
-    gap: 20px;}
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
 
 .favourites ul li {
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
     background-color: #f9f9f9;
     padding: 15px;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
     width: 300px;
-    box-shadow: 2px 2px 8px #000; /* 3d effect */
+    box-shadow: 2px 2px 8px #000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
+    margin-bottom: 10px;
 }
 
 .favourites li ul {
     margin-top: 10px;
-    padding-left: 20px;
-    list-style-type: disc; /* Adds dot points */
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#nick {
-    text-shadow: 2px 2px 5px #8d7296;
-  }
+.favourites li ul li {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-#photoheading {
-    text-align: right;
-  }
+#student_id ul {
+    list-style-type: none;
+}
+
+#student_id u, #group_jobs u, .favourites u {
+    color: #5a3e71;
+    font-weight: 600;
+}
+
+#tutor:hover {
+    transform: scale(1.05);
+}
 
 #interests-table {
-    border-collapse: collapse; /* Merges cells together rather than spererate */
-    width: 80%; /* Change the width  */
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ebeffe;
+    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+}
+
+#interests-table caption {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #5a3e71;
+}
+
+#interests-table th,
+#interests-table td {
+    border: 1px solid #5a3e71;
+    padding: 10px;
+    text-align: left;
 }
 
 #interests-table th {
-    font-weight: bold;
-    background-color: #f2f2f2; /* Background color for headings */
-}
-
-#interests-table td {
-    background-color: #e0e0e0; /* Background color for table cells */
-    padding: 8px;
-    text-align: left; /* Text is moved to left of tabel cell */
+    background-color: #5a3e71;
+    color: #fff;
 }
 
 #interests-table tr:hover td {
-    background-color: #d0d0d0; /* Hover effect for table cells */
+    background-color: #d0d0d0;
 }
+
 
 /***************************************************** Jobs Page **************************************************************/
 
@@ -735,6 +907,18 @@ textarea {
     justify-content: center;
 }
 
+#cloud_engineer ul, #cloud_systems_administrator ul, #why_sign_up ol {
+    padding-left: 1.25rem;
+}
+
+#cloud_engineer ul, #cloud_systems_administrator ul {
+    list-style-type: square;
+}
+
+#why_sign_up ol{
+    list-style-type: upper-roman;
+}
+
 #job_heading_links {
     background: #ebeffe;
     scroll-margin-top: 5vw;
@@ -748,7 +932,7 @@ textarea {
     align-items: center;
 }
 
-#job_heading1 {
+.job_heading1 {
     font-size: 2.8em;
     font-family: "Economica", sans-serif;
     margin: 0.5em;
@@ -757,37 +941,85 @@ textarea {
 #job_nav {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     margin: 0.5em;
     line-height: 1.3;
     list-style: none;
-    padding: 1vw 1.5vw;
     transition: 0.3s;
-    font-size: 1.4rem;
+    /* Learnt about clamp from chatgpt when I was trying to find a way around needing multiple
+    media to avert the overflow of job nav */
+    font-size: clamp(.7rem, 2vw, 1.4rem);
     gap: 2em;
 }
 
 #job_nav a:hover {
-    background: #cca7ea;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px #5a3e71;
+    background-color: #cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71;
+    cursor: pointer;
 }
 
-#job_heading2 {
+.job_heading2 {
     font-size: 2.5em;
     font-family: "Economica", sans-serif;
     margin: 0.5em;
 }
 
-#job_heading3 {
+.job_heading3 {
     font-size: 2em;
     font-family: "Economica", sans-serif;
     margin: 0.5em;
+}
+
+.qualifications_heading{
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.qualifications_heading2{
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.job_heading4 {
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+}
+
+.job_descriptions{
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+/* Learn't about the containers and wrappings technique from Gen Ai,
+I asked how I could get my essentials and preferable divs to be spaced evenly. */
+.qualifications_container {
+    display: flex;
+    gap: 3vw;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.essential_div, .preferable_div {
+    flex: 1 1 300px;
+    max-width: 45%;
 }
 
 #apply_now{
     display: flex;
     justify-content: center;
 }
+
 
 /* Used Gen AI to suggest how I can get as close as possible to the CSS styling of the buttons on the apply page using a snip of Roses apply button.*/
 a.apply_link {
@@ -816,6 +1048,17 @@ a.apply_link:hover {
     align-items: center;
 }
 
+.position_aside{
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    box-shadow: inset 5px 0 4px -6px #5a3e71;
+    font-style: italic;
+    color: #5a3e71;
+    float: right;
+}
+
+
 @media (max-width: 800px) {
     #cloud_engineer, #cloud_systems_administrator, #why_sign_up, #job_heading_links {
         padding: 4vw;
@@ -834,16 +1077,24 @@ a.apply_link:hover {
         font-size: 1.5em;
     }
 
+    #job_heading4 {
+        font-size: 1.5em;
+    }
+
     #job_nav {
-        font-size: .8rem;
         min-width: 95%;
     }
 }
 
-/* To prevent job_av bar warping */
-@media (max-width: 970px) {
-    
-    #job_nav {
-        min-width: 80%;
+/* To prevent content from being covered by nav bar */
+@media (max-width: 570px) { 
+
+    body {
+        margin-top: 40%;
+    }
+
+    /* To prevent content from being covered up when jobs nav snaps to content */
+    #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
+        scroll-margin-top: 30vw;
     }
 }
