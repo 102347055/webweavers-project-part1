@@ -355,14 +355,27 @@ nav ul li a {
     transition: 0.3s;
   }
 
-  #simplified-footer {
+footer {
+    background-color:#ebeffe;
     padding: 0.5em;
     text-align: center;
     font-size: 0.8em;
+    
 }
 
 footer img {
     height: 50px;
+}
+
+/* Link styling */
+footer a {
+  text-decoration: none;        /* Remove underline by default */
+  color:#5a3e71;               /* Purple link color */
+}
+
+/* Add underline on hover for links */
+footer a:hover {
+  text-decoration: underline;
 }
 
 /***************************************************** index **************************************************************/
@@ -609,80 +622,6 @@ h2 {
 .side_heading {
     float: left;
 }
-
-footer {
-    position: relative;
-    bottom: 0;
-    text-align: right;
-    list-style-type: none;
-    background-color:#ebeffe;
-    
-}
-/*footer*/
- /* Container for both footer columns */
- .footer-container {
-    display: flex;                 /* Use Flexbox layout */
-    justify-content: space-between; /* Push columns to far left and right */
-    padding: 1rem 2rem;           /* Add space inside footer (top/bottom: 1rem, sides: 2rem) */
-    flex-wrap: wrap;              /* Allow wrapping on smaller screens */
-  }
-
-  /* Individual left and right column containers */
-  .footer-left, .footer-right {
-    flex: 0 1 auto;               /* Don't stretch columns, keep natural size */
-    max-width: 45%;               /* Keep each column from getting too wide */
-  }
-
-  /* Style applied to both content columns */
-  .footer-col {
-    text-align: left;             /* Make sure all text inside is left-aligned */
-  }
- .footer-middle{
-    align-content: center;
- }
-
-  /* Remove default list styles from <ul> */
-  .footer-col ul {
-    list-style: none;             /* Remove bullets */
-    padding: 0;
-    margin: 0;
-  }
-
-  /* Add spacing between each <li> */
-  .footer-col ul li {
-    margin-bottom: 0.5rem;        /* Space between list items */
-  }
-  .footer-middle {
-    
-  }
-  /* Link styling */
-  footer a {
-    text-decoration: none;        /* Remove underline by default */
-    color:#5a3e71;               /* Purple link color */
-  }
-
-  /* Add underline on hover for links */
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Space under the horizontal rule */
-  footer hr {
-    margin-bottom: 1rem;
-  }
-
-  /* Responsive layout for smaller screens (phones/tablets) */
-  @media (max-width: 768px) {
-    .footer-container {
-      flex-direction: column;     /* Stack the columns vertically */
-      align-items: flex-start;    /* Left-align everything when stacked */
-    }
-
-    .footer-left, .footer-right {
-      max-width: 100%;            /* Full width when stacked */
-      margin-bottom: 1rem;        /* Add spacing between stacked sections */
-    }
-  }
 
 /***************************************************** apply page **************************************************************/
 
