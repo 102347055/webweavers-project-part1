@@ -28,45 +28,49 @@
     </header>
     <h1 id="apply-heading">Apply for a position</h1>
     <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">     <!--Job application form-->
-        <label for="reference-no">Job Reference Number
+        <label for="reference-no" class="apply-input">Job Reference Number:
             <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector - edit to add ref numbers from job listings-->
                 <option value=" ">Please Select</option>
                 <option value="JOB1">JOB1</option>
                 <option value="JOB2">JOB2</option>
-                <option value="JOB3">JOB3</option>
             </select>
         </label>
         <fieldset>
             <legend>Personal Information</legend>
-            <label for="first-name">First Name
+            <label for="first-name">First Name:
                 <input type="text" name="first-name" id="first-name" maxlength="20" pattern="[A-Za-z]+" required>   <!--Maxiumum of 20 alpha characters-->
             </label>
-            <label for="last-name">Last Name
+            <label for="last-name">Last Name:
                 <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[A-Za-z]+" required>
             </label>
-            <label for="dob">Date of Birth
+            <label for="dob">Date of Birth:
                 <input type="date" name="dob" id="dob" required>
             </label>
             <fieldset id="gender-field">
-                <legend>Gender</legend>     <!--Gender radio buttons in fieldset-->
-                <input type="radio" name="gender" id="female" value="female" required>
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="male" value="male">
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="other" value="other">
-                <label for="other">Other/Unspecified</label>
+                <legend>Gender:</legend>     <!--Gender radio buttons in fieldset-->
+                <label for="female">
+                    <input type="radio" name="gender" id="female" value="female" required>
+                    Female
+                </label>
+                <label for="male">
+                    <input type="radio" name="gender" id="male" value="male">
+                    Male
+                </label>
+                <label for="other">
+                    <input type="radio" name="gender" id="other" value="other">
+                    Other/Unspecified
+                </label>
             </fieldset>
         </fieldset>
         <fieldset>
             <legend>Address</legend>    <!--Address details-->
-            <label for="address">Street Address
+            <label for="address">Street Address:
                 <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
             </label>
-            <label for="suburb">Suburb
+            <label for="suburb">Suburb:
                 <input type="text" name="suburb" id="suburb" maxlength="40" required>
             </label>
-            <!--<div id="state-post">-->
-            <label for="state">State
+            <label for="state">State:
                 <select name="state" id="state">    <!--State dropdown selector-->
                     <option value=" ">Please Select</option>
                     <option value="vic">VIC</option>
@@ -79,36 +83,45 @@
                     <option value="act">ACT</option>
                 </select>
             </label>
-            <label for="postcode">Postcode
+            <label for="postcode">Postcode:
                 <input type="text" name="postcode" id="postcode" maxlength="4" pattern="\d{4}" required>    <!--4 digits only, maxlength specified as well as regex so user can recognise limit-->
             </label>
-            <!--</div>-->
         </fieldset>
         <fieldset>
             <legend>Contact Details</legend>
-            <label for="email">Email Address
+            <label for="email">Email Address:
                 <input type="text" name="email" id="email" pattern="[A-Za-z\d]+@[A-Za-z\d]+\.[A-Za-z]{1,3}" required>   <!--Email entered with text input, verified with regex-->
             </label>
-            <label for="number">Phone Number
+            <label for="number">Phone Number:
                 <input type="text" name="number" id="number" maxlength="12" pattern="[\d\s]{8,12}" required>    <!--Phone number - only digits or spaces, 8 to 12 characters-->
             </label>
         </fieldset>
         <fieldset>
             <legend>Skills</legend>
             <div id="tech-skills">   <!--Technical skills checkboxes - edit to add actual skills-->
-                <p>Required technical skills</p>
-                <input type="checkbox" name="skill01" id="skill01" value="skill01" checked>
-                <label for="skill01">Skill 1</label>
-                <input type="checkbox" name="skill02" id="skill02" value="skill02">
-                <label for="skill02">Skill 2</label>
-                <input type="checkbox" name="skill03" id="skill03" value="skill03">
-                <label for="skill03">Skill 3</label>
-                <input type="checkbox" name="skill04" id="skill04" value="skill04">
-                <label for="skill04">Skill 4</label>
-                <input type="checkbox" name="skill05" id="skill05" value="skill05">
-                <label for="skill05">Skill 5</label>
+                <p>Required technical skills:</p>
+                <label for="aws-azure">
+                    <input type="checkbox" name="aws-azure" id="aws-azure" value="aws-azure" checked>
+                    Knowledge of AWS/Azure cloud platforms
+                </label>
+                <label for="script-lang">
+                    <input type="checkbox" name="script-lang" id="script-lang" value="script-lang">
+                    Familiarity with scripting languages (e.g. Bash, Python)
+                </label>
+                <label for="sys-admin">
+                    <input type="checkbox" name="sys-admin" id="sys-admin" value="sys-admin">
+                    System administration skills
+                </label>
+                <label for="automation">
+                    <input type="checkbox" name="automation" id="automation" value="automation">
+                    Cloud automation proficiency
+                </label>
+                <label for="security">
+                    <input type="checkbox" name="security" id="security" value="security">
+                    Knowledge of cloud security best practices
+                </label>
             </div>
-            <label for="other-skills">Other Skills
+            <label for="other-skills">Other Skills:
                 <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
             </label>
         </fieldset>
@@ -117,5 +130,16 @@
             <input type="reset" value="Reset" class="button" id="reset">
         </div>
     </form>
+    <hr>          
+    <footer id="simplified-footer">
+        <a href="index.html"><img src="images/web_weavers_logo_only_pic.jpg" alt="Purple spiderweb from Web Weavers logo"></a>
+        <p>&copy;&nbsp;2025 Web Weavers</p>
+        <p>Email: <a href="mailto:info@webweavers.edu.au">info@webweavers.edu.au</a></p>
+        <p>Link:
+            <a href="https://tyler105919952.atlassian.net/jira/software/projects/WW/boards/2/backlog?atlOrigin=eyJpIjoiMWI2MDViNjI2NWRhNDQ3Zjg2NDYzNTE1NDMwMmEyZmYiLCJwIjoiaiJ9" target="_blank">
+                Web Weavers Jira Project
+            </a>
+        </p>
+    </footer>
 </body>
 </html>

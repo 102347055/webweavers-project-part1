@@ -15,6 +15,10 @@ description: styles for Web Weavers Website
 /***************************************************** universal ***********************************************************/
 
 /*general page set-up*/
+html {
+    scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -89,6 +93,16 @@ button a {
     width: 150px;
     height: auto;
     top: 0;
+}
+
+#simplified-footer {
+    padding: 0.5em;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer img {
+    height: 50px;
 }
 
 /***************************************************** index **************************************************************/
@@ -277,9 +291,9 @@ footer {
 form {
     background-color: #ebeffe;
     border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
+    box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* form items appear stacked on top of each other */
     justify-content: space-evenly;
     padding: 1em;
     margin: 2em;
@@ -287,7 +301,7 @@ form {
 
 fieldset {
     border: none;
-    border-top: 0.5px solid black;
+    border-top: 0.5px solid black; /* replace removed border with single line to separate form into relevant sections */
     display: flex;
     flex-direction: column;
 }
@@ -302,34 +316,28 @@ fieldset legend {
 
 #gender-field {
     flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
     border: none;
 }
 
 #gender-field legend {
-    text-align: right;
     float: left;
-    margin-left: 20%;
 }
 
 /* technical skills checkboxes */
 
 #tech-skills {
     display: flex;
-    justify-content: center;
-    margin: 2em;
-}
-
-#tech-skills p {
-    text-align: right;
-    margin-right: 2em;
+    flex-direction: column;
+    margin: 2em 2em 2em 20%;
+    gap: 1em;
 }
 
 #tech-skills label {
-    text-align: left;
-    margin-right: 2em;
+    justify-content: flex-start;
     margin-left: 0.5em;
 }
 
@@ -346,28 +354,17 @@ select, input[type="text"], textarea, input[type="date"] {
 
 label {
    display: flex;
-   flex-direction: row;
+   flex-direction: row; /* input nested in label so they appear side by side */
    justify-content: flex-end;
-   align-items: center;
+   align-items: center; /* ensure label and input are lined up on page */
    margin-right: 1em;
    gap: 1em;
 }
 
-/*
-#state-post {
-    display: flex;
-    flex-direction: row;
-}
-
-#state-post label {
-    text-align: right;
-    display: inline-block;
-}
-*/
-
 textarea {
     height: 10em;
     padding: 1em;
+    resize: none; /* removes toggle to change input area size */
 }
 
 #submit-reset {
@@ -384,16 +381,44 @@ textarea {
 }
 
 .button:hover {
-    background-color: #cca7ea;
-    box-shadow: 2px 2px 3px #5a3e71;
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
     transition: 0.3s;
 }
 
-/* add adjustments for smaller screen size */
+/* adjustments for smaller screen size */
 
 @media only screen and (max-width: 800px) {
-    
+    #apply-heading {
+        font-size: 3em; /* heading is smaller - more appropriate size in relation to screen */
+        text-align: center;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column; /* labels display on top of input instead of to the side */
+        text-align: center;
+    }
+
+    select, input[type="text"], textarea, input[type="date"] { /* inputs are taller and wider for easier use */
+        width: 95%;
+        height: 5em;
+    }
+
+    #gender-field legend {
+        float: none; /* stops legend from appearing inline */
+    }
+
+    textarea {
+        height: 10em; /* taller textarea so the input can be read */
+    }
+
+    .button {
+        height: 6em;
+        width: 95%;
+        margin: 0.5em;
+    }
   }
 
 /***************************************************** about page **************************************************************/
@@ -479,14 +504,6 @@ textarea {
 
 /***************************************************** Jobs Page **************************************************************/
 
-html {
-    scroll-behavior: smooth;
-}
-
-a:active{
-    color: plum;
-}
-
 #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
     background: #ebeffe;
     scroll-margin-top: 5vw;
@@ -530,6 +547,7 @@ a:active{
     padding: 1vw 1.5vw;
     transition: 0.3s;
     font-size: 1.4rem;
+    gap: 2em;
 }
 
 #job_nav a:hover {
@@ -550,3 +568,66 @@ a:active{
     margin: 0.5em;
 }
 
+#apply_now{
+    display: flex;
+    justify-content: center;
+}
+
+/* Used Gen AI to suggest how I can get as close as possible to the CSS styling of the buttons on the apply page using a snip of Roses apply button.*/
+a.apply_link {
+    text-decoration: none;
+    background-color: #e8e8ed;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-shadow: 2px 2px 2px #aaa;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    width: 30%;
+    margin: 1em;
+    transition: 0.3s;
+}
+
+a.apply_link:hover {
+    background-color: #cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71;
+    cursor: pointer;
+}
+
+#apply_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    #cloud_engineer, #cloud_systems_administrator, #why_sign_up, #job_heading_links {
+        padding: 4vw;
+        font-size: 0.85rem;
+    }
+
+    #job_heading1 {
+        font-size: 1.9em;
+    }
+
+    #job_heading2 {
+        font-size: 1.7em;
+    }
+
+    #job_heading3 {
+        font-size: 1.5em;
+    }
+
+    #job_nav {
+        font-size: .8rem;
+        min-width: 95%;
+    }
+}
+
+/* To prevent job_av bar warping */
+@media (max-width: 970px) {
+    
+    #job_nav {
+        min-width: 80%;
+    }
+}
