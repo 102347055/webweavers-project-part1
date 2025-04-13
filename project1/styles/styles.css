@@ -457,6 +457,7 @@ h2, h3, h4 {
 .about_page {
     background-color: #ffffff;
         border-radius: 10px;
+        padding: 9px;
         border: none;}
 
 #class_header {
@@ -552,7 +553,7 @@ h2, h3, h4 {
     border-collapse: collapse;
     width: 80%;
     margin: auto;
-    background-color: #ffffff;
+    background-color: #ebeffe;
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
 
@@ -564,13 +565,13 @@ h2, h3, h4 {
 
 #interests-table th,
 #interests-table td {
-    border: 1px solid #cca7ea;
+    border: 1px solid #5a3e71;
     padding: 10px;
     text-align: left;
 }
 
 #interests-table th {
-    background-color: #cca7ea;
+    background-color: #5a3e71;
     color: #fff;
 }
 
