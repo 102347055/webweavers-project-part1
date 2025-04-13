@@ -6,7 +6,7 @@ author: Web Weavers
 
 created: 03/04/2025
 
-last modified: 10/04/2025
+last modified: 14/04/2025
 
 description: styles for Web Weavers Website
 
@@ -31,22 +31,10 @@ body {
     margin-top: 20vh;
 }
 
+/***************************************************** index ***********************************************************/
+
 /* Navbar layout */
 nav {
-<<<<<<< HEAD
-    position: sticky;
-    top: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background-color: #ebeffe;
-    padding: 10px 20px;
-    z-index: 1000;
-  }
-  
-  /* Logo styling */
-  #home_logo {
-=======
     position: fixed;
     top: 0;
     width: 100%;
@@ -61,17 +49,11 @@ nav {
 }
 
 #nav_buttons {
-    position: absolute;
-    right: 20px;
-    top: 17.5px;
-    
+    display: flex;
+    align-content: center;
 }
 
-#nav_buttons a:hover{
-    color:#7c648f;
-}
-
-#three_together a:hover{
+#page-links a:hover{
     background-color:#5a3e71;
     color: white;
 }
@@ -108,7 +90,6 @@ button a {
 }
 
 #home_logo {
->>>>>>> 8dbe73943527badfccce2326672d6289e1c6a58d
     width: 150px;
     height: auto;
   }
@@ -125,14 +106,14 @@ button a {
   }
   
   /* Grouping sections in nav bar */
-  #three_together,
+  #page-links,
   #nav_buttons {
     display: flex;
     align-items: center;
   }
   
   /* Add spacing between each nav item */
-  #three_together li,
+  #page-links li,
   #nav_buttons li {
     margin: 0 16px;
   }
@@ -144,7 +125,7 @@ button a {
     
   }
 
-  #three_together{
+  #page-links{
     color: #5a3e71;
   }
   
@@ -153,7 +134,7 @@ button a {
     color: #7c648f;
   }
   
-  #three_together a:hover {
+  #page-links a:hover {
     background-color: #5a3e71;
     color: white;
     padding: 5px 8px;
@@ -178,7 +159,7 @@ button a {
         margin-top: 10px;
       }
     
-      #three_together {
+      #page-links {
         display: flex;
         flex-direction: column;
         width: auto;
@@ -194,12 +175,12 @@ button a {
         gap:10px;
       }
     
-      #three_together li,
+      #page-links li,
       #nav_buttons button {
         width: 100%;
       }
     
-      #three_together a,
+      #page-links a,
       #nav_buttons button {
         text-align: left;
       }
