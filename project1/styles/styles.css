@@ -54,6 +54,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
+    text-align: center;
 }
 
 .navbar {
@@ -107,7 +108,6 @@ nav ul li a {
 
 /*from Rose's code*/
 .nav_buttons li:hover{
-    color: white;
     background-color: #cca7ea; /* buttons turn purple on hover */
     box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
@@ -128,11 +128,11 @@ nav ul li {
 
 @media only screen and (max-width: 800px) {
     nav {
-        position: static;
+        position: static; /* navbar disappears with screen scroll - takes up less space */
     }
 
     body {
-        margin-top: 0;
+        margin-top: 0;  /* remove gap for fixed navbar */
     }
 
     .nav_buttons {
@@ -146,18 +146,20 @@ nav ul li {
     .navbar {
         flex-direction: column; /* vertical list */
         width: 100%;
-        gap: 1.5em;
     }
 
     .page-links {
-        margin: 0 10px 5px 10px;
+        margin: 0 10px 10px 10px;
         width: 90%;
+        background-color:#cca7ea;   /* make outline of nav links visible for easier mobile navigation */
+        box-shadow: 2px 2px 3px #5a3e71;
+        border-radius: 10px;
     }
 
     .page-links a {
-        padding: 20px;
+        padding: 10px;
         width: 100%;
-        display: block;
+        display: block;  /* links are clickable from entire box */
     }
 }
 
@@ -194,9 +196,18 @@ footer a:hover {
     padding: 20px;
 }
 
-@media(max-width: 800px) {
-    h1 {
-      font-size:500%;
+@media (max-width: 800px) {
+    #big_company_heading {
+        text-align: center;
+        padding: 0;
+    }
+
+    #big_company_heading h1 {
+      font-size: 7rem;  /* smaller heading size */
+    }
+
+    #big_company_heading h2 {
+        font-size: 3rem;
     }
   }
 
