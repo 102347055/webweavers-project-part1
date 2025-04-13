@@ -525,6 +525,10 @@ h2, h3, h4 {
     box-sizing: border-box;
 }
 
+#student_id ul {
+    list-style-type: none; 
+}
+
 #nick, #student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
