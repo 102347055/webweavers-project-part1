@@ -31,19 +31,16 @@ body {
     margin-top: 15vh;
 }
 
-
-
 /* Navbar layout */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
+    padding: 10px;
     display: flex;
-    z-index: 1000;
-    padding: 1vw 0;
-    background-color:#ebeffe;
     align-items: center;
-    flex-wrap: wrap;
+    z-index: 1000;
+    background-color:#ebeffe;
     box-shadow: 2px 2px 3px #5a3e71;
     min-width: 60vh;
 }
@@ -59,29 +56,23 @@ nav ul li a {
     text-decoration: none;
 }
 
-.nav_options {
+.navbar {
     list-style: none;
     overflow: hidden;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     flex: 1; /* Take up remaining space */
     margin-left: 20px;
     list-style: none;
-    padding: 0;
 }
 
-#nav_buttons {
-    display: flex;
-    align-content: center;
-}
-
-#page-links a:hover{
+.page-links a:hover{
     background-color:#5a3e71;
     color: white;
 }
 
-#nav_buttons button {
+.nav_buttons li {
     background-color: #5a3e71;
     font-family: "Poppins", sans-serif;
     padding: 9px;
@@ -91,17 +82,19 @@ nav ul li a {
     margin: 4px;
 }
 
-#nav_buttons button a {
+.nav_buttons li a {
+    font-size: 0.75em;
+    padding: 0.5em;
     text-decoration: none;
     color: white;
 }
 
 /*from Rose's code*/
-#nav_buttons button:hover{
-        background-color: #cca7ea; /* buttons turn purple on hover */
-        box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-        cursor: pointer;
-        transition: 0.3s;
+.nav_buttons li:hover{
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 #home_logo {
@@ -110,13 +103,12 @@ nav ul li a {
 }
   
 /* Grouping sections in nav bar */
-  #page-links, #nav_buttons {
-    display: flex;
-    align-items: center;
+.page-links {
+    float: left;
 }
   
   /* Add spacing between each nav item */
-  #page-links li, #nav_buttons li {
+nav ul li {
     margin: 0 16px;
 }
   
@@ -126,235 +118,23 @@ nav ul li a {
     font-weight: 500;
 }
 
-  #page-links li a{
-    color:#5a3e71;
-  }
-  
-  /* Hover effects */
+/* navbar adjusted for small screens */
 
-  
-#page-links a:hover {
-    background-color: #5a3e71;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 5px;
-  }
+@media only screen and (max-width: 800px) {
+    .nav_buttons {
+        display: none;  /* removes login buttons */
+    }
 
-  #contact {
-    color: #5a3e71;
-  }
- /* @media (max-width: 1000px) {
     nav {
-      flex-direction: column;
-      align-items: stretch;
+        flex-direction: column; /* vertical list */
     }
-  
-    .nav_options {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-  
-    #page-links,
-    #nav_buttons {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 10px;
-    }
-  
-    #page-links li,
-    #nav_buttons li {
-      margin: 5px 0;
-    }
-  }*/
 
-  @media (max-width: 1000px) {
-    nav {
-      flex-direction: column;
-      align-items: stretch;
+    .navbar {
+        flex-direction: column; /* vertical list */
+        gap: 1.5em;
     }
-  
-    .nav_options {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-  
-    #page-links,
-    #nav_buttons {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin-top: 10px;
-    }
-    #page-links{
-        align-items: flex-start;
-    }
-    #page-links li,
-    #nav_buttons li {
-      margin: 5px 0;
-    }
-  
-    #nav_buttons {
-        width: 100%;
-        align-items:flex-end; /* Align buttons to the right */
-        justify-content:flex-start;
-    }
-  }
-
-  /* Responsive: Stack nav items vertically on small screens */
-/*@media (max-width: 1000px) {
-    nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .nav_options {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 10px;
-    }
-    
-    #page-links {
-        display: flex;
-        flex-direction: column;
-        width: auto;
-        flex: 1;
-    }
-    
-    #nav_buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        width: auto;
-        flex: 1;
-        gap:10px;
-    }
-    
-    #page-links li,
-    #nav_buttons button {
-        width: 100%;
-    }
-    
-    #page-links a,
-    #nav_buttons button {
-        text-align: left;
-      }
-    }*/
-
-    /*@media (max-width: 1000px) {
-        nav {
-          flex-direction: column;
-          align-items: stretch;
-        }
-      
-        .nav_options {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
-          flex-wrap: wrap;
-          width: 100%;
-        }
-      
-        #page-links {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          flex: 1;
-        }
-      
-        #nav_buttons {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          flex: none;
-        }
-      
-        #page-links li,
-        #nav_buttons li {
-          margin: 5px 0;
-        }
-      
-        #nav_buttons button {
-          width: auto;
-        }
-      }*/
-      
-      /*@media (max-width: 1000px) {
-        nav {
-          flex-direction: row;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-        }
-      
-        .nav_options {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
-          flex-wrap: wrap;
-        }
-      
-        #page-links {
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          align-items: flex-start;
-        }
-      
-        #nav_buttons {
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          align-items: flex-end;
-          justify-content: flex-start;
-        }
-      
-        #page-links li,
-        #nav_buttons li {
-          margin: 8px 0;
-        }
-      
-        #nav_buttons button {
-          width: max-content;
-        }
-      }*/
-
-
-/* Buttons */
-button {
-    background-color: #5a3e71;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    padding: 8px 14px;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
 }
-  
-button a {
-    text-decoration: none;
-    color: white;
-}
-  
-button:hover {
-    background-color: #cca7ea; /* buttons turn purple on hover */
-    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-    cursor: pointer;
-    transition: 0.3s;
-  }
+
 
 footer {
     background-color:#ebeffe;
@@ -402,18 +182,9 @@ footer a:hover {
     background-size: cover;
     width: 100%;
     height: auto;
-    padding: 10em 1em;
+    padding: 5em 1em;
     margin: 0;
     font-size: 100%;
-}
-
-#big_company_heading{
-    position: relative;
-    bottom: 0;
-}
-.check{
-    position: relative;
-    bottom: 0;
 }
 
 /*heading styles*/
@@ -446,43 +217,6 @@ h2 {
     border-spacing: 2rem 2rem
 }
 
-/*
-#our_plans_table {
-    table-layout: fixed;
-    width: 100%;
-    text-align: center;
-    margin: 20px;
-    background-color: #ebeffe;
-    border-radius: 20px;
-  }
-  
-  #our_plans_table td {
-    width: 33.33%;
-    padding: 20px;
-    vertical-align: top;
-  }
-  
-  #our_plans_table ul {
-    list-style-position: inside;
-    padding-left: 0;
-    
-  }
-  
-  #our_plans_table button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    background-color:#5a3e71;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #our_plans_table button:hover {
-    background-color: #357bd8;
-  }
-*/
 #why_choose_us_title{
     padding: 20px;
 }
