@@ -28,17 +28,22 @@ html {
 
 body {
     font-size: 1.25em;
+    margin-top: 20vh;
 }
 
 /*navbar styles*/
 nav {
-    position: sticky;
+    position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
-    padding: 5px;
+    z-index: 1000;
+    padding: 1vw 0;
     background-color:#ebeffe;
     align-items: center;
     flex-wrap: wrap;
+    box-shadow: 2px 2px 3px #5a3e71;
+    min-width: 60vh;
 }
 
 #nav_buttons {
@@ -59,7 +64,6 @@ nav {
 
 .nav_options {
     list-style: none;
-    margin: 0 5px;
     overflow: hidden;
 }
 
@@ -607,5 +611,14 @@ a.apply_link:hover {
     
     #job_nav {
         min-width: 80%;
+    }
+
+}
+
+/* To prevent content from being covered by nav bar */
+@media (max-width: 570px) { 
+
+    body {
+        margin-top: 40%;
     }
 }
