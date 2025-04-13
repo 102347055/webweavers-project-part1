@@ -199,8 +199,9 @@ nav ul li a {
     }
   
     #nav_buttons {
-      align-items: flex-end; /* Align buttons to the right */
-      justify-content: center;
+        width: 100%;
+        align-items:flex-end; /* Align buttons to the right */
+        justify-content:right;
     }
   }
 
