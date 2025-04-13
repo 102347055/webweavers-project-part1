@@ -429,11 +429,11 @@ textarea {
 
 fieldset {
     border: 2px solid #5a3e71;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 15px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
 h2, h3, h4 {
@@ -454,19 +454,25 @@ h2, h3, h4 {
     margin-top: 30px;
 }
 
-#about_page {
-    background-color: #ebeffe;
-        padding: 9px;
+.about_page {
+    background-color: #ffffff;
         border-radius: 10px;
+        padding: 9px;
         border: none;}
+
 #class_header {
-    background-color: #8d7296;
+    background-color: #ebeffe;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 15px;
     border-style: solid;
-    color: white;
-}
+    color: black;
     
+}
+
+#class_header ul{
+    list-style-type: none;
+}
+
 #tutor {text-align: center;
     font-size: 2em;}
 
@@ -529,16 +535,25 @@ h2, h3, h4 {
     box-sizing: border-box;
 }
 
-#nick, #student_id u, #group_jobs u, .favourites u {
+#student_id ul {
+    list-style-type: none; 
+}
+
+#student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
+}
+
+
+#tutor:hover {
+    transform: scale(1.05);
 }
 
 #interests-table {
     border-collapse: collapse;
     width: 80%;
     margin: auto;
-    background-color: #ffffff;
+    background-color: #ebeffe;
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
 
@@ -550,13 +565,13 @@ h2, h3, h4 {
 
 #interests-table th,
 #interests-table td {
-    border: 1px solid #cca7ea;
+    border: 1px solid #5a3e71;
     padding: 10px;
     text-align: left;
 }
 
 #interests-table th {
-    background-color: #cca7ea;
+    background-color: #5a3e71;
     color: #fff;
 }
 
