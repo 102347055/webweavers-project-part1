@@ -30,72 +30,141 @@ body {
     font-size: 1.25em;
 }
 
-/*navbar styles*/
+/* Navbar layout */
 nav {
     position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
-    padding: 5px;
-    background-color:#ebeffe;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-#nav_buttons {
-    position: absolute;
-    right: 20px;
-    top: 17.5px;
-    
-}
-
-#nav_buttons a:hover{
-    color:#7c648f;
-}
-
-#three_together a:hover{
-    background-color:#5a3e71;
-    color: white;
-}
-
-.nav_options {
-    list-style: none;
-    margin: 0 5px;
-    overflow: hidden;
-}
-
-nav ul li {
-    margin: 0 5px;
-    display: inline-block;
-    
-}
-
-nav ul li a {
-    text-decoration: none;
-}
-
-button {
-    background-color: #5a3e71;
-    font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    padding: 9px;
-    color:white;
-    border-radius: 10px;
-    border: none;
-    margin: 4px;
-}
-
-button a {
-    text-decoration: none;
-    color: white;
-}
-
-#home_logo {
+    background-color: #ebeffe;
+    padding: 10px 20px;
+    z-index: 1000;
+  }
+  
+  /* Logo styling */
+  #home_logo {
     width: 150px;
     height: auto;
-    top: 0;
-}
+  }
+  
+  /* Nav list layout */
+  .nav_options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1; /* Take up remaining space */
+    margin-left: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Grouping sections in nav bar */
+  #three_together,
+  #nav_buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add spacing between each nav item */
+  #three_together li,
+  #nav_buttons li {
+    margin: 0 16px;
+  }
+  
+  /* Links in nav */
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    
+  }
 
-#simplified-footer {
+  #three_together{
+    color: #5a3e71;
+  }
+  
+  /* Hover effects */
+  #nav_buttons a:hover {
+    color: #7c648f;
+  }
+  
+  #three_together a:hover {
+    background-color: #5a3e71;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+  }
+  
+  /* Responsive: Stack nav items vertically on small screens */
+@media (max-width: 1000px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+    
+      .nav_options {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+      }
+    
+      #three_together {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        flex: 1;
+      }
+    
+      #nav_buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: auto;
+        flex: 1;
+        gap:10px;
+      }
+    
+      #three_together li,
+      #nav_buttons button {
+        width: 100%;
+      }
+    
+      #three_together a,
+      #nav_buttons button {
+        text-align: left;
+      }
+    }
+
+  /* Buttons */
+  button {
+    background-color: #5a3e71;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    padding: 8px 14px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #simplified-footer {
     padding: 0.5em;
     text-align: center;
     font-size: 0.8em;
@@ -113,6 +182,13 @@ footer img {
     opacity: 80%;
     padding: 20px;
 }
+
+@media(max-width: 1000px) {
+    h1 {
+      font-size:700%;
+    }
+  }
+
 /*background image on homepage*/
 #home-header {
     background-image: url(images/homepage-background.jpg);
@@ -123,6 +199,11 @@ footer img {
     height: auto;
     padding: 10em 1em;
     margin: 0;
+    font-size: 100%;
+}
+
+#footer-middle {
+    
 }
 
 #big_company_heading{
@@ -164,7 +245,7 @@ h2 {
     border-spacing: 2rem 2rem
 }
 
-
+/*
 #our_plans_table {
     table-layout: fixed;
     width: 100%;
@@ -200,12 +281,143 @@ h2 {
   #our_plans_table button:hover {
     background-color: #357bd8;
   }
+*/
+#why_choose_us_title{
+    padding: 20px;
+}
+ #our_plans_title {
+    padding:20px;
+ }
+  /*plans container*/
+  /* Container for the 3 plans, displayed side-by-side */
+.plans-container {
+    display: flex;              /* Arrange plans in a row */
+    gap: 20px;                  /* Space between columns */
+    justify-content: space-between;
+    margin:20px;
+  }
+  
+  /* Individual plan card styling */
+  .plan {
+    flex: 1;                    /* Equal width for each column */
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow */
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;    /* So that UL stretches vertically */
+    background-color: #ebeffe;
+  }
+  
+  /* Plan title */
+  .plan h3 {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  
+  /* List layout using CSS Grid to make all rows equal height */
+  .plan ul {
+    list-style: none;          /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: repeat(11, 1fr); /* 11 equal-height rows */
+    height: 100%;              /* Full height of the section */
+    gap: 0.5px;                  /* Space between items */
+  }
+  
+  /* Each item in the plan list */
+  .plan li {
+    /*border-bottom: 1px solid black;*/
+    display: flex;             /* Center content inside each <li> */
+    align-items: center;       /* Vertical centering */
+    justify-content: center;   /* Horizontal centering */
+    text-align: center;
+    padding: 8px;
+    min-height: 40px;          /* Optional: enforce minimum row height */
+  }
+  
+  /* Remove bottom border on the last item */
+  .plan li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Button styling inside each plan */
+  .plan_button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #5a3e71;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Button hover effect */
+  .plan_button{
+    width: 100%;
+    align-self: center;
+    padding: 10px;
+}
 
+.plan_button:hover {
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+  /* Responsive: stack plans vertically on small screens */
+@media (max-width: 1000px) {
+    .plans-container {
+      flex-direction: column;  /* Stack vertically instead of side-by-side */
+    }
+  
+    .plan {
+      margin-bottom: 20px;     /* Space between stacked plans */
+    }
+  
+    .plan ul {
+      grid-template-rows: repeat(11, auto); /* Let rows adjust naturally */
+    }
+    
+  }
 
 article {
     position: relative;
     top:20px;
 }
+/**/
+.faq-container {
+    max-width: 100%;
+    margin: 20px;
+    font-family: sans-serif;
+  }
+
+  .faq {
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+  }
+
+  summary::marker {
+    color:#5a3e71;
+  }
+
+  .faq p {
+    margin-top: 0.5em;
+    padding-left: 1em;
+    color: #444;
+  }
 
 .side_heading {
     float: left;
@@ -238,6 +450,9 @@ footer {
   .footer-col {
     text-align: left;             /* Make sure all text inside is left-aligned */
   }
+ .footer-middle{
+    align-content: center;
+ }
 
   /* Remove default list styles from <ul> */
   .footer-col ul {
@@ -250,7 +465,9 @@ footer {
   .footer-col ul li {
     margin-bottom: 0.5rem;        /* Space between list items */
   }
-
+  .footer-middle {
+    
+  }
   /* Link styling */
   footer a {
     text-decoration: none;        /* Remove underline by default */

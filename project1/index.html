@@ -34,17 +34,16 @@
           <a href = "./index.html"><img src="./images/web_weavers_logo.jpg" id = "home_logo"
                   alt="Web Weavers Technology Company Logo; dark purple spiderweb against a lighter purple background with company name" 
                   title="Web Weavers Company Logo"></a>
-          <ul class = "nav_options">
-              <span id = "three_together">
-                  <li><a href="./jobs.html">Current Opportunities</a></li>
-                  <li><a href="./apply.html">Apply Now</a></li> 
-                  <li><a href="./about.html">About Us</a></li> 
-                </span>
-              <span id = "nav_buttons">
-                  <button><a href="./index.html">Log In</a></button>
-                  <button><a href="./index.html">Get Started</a></button>
-              <!--<li><div class="bx bx-menu" id="menu-icon"></div></li>-->
-              </span>
+          <ul class="nav_options">
+            <div id="three_together">
+              <li><a href="./jobs.html">Current Opportunities</a></li>
+              <li><a href="./apply.html">Apply Now</a></li> 
+              <li><a href="./about.html">About Us</a></li> 
+            </div>
+            <div id="nav_buttons">
+              <li><button><a href="./index.html">Log In</a></button></li>
+              <li><button><a href="./index.html">Get Started</a></button></li>
+            </div>
           </ul>
         </nav>
         <div id="home-header">
@@ -53,9 +52,9 @@
           <div class = "check"> <h2> Spinning a Faster, Safer and Seamless Cloud for You.</h2></div></div>
         </div>
     </header>
-   
+   <br>
    <article>
-        <h2> Why choose us? </h2>
+        <h2 span id = "why_choose_us_title"> Why choose us? </h2>
         <div id ="why_us">
           <table id = "why_us_table">
             <tr>
@@ -97,111 +96,95 @@
           </table>
         </div>
 
-        <h2>Our Plans</h2>
-          <table id="our_plans_table">
-            <tr>
-              <th>Starter Cloud</th>
-              <th>Cloud Pro</th>
-              <th>Cloud Enterprise</th>
-            </tr>
-            <tr>
-              <td>5 GB Storage</td>
-              <td>1 TB Storage</td>
-              <td>10 TB Storage (expandable)</td>
-            </tr>
-            <tr>
-              <td>Standard encryption</td>
-              <td>End-to-end encryption</td>
-              <td>Enterprise-grade encryption, SSO, 2FA</td>
-            </tr>
-            <tr>
-              <td>Sync across 2 devices</td>
-              <td>Unlimited devices</td>
-              <td>Up to 20 team members</td>
-            </tr>
-            <tr>
-              <td>7-day file version history</td>
-              <td>30-day file version history</td>
-              <td>180-day file version history</td>
-            </tr>
-            
-            <tr>
-              <td>Community support </td>
-              <td>
-                File sharing<br>
-              </td>
-              <td>
-                Admin dashboard<br>
-              </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td>Password-protected links<br>
-              </td>
-              <td>
-                Audit logs<br>
-              </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td>
-                Email + priority chat support
-              </td>
-              <td>
-                
-                Slack, Google, Microsoft integrations<br>
-              </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td> </td>
-              <td>
-                24/7 dedicated support team
-              </td>
-            </tr>
-            <tr>
-              <td><strong>$0/month</strong></td>
-              <td><strong>$9.99/month</strong></td>
-              <td><strong>$49.99/month</strong></td>
-            </tr>
-            <tr>
-              <td><button>Get Started</button></td>
-              <td><button>Upgrade</button></td>
-              <td><button>Contact Sales</button></td>
-            </tr>
-          </table>
+      
+<br>
+          <h2 span id= "our_plans_title">Our Plans</h2>
+<div class="plans-container">
+  <section class="plan">
+    <h3>Starter Cloud</h3>
+    <ul>
+      <li>5 GB Storage</li>
+      <li>Standard encryption</li>
+      <li>Sync across 2 devices</li>
+      <li>7-day file version history</li>
+      <li>Community support</li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li><strong>$0/month</strong></li>
+      <li><button class = plan_button>Get Started</button></li>
+    </ul>
+  </section>
+
+  <section class="plan">
+    <h3>Cloud Pro</h3>
+    <ul>
+      <li>1 TB Storage</li>
+      <li>End-to-end encryption</li>
+      <li>Unlimited devices</li>
+      <li>30-day file version history</li>
+      <li>File sharing</li>
+      <li>Password-protected links</li>
+      <li>Email + priority chat support</li>
+      <li></li>
+      <li></li>
+      <li><strong>$9.99/month</strong></li>
+      <li><button class = plan_button>Upgrade</button></li>
+    </ul>
+  </section>
+
+  <section class="plan">
+    <h3>Cloud Enterprise</h3>
+    <ul>
+      <li>10 TB Storage (expandable)</li>
+      <li>Enterprise-grade encryption, SSO, 2FA</li>
+      <li>Up to 20 team members</li>
+      <li>180-day file version history</li>
+      <li>Admin dashboard</li>
+      <li>Audit logs</li>
+      <li>Slack, Google, Microsoft integrations</li>
+      <li>24/7 dedicated support team</li>
+      <li></li>
+      <li><strong>$49.99/month</strong></li>
+      <li><button class = plan_button>Contact Sales</button></li>
+    </ul>
+  </section>
+</div>
+    <br>
+    <div class="faq-container">
+      <h2>Cloud Storage FAQs</h2>
+      <br>
+      <details class="faq">
+        <summary>1. What makes Web Weavers’ cloud storage different from other providers?</summary>
+        <p>Web Weavers offers high-speed, secure, and scalable cloud storage with built-in redundancy and zero-downtime guarantees.</p>
+      </details>
+    
+      <details class="faq">
+        <summary>2. How secure is my data on Web Weavers’ cloud storage?</summary>
+        <p>We use end-to-end encryption, multi-factor authentication (MFA), and AI-driven threat detection to ensure maximum security.</p>
+      </details>
+    
+      <details class="faq">
+        <summary>3. Can I easily scale my storage as my business grows?</summary>
+        <p>Yes! Web Weavers offers on-demand scalability with pay-as-you-go pricing, so you only pay for what you use.</p>
+      </details>
+    
+      <details class="faq">
+        <summary>4. What happens if I lose access to my account?</summary>
+        <p>Our account recovery system helps you regain access through identity verification. We also provide backup recovery solutions.</p>
+      </details>
+    
+      <details class="faq">
+        <summary>5. Does Web Weavers support third-party integrations?</summary>
+        <p>Yes! Web Weavers integrates with popular business tools, including productivity suites and project management platforms.</p>
+      </details>
+      <br>
+      <h2>"Instant access, secure storage, and seamless sharing—your cloud, your control."</h2>
+      <br><br>
+    </div>
 
     </article>
-    <div class="faq-container">
-        <h2>Cloud Storage FAQs</h2>
-        
-        <div class="faq">
-            <p class="question" onclick="toggleAnswer('answer1')">1. What makes Web Weavers’ cloud storage different from other providers?</p>
-            <p class="answer" id="answer1">Web Weavers offers high-speed, secure, and scalable cloud storage with built-in redundancy and zero-downtime guarantees.</p>
-        </div>
-        
-        <div class="faq">
-            <p class="question" onclick="toggleAnswer('answer2')">2. How secure is my data on Web Weavers’ cloud storage?</p>
-            <p class="answer" id="answer2">We use end-to-end encryption, multi-factor authentication (MFA), and AI-driven threat detection to ensure maximum security.</p>
-        </div>
-        
-        <div class="faq">
-            <p class="question" onclick="toggleAnswer('answer3')">3. Can I easily scale my storage as my business grows?</p>
-            <p class="answer" id="answer3">Yes! Web Weavers offers on-demand scalability with pay-as-you-go pricing, so you only pay for what you use.</p>
-        </div>
-        
-        <div class="faq">
-            <p class="question" onclick="toggleAnswer('answer4')">4. What happens if I lose access to my account?</p>
-            <p class="answer" id="answer4">Our account recovery system helps you regain access through identity verification. We also provide backup recovery solutions.</p>
-        </div>
-        
-        <div class="faq">
-            <p class="question" onclick="toggleAnswer('answer5')">5. Does Web Weavers support third-party integrations?</p>
-            <p class="answer" id="answer5">Yes! Web Weavers integrates with popular business tools, including productivity suites and project management platforms.</p>
-        </div>
-        <h2>"Instant access, secure storage, and seamless sharing—your cloud, your control."</h2>
-
-    </div>
     <footer>
       <hr>
       <div class="footer-container">
@@ -215,10 +198,18 @@
             </ul>
           </div>
         </div>
-        
+
+        <div class="footer-middle">
+          <div class="footer-col">
+            <a href="index.html"><img src="images/web_weavers_logo_only_pic.jpg" alt="Purple spiderweb from Web Weavers logo"></a>
+          </div>
+
+
+        </div>
+
         <div class="footer-left">
           <div class="footer-col">
-            <p>&copy;&nbsp; Web Weavers</p>
+            <p>&copy;&nbsp; 2025 Web Weavers</p>
             <p>Email: <a href="mailto:info@webweavers.edu.au">info@webweavers.edu.au</a></p>
             <p>
               Link:
@@ -228,9 +219,9 @@
             </p>
           </div>
         </div>
-    
       </div>
+    </div> 
     </footer>
-    </div>
+    
 </body>
 </html>
