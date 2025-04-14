@@ -546,7 +546,34 @@ textarea {
 
 /***************************************************** about page **************************************************************/
 
-#about_fieldset {
+#favourites_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+#interests_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+#profile_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+#contributions_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
