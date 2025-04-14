@@ -652,8 +652,8 @@ h2, h3, h4 {
 }
 
 .favourites ul li {
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
     width: 300px;
@@ -682,9 +682,9 @@ h2, h3, h4 {
 
 .favourites li ul li {
     padding: 10px;
-    background-color: #fff;
-    border-radius: 6px;
-    box-shadow: 1px 1px 5px #ccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 7px 2px #5a3e71;
     width: 100%;
     box-sizing: border-box;
 }
