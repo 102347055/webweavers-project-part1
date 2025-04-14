@@ -244,12 +244,16 @@ h2 {
     padding: 20px;
 }
 
+#home-header h2{
+    color: black;
+}
+
 .purple_web{
     color: #5a3e71;
     font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
-}
+} 
 
-/*table*/
+/*why us table*/
 #why_us {
     background-color:#ebeffe;
     border-radius: 20px;
@@ -261,7 +265,7 @@ h2 {
     border-spacing: 2rem 2rem
 }
 
-/*plans container*/
+/*plans*/
 /*display plans side by side as 3 columns*/
 .plans-container {
     display: flex;              /* display plans in a row */
@@ -350,10 +354,7 @@ h2 {
     } 
 }
 
-#index_article {
-    position: relative;
-}
-
+/*FAQ toggles*/
 .faq-container {
     max-width: 100%;
     font-family: sans-serif;
