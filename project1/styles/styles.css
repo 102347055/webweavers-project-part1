@@ -152,8 +152,9 @@ nav ul li {
     }
 
     .page-links {
+        font-size: 0.75em;
         margin: 0 5px 5px 5px;
-        width: 70%;
+        width: 95%;
         background-color: white;    /* make outline of nav links visible for easier mobile navigation */
         box-shadow: 2px 2px 3px #5a3e71;
         border-radius: 10px;
