@@ -858,7 +858,7 @@ I asked how I could get my essentials and preferable divs to be spaced evenly. *
     max-width: 45%;
 }
 
-#apply_now{
+.apply_now{
     display: flex;
     justify-content: center;
 }
@@ -885,7 +885,7 @@ a.apply_link:hover {
     cursor: pointer;
 }
 
-#apply_button {
+#apply_button1, #apply_button2 {
     display: flex;
     justify-content: center;
     align-items: center;
