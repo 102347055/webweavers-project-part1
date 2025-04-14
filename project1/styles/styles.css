@@ -540,6 +540,7 @@ textarea {
 
 /***************************************************** about page **************************************************************/
 
+/* Styles for the favourites fieldset */
 #favourites_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -549,6 +550,7 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the interests fieldset */
 #interests_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -558,6 +560,7 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the profile fieldset */
 #profile_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -567,6 +570,7 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the contributions fieldset */
 #contributions_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -576,15 +580,8 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-#student_id{
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
-}
-#class_header{
+/* Styles for the student ID section */
+#student_id {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -593,10 +590,22 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the class header */
+#class_header {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for headings */
 h2, h3, h4 {
     color: #5a3e71;
 }
 
+/* Layout for interests and photo section */
 .interests-and-photo {
     display: flex;
     flex-direction: row-reverse;
@@ -607,15 +616,18 @@ h2, h3, h4 {
     max-width: 1200px;
 }
 
+/* Styles for interests content */
 .interests-content {
     flex: 1;
 }
 
+/* Styles for group photo wrapper */
 .group-photo-wrapper {
     flex-shrink: 0;
     text-align: center;
 }
 
+/* Styles for group image */
 #group_image {
     border: 2px solid #5a3e71;
     width: 300px;
@@ -623,16 +635,13 @@ h2, h3, h4 {
     border-radius: 10px;
 }
 
+/* Styles for photo heading */
 #photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
-#photoheading {
-    margin-bottom: 10px;
-    color: #5a3e71;
-}
-
+/* Styles for about page */
 .about_page {
     background-color: #ffffff;
     border-radius: 10px;
@@ -640,6 +649,7 @@ h2, h3, h4 {
     border: none;
 }
 
+/* Additional styles for class header */
 #class_header {
     background-color: #ebeffe;
     padding: 10px;
@@ -648,11 +658,12 @@ h2, h3, h4 {
     color: black;
 }
 
+/* Styles for class header list */
 #class_header ul {
     list-style-type: none;
 }
 
-
+/* Layout for favourites section */
 .favourites-section {
     display: flex;
     justify-content: center;
@@ -661,6 +672,7 @@ h2, h3, h4 {
     margin-bottom: 30px;
 }
 
+/* Styles for favourites list */
 .favourites ul {
     list-style-type: none;
     padding: 0;
@@ -672,6 +684,7 @@ h2, h3, h4 {
     gap: 20px;
 }
 
+/* Styles for favourites list items */
 .favourites ul li {
     border: 1px solid #ffffff;
     background-color: #ffffff;
@@ -685,12 +698,14 @@ h2, h3, h4 {
     justify-content: flex-start;
 }
 
+/* Styles for underlined text in favourites */
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 10px;
 }
 
+/* Styles for nested list in favourites */
 .favourites li ul {
     margin-top: 10px;
     padding: 0;
@@ -701,6 +716,7 @@ h2, h3, h4 {
     gap: 10px;
 }
 
+/* Styles for nested list items in favourites */
 .favourites li ul li {
     padding: 10px;
     background-color: #ffffff;
@@ -710,19 +726,23 @@ h2, h3, h4 {
     box-sizing: border-box;
 }
 
+/* Styles for student ID list */
 #student_id ul {
     list-style-type: none;
 }
 
+/* Styles for underlined text in student ID, group jobs, and favourites */
 #student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
 }
 
+/* Hover effect for tutor */
 #tutor:hover {
     transform: scale(1.05);
 }
 
+/* Styles for interests table */
 #interests-table {
     border-collapse: collapse;
     width: 100%;
@@ -730,12 +750,14 @@ h2, h3, h4 {
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
 
+/* Styles for interests table caption */
 #interests-table caption {
     font-size: 1.4em;
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
+/* Styles for interests table headers and cells */
 #interests-table th,
 #interests-table td {
     border: 1px solid #5a3e71;
@@ -743,11 +765,13 @@ h2, h3, h4 {
     text-align: left;
 }
 
+/* Styles for interests table headers */
 #interests-table th {
     background-color: #5a3e71;
     color: #fff;
 }
 
+/* Hover effect for interests table rows */
 #interests-table tr:hover td {
     background-color: #d0d0d0;
 }
