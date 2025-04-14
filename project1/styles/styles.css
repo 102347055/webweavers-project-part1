@@ -509,8 +509,14 @@ textarea {
     }
 
     #apply-heading {
-        font-size: 3em; /* heading is smaller - more appropriate size in relation to screen */
+        font-size: 2em; /* heading is smaller - more appropriate size in relation to screen */
         text-align: center;
+        margin: 1em;
+    }
+
+    form {
+        margin: 0.75em; /* smaller margin so form fills more of the screen */
+        font-size: 0.75em; /*smaller font so content fits better */
     }
 
     label {
