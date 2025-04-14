@@ -607,6 +607,15 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+#photo_fieldset{
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
 /* Move student id next to member contribution */
 .id_rightside {
     display: flex;
@@ -619,9 +628,22 @@ textarea {
     box-sizing: border-box;
 }
 
-#student_id{
-    text-align: right;
+/* Ensure contribution content and student ID share space */
+#contributions_fieldset {
+    flex: 2;
+    min-width: 0;
 }
+
+/* Keep the student ID box to the right unless there's no space */
+#student_id {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    text-align: right;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
 
 #id_heading{
     text-align: right;
@@ -646,6 +668,7 @@ h2, h3, h4 {
 /* Styles for interests content */
 .interests-content {
     flex: 1;
+    flex-shrink: 0;
 }
 
 /* Styles for group photo wrapper */
@@ -807,14 +830,45 @@ h2, h3, h4 {
     align-items: center;
     gap: 20px;
 }
+/* Make the container responsive and avoid horizontal scroll */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make table responsive on zoom-in */
+#interests-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Wrapper for the table to handle overflow gracefully */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+/* When zoomed in, stack photo and table */
+.interests-and-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 0 1em;
+}
 
 @media (min-width: 768px) {
     .interests-and-photo {
-        flex-direction: row-reverse; /* restore row layout on wider screens */
+        flex-direction: row-reverse;
         justify-content: space-between;
     }
 }
-
 /***************************************************** Jobs Page **************************************************************/
 
 #jobs_body {
