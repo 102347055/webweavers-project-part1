@@ -587,16 +587,6 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-/* Styles for the student ID section */
-#student_id {
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
-}
-
 /* Styles for the class header */
 #class_header {
     border: 2px solid #5a3e71;
@@ -605,6 +595,36 @@ textarea {
     background-color: #ebeffe;
     border-radius: 5px;
     box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the student id */
+#student_id{
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Move student id next to member contribution */
+.id_rightside {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 1em;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#student_id{
+    text-align: right;
+}
+
+#id_heading{
+    text-align: right;
 }
 
 /* Styles for headings */
@@ -670,7 +690,7 @@ h2, h3, h4 {
     list-style-type: none;
 }
 
-/* Layout for favourites section */
+/* Favourites section layout */
 .favourites-section {
     display: flex;
     justify-content: center;
@@ -679,25 +699,25 @@ h2, h3, h4 {
     margin-bottom: 30px;
 }
 
-/* Styles for favourites list */
+/* Favourites list styles */
 .favourites ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; /* Allow wrapping instead of one row overflow */
     justify-content: center;
-    flex-wrap: nowrap;
     gap: 20px;
 }
 
-/* Styles for favourites list items */
 .favourites ul li {
     border: 1px solid #ffffff;
     background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px; /* Keeps width consistent but flexible */
     box-shadow: 2px 2px 8px #000;
     display: flex;
     flex-direction: column;
@@ -705,14 +725,14 @@ h2, h3, h4 {
     justify-content: flex-start;
 }
 
-/* Styles for underlined text in favourites */
+/* Underlined text styles in favourites */
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 10px;
 }
 
-/* Styles for nested list in favourites */
+/* Nested list styles in favourites */
 .favourites li ul {
     margin-top: 10px;
     padding: 0;
@@ -723,7 +743,6 @@ h2, h3, h4 {
     gap: 10px;
 }
 
-/* Styles for nested list items in favourites */
 .favourites li ul li {
     padding: 10px;
     background-color: #ffffff;
@@ -732,7 +751,6 @@ h2, h3, h4 {
     width: 100%;
     box-sizing: border-box;
 }
-
 /* Styles for student ID list */
 #student_id ul {
     list-style-type: none;
@@ -744,10 +762,6 @@ h2, h3, h4 {
     font-weight: 600;
 }
 
-/* Hover effect for tutor */
-#tutor:hover {
-    transform: scale(1.05);
-}
 
 /* Styles for interests table */
 #interests-table {
@@ -783,6 +797,23 @@ h2, h3, h4 {
     background-color: #d0d0d0;
 }
 
+.about_page {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.interests-and-photo {
+    flex-direction: column; /* stack on small screens */
+    align-items: center;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .interests-and-photo {
+        flex-direction: row-reverse; /* restore row layout on wider screens */
+        justify-content: space-between;
+    }
+}
 
 /***************************************************** Jobs Page **************************************************************/
 
