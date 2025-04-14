@@ -846,7 +846,7 @@ body {
 }
 
 /* Wrapper for the table to handle overflow gracefully */
-.table-wrapper {
+.interests-content {
     width: 100%;
     overflow-x: auto;
     box-sizing: border-box;
