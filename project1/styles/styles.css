@@ -27,11 +27,12 @@ html {
 }
 
 body {
-    font-size: 1.25em;
+    font-size: 1.25em; /*kept body font larger than 16px for accessibility purposes and used em units for better adjustibility across devices of varying sizes*/
     margin-top: 12vh;
 }
 
 /* Navbar layout */
+/*keeps navbar sticky which means users can easily access other pages without having to scroll back up*/
 nav {
     position: fixed;
     top: 0;
@@ -44,6 +45,7 @@ nav {
     box-shadow: 2px 2px 3px #5a3e71;
 }
 
+/*display navbar options as a line*/
 nav ul li {
     margin: 0 5px;
     display: inline-block; 
@@ -52,6 +54,7 @@ nav ul li {
     font-weight: 500;
 }
 
+/*remove */
 nav ul li a {
     text-decoration: none;
     text-align: center;
@@ -75,6 +78,7 @@ nav ul li a {
     padding: 9px;
     margin: 4px;
     width: 100%;
+    color: #5a3e71;
 }
 
 .page-links:hover{
@@ -335,7 +339,7 @@ h2 {
 }
 
 /* Responsive: stack plans vertically on small screens */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .plans-container {
       flex-direction: column;  /* Stack vertically instead of side-by-side */
     }
