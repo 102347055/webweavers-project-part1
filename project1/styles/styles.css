@@ -27,11 +27,12 @@ html {
 }
 
 body {
-    font-size: 1.25em;
+    font-size: 1.25em; /*kept body font larger than 16px for accessibility purposes and used em units for better adjustibility across devices of varying sizes*/
     margin-top: 12vh;
 }
 
 /* Navbar layout */
+/*keeps navbar sticky which means users can easily access other pages without having to scroll back up*/
 nav {
     position: fixed;
     top: 0;
@@ -44,6 +45,7 @@ nav {
     box-shadow: 2px 2px 3px #5a3e71;
 }
 
+/*display navbar options as a line*/
 nav ul li {
     margin: 0 5px;
     display: inline-block; 
@@ -52,13 +54,14 @@ nav ul li {
     font-weight: 500;
 }
 
+
 nav ul li a {
-    text-decoration: none;
+    text-decoration: none; /*remove hyperlink underline*/
     text-align: center;
 }
 
 .navbar {
-    list-style: none;
+    list-style: none; /*remove bullet point*/
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -75,6 +78,7 @@ nav ul li a {
     padding: 9px;
     margin: 4px;
     width: 100%;
+    color: #5a3e71;
 }
 
 .page-links:hover{
@@ -163,7 +167,6 @@ nav ul li {
     }
 }
 
-
 footer {
     background-color:#ebeffe;
     padding: 0.5em;
@@ -188,6 +191,18 @@ footer a:hover {
 }
 
 /***************************************************** index **************************************************************/
+/*background image on homepage*/
+#home-header {
+    background-image: url(images/homepage-background.jpg);  /* image source: https://keebs.com/work/lofi-study/ */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding: 5em 1em;
+    margin: 0;
+    font-size: 100%;
+}
 
 #big_company_heading{
     background-color: #ebeffe;
@@ -209,108 +224,97 @@ footer a:hover {
     #big_company_heading h2 {
         font-size: 3rem;
     }
-  }
 
-/*background image on homepage*/
-#home-header {
-    background-image: url(images/homepage-background.jpg);  /* image source: https://keebs.com/work/lofi-study/ */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: auto;
-    padding: 5em 1em;
-    margin: 0;
-    font-size: 100%;
+    h2 {
+        font-size: 3rem;
+    }
 }
 
 /*heading styles*/
-
 h1 {
-    font-family: "Economica", sans-serif;
-    font-size: 1000%;
+    font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
+    font-size: 13rem;
     position: relative;
     bottom: 0;
 }
 
 h2 {
-    font-family: "Economica", sans-serif;
-    font-size: 500%;
+    font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
+    font-size: 6rem;
     padding: 20px;
+}
+
+#home-header h2{
+    color: black;
 }
 
 .purple_web{
     color: #5a3e71;
-    font-family: "Economica", sans-serif;
-}
+    font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
+} 
 
-/*table*/
+/*why us table*/
 #why_us {
     background-color:#ebeffe;
     border-radius: 20px;
     border: none;
     margin: 20px;
 }
+
 #why_us_table{
     border-spacing: 2rem 2rem
 }
 
-/*plans container*/
-/* Container for the 3 plans, displayed side-by-side */
+/*plans*/
+/*display plans side by side as 3 columns*/
 .plans-container {
-    display: flex;              /* Arrange plans in a row */
-    gap: 20px;                  /* Space between columns */
+    display: flex;              /* display plans in a row */
+    gap: 20px;                  /* small space between columns for separation */
     justify-content: space-between;
     margin:20px;
 }
   
-/* Individual plan card styling */
+/*individual plan styling*/
 .plan {
     flex: 1;                    /* Equal width for each column */
     border: 1px solid black;
     border-radius: 8px;
     padding: 16px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     background-color: #f9f9f9;
     display: flex;
-    flex-direction: column;    /* So that UL stretches vertically */
+    flex-direction: column;    /*stretches vertically*/
     background-color: #ebeffe;
 }
   
-/* Plan title */
+/*plan heading*/
 .plan h3 {
     text-align: center;
     margin-bottom: 12px;
 }
   
-/* List layout using CSS Grid to make all rows equal height */
+/*make all rows equal height*/
 .plan ul {
-    list-style: none;          /* Remove bullet points */
+    list-style: none;          /*remove bullet points*/
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-rows: repeat(11, 1fr); /* 11 equal-height rows */
-    height: 100%;              /* Full height of the section */
-    gap: 0.5px;                  /* Space between items */
+    grid-template-rows: repeat(11, 1fr); /*11 rows of equal height so plans line up*/
+    height: 100%;              
+    gap: 0.5px;                  
 }
   
-/* Each item in the plan list */
+/*individual plan feature*/
 .plan li {
-/*border-bottom: 1px solid black;*/
-    display: flex;             /* Center content inside each <li> */
-    align-items: center;       /* Vertical centering */
-    justify-content: center;   /* Horizontal centering */
+    display: flex;             
+    align-items: center;      
+    justify-content: center;   
     text-align: center;
     padding: 8px;
-    min-height: 40px;          /* Optional: enforce minimum row height */
+    min-height: 40px;
 }
   
-/* Remove bottom border on the last item */
-.plan li:last-child {
-    border-bottom: none;
-}
-  
-/* Button styling inside each plan */
+/* styling of buttons in plan cards*/
 .plan_button {
     width: 100%;
     padding: 10px;
@@ -319,9 +323,9 @@ h2 {
     color: white;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 500;
 }
-  
-/* Button hover effect */
+
 .plan_button{
     width: 100%;
     align-self: center;
@@ -335,7 +339,7 @@ h2 {
     transition: 0.3s;
 }
 
-/* Responsive: stack plans vertically on small screens */
+/*stacks plans vertically on small screens */
 @media (max-width: 800px) {
     .plans-container {
       flex-direction: column;  /* Stack vertically instead of side-by-side */
@@ -350,16 +354,11 @@ h2 {
     } 
 }
 
-#index_article {
-    position: relative;
-    top:20px;
-}
-
+/*FAQ toggles*/
 .faq-container {
     max-width: 100%;
     font-family: sans-serif;
 }
-
 
 .faq {
     margin-bottom: 1em;
@@ -542,7 +541,8 @@ textarea {
 
 /***************************************************** about page **************************************************************/
 
-#about_fieldset {
+/* Styles for the favourites fieldset */
+#favourites_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -551,15 +551,8 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-#student_id{
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
-}
-#class_header{
+/* Styles for the interests fieldset */
+#interests_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -568,10 +561,52 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the profile fieldset */
+#profile_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the contributions fieldset */
+#contributions_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the student ID section */
+#student_id {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the class header */
+#class_header {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for headings */
 h2, h3, h4 {
     color: #5a3e71;
 }
 
+/* Layout for interests and photo section */
 .interests-and-photo {
     display: flex;
     flex-direction: row-reverse;
@@ -582,15 +617,18 @@ h2, h3, h4 {
     max-width: 1200px;
 }
 
+/* Styles for interests content */
 .interests-content {
     flex: 1;
 }
 
+/* Styles for group photo wrapper */
 .group-photo-wrapper {
     flex-shrink: 0;
     text-align: center;
 }
 
+/* Styles for group image */
 #group_image {
     border: 2px solid #5a3e71;
     width: 300px;
@@ -598,16 +636,13 @@ h2, h3, h4 {
     border-radius: 10px;
 }
 
+/* Styles for photo heading */
 #photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
-#photoheading {
-    margin-bottom: 10px;
-    color: #5a3e71;
-}
-
+/* Styles for about page */
 .about_page {
     background-color: #ffffff;
     border-radius: 10px;
@@ -615,6 +650,7 @@ h2, h3, h4 {
     border: none;
 }
 
+/* Additional styles for class header */
 #class_header {
     background-color: #ebeffe;
     padding: 10px;
@@ -623,11 +659,12 @@ h2, h3, h4 {
     color: black;
 }
 
+/* Styles for class header list */
 #class_header ul {
     list-style-type: none;
 }
 
-
+/* Layout for favourites section */
 .favourites-section {
     display: flex;
     justify-content: center;
@@ -636,6 +673,7 @@ h2, h3, h4 {
     margin-bottom: 30px;
 }
 
+/* Styles for favourites list */
 .favourites ul {
     list-style-type: none;
     padding: 0;
@@ -647,9 +685,10 @@ h2, h3, h4 {
     gap: 20px;
 }
 
+/* Styles for favourites list items */
 .favourites ul li {
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
     width: 300px;
@@ -660,12 +699,14 @@ h2, h3, h4 {
     justify-content: flex-start;
 }
 
+/* Styles for underlined text in favourites */
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 10px;
 }
 
+/* Styles for nested list in favourites */
 .favourites li ul {
     margin-top: 10px;
     padding: 0;
@@ -676,28 +717,33 @@ h2, h3, h4 {
     gap: 10px;
 }
 
+/* Styles for nested list items in favourites */
 .favourites li ul li {
     padding: 10px;
-    background-color: #fff;
-    border-radius: 6px;
-    box-shadow: 1px 1px 5px #ccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 7px 2px #5a3e71;
     width: 100%;
     box-sizing: border-box;
 }
 
+/* Styles for student ID list */
 #student_id ul {
     list-style-type: none;
 }
 
+/* Styles for underlined text in student ID, group jobs, and favourites */
 #student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
 }
 
+/* Hover effect for tutor */
 #tutor:hover {
     transform: scale(1.05);
 }
 
+/* Styles for interests table */
 #interests-table {
     border-collapse: collapse;
     width: 100%;
@@ -705,12 +751,14 @@ h2, h3, h4 {
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
 
+/* Styles for interests table caption */
 #interests-table caption {
     font-size: 1.4em;
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
+/* Styles for interests table headers and cells */
 #interests-table th,
 #interests-table td {
     border: 1px solid #5a3e71;
@@ -718,11 +766,13 @@ h2, h3, h4 {
     text-align: left;
 }
 
+/* Styles for interests table headers */
 #interests-table th {
     background-color: #5a3e71;
     color: #fff;
 }
 
+/* Hover effect for interests table rows */
 #interests-table tr:hover td {
     background-color: #d0d0d0;
 }
