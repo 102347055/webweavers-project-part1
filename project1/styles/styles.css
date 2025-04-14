@@ -54,14 +54,14 @@ nav ul li {
     font-weight: 500;
 }
 
-/*remove */
+
 nav ul li a {
-    text-decoration: none;
+    text-decoration: none; /*remove hyperlink underline*/
     text-align: center;
 }
 
 .navbar {
-    list-style: none;
+    list-style: none; /*remove bullet point*/
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -167,7 +167,6 @@ nav ul li {
     }
 }
 
-
 footer {
     background-color:#ebeffe;
     padding: 0.5em;
@@ -192,6 +191,18 @@ footer a:hover {
 }
 
 /***************************************************** index **************************************************************/
+/*background image on homepage*/
+#home-header {
+    background-image: url(images/homepage-background.jpg);  /* image source: https://keebs.com/work/lofi-study/ */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding: 5em 1em;
+    margin: 0;
+    font-size: 100%;
+}
 
 #big_company_heading{
     background-color: #ebeffe;
@@ -213,39 +224,29 @@ footer a:hover {
     #big_company_heading h2 {
         font-size: 3rem;
     }
-  }
 
-/*background image on homepage*/
-#home-header {
-    background-image: url(images/homepage-background.jpg);  /* image source: https://keebs.com/work/lofi-study/ */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: auto;
-    padding: 5em 1em;
-    margin: 0;
-    font-size: 100%;
+    h2 {
+        font-size: 3rem;
+    }
 }
 
 /*heading styles*/
-
 h1 {
-    font-family: "Economica", sans-serif;
-    font-size: 1000%;
+    font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
+    font-size: 13rem;
     position: relative;
     bottom: 0;
 }
 
 h2 {
-    font-family: "Economica", sans-serif;
-    font-size: 500%;
+    font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
+    font-size: 6rem;
     padding: 20px;
 }
 
 .purple_web{
     color: #5a3e71;
-    font-family: "Economica", sans-serif;
+    font-family: "Economica", sans-serif; /*keep extra font in case first one doesn't load*/
 }
 
 /*table*/
@@ -255,66 +256,61 @@ h2 {
     border: none;
     margin: 20px;
 }
+
 #why_us_table{
     border-spacing: 2rem 2rem
 }
 
 /*plans container*/
-/* Container for the 3 plans, displayed side-by-side */
+/*display plans side by side as 3 columns*/
 .plans-container {
-    display: flex;              /* Arrange plans in a row */
-    gap: 20px;                  /* Space between columns */
+    display: flex;              /* display plans in a row */
+    gap: 20px;                  /* small space between columns for separation */
     justify-content: space-between;
     margin:20px;
 }
   
-/* Individual plan card styling */
+/*individual plan styling*/
 .plan {
     flex: 1;                    /* Equal width for each column */
     border: 1px solid black;
     border-radius: 8px;
     padding: 16px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     background-color: #f9f9f9;
     display: flex;
-    flex-direction: column;    /* So that UL stretches vertically */
+    flex-direction: column;    /*stretches vertically*/
     background-color: #ebeffe;
 }
   
-/* Plan title */
+/*plan heading*/
 .plan h3 {
     text-align: center;
     margin-bottom: 12px;
 }
   
-/* List layout using CSS Grid to make all rows equal height */
+/*make all rows equal height*/
 .plan ul {
-    list-style: none;          /* Remove bullet points */
+    list-style: none;          /*remove bullet points*/
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-rows: repeat(11, 1fr); /* 11 equal-height rows */
-    height: 100%;              /* Full height of the section */
-    gap: 0.5px;                  /* Space between items */
+    grid-template-rows: repeat(11, 1fr); /*11 rows of equal height so plans line up*/
+    height: 100%;              
+    gap: 0.5px;                  
 }
   
-/* Each item in the plan list */
+/*individual plan feature*/
 .plan li {
-/*border-bottom: 1px solid black;*/
-    display: flex;             /* Center content inside each <li> */
-    align-items: center;       /* Vertical centering */
-    justify-content: center;   /* Horizontal centering */
+    display: flex;             
+    align-items: center;      
+    justify-content: center;   
     text-align: center;
     padding: 8px;
-    min-height: 40px;          /* Optional: enforce minimum row height */
+    min-height: 40px;
 }
   
-/* Remove bottom border on the last item */
-.plan li:last-child {
-    border-bottom: none;
-}
-  
-/* Button styling inside each plan */
+/* styling of buttons in plan cards*/
 .plan_button {
     width: 100%;
     padding: 10px;
@@ -323,9 +319,9 @@ h2 {
     color: white;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 500;
 }
-  
-/* Button hover effect */
+
 .plan_button{
     width: 100%;
     align-self: center;
@@ -339,8 +335,8 @@ h2 {
     transition: 0.3s;
 }
 
-/* Responsive: stack plans vertically on small screens */
-@media (max-width: 1000px) {
+/*stacks plans vertically on small screens */
+@media (max-width: 800px) {
     .plans-container {
       flex-direction: column;  /* Stack vertically instead of side-by-side */
     }
@@ -356,14 +352,12 @@ h2 {
 
 #index_article {
     position: relative;
-    top:20px;
 }
 
 .faq-container {
     max-width: 100%;
     font-family: sans-serif;
 }
-
 
 .faq {
     margin-bottom: 1em;
