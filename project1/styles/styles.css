@@ -782,6 +782,7 @@ h2, h3, h4 {
 
 #jobs_body {
     padding-top: 1vw;
+    overflow-x: hidden;
 }
 
 #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
@@ -952,6 +953,12 @@ a.apply_link:hover {
 }
 
 @media (max-width: 800px) {
+
+    #jobs_body {
+        padding-top: 0;
+        overflow-x: hidden;
+    }
+
     #cloud_engineer, #cloud_systems_administrator, #why_sign_up, #job_heading_links {
         padding: 4vw;
         font-size: 0.85rem;
