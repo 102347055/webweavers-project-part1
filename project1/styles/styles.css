@@ -509,8 +509,14 @@ textarea {
     }
 
     #apply-heading {
-        font-size: 3em; /* heading is smaller - more appropriate size in relation to screen */
+        font-size: 2em; /* heading is smaller - more appropriate size in relation to screen */
         text-align: center;
+        margin: 1em;
+    }
+
+    form {
+        margin: 0.75em; /* smaller margin so form fills more of the screen */
+        font-size: 0.75em; /*smaller font so content fits better */
     }
 
     label {
@@ -541,6 +547,7 @@ textarea {
 
 /***************************************************** about page **************************************************************/
 
+/* Styles for the favourites fieldset */
 #favourites_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -550,6 +557,7 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the interests fieldset */
 #interests_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -559,6 +567,7 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the profile fieldset */
 #profile_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -568,6 +577,7 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the contributions fieldset */
 #contributions_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -577,6 +587,17 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Styles for the class header */
+#class_header {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the student id */
 #student_id{
     border: 2px solid #5a3e71;
     margin: 2em;
@@ -585,7 +606,8 @@ textarea {
     border-radius: 5px;
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
-#class_header{
+
+#photo_fieldset{
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -594,10 +616,45 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Move student id next to member contribution */
+.id_rightside {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 1em;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure contribution content and student ID share space */
+#contributions_fieldset {
+    flex: 2;
+    min-width: 0;
+}
+
+/* Keep the student ID box to the right unless there's no space */
+#student_id {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    text-align: right;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+
+#id_heading{
+    text-align: right;
+}
+
+/* Styles for headings */
 h2, h3, h4 {
     color: #5a3e71;
 }
 
+/* Layout for interests and photo section */
 .interests-and-photo {
     display: flex;
     flex-direction: row-reverse;
@@ -608,15 +665,19 @@ h2, h3, h4 {
     max-width: 1200px;
 }
 
+/* Styles for interests content */
 .interests-content {
     flex: 1;
+    flex-shrink: 0;
 }
 
+/* Styles for group photo wrapper */
 .group-photo-wrapper {
     flex-shrink: 0;
     text-align: center;
 }
 
+/* Styles for group image */
 #group_image {
     border: 2px solid #5a3e71;
     width: 300px;
@@ -624,16 +685,13 @@ h2, h3, h4 {
     border-radius: 10px;
 }
 
+/* Styles for photo heading */
 #photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
-#photoheading {
-    margin-bottom: 10px;
-    color: #5a3e71;
-}
-
+/* Styles for about page */
 .about_page {
     background-color: #ffffff;
     border-radius: 10px;
@@ -641,6 +699,7 @@ h2, h3, h4 {
     border: none;
 }
 
+/* Additional styles for class header */
 #class_header {
     background-color: #ebeffe;
     padding: 10px;
@@ -649,11 +708,12 @@ h2, h3, h4 {
     color: black;
 }
 
+/* Styles for class header list */
 #class_header ul {
     list-style-type: none;
 }
 
-
+/* Favourites section layout */
 .favourites-section {
     display: flex;
     justify-content: center;
@@ -662,14 +722,15 @@ h2, h3, h4 {
     margin-bottom: 30px;
 }
 
+/* Favourites list styles */
 .favourites ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; /* Allow wrapping instead of one row overflow */
     justify-content: center;
-    flex-wrap: nowrap;
     gap: 20px;
 }
 
@@ -678,7 +739,8 @@ h2, h3, h4 {
     background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px; /* Keeps width consistent but flexible */
     box-shadow: 2px 2px 8px #000;
     display: flex;
     flex-direction: column;
@@ -686,12 +748,14 @@ h2, h3, h4 {
     justify-content: flex-start;
 }
 
+/* Underlined text styles in favourites */
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 10px;
 }
 
+/* Nested list styles in favourites */
 .favourites li ul {
     margin-top: 10px;
     padding: 0;
@@ -710,20 +774,19 @@ h2, h3, h4 {
     width: 100%;
     box-sizing: border-box;
 }
-
+/* Styles for student ID list */
 #student_id ul {
     list-style-type: none;
 }
 
+/* Styles for underlined text in student ID, group jobs, and favourites */
 #student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
 }
 
-#tutor:hover {
-    transform: scale(1.05);
-}
 
+/* Styles for interests table */
 #interests-table {
     border-collapse: collapse;
     width: 100%;
@@ -731,12 +794,14 @@ h2, h3, h4 {
     box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
 }
 
+/* Styles for interests table caption */
 #interests-table caption {
     font-size: 1.4em;
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
+/* Styles for interests table headers and cells */
 #interests-table th,
 #interests-table td {
     border: 1px solid #5a3e71;
@@ -744,20 +809,71 @@ h2, h3, h4 {
     text-align: left;
 }
 
+/* Styles for interests table headers */
 #interests-table th {
     background-color: #5a3e71;
     color: #fff;
 }
 
+/* Hover effect for interests table rows */
 #interests-table tr:hover td {
     background-color: #d0d0d0;
 }
 
+.about_page {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
+.interests-and-photo {
+    flex-direction: column; /* stack on small screens */
+    align-items: center;
+    gap: 20px;
+}
+/* Make the container responsive and avoid horizontal scroll */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make table responsive on zoom-in */
+#interests-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Wrapper for the table to handle overflow gracefully */
+.interests-content {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+/* When zoomed in, stack photo and table */
+.interests-and-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 0 1em;
+}
+
+@media (min-width: 768px) {
+    .interests-and-photo {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
 /***************************************************** Jobs Page **************************************************************/
 
 #jobs_body {
     padding-top: 1vw;
+    overflow-x: hidden;
 }
 
 #cloud_engineer, #cloud_systems_administrator, #why_sign_up {
@@ -884,7 +1000,7 @@ I asked how I could get my essentials and preferable divs to be spaced evenly. *
     max-width: 45%;
 }
 
-#apply_now{
+.apply_now{
     display: flex;
     justify-content: center;
 }
@@ -911,7 +1027,7 @@ a.apply_link:hover {
     cursor: pointer;
 }
 
-#apply_button {
+#apply_button1, #apply_button2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -928,6 +1044,12 @@ a.apply_link:hover {
 }
 
 @media (max-width: 800px) {
+
+    #jobs_body {
+        padding-top: 0;
+        overflow-x: hidden;
+    }
+
     #cloud_engineer, #cloud_systems_administrator, #why_sign_up, #job_heading_links {
         padding: 4vw;
         font-size: 0.85rem;
