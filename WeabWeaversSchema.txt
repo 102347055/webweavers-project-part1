@@ -1,0 +1,136 @@
+_______________________________________JOBS TABLES________________________________
+
+CREATE TABLE Jobs (
+    JobsID SMALLINT NOT Null AUTO_INCREMENT,
+    JobReferenceNumber VARCHAR(20) NOT Null UNIQUE,
+    PositionTitle VARCHAR(255) NOT Null,
+    Role TEXT NOT Null,
+    SalaryRange VARCHAR(255),
+    ReportsTo VARCHAR(255) NOT Null,
+    RelevanceHeading VARCHAR(255) NOT Null,
+    RelevanceDescription TEXT NOT Null,
+    ApplyHyperLink VARCHAR(255),
+    PRIMARY KEY (JobsID)
+);
+
+CREATE TABLE Responsibilities (
+    ResponsibilityID SMALLINT NOT Null AUTO_INCREMENT,
+    JobsID SMALLINT NOT Null,
+    Responsibility TEXT,
+    PRIMARY KEY (ResponsibilityID),
+    FOREIGN KEY (JobsID) REFERENCES Jobs (JobsID) ON DELETE CASCADE
+);
+
+CREATE TABLE Qualifications (
+    QualificationsID SMALLINT NOT Null AUTO_INCREMENT,
+    JobsID SMALLINT NOT Null,
+    Qualification TEXT,
+    ColumnType ENUM('essential', 'preferable'),
+    PRIMARY KEY (QualificationsID),
+    FOREIGN KEY (JobsID) REFERENCES Jobs (JobsID) ON DELETE CASCADE
+);
+
+CREATE TABLE Perks (
+    PerkID SMALLINT NOT Null AUTO_INCREMENT,
+    Reasons TEXT NOT NULL,
+    PRIMARY KEY (PerkID)
+);
+
+
+
+_______________________________JOBS INSERT DATA BELOW__________________________________________________________
+
+INSERT INTO Jobs (
+    JobReferenceNumber, PositionTitle, Role, SalaryRange, ReportsTo,
+    RelevanceHeading, RelevanceDescription, ApplyHyperLink
+) VALUES
+(
+    COS01,
+    'Junior Cloud Engineer',
+    'Join our cloud engineering team to assist with designing, implementing, and maintaining cloud-based infrastructure, with opportunities to grow and innovate in a supportive environment.',
+    '$70,000 - $90,000 AUD per annum',
+    'Senior Cloud Engineer',
+    'Why Cloud Engineering is Relevant',
+    'With the rapid shift toward cloud infrastructure across industries, we are in need of skilled engineers to build and maintain our systems. This role offers a fantastic entry point for aspiring professionals looking to grow with evolving technologies.',
+    './apply.html'
+),
+(
+    COS02,
+    'Cloud Systems Administrator (Level 2)',
+    'Manage hybrid cloud systems across AWS and Azure, ensuring their security, performance, and reliability while supporting mission-critical enterprise operations.',
+    '$95,000 - $120,000 AUD per annum',
+    'Cloud Infrastructure Manager',
+    'Importance of Cloud Systems Administration',
+    'As our partners adopt hybrid and multi-cloud strategies, experienced administrators play a vital role in ensuring security, performance, and reliability. This role supports mission-critical operations and provides real-world experience in enterprise settings.',
+    './apply.html'
+);
+
+-- For COS01 (JobsID = 1)
+INSERT INTO Responsibilities (JobsID, Responsibility) VALUES
+(1, 'Assist in deploying and managing cloud services across AWS and Azure.'),
+(1, 'Support senior engineers with troubleshooting and optimization tasks.'),
+(1, 'Write scripts for cloud automation tasks and system monitoring.'),
+(1, 'Ensure compliance with security policies and documentation standards.'),
+(1, 'Participate in code reviews and team knowledge-sharing sessions.');
+
+-- For COS02 (JobsID = 2)
+INSERT INTO Responsibilities (JobsID, Responsibility) VALUES
+(2, 'Monitor, maintain, and optimize cloud infrastructure.'),
+(2, 'Provision and manage virtual machines, storage, and network resources.'),
+(2, 'Automate system updates and deployments using Infrastructure-as-Code.'),
+(2, 'Implement security configurations and perform risk assessments.'),
+(2, 'Provide Tier 2 support for cloud-related service issues.');
+
+-- For COS01 (JobsID = 1)
+INSERT INTO Qualifications (JobsID, Qualification, ColumnType) VALUES
+(1, 'Basic knowledge of AWS and/or Azure platforms.', 'essential'),
+(1, 'Proficiency in a scripting language such as Python or Bash.', 'essential'),
+(1, 'Understanding of IAM and cloud security fundamentals.', 'essential'),
+(1, 'Strong analytical and communication skills.', 'essential'),
+(1, '1+ year experience through coursework, internships, or personal projects.', 'essential'),
+
+(1, 'Experience with Infrastructure-as-Code tools like Terraform or CloudFormation.', 'preferable'),
+(1, 'Exposure to DevOps tools like Docker or Jenkins.', 'preferable'),
+(1, 'Azure Fundamentals or AWS Certified Cloud Practitioner certification.', 'preferable');
+
+-- For COS02 (JobsID = 2)
+INSERT INTO Qualifications (JobsID, Qualification, ColumnType) VALUES
+(2, '3+ years in cloud or systems administration roles.', 'essential'),
+(2, 'Advanced knowledge of Microsoft Azure and AWS platforms.', 'essential'),
+(2, 'Experience managing Windows Server environments in cloud setups.', 'essential'),
+(2, 'Strong scripting skills and experience with Terraform or CloudFormation.', 'essential'),
+(2, 'Solid understanding of IAM, VPNs, firewalls, and data protection best practices.', 'essential'),
+
+(2, 'Relevant certifications (e.g., AWS SysOps Administrator, Azure Administrator Associate).', 'preferable'),
+(2, 'Experience with Kubernetes or container-based deployments.', 'preferable'),
+(2, 'Familiarity with CI/CD pipelines and monitoring tools.', 'preferable');
+
+INSERT INTO Perks (Reasons) VALUES
+('Flexible working arrangements, with the option to work from home three days a week.'),
+('A home office setup allowance.'),
+('An additional two weeks of annual leave.'),
+('Health & wellbeing benefits including discounts on gym memberships.');
+
+
+____________________________APPLY TABLES_________________________________________
+
+CREATE TABLE EOI (
+    EoiID SMALLINT NOT Null AUTO_INCREMENT,
+    JobReferenceNumber VARCHAR(20) NOT Null,
+    FirstName VARCHAR(20) NOT Null,
+    LastName VARCHAR(20) NOT Null,
+    DateOfBirth DATE NOT Null,
+    Gender ENUM ('Female', 'Male', 'Other/Unspecified') NOT Null,
+    StreetAddress VARCHAR(40) NOT Null,
+    Suburb VARCHAR(40) NOT Null,
+    State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT Null,
+    Postcode TINYINT NOT Null,
+    EmailAddress VARCHAR(100) NOT Null UNIQUE,
+    PhoneNumber TINYINT NOT Null UNIQUE,
+    TechnicalSkills ENUM ('Knowledge of AWS/Azure cloud platforms','Familiarity with scripting languages (e.g. Bash, Python)','System administration skills','Cloud automation proficiency','Knowledge of cloud security best practices'),
+    OtherSkills TEXT,
+    Status ENUM ('New','Current','Final') NOT NULL DEFAULT 'New', 
+    PRIMARY KEY (EoiID),
+    FOREIGN KEY (JobReferenceNumber) REFERENCES Jobs (JobReferenceNumber) ON DELETE CASCADE
+);
+
