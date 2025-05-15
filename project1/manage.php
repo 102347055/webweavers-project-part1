@@ -1,3 +1,13 @@
+<?php
+session_start();
+//require_once('settings.php');
+
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn){
+    die("Unable to connect to the database: ".mysqli_connect_error());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,26 +45,89 @@
     <h1>Manage</h1>
     <p>Welcome</p>
     <h2>View Expressions of Interest</h2>
-    <form action="" method="post">
+    <form action="" method="post" id="eoi_search">
         <label for="list_all">
-            <input type="radio" name="list_all" value="list_all" id="list_all">
             List all EOIs
+            <input type="radio" name="list_all" value="list_all" id="list_all">
         </label>
-        <select name="list_by_ref" id="list_by_ref">
-            <option value=" ">Please Select</option>
-            <option value="COS01">COS01</option>
-            <option value="COS02">COS02</option>
-        </select>
-        <input type="text" name="firstname" id="firstname">
-        <input type="text" name="lastname" id="lastname">
-        <select name="delete_by_ref" id="delete_by_ref">
-            <option value=" ">Please Select</option>
-            <option value="COS01">COS01</option>
-            <option value="COS02">COS02</option>
-        </select>
+        <label for="list_by_ref">
+            Search by job reference number:
+            <select name="list_by_ref" id="list_by_ref">
+                <option value=" ">Please Select</option>
+                <option value="COS01">COS01</option>
+                <option value="COS02">COS02</option>
+            </select>
+        </label>
+        <fieldset>
+            <legend>Search by applicant</legend>
+            <label for="firstname">
+                First Name:
+                <input type="text" name="firstname" id="firstname">
+            </label>
+            <label for="lastname">
+                Last Name:
+                <input type="text" name="lastname" id="lastname">
+            </label>
+        </fieldset>
+        <label for="delete_by_ref">
+            Delete all EOIs for job:
+            <select name="delete_by_ref" id="delete_by_ref">
+                <option value=" ">Please Select</option>
+                <option value="COS01">COS01</option>
+                <option value="COS02">COS02</option>
+            </select>
+        </label>
         <!-- add status change (once table appears?) -->
-        <input type="submit" value="Request">
+        <input type="submit" value="Enter">
     </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // valuables from form input
+        $list_all = $_POST['list_all'];
+        $list_by_ref = $_POST['list_by_ref'];
+        $firstname = trim($_POST['firstname']);
+        $lastname = trim($_POST['lastname']);
+        $delete_by_ref = $_POST['delete_by_ref'];
+        
+        // list all EOIs
+        if ($list_all) {
+            $query = "SELECT * FROM eoi";
+            $result = mysqli_query($conn,$query);
+            if($result) {
+                echo "<table>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['JobReferenceNumber'] . "</td>";
+                    echo "<td>" . $row['FirstName'] . "</td>";
+                    echo "<td>" . $row['LastName'] . "</td>";
+                    echo "<td>" . $row['DateOfBirth'] . "</td>";
+                    echo "<td>" . $row['Gender'] . "</td>";
+                    echo "<td>" . $row['StreetAddress'] . "</td>";
+                    echo "<td>" . $row['Suburb'] . "</td>";
+                    echo "<td>" . $row['State'] . "</td>";
+                    echo "<td>" . $row['Postcode'] . "</td>";
+                    echo "<td>" . $row['EmailAddress'] . "</td>";
+                    echo "<td>" . $row['PhoneNumber'] . "</td>";
+                    echo "<td>" . $row['TechnicalSkills'] . "</td>";
+                    echo "<td>" . $row['OtherSkills'] . "</td>";
+                    echo "<td>" . $row['Status'] . "</td>";
+                    echo "</tr>";
+                }
+            } 
+            else {
+                echo "<p>No expressions of interest found.</p>";
+            }
+        }
+
+        // list by job reference number
+
+        // list by name
+
+        // delete by reference number
+    }
+    ?>
+
     <footer>
         <a href="index.html"><img src="images/web_weavers_logo_only_pic.jpg" alt="Purple spiderweb from Web Weavers logo"></a>
         <p>&copy;&nbsp;2025 Web Weavers</p>
