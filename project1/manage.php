@@ -26,12 +26,12 @@
                 <li class="page-links"><a href="about.html">About Us</a></li> 
             </ul>
             <ul class="nav_buttons">
-                <li><a href="index.html">Log In</a></li>
-                <li><a href="index.html">Get Started</a></li>
+                <li><a href="manage.php">Log In</a></li>
+                <li><a href="comingsoon.html">Get Started</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <h1>Manage</h1>
     <p>Welcome</p>
     <h2>View Expressions of Interest</h2>
