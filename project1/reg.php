@@ -8,24 +8,31 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+$username = $user_password = "";
+ 
+$new_user = $_SESSION['username'];
+$new_pwd = $_SESSION['user_password'];
 
-    // Simple query to check credentials
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-    $db_user = mysqli_fetch_assoc($result);
-    if ($db_user) {
-        $_SESSION['username'] = $db_user['username'];
-        header("Location: manage.php");
-        exit();
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
+  exit();
+}
 
-    //not showing up when user not in db
-    } else {
-        echo "❌ Incorrect username or password.";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Validate username
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter a username.";
+    } 
+    else{
+        // Prepare a select statement
+        
+        $sql = "INSERT INTO USERS (username, user_password) VALUES ($new_user, $new_pwd)";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -56,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="details">
-                <label for="username">Password</label>
-                <input type="text" name="password" id="password"
+                <label for="user_password">Password</label>
+                <input type="text" name="user_password" id="user_password"
                   class="form-control" required>
             </div>
 

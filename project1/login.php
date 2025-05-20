@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get user input
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
+
     // Simple query to check credentials
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $result = mysqli_query($conn, $query);
@@ -51,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body id="apply-body">
     <h1 id="apply-heading">Log In</h1>
 
-    <form action="./manage.php" method="post" id="eoi_search">
+    <form action="" method="post" id="eoi_search">
         <p>
             <label for="username">User:</label>
             <input type="text" name="username" id="username" required>
@@ -62,5 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </p>
         <input type="submit" value="Submit">
     </form>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>
