@@ -8,30 +8,37 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-$username = $user_password = "";
- 
-$new_user = $_SESSION['username'];
-$new_pwd = $_SESSION['user_password'];
+$sql_3 = "INSERT INTO 'users' ('username', 'user_password') VALUES ('hi', 'bye')";
+$result_3 = mysqli_query($conn, $sql_3);
 
-if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
-  exit();
-}
-
-
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } 
-    else{
-        // Prepare a select statement
-        
-        $sql = "INSERT INTO USERS (username, user_password) VALUES ($new_user, $new_pwd)";
-    }
-}
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+    $new_user = $_POST["username"]; 
+    $new_pwd = $_POST["user_password"]; 
+  
+    $sql = "Select * from users where username='$new_user'";
+  
+    $result = mysqli_query($conn, $sql);
+  
+    $num = mysqli_num_rows($result); 
+  
+    // This sql query is use to check if
+    // the username is already present 
+    // or not in our Database
+    
+    //checking if username exists, if returns no rows, that means username isn't taken
+    if($num == 0) {
+      $sql_2 = "INSERT INTO 'users' ('username', 'user_password') VALUES ('$new_user', '$new_pwd')";
+      $result_2 = mysqli_query($conn, $sql_2);
+        }    
+  
+   if($num>0) 
+   {
+      echo "Username not available"; 
+   } 
+  
+}//end if   
+  
 
 ?>
 
@@ -53,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
-        <form method="post" >
+        <form action = "./manage.php" method="post" >
                 <h5 class="p-4" style="font-weight: 700;">Create Your Account</h5>
 
             <div class="details">
