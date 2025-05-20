@@ -41,7 +41,7 @@
 
                 <dt><u>Rose Healy</u></dt>
                 <dd>Part 1: apply.html, review Rayan's home.html, submit deliverables</dd>
-                <dd>Part 2: manage.php (task 5)</dd>
+                <dd>Part 2: manage.php (task 5), submit deliverables</dd>
                 <dd>&nbsp;</dd>
 
                 <dt><u>Damian Moisidis</u></dt>
