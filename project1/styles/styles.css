@@ -1073,3 +1073,26 @@ a.apply_link:hover {
         min-width: 95%;
     }
 }
+
+/***************************************************** login page **************************************************************/
+
+#apply-body {
+    padding-top: 1px;
+}
+
+#apply-heading {
+    font-size: 4em;
+    font-family: "Economica", sans-serif;
+    margin: 0.5em;
+}
+
+form {
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
+    display: flex;
+    flex-direction: column; /* form items appear stacked on top of each other */
+    justify-content: space-evenly;
+    padding: 1em;
+    margin: 2em;
+}

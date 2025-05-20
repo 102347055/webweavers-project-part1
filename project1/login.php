@@ -32,11 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home Page of Web Weavers; a tech company-" >
+    <meta name="keywords" content="Web, Weavers, Technology, Cloud, Jobs, Innovative">
+    <meta name="author" content="Rayan Arain">
+    <title>Manager's Log In</title>
 </head>
 
-<body>
+<body id="apply-body">
+    <?php include 'header.inc'; ?>
+    
+    <h1 id="apply-heading">Log In</h1>
 
     <form action="./manage.php" method="post" id="eoi_search">
         <p>
