@@ -11,23 +11,7 @@
         <title>About Web Weavers</title>
     </head>
     <body>
-        <header>
-            <nav>
-                <!-- Navigation bar with logo and links -->
-                <a href="index.html"><img src="images/web_weavers_logo.jpg" id = "home_logo"    
-                  alt="Dark purple spiderweb against a lighter purple background with text reading 'Web Weavers'" 
-                  title="Web Weavers Company Logo"></a>   <!-- Company logo created on Canva-->
-                <ul class="navbar">
-                  <li class="page-links"><a href="jobs.html">Current Opportunities</a></li>
-                  <li class="page-links"><a href="apply.html">Apply Now</a></li> 
-                  <li class="page-links"><a href="about.html">About Us</a></li> 
-                </ul>
-                <ul class="nav_buttons">
-                  <li><a href="manage.php">Log In</a></li>
-                  <li><a href="comingsoon.html">Get Started</a></li>
-                </ul>
-              </nav>
-        </header>
+        <?php include 'header.inc'; ?>
         <div class="about_page">
             <fieldset id="class_header">
             <h2>Web Weavers</h2>
@@ -226,20 +210,6 @@
 
     <!-- Footer with contact and project link -->
         <hr>
-        <footer>
-            <a href="index.html"><img src="images/web_weavers_logo_only_pic.jpg" alt="Purple spiderweb from Web Weavers logo"></a>
-            <p>&copy;&nbsp;2025 Web Weavers</p>
-            <p>Email: <a href="mailto:info@webweavers.edu.au">info@webweavers.edu.au</a></p>
-            <p>Link:
-                <a href="https://tyler105919952.atlassian.net/jira/software/projects/WW/summary" target="_blank">
-                    Web Weavers Jira Project
-                </a>
-            </p>
-            <p>Link:
-              <a href="https://github.com/102347055/webweavers-project-part1" target="_blank">
-                  Web Weavers Github Repository
-              </a>
-          </p>
-        </footer>
+        <?php include 'footer.inc'; ?>
     </body>
 </html>

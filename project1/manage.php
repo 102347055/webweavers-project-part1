@@ -24,23 +24,7 @@ if (!$conn){
     <title>Manager profile</title>
 </head>
 <body>
-    <header>
-            <nav aria-label="Main Navigation">
-            <a href="index.html"><img src="images/web_weavers_logo.jpg" id = "home_logo"    
-                alt="Dark purple spiderweb against a lighter purple background with text reading 'Web Weavers'" 
-                title="Web Weavers Company Logo">  <!-- Company logo created on Canva-->
-            </a>
-            <ul class="navbar">
-                <li class="page-links"><a href="jobs.html">Current Opportunities</a></li>
-                <li class="page-links"><a href="apply.html">Apply Now</a></li> 
-                <li class="page-links"><a href="about.html">About Us</a></li> 
-            </ul>
-            <ul class="nav_buttons">
-                <li><a href="manage.php">Log In</a></li>
-                <li><a href="comingsoon.html">Get Started</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include 'header.inc'; ?>
 
     <h1>Manage</h1>
     <p>Welcome</p>
