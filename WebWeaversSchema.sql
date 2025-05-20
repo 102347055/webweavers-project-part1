@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.1deb1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 11, 2025 at 08:32 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- Host: localhost:3306
+-- Generation Time: May 20, 2025 at 07:06 AM
+-- Server version: 10.11.11-MariaDB-0+deb12u1
+-- PHP Version: 8.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,18 +18,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- Database: `WebWeaversSchema`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eoi`
+-- Table structure for table `Employee`
 --
 
-CREATE TABLE `eoi` (
+CREATE TABLE `Employee` (
+  `EmployeeID` smallint(6) NOT NULL,
+  `FirstName` varchar(255) NOT NULL,
+  `LastName` varchar(255) NOT NULL,
+  `UserName` varchar(255) NOT NULL,
+  `UserPassword` varchar(255) NOT NULL,
+  `DateOfBirth` date NOT NULL,
+  `StreetAddress` varchar(40) NOT NULL,
+  `State` enum('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT NULL,
+  `City` varchar(255) NOT NULL,
+  `Postcode` smallint(6) NOT NULL,
+  `EmailAddress` varchar(100) NOT NULL,
+  `PhoneNumber` varchar(20) NOT NULL,
+  `Gender` enum('Female','Male','Other/Unspecified') NOT NULL,
+  `CompanyPosition` enum('Employee','Manager','Admin') NOT NULL DEFAULT 'Employee'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Employee`
+--
+
+INSERT INTO `Employee` (`EmployeeID`, `FirstName`, `LastName`, `UserName`, `UserPassword`, `DateOfBirth`, `StreetAddress`, `State`, `City`, `Postcode`, `EmailAddress`, `PhoneNumber`, `Gender`, `CompanyPosition`) VALUES
+(1, 'Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'VIC', 'Brighton', 8888, '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `EOI`
+--
+
+CREATE TABLE `EOI` (
   `EoiID` smallint(6) NOT NULL,
-  `ReferenceNumber` varchar(20) NOT NULL,
+  `JobReferenceNumber` varchar(20) NOT NULL,
   `FirstName` varchar(20) NOT NULL,
   `LastName` varchar(20) NOT NULL,
   `DateOfBirth` date NOT NULL,
@@ -39,21 +69,21 @@ CREATE TABLE `eoi` (
   `State` enum('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT NULL,
   `Postcode` tinyint(4) NOT NULL,
   `EmailAddress` varchar(100) NOT NULL,
-  `PhoneNumber` tinyint(4) NOT NULL,
+  `PhoneNumber` varchar(20) NOT NULL,
   `TechnicalSkills` enum('Knowledge of AWS/Azure cloud platforms','Familiarity with scripting languages (e.g. Bash, Python)','System administration skills','Cloud automation proficiency','Knowledge of cloud security best practices') DEFAULT NULL,
   `OtherSkills` text DEFAULT NULL,
-  `status` enum('New','Current','Final') NOT NULL DEFAULT 'New'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `Status` enum('New','Current','Final') NOT NULL DEFAULT 'New'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jobs`
+-- Table structure for table `Jobs`
 --
 
-CREATE TABLE `jobs` (
+CREATE TABLE `Jobs` (
   `JobsID` smallint(6) NOT NULL,
-  `ReferenceNumber` varchar(20) NOT NULL,
+  `JobReferenceNumber` varchar(20) NOT NULL,
   `PositionTitle` varchar(255) NOT NULL,
   `Role` text NOT NULL,
   `SalaryRange` varchar(255) DEFAULT NULL,
@@ -61,32 +91,32 @@ CREATE TABLE `jobs` (
   `RelevanceHeading` varchar(255) NOT NULL,
   `RelevanceDescription` text NOT NULL,
   `ApplyHyperLink` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `jobs`
+-- Dumping data for table `Jobs`
 --
 
-INSERT INTO `jobs` (`JobsID`, `ReferenceNumber`, `PositionTitle`, `Role`, `SalaryRange`, `ReportsTo`, `RelevanceHeading`, `RelevanceDescription`, `ApplyHyperLink`) VALUES
+INSERT INTO `Jobs` (`JobsID`, `JobReferenceNumber`, `PositionTitle`, `Role`, `SalaryRange`, `ReportsTo`, `RelevanceHeading`, `RelevanceDescription`, `ApplyHyperLink`) VALUES
 (1, 'COS01', 'Junior Cloud Engineer', 'Join our cloud engineering team to assist with designing, implementing, and maintaining cloud-based infrastructure, with opportunities to grow and innovate in a supportive environment.', '$70,000 - $90,000 AUD per annum', 'Senior Cloud Engineer', 'Why Cloud Engineering is Relevant', 'With the rapid shift toward cloud infrastructure across industries, we are in need of skilled engineers to build and maintain our systems. This role offers a fantastic entry point for aspiring professionals looking to grow with evolving technologies.', './apply.html'),
 (2, 'COS02', 'Cloud Systems Administrator (Level 2)', 'Manage hybrid cloud systems across AWS and Azure, ensuring their security, performance, and reliability while supporting mission-critical enterprise operations.', '$95,000 - $120,000 AUD per annum', 'Cloud Infrastructure Manager', 'Importance of Cloud Systems Administration', 'As our partners adopt hybrid and multi-cloud strategies, experienced administrators play a vital role in ensuring security, performance, and reliability. This role supports mission-critical operations and provides real-world experience in enterprise settings.', './apply.html');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perks`
+-- Table structure for table `Perks`
 --
 
-CREATE TABLE `perks` (
+CREATE TABLE `Perks` (
   `PerkID` smallint(6) NOT NULL,
   `Reasons` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `perks`
+-- Dumping data for table `Perks`
 --
 
-INSERT INTO `perks` (`PerkID`, `Reasons`) VALUES
+INSERT INTO `Perks` (`PerkID`, `Reasons`) VALUES
 (1, 'Flexible working arrangements, with the option to work from home three days a week.'),
 (2, 'A home office setup allowance.'),
 (3, 'An additional two weeks of annual leave.'),
@@ -95,21 +125,21 @@ INSERT INTO `perks` (`PerkID`, `Reasons`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `qualifications`
+-- Table structure for table `Qualifications`
 --
 
-CREATE TABLE `qualifications` (
+CREATE TABLE `Qualifications` (
   `QualificationsID` smallint(6) NOT NULL,
   `JobsID` smallint(6) NOT NULL,
   `Qualification` text DEFAULT NULL,
   `ColumnType` enum('essential','preferable') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `qualifications`
+-- Dumping data for table `Qualifications`
 --
 
-INSERT INTO `qualifications` (`QualificationsID`, `JobsID`, `Qualification`, `ColumnType`) VALUES
+INSERT INTO `Qualifications` (`QualificationsID`, `JobsID`, `Qualification`, `ColumnType`) VALUES
 (1, 1, 'Basic knowledge of AWS and/or Azure platforms.', 'essential'),
 (2, 1, 'Proficiency in a scripting language such as Python or Bash.', 'essential'),
 (3, 1, 'Understanding of IAM and cloud security fundamentals.', 'essential'),
@@ -130,20 +160,20 @@ INSERT INTO `qualifications` (`QualificationsID`, `JobsID`, `Qualification`, `Co
 -- --------------------------------------------------------
 
 --
--- Table structure for table `responsibilities`
+-- Table structure for table `Responsibilities`
 --
 
-CREATE TABLE `responsibilities` (
+CREATE TABLE `Responsibilities` (
   `ResponsibilityID` smallint(6) NOT NULL,
   `JobsID` smallint(6) NOT NULL,
   `Responsibility` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `responsibilities`
+-- Dumping data for table `Responsibilities`
 --
 
-INSERT INTO `responsibilities` (`ResponsibilityID`, `JobsID`, `Responsibility`) VALUES
+INSERT INTO `Responsibilities` (`ResponsibilityID`, `JobsID`, `Responsibility`) VALUES
 (1, 1, 'Assist in deploying and managing cloud services across AWS and Azure.'),
 (2, 1, 'Support senior engineers with troubleshooting and optimization tasks.'),
 (3, 1, 'Write scripts for cloud automation tasks and system monitoring.'),
@@ -160,38 +190,48 @@ INSERT INTO `responsibilities` (`ResponsibilityID`, `JobsID`, `Responsibility`) 
 --
 
 --
--- Indexes for table `eoi`
+-- Indexes for table `Employee`
 --
-ALTER TABLE `eoi`
+ALTER TABLE `Employee`
+  ADD PRIMARY KEY (`EmployeeID`),
+  ADD UNIQUE KEY `UserName` (`UserName`),
+  ADD UNIQUE KEY `UserPassword` (`UserPassword`),
+  ADD UNIQUE KEY `EmailAddress` (`EmailAddress`),
+  ADD UNIQUE KEY `PhoneNumber` (`PhoneNumber`);
+
+--
+-- Indexes for table `EOI`
+--
+ALTER TABLE `EOI`
   ADD PRIMARY KEY (`EoiID`),
   ADD UNIQUE KEY `EmailAddress` (`EmailAddress`),
   ADD UNIQUE KEY `PhoneNumber` (`PhoneNumber`),
-  ADD KEY `ReferenceNumber` (`ReferenceNumber`);
+  ADD KEY `JobReferenceNumber` (`JobReferenceNumber`);
 
 --
--- Indexes for table `jobs`
+-- Indexes for table `Jobs`
 --
-ALTER TABLE `jobs`
+ALTER TABLE `Jobs`
   ADD PRIMARY KEY (`JobsID`),
-  ADD UNIQUE KEY `ReferenceNumber` (`ReferenceNumber`);
+  ADD UNIQUE KEY `JobReferenceNumber` (`JobReferenceNumber`);
 
 --
--- Indexes for table `perks`
+-- Indexes for table `Perks`
 --
-ALTER TABLE `perks`
+ALTER TABLE `Perks`
   ADD PRIMARY KEY (`PerkID`);
 
 --
--- Indexes for table `qualifications`
+-- Indexes for table `Qualifications`
 --
-ALTER TABLE `qualifications`
+ALTER TABLE `Qualifications`
   ADD PRIMARY KEY (`QualificationsID`),
   ADD KEY `JobsID` (`JobsID`);
 
 --
--- Indexes for table `responsibilities`
+-- Indexes for table `Responsibilities`
 --
-ALTER TABLE `responsibilities`
+ALTER TABLE `Responsibilities`
   ADD PRIMARY KEY (`ResponsibilityID`),
   ADD KEY `JobsID` (`JobsID`);
 
@@ -200,33 +240,39 @@ ALTER TABLE `responsibilities`
 --
 
 --
--- AUTO_INCREMENT for table `eoi`
+-- AUTO_INCREMENT for table `Employee`
 --
-ALTER TABLE `eoi`
+ALTER TABLE `Employee`
+  MODIFY `EmployeeID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `EOI`
+--
+ALTER TABLE `EOI`
   MODIFY `EoiID` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `jobs`
+-- AUTO_INCREMENT for table `Jobs`
 --
-ALTER TABLE `jobs`
+ALTER TABLE `Jobs`
   MODIFY `JobsID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `perks`
+-- AUTO_INCREMENT for table `Perks`
 --
-ALTER TABLE `perks`
+ALTER TABLE `Perks`
   MODIFY `PerkID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `qualifications`
+-- AUTO_INCREMENT for table `Qualifications`
 --
-ALTER TABLE `qualifications`
+ALTER TABLE `Qualifications`
   MODIFY `QualificationsID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `responsibilities`
+-- AUTO_INCREMENT for table `Responsibilities`
 --
-ALTER TABLE `responsibilities`
+ALTER TABLE `Responsibilities`
   MODIFY `ResponsibilityID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
@@ -234,22 +280,22 @@ ALTER TABLE `responsibilities`
 --
 
 --
--- Constraints for table `eoi`
+-- Constraints for table `EOI`
 --
-ALTER TABLE `eoi`
-  ADD CONSTRAINT `eoi_ibfk_1` FOREIGN KEY (`ReferenceNumber`) REFERENCES `jobs` (`ReferenceNumber`) ON DELETE CASCADE;
+ALTER TABLE `EOI`
+  ADD CONSTRAINT `EOI_ibfk_1` FOREIGN KEY (`JobReferenceNumber`) REFERENCES `Jobs` (`JobReferenceNumber`) ON DELETE CASCADE;
 
 --
--- Constraints for table `qualifications`
+-- Constraints for table `Qualifications`
 --
-ALTER TABLE `qualifications`
-  ADD CONSTRAINT `qualifications_ibfk_1` FOREIGN KEY (`JobsID`) REFERENCES `jobs` (`JobsID`) ON DELETE CASCADE;
+ALTER TABLE `Qualifications`
+  ADD CONSTRAINT `Qualifications_ibfk_1` FOREIGN KEY (`JobsID`) REFERENCES `Jobs` (`JobsID`) ON DELETE CASCADE;
 
 --
--- Constraints for table `responsibilities`
+-- Constraints for table `Responsibilities`
 --
-ALTER TABLE `responsibilities`
-  ADD CONSTRAINT `responsibilities_ibfk_1` FOREIGN KEY (`JobsID`) REFERENCES `jobs` (`JobsID`) ON DELETE CASCADE;
+ALTER TABLE `Responsibilities`
+  ADD CONSTRAINT `Responsibilities_ibfk_1` FOREIGN KEY (`JobsID`) REFERENCES `Jobs` (`JobsID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

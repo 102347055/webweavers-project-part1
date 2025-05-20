@@ -45,7 +45,7 @@ INSERT INTO Jobs (
     RelevanceHeading, RelevanceDescription, ApplyHyperLink
 ) VALUES
 (
-    COS01,
+    'COS01',
     'Junior Cloud Engineer',
     'Join our cloud engineering team to assist with designing, implementing, and maintaining cloud-based infrastructure, with opportunities to grow and innovate in a supportive environment.',
     '$70,000 - $90,000 AUD per annum',
@@ -55,7 +55,7 @@ INSERT INTO Jobs (
     './apply.html'
 ),
 (
-    COS02,
+    'COS02',
     'Cloud Systems Administrator (Level 2)',
     'Manage hybrid cloud systems across AWS and Azure, ensuring their security, performance, and reliability while supporting mission-critical enterprise operations.',
     '$95,000 - $120,000 AUD per annum',
@@ -126,7 +126,7 @@ CREATE TABLE EOI (
     State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT Null,
     Postcode TINYINT NOT Null,
     EmailAddress VARCHAR(100) NOT Null UNIQUE,
-    PhoneNumber TINYINT NOT Null UNIQUE,
+    PhoneNumber VARCHAR(20) NOT Null UNIQUE,
     TechnicalSkills ENUM ('Knowledge of AWS/Azure cloud platforms','Familiarity with scripting languages (e.g. Bash, Python)','System administration skills','Cloud automation proficiency','Knowledge of cloud security best practices'),
     OtherSkills TEXT,
     Status ENUM ('New','Current','Final') NOT NULL DEFAULT 'New', 
@@ -134,3 +134,26 @@ CREATE TABLE EOI (
     FOREIGN KEY (JobReferenceNumber) REFERENCES Jobs (JobReferenceNumber) ON DELETE CASCADE
 );
 
+____________________________EMPLOYEE TABLE_________________________________________
+
+CREATE TABLE Employee (
+    EmployeeID SMALLINT NOT Null AUTO_INCREMENT,
+    FirstName VARCHAR(255) NOT Null,
+    LastName VARCHAR(255) NOT Null,
+    UserName VARCHAR(255) NOT Null UNIQUE,
+    UserPassword VARCHAR(255) NOT Null UNIQUE,
+    DateOfBirth DATE NOT Null,
+    StreetAddress VARCHAR(40) NOT Null,
+    State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT Null,
+    City VARCHAR(255) NOT Null,
+    Postcode SMALLINT NOT Null,
+    EmailAddress VARCHAR(100) NOT Null UNIQUE,
+    PhoneNumber VARCHAR(20) NOT Null UNIQUE,
+    Gender ENUM ('Female', 'Male', 'Other/Unspecified') NOT Null,
+    CompanyPosition ENUM ('Employee','Manager','Admin') NOT NULL DEFAULT 'Employee',
+    PRIMARY KEY (EmployeeID)
+);
+_______________________________EMPLOYEE INSERT DATA BELOW__________________________________________________________
+
+INSERT INTO Employee (FirstName, LastName, UserName, UserPassword, DateOfBirth, StreetAddress, City, State, Postcode, EmailAddress, PhoneNumber, Gender, CompanyPosition) VALUES
+('Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'Brighton', 'VIC', 8888, '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
