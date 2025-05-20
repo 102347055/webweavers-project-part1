@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($db_user) {
         $_SESSION['username'] = $db_user['username'];
-        header("Location: profile.php");
+        header("Location: manage.php");
         exit();
 
-    //not showing up when user not in db
+    
     } else {
         echo "❌ Incorrect username or password.";
     }
