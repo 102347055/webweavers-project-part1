@@ -1096,3 +1096,24 @@ form {
     padding: 1em;
     margin: 2em;
 }
+
+/***************************************************** manage.php **************************************************************/
+
+#manage-h1 {
+    font-size: 4em;
+}
+
+#manage-h2 {
+    font-size: 3em;
+}
+
+#eoi-table {
+    font-size: 0.75em;
+    width: 95%;
+    text-align: center;
+}
+
+#eoi-table th, td{
+    border: 1px solid;
+    padding: 5px;
+}
