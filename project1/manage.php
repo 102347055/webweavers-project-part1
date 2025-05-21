@@ -23,61 +23,95 @@ if (!$conn){
     <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Manager profile</title>
 </head>
-<body id="manage-body">
+<body>
     <?php include 'header.inc'; ?>
-
-    <h1 id="manage-h1">Manage</h1>
-    <p>Welcome</p>
-    <h2 id="manage-h2">View Expressions of Interest</h2>
-    <form action="" method="post" id="eoi_search">
-        <label for="list_all">
-            List all EOIs
-            <input type="radio" name="list_all" value="list_all" id="list_all">
-        </label>
-        <label for="list_by_ref">
-            Search by job reference number:
-            <select name="list_by_ref" id="list_by_ref">
-                <option value=" ">Please Select</option>
-                <option value="COS01">COS01</option>
-                <option value="COS02">COS02</option>
-            </select>
-        </label>
-        <fieldset>
-            <legend>Search by applicant</legend>
-            <label for="firstname">
-                First Name:
-                <input type="text" name="firstname" id="firstname">
+    <div id="manage-body">
+        <h1 id="manage-h1">Manage</h1>
+        <p>Welcome</p>
+        <h2 id="manage-h2">View Expressions of Interest</h2>
+        <form action="" method="post" id="eoi_search">
+            <label for="list_all">
+                List all EOIs
+                <input type="radio" name="list_all" value="list_all" id="list_all">
             </label>
-            <label for="lastname">
-                Last Name:
-                <input type="text" name="lastname" id="lastname">
+            <label for="list_by_ref">
+                Search by job reference number:
+                <select name="list_by_ref" id="list_by_ref">
+                    <option value="">Please Select</option>
+                    <option value="COS01">COS01</option>
+                    <option value="COS02">COS02</option>
+                </select>
             </label>
-        </fieldset>
-        <label for="delete_by_ref">
-            Delete all EOIs for job:
-            <select name="delete_by_ref" id="delete_by_ref">
-                <option value=" ">Please Select</option>
-                <option value="COS01">COS01</option>
-                <option value="COS02">COS02</option>
-            </select>
-        </label>
-        <!-- add status change (once table appears?) -->
-        <input type="submit" value="Enter">
-    </form>
+            <fieldset>
+                <legend>Search by applicant</legend>
+                <label for="firstname">
+                    First Name:
+                    <input type="text" name="firstname" id="firstname">
+                </label>
+                <label for="lastname">
+                    Last Name:
+                    <input type="text" name="lastname" id="lastname">
+                </label>
+            </fieldset>
+            <label for="delete_by_ref">
+                Delete all EOIs for job:
+                <select name="delete_by_ref" id="delete_by_ref">
+                    <option value=" ">Please Select</option>
+                    <option value="COS01">COS01</option>
+                    <option value="COS02">COS02</option>
+                </select>
+            </label>
+            <!-- add status change (once table appears?) -->
+            <input type="submit" value="Enter">
+        </form>
+        <div id="eoi-table-container">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // valuables from form input
+            $list_all = $_POST['list_all'];
+            $list_by_ref = $_POST['list_by_ref'];
+            $firstname = trim($_POST['firstname']);
+            $lastname = trim($_POST['lastname']);
+            $delete_by_ref = $_POST['delete_by_ref'];
+            
+            // list all EOIs
+            if ($list_all) {
+                $query = "SELECT * FROM EOI";
+            }
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        // valuables from form input
-        $list_all = $_POST['list_all'];
-        $list_by_ref = $_POST['list_by_ref'];
-        $firstname = trim($_POST['firstname']);
-        $lastname = trim($_POST['lastname']);
-        $delete_by_ref = $_POST['delete_by_ref'];
-        
-        // list all EOIs
-        if ($list_all) {
-            $query = "SELECT * FROM EOI";
+            // list by job reference number
+            if ($list_by_ref) {
+                $query = "SELECT * FROM EOI WHERE JobReferenceNumber = '$list_by_ref'";
+            }
+
+            // list by name
+            // first name
+            if ($firstname) {
+                $query = "SELECT * FROM EOI WHERE FirstName = '$firstname'";
+            }
+
+            // last name
+            if ($lastname) {
+                $query = "SELECT * FROM EOI WHERE LastName = '$lastname'";
+            }
+
+            // full name
+            if ($firstname and $lastname) {
+                $query = "SELECT * FROM EOI WHERE FirstName = '$firstname' AND LastName = '$lastname'";
+            }
+
+            // delete by reference number
+            if ($delete_by_ref) {
+                $delete_query = "DELETE FROM EOI WHERE JobReferenceNumber = '$delete_by_ref'";
+                if ($conn->query($delete_query) === TRUE) {
+                    echo "Deletion of EOIs was successful";
+                  } else {
+                    echo "Error deleting: " . $conn->error;
+                  }
+            }
+
             $result = mysqli_query($conn,$query);
+
             if($result) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";
@@ -122,17 +156,9 @@ if (!$conn){
                 echo "<p>No expressions of interest found.</p>";
             }
         }
-
-        // list by job reference number
-
-        // list by name
-
-        // delete by reference number
-    } else {
-        echo "<p>Unable to load form.<p>";
-    }
-    ?>
-
+        ?>
+        </div>
+    </div>
     <?php include 'footer.inc'; ?>
 </body>
 </html>

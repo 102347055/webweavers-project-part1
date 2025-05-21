@@ -1099,6 +1099,10 @@ form {
 
 /***************************************************** manage.php **************************************************************/
 
+#manage-body {
+    padding: 30px;
+}
+
 #manage-h1 {
     font-size: 4em;
 }
@@ -1107,10 +1111,14 @@ form {
     font-size: 3em;
 }
 
+#eoi-table-container {
+    overflow-x: auto;
+    display: block;
+}
+
 #eoi-table {
     font-size: 0.75em;
     width: 95%;
-    text-align: center;
 }
 
 #eoi-table th, td{
