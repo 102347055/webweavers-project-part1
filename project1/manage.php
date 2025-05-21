@@ -76,7 +76,7 @@ if (!$conn){
         
         // list all EOIs
         if ($list_all) {
-            $query = "SELECT * FROM eoi";
+            $query = "SELECT * FROM EOI";
             $result = mysqli_query($conn,$query);
             if($result) {
                 echo "<table>";
@@ -98,6 +98,7 @@ if (!$conn){
                     echo "<td>" . $row['Status'] . "</td>";
                     echo "</tr>";
                 }
+                echo "</table>";
             } 
             else {
                 echo "<p>No expressions of interest found.</p>";
@@ -109,6 +110,8 @@ if (!$conn){
         // list by name
 
         // delete by reference number
+    } else {
+        echo "<p>Unable to load form.<p>";
     }
     ?>
 
