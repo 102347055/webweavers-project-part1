@@ -188,7 +188,7 @@ CREATE TABLE Employee (
 -- ________________________________________
 
 INSERT INTO Employee (FirstName, LastName, UserName, UserPassword, DateOfBirth, StreetAddress, City, State, Postcode, EmailAddress, PhoneNumber, Gender, CompanyPosition) VALUES
-('Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'Brighton', 'VIC', 8888, '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
+('Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'Brighton', 'VIC', '8888', '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
 
 -- ________________________________________
 -- EOIs FOR COS01 (Junior Cloud Engineer)
