@@ -23,12 +23,12 @@ if (!$conn){
     <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Manager profile</title>
 </head>
-<body>
+<body id="manage-body">
     <?php include 'header.inc'; ?>
 
-    <h1>Manage</h1>
+    <h1 id="manage-h1">Manage</h1>
     <p>Welcome</p>
-    <h2>View Expressions of Interest</h2>
+    <h2 id="manage-h2">View Expressions of Interest</h2>
     <form action="" method="post" id="eoi_search">
         <label for="list_all">
             List all EOIs
@@ -76,12 +76,30 @@ if (!$conn){
         
         // list all EOIs
         if ($list_all) {
-            $query = "SELECT * FROM eoi";
+            $query = "SELECT * FROM EOI";
             $result = mysqli_query($conn,$query);
             if($result) {
-                echo "<table>";
+                echo "<table id='eoi-table'>";
+                echo "<tr>";
+                echo "<th>ID</th>";
+                echo "<th>Job Reference Number</th>";
+                echo "<th>First Name</th>";
+                echo "<th>Last Name</th>";
+                echo "<th>DOB</th>";
+                echo "<th>Gender</th>";
+                echo "<th>Street Address</th>";
+                echo "<th>Suburb</th>";
+                echo "<th>State</th>";
+                echo "<th>Postcode</th>";
+                echo "<th>Email Address</th>";
+                echo "<th>Phone Number</th>";
+                echo "<th>Technical Skills</th>";
+                echo "<th>Other Skills</th>";
+                echo "<th>Status</th>";
+                echo "</tr>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
+                    echo "<td>" . $row['EoiID'] . "</td>";
                     echo "<td>" . $row['JobReferenceNumber'] . "</td>";
                     echo "<td>" . $row['FirstName'] . "</td>";
                     echo "<td>" . $row['LastName'] . "</td>";
@@ -98,6 +116,7 @@ if (!$conn){
                     echo "<td>" . $row['Status'] . "</td>";
                     echo "</tr>";
                 }
+                echo "</table>";
             } 
             else {
                 echo "<p>No expressions of interest found.</p>";
@@ -109,6 +128,8 @@ if (!$conn){
         // list by name
 
         // delete by reference number
+    } else {
+        echo "<p>Unable to load form.<p>";
     }
     ?>
 
