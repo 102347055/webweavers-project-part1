@@ -84,6 +84,8 @@ require_once('settings.php');
             $firstname = sanitise_input($_POST['firstname']);
             $lastname = sanitise_input($_POST['lastname']);
             $delete_by_ref = sanitise_input($_POST['delete_by_ref']);
+            $eoi_num = sanitise_input($_POST['eoi-num']);
+            $status = sanitise_input($_POST['status']);
             
             // list all EOIs
             if ($list_all) {
@@ -118,14 +120,22 @@ require_once('settings.php');
                     echo "Deletion of EOIs was successful";
                   } else {
                     echo "Error deleting: " . $conn->error;
-                  }
+                }
             }
 
-            // change status (TO DO)
+            // change status
+            if ($eoi_num and $status) {
+                $query = "UPDATE EOI SET Status='$status' WHERE EoiID='$eoi_num'";
+                if ($conn->query($query) === TRUE) {
+                    echo "EOI status successfully updated";
+                  } else {
+                    echo "Error updating record: " . $conn->error;
+                }
+            }
 
             $result = mysqli_query($conn,$query);
 
-            if($result and mysqli_num_rows($result) > 0) {
+            if($result and (mysqli_num_rows($result) > 0)) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";
                 echo "<th>ID</th>";
