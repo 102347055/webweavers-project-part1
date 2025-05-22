@@ -61,30 +61,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body id="apply-body">
   <?php include 'header.inc'; ?>
   <h1 id="apply-heading">Create Your Account</h1>
-  <form action="reg.php" method="post">
-    <div class="details">
-      <label for="username"></label>Username:
-      <input type="text" name="username" id="username" class="form-control" required>
-    </div>
+  <form action="reg.php" method="post" class="registration-form">
+  <div class="reg-row">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" class="form-control" required>
+  </div>
 
-    <div class="details">
-      <label for="user_password"></label>Password (7-20 characters and 1 number):
-      <input type="text" name="user_password" id="user_password"
-        class="form-control" required
-        pattern="^(?=.*\d).{7,}$"
-        title="Password must be at least 7 characters long and contain at least one number">
-    </div>
+  <div class="reg-row">
+    <label for="user_password">Password (7-20 characters and 1 number):</label>
+    <input type="text" name="user_password" id="user_password"
+      class="form-control" required
+      pattern="^(?=.*\d).{7,}$"
+      title="Password must be at least 7 characters long and contain at least one number">
+  </div>
 
-    <div>
-      <button type="submit" class="button">Create Account</button>
-    </div>
+  <div class= "reg-button">
+    <button type="submit" class="button">Create Account</button>
+  </div>
 
-    <div>
-      <p id="alreadyacc">
-        I have an Account <a href="./login.php" id ="loginalreadyacc">Login</a>
-      </p>
-    </div>
-  </form>
+    <p id="alreadyacc">
+      I have an Account <a href="./login.php" id="loginalreadyacc">Login</a>
+    </p>
+</form>
   <?php include 'footer.inc'; ?>
 </body>
 </html>

@@ -1106,29 +1106,69 @@ form {
     }
 }
 
-/* Make the form elements span the full width and align labels inline */
 .form-row {
+    flex: 1;
     display: flex;
     align-items: center;
+    gap: 1em;
     margin-bottom: 1em;
-    max-width: 100%;
 }
 
 .form-row label {
-    width: 120px;
-    margin-right: 1em;
-    font-weight: bold;
-    white-space: nowrap;
+    width: 120px; /* consistent label width */
+    text-align: right;
 }
 
 .form-row input[type="text"],
 .form-row input[type="password"] {
-    flex: 1;
-    padding: 0.5em;
+    flex-grow: 1;
+    padding: 0.8em 1em;
     font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    height: 3em;
     width: 100%;
     box-sizing: border-box;
 }
+
+.registration-form .reg-row {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.registration-form .reg-row label {
+  width: 200px;
+  text-align: right;
+}
+
+.registration-form .reg-row input {
+  flex: 1;
+  padding: 0.8em 1em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  height: 3em;
+  box-sizing: border-box;
+}
+
+#alreadyacc a {
+  text-decoration: none;
+  color: #5a3e71; /* or any color you prefer */
+  font-weight: bold;
+}
+
+#alreadyacc a:hover {
+  text-decoration: underline;
+}
+
+.registration-form .reg-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
 
 /***************************************************** manage.php **************************************************************/
 
