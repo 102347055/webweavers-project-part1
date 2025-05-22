@@ -1106,24 +1106,8 @@ form {
     }
 }
 
-#login_already_acc{
-    background-color:#cca7ea;
-    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-    border-radius: 10px;
-    transition: 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    color: red;
-}
-
-#already_acc{
-    background-color:#cca7ea;
-    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-    border-radius: 10px;
-    transition: 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    color: red;
+#check{
+    background-color: #5a3e71;
 }
 
 /***************************************************** manage.php **************************************************************/
