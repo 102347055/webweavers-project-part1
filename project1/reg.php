@@ -8,38 +8,35 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-$sql_3 = "INSERT INTO 'users' ('username', 'user_password') VALUES ('hi', 'bye')";
-$result_3 = mysqli_query($conn, $sql_3);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize input
+    $new_user = mysqli_real_escape_string($conn, $_POST["username"]);
+    $new_pwd = mysqli_real_escape_string($conn, $_POST["user_password"]);
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-  
-    $new_user = $_POST["username"]; 
-    $new_pwd = $_POST["user_password"]; 
-  
-    $sql = "Select * from users where username='$new_user'";
-  
+    // Check if username already exists
+    $sql = "SELECT * FROM `users` WHERE `username` = '$new_user'";
     $result = mysqli_query($conn, $sql);
-  
-    $num = mysqli_num_rows($result); 
-  
-    // This sql query is use to check if
-    // the username is already present 
-    // or not in our Database
-    
-    //checking if username exists, if returns no rows, that means username isn't taken
-    if($num == 0) {
-      $sql_2 = "INSERT INTO 'users' ('username', 'user_password') VALUES ('$new_user', '$new_pwd')";
-      $result_2 = mysqli_query($conn, $sql_2);
-        }    
-  
-   if($num>0) 
-   {
-      echo "Username not available"; 
-   } 
-  
-}//end if   
-  
 
+    if (!$result) {
+        die("Error checking username: " . mysqli_error($conn));
+    }
+
+    $num = mysqli_num_rows($result);
+
+    if ($num == 0) {
+        // Insert new user
+        $sql = "INSERT INTO `users` (`username`, `user_password`) VALUES ('$new_user', '$new_pwd')";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            echo "Account created successfully.";
+        } else {
+            echo "Error inserting user: " . mysqli_error($conn);
+        }
+    } else {
+        echo "Username not available";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-        <form action = "./manage.php" method="post" >
+        <form action = "reg.php" method="post" >
                 <h5 class="p-4" style="font-weight: 700;">Create Your Account</h5>
 
             <div class="details">
