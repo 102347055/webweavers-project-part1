@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 20, 2025 at 07:06 AM
+-- Generation Time: May 21, 2025 at 07:55 AM
 -- Server version: 10.11.11-MariaDB-0+deb12u1
 -- PHP Version: 8.2.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `WebWeaversSchema`
+-- Database: `WebWeavers_DB`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `Employee` (
   `StreetAddress` varchar(40) NOT NULL,
   `State` enum('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT NULL,
   `City` varchar(255) NOT NULL,
-  `Postcode` smallint(6) NOT NULL,
+  `Postcode` varchar(10) NOT NULL,
   `EmailAddress` varchar(100) NOT NULL,
   `PhoneNumber` varchar(20) NOT NULL,
   `Gender` enum('Female','Male','Other/Unspecified') NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `Employee` (
 --
 
 INSERT INTO `Employee` (`EmployeeID`, `FirstName`, `LastName`, `UserName`, `UserPassword`, `DateOfBirth`, `StreetAddress`, `State`, `City`, `Postcode`, `EmailAddress`, `PhoneNumber`, `Gender`, `CompanyPosition`) VALUES
-(1, 'Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'VIC', 'Brighton', 8888, '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
+(1, 'Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'VIC', 'Brighton', '8888', '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
 
 -- --------------------------------------------------------
 
@@ -67,13 +67,64 @@ CREATE TABLE `EOI` (
   `StreetAddress` varchar(40) NOT NULL,
   `Suburb` varchar(40) NOT NULL,
   `State` enum('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT NULL,
-  `Postcode` tinyint(4) NOT NULL,
+  `Postcode` varchar(10) NOT NULL,
   `EmailAddress` varchar(100) NOT NULL,
   `PhoneNumber` varchar(20) NOT NULL,
-  `TechnicalSkills` enum('Knowledge of AWS/Azure cloud platforms','Familiarity with scripting languages (e.g. Bash, Python)','System administration skills','Cloud automation proficiency','Knowledge of cloud security best practices') DEFAULT NULL,
   `OtherSkills` text DEFAULT NULL,
   `Status` enum('New','Current','Final') NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `EOI`
+--
+
+INSERT INTO `EOI` (`EoiID`, `JobReferenceNumber`, `FirstName`, `LastName`, `DateOfBirth`, `Gender`, `StreetAddress`, `Suburb`, `State`, `Postcode`, `EmailAddress`, `PhoneNumber`, `OtherSkills`, `Status`) VALUES
+(1, 'COS01', 'Alice', 'Nguyen', '1998-04-15', 'Female', '123 Cloud St', 'Richmond', 'VIC', '3121', 'alice.nguyen@example.com', '0412345678', 'Participated in a student DevOps club and built a mock CI/CD pipeline.', 'New'),
+(2, 'COS01', 'Bob', 'Smith', '1997-08-22', 'Male', '456 Script Rd', 'Hawthorn', 'VIC', '3122', 'bob.smith@example.com', '0412123456', 'Completed an internship with cloud infrastructure management.', 'New'),
+(3, 'COS02', 'Carol', 'Jones', '1992-02-11', 'Female', '789 Admin Ave', 'Melbourne', 'VIC', '3000', 'carol.jones@example.com', '0412765432', 'Certified AWS SysOps Administrator.', 'New'),
+(4, 'COS02', 'David', 'Lee', '1990-12-01', 'Male', '101 Engineer Blvd', 'Geelong', 'VIC', '3220', 'david.lee@example.com', '0412987654', 'Experience with Kubernetes and container orchestration.', 'New'),
+(5, 'COS01', 'Jake', 'Lee', '2000-11-22', 'Male', '456 Dev Rd', 'Southbank', 'VIC', '3006', 'jake.lee@example.com', '0409876543', 'Completed Azure Fundamentals certification.', 'Current'),
+(6, 'COS01', 'Priya', 'Singh', '1999-02-10', 'Female', '88 Cloudway', 'Fitzroy', 'VIC', '3065', 'priya.singh@example.com', '0422333444', 'Interned with a startup using Terraform and AWS.', 'New'),
+(7, 'COS02', 'Tariq', 'Hassan', '1989-09-30', 'Male', '321 System St', 'Carlton', 'VIC', '3053', 'tariq.hassan@example.com', '0499123456', 'Managed Kubernetes clusters and Azure AD policies.', 'New'),
+(8, 'COS02', 'Lucas', 'Martin', '1990-07-05', 'Male', '555 Network Blvd', 'Hawthorn', 'VIC', '3122', 'lucas.martin@example.com', '0455667788', 'Experience with hybrid cloud monitoring tools and log aggregation systems.', 'Current');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `EoiSkills`
+--
+
+CREATE TABLE `EoiSkills` (
+  `EoiID` smallint(6) NOT NULL,
+  `SkillID` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `EoiSkills`
+--
+
+INSERT INTO `EoiSkills` (`EoiID`, `SkillID`) VALUES
+(1, 1),
+(1, 2),
+(2, 1),
+(2, 3),
+(3, 1),
+(3, 3),
+(3, 5),
+(4, 1),
+(4, 4),
+(4, 5),
+(5, 1),
+(5, 4),
+(6, 1),
+(6, 2),
+(6, 4),
+(7, 1),
+(7, 3),
+(7, 4),
+(8, 1),
+(8, 3),
+(8, 5);
 
 -- --------------------------------------------------------
 
@@ -185,6 +236,28 @@ INSERT INTO `Responsibilities` (`ResponsibilityID`, `JobsID`, `Responsibility`) 
 (9, 2, 'Implement security configurations and perform risk assessments.'),
 (10, 2, 'Provide Tier 2 support for cloud-related service issues.');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Skills`
+--
+
+CREATE TABLE `Skills` (
+  `SkillID` smallint(6) NOT NULL,
+  `SkillType` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Skills`
+--
+
+INSERT INTO `Skills` (`SkillID`, `SkillType`) VALUES
+(1, 'Knowledge of AWS/Azure cloud platforms'),
+(2, 'Familiarity with scripting languages (e.g. Bash, Python)'),
+(3, 'System administration skills'),
+(4, 'Cloud automation proficiency'),
+(5, 'Knowledge of cloud security best practices');
+
 --
 -- Indexes for dumped tables
 --
@@ -207,6 +280,13 @@ ALTER TABLE `EOI`
   ADD UNIQUE KEY `EmailAddress` (`EmailAddress`),
   ADD UNIQUE KEY `PhoneNumber` (`PhoneNumber`),
   ADD KEY `JobReferenceNumber` (`JobReferenceNumber`);
+
+--
+-- Indexes for table `EoiSkills`
+--
+ALTER TABLE `EoiSkills`
+  ADD PRIMARY KEY (`EoiID`,`SkillID`),
+  ADD KEY `SkillID` (`SkillID`);
 
 --
 -- Indexes for table `Jobs`
@@ -236,6 +316,12 @@ ALTER TABLE `Responsibilities`
   ADD KEY `JobsID` (`JobsID`);
 
 --
+-- Indexes for table `Skills`
+--
+ALTER TABLE `Skills`
+  ADD PRIMARY KEY (`SkillID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -249,7 +335,7 @@ ALTER TABLE `Employee`
 -- AUTO_INCREMENT for table `EOI`
 --
 ALTER TABLE `EOI`
-  MODIFY `EoiID` smallint(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `EoiID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `Jobs`
@@ -276,6 +362,12 @@ ALTER TABLE `Responsibilities`
   MODIFY `ResponsibilityID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `Skills`
+--
+ALTER TABLE `Skills`
+  MODIFY `SkillID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -284,6 +376,13 @@ ALTER TABLE `Responsibilities`
 --
 ALTER TABLE `EOI`
   ADD CONSTRAINT `EOI_ibfk_1` FOREIGN KEY (`JobReferenceNumber`) REFERENCES `Jobs` (`JobReferenceNumber`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `EoiSkills`
+--
+ALTER TABLE `EoiSkills`
+  ADD CONSTRAINT `EoiSkills_ibfk_1` FOREIGN KEY (`EoiID`) REFERENCES `EOI` (`EoiID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `EoiSkills_ibfk_2` FOREIGN KEY (`SkillID`) REFERENCES `Skills` (`SkillID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `Qualifications`

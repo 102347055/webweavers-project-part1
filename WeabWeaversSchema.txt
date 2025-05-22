@@ -1,29 +1,31 @@
-_______________________________________JOBS TABLES________________________________
+-- ________________________________________
+-- JOBS TABLES
+-- ________________________________________
 
 CREATE TABLE Jobs (
     JobsID SMALLINT NOT Null AUTO_INCREMENT,
     JobReferenceNumber VARCHAR(20) NOT Null UNIQUE,
-    PositionTitle VARCHAR(255) NOT Null,
-    Role TEXT NOT Null,
+    PositionTitle VARCHAR(255) Not Null,
+    Role TEXT Not Null,
     SalaryRange VARCHAR(255),
-    ReportsTo VARCHAR(255) NOT Null,
-    RelevanceHeading VARCHAR(255) NOT Null,
-    RelevanceDescription TEXT NOT Null,
+    ReportsTo VARCHAR(255) Not Null,
+    RelevanceHeading VARCHAR(255) Not Null,
+    RelevanceDescription TEXT Not Null,
     ApplyHyperLink VARCHAR(255),
     PRIMARY KEY (JobsID)
 );
 
 CREATE TABLE Responsibilities (
-    ResponsibilityID SMALLINT NOT Null AUTO_INCREMENT,
-    JobsID SMALLINT NOT Null,
+    ResponsibilityID SMALLINT Not Null AUTO_INCREMENT,
+    JobsID SMALLINT Not Null,
     Responsibility TEXT,
     PRIMARY KEY (ResponsibilityID),
     FOREIGN KEY (JobsID) REFERENCES Jobs (JobsID) ON DELETE CASCADE
 );
 
 CREATE TABLE Qualifications (
-    QualificationsID SMALLINT NOT Null AUTO_INCREMENT,
-    JobsID SMALLINT NOT Null,
+    QualificationsID SMALLINT Not Null AUTO_INCREMENT,
+    JobsID SMALLINT Not Null,
     Qualification TEXT,
     ColumnType ENUM('essential', 'preferable'),
     PRIMARY KEY (QualificationsID),
@@ -31,14 +33,14 @@ CREATE TABLE Qualifications (
 );
 
 CREATE TABLE Perks (
-    PerkID SMALLINT NOT Null AUTO_INCREMENT,
+    PerkID SMALLINT Not Null AUTO_INCREMENT,
     Reasons TEXT NOT NULL,
     PRIMARY KEY (PerkID)
 );
 
-
-
-_______________________________JOBS INSERT DATA BELOW__________________________________________________________
+-- ________________________________________
+-- JOBS INSERT DATA BELOW
+-- ________________________________________
 
 INSERT INTO Jobs (
     JobReferenceNumber, PositionTitle, Role, SalaryRange, ReportsTo,
@@ -111,49 +113,131 @@ INSERT INTO Perks (Reasons) VALUES
 ('An additional two weeks of annual leave.'),
 ('Health & wellbeing benefits including discounts on gym memberships.');
 
-
-____________________________APPLY TABLES_________________________________________
+-- ________________________________________
+-- APPLY TABLES
+-- ________________________________________
 
 CREATE TABLE EOI (
-    EoiID SMALLINT NOT Null AUTO_INCREMENT,
-    JobReferenceNumber VARCHAR(20) NOT Null,
-    FirstName VARCHAR(20) NOT Null,
-    LastName VARCHAR(20) NOT Null,
-    DateOfBirth DATE NOT Null,
-    Gender ENUM ('Female', 'Male', 'Other/Unspecified') NOT Null,
-    StreetAddress VARCHAR(40) NOT Null,
-    Suburb VARCHAR(40) NOT Null,
-    State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT Null,
-    Postcode TINYINT NOT Null,
-    EmailAddress VARCHAR(100) NOT Null UNIQUE,
-    PhoneNumber VARCHAR(20) NOT Null UNIQUE,
-    TechnicalSkills ENUM ('Knowledge of AWS/Azure cloud platforms','Familiarity with scripting languages (e.g. Bash, Python)','System administration skills','Cloud automation proficiency','Knowledge of cloud security best practices'),
+    EoiID SMALLINT Not Null AUTO_INCREMENT,
+    JobReferenceNumber VARCHAR(20) Not Null,
+    FirstName VARCHAR(20) Not Null,
+    LastName VARCHAR(20) Not Null,
+    DateOfBirth DATE Not Null,
+    Gender ENUM ('Female', 'Male', 'Other/Unspecified') Not Null,
+    StreetAddress VARCHAR(40) Not Null,
+    Suburb VARCHAR(40) Not Null,
+    State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') Not Null,
+    Postcode VARCHAR(10) Not Null,
+    EmailAddress VARCHAR(100) Not Null UNIQUE,
+    PhoneNumber VARCHAR(20) Not Null UNIQUE,
     OtherSkills TEXT,
     Status ENUM ('New','Current','Final') NOT NULL DEFAULT 'New', 
     PRIMARY KEY (EoiID),
     FOREIGN KEY (JobReferenceNumber) REFERENCES Jobs (JobReferenceNumber) ON DELETE CASCADE
 );
 
-____________________________EMPLOYEE TABLE_________________________________________
+CREATE TABLE Skills (
+    SkillID SMALLINT NOT NULL AUTO_INCREMENT,
+    SkillType VARCHAR(255) NOT NULL,
+    PRIMARY KEY (SkillID)
+);
+
+CREATE TABLE EoiSkills (
+    EoiID SMALLINT NOT NULL,
+    SkillID SMALLINT NOT NULL,
+    PRIMARY KEY (EoiID, SkillID),
+    FOREIGN KEY (EoiID) REFERENCES EOI(EoiID) ON DELETE CASCADE,
+    FOREIGN KEY (SkillID) REFERENCES Skills(SkillID) ON DELETE CASCADE
+);
+
+-- ________________________________________
+-- SKILLS INSERT DATA BELOW
+-- ________________________________________
+
+INSERT INTO Skills (SkillType) VALUES
+('Knowledge of AWS/Azure cloud platforms'),
+('Familiarity with scripting languages (e.g. Bash, Python)'),
+('System administration skills'),
+('Cloud automation proficiency'),
+('Knowledge of cloud security best practices');
+
+-- ________________________________________
+-- EMPLOYEE TABLE
+-- ________________________________________
 
 CREATE TABLE Employee (
-    EmployeeID SMALLINT NOT Null AUTO_INCREMENT,
-    FirstName VARCHAR(255) NOT Null,
-    LastName VARCHAR(255) NOT Null,
-    UserName VARCHAR(255) NOT Null UNIQUE,
-    UserPassword VARCHAR(255) NOT Null UNIQUE,
-    DateOfBirth DATE NOT Null,
-    StreetAddress VARCHAR(40) NOT Null,
-    State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT Null,
-    City VARCHAR(255) NOT Null,
-    Postcode SMALLINT NOT Null,
-    EmailAddress VARCHAR(100) NOT Null UNIQUE,
-    PhoneNumber VARCHAR(20) NOT Null UNIQUE,
-    Gender ENUM ('Female', 'Male', 'Other/Unspecified') NOT Null,
+    EmployeeID SMALLINT Not Null AUTO_INCREMENT,
+    FirstName VARCHAR(255) Not Null,
+    LastName VARCHAR(255) Not Null,
+    UserName VARCHAR(255) Not Null UNIQUE,
+    UserPassword VARCHAR(255) Not Null UNIQUE,
+    DateOfBirth DATE Not Null,
+    StreetAddress VARCHAR(40) Not Null,
+    State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') Not Null,
+    City VARCHAR(255) Not Null,
+    Postcode VARCHAR(10) Not Null,
+    EmailAddress VARCHAR(100) Not Null UNIQUE,
+    PhoneNumber VARCHAR(20) Not Null UNIQUE,
+    Gender ENUM ('Female', 'Male', 'Other/Unspecified') Not Null,
     CompanyPosition ENUM ('Employee','Manager','Admin') NOT NULL DEFAULT 'Employee',
     PRIMARY KEY (EmployeeID)
 );
-_______________________________EMPLOYEE INSERT DATA BELOW__________________________________________________________
+
+-- ________________________________________
+-- EMPLOYEE INSERT DATA BELOW
+-- ________________________________________
 
 INSERT INTO Employee (FirstName, LastName, UserName, UserPassword, DateOfBirth, StreetAddress, City, State, Postcode, EmailAddress, PhoneNumber, Gender, CompanyPosition) VALUES
-('Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'Brighton', 'VIC', 8888, '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
+('Damian', 'Moisidis', 'test', '123', '1999-06-24', 'Example St', 'Brighton', 'VIC', '8888', '104887896@Student.swin.edu.au', '04111222333', 'Male', 'Manager');
+
+-- ________________________________________
+-- EOIs FOR COS01 (Junior Cloud Engineer)
+-- ________________________________________
+
+-- Alice Nguyen
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS01', 'Alice', 'Nguyen', '1998-04-15', 'Female', '123 Cloud St', 'Richmond', 'VIC', 3121, 'alice.nguyen@example.com', '0412345678', 'Participated in a student DevOps club and built a mock CI/CD pipeline.', 'New');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES (LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 2);
+
+-- Bob Smith
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS01', 'Bob', 'Smith', '1997-08-22', 'Male', '456 Script Rd', 'Hawthorn', 'VIC', 3122, 'bob.smith@example.com', '0412123456', 'Completed an internship with cloud infrastructure management.', 'New');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES (LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 3);
+
+-- Jake Lee
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS01', 'Jake', 'Lee', '2000-11-22', 'Male', '456 Dev Rd', 'Southbank', 'VIC', 3006, 'jake.lee@example.com', '0409876543', 'Completed Azure Fundamentals certification.', 'Current');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES
+(LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 4);
+
+-- Priya Singh
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS01', 'Priya', 'Singh', '1999-02-10', 'Female', '88 Cloudway', 'Fitzroy', 'VIC', 3065, 'priya.singh@example.com', '0422333444', 'Interned with a startup using Terraform and AWS.', 'New');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES
+(LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 2), (LAST_INSERT_ID(), 4);
+
+-- ________________________________________
+-- EOIs FOR COS02 (Cloud Systems Administrator Level 2)
+-- ________________________________________
+
+-- Carol Jones
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS02', 'Carol', 'Jones', '1992-02-11', 'Female', '789 Admin Ave', 'Melbourne', 'VIC', 3000, 'carol.jones@example.com', '0412765432', 'Certified AWS SysOps Administrator.', 'New');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES (LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 3), (LAST_INSERT_ID(), 5);
+
+-- David Lee
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS02', 'David', 'Lee', '1990-12-01', 'Male', '101 Engineer Blvd', 'Geelong', 'VIC', 3220, 'david.lee@example.com', '0412987654', 'Experience with Kubernetes and container orchestration.', 'New');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES (LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 4), (LAST_INSERT_ID(), 5);
+
+-- Tariq Hassan
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS02', 'Tariq', 'Hassan', '1989-09-30', 'Male', '321 System St', 'Carlton', 'VIC', 3053, 'tariq.hassan@example.com', '0499123456', 'Managed Kubernetes clusters and Azure AD policies.', 'New');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES
+(LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 3), (LAST_INSERT_ID(), 4);
+
+-- Lucas Martin
+INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills, Status)
+VALUES ('COS02', 'Lucas', 'Martin', '1990-07-05', 'Male', '555 Network Blvd', 'Hawthorn', 'VIC', 3122, 'lucas.martin@example.com', '0455667788', 'Experience with hybrid cloud monitoring tools and log aggregation systems.', 'Current');
+INSERT INTO EoiSkills (EoiID, SkillID) VALUES
+(LAST_INSERT_ID(), 1), (LAST_INSERT_ID(), 3), (LAST_INSERT_ID(), 5);

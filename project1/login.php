@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($_POST["password"]);
 
     // Simple query to check credentials
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT * FROM Employee WHERE UserName = '$username' AND UserPassword = '$password'";
     $result = mysqli_query($conn, $query);
     $db_user = mysqli_fetch_assoc($result);
 
