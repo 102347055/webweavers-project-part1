@@ -1110,6 +1110,14 @@ form {
     background-color: #5a3e71;
 }
 
+#loginalreadyacc{
+    text-decoration: none;
+}
+
+#alreadyacc{
+    text-decoration: none;
+}
+
 /***************************************************** manage.php **************************************************************/
 
 #manage-body {

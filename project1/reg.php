@@ -80,8 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div>
-      <p id="already_acc">
-        I have an Account <a href="./login.php" id = "login_already_acc">Login</a>
+      <p id="alreadyacc">
+        I have an Account <a href="./login.php" id ="loginalreadyacc">Login</a>
       </p>
     </div>
   </form>
