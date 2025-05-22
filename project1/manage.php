@@ -113,17 +113,19 @@ require_once('settings.php');
 
             // delete by reference number
             if ($delete_by_ref) {
-                $delete_query = "DELETE FROM EOI WHERE JobReferenceNumber = '$delete_by_ref'";
-                if ($conn->query($delete_query) === TRUE) {
+                $query = "DELETE FROM EOI WHERE JobReferenceNumber = '$delete_by_ref'";
+                if ($conn->query($query) === TRUE) {
                     echo "Deletion of EOIs was successful";
                   } else {
                     echo "Error deleting: " . $conn->error;
                   }
             }
 
+            // change status (TO DO)
+
             $result = mysqli_query($conn,$query);
 
-            if($result) {
+            if($result and mysqli_num_rows($result) > 0) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";
                 echo "<th>ID</th>";
