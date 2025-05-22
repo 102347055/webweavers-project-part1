@@ -17,7 +17,7 @@
     <?php include 'header.inc'; ?>
     
     <h1 id="apply-heading">Apply for a position</h1>
-    <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">     <!--Job application form-->
+    <form method="post" action="process_eoi.php" novalidate>     <!--Job application form-->
         <label for="reference-no" class="apply-input">Job Reference Number:
             <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector-->
                 <option value=" ">Please Select</option>
@@ -47,7 +47,7 @@
                     Male
                 </label>
                 <label for="other">
-                    <input type="radio" name="gender" id="other" value="other">
+                    <input type="radio" name="gender" id="other" value="other/unspecified">
                     Other/Unspecified
                 </label>
             </fieldset>
@@ -91,23 +91,23 @@
             <div id="tech-skills">   <!--Technical skills checkboxes-->
                 <p>Required technical skills:</p>
                 <label for="aws-azure">
-                    <input type="checkbox" name="aws-azure" id="aws-azure" value="aws-azure" checked>
+                    <input type="checkbox" name="aws-azure" id="aws-azure" value="1" checked>
                     Knowledge of AWS/Azure cloud platforms
                 </label>
                 <label for="script-lang">
-                    <input type="checkbox" name="script-lang" id="script-lang" value="script-lang">
+                    <input type="checkbox" name="script-lang" id="script-lang" value="2">
                     Familiarity with scripting languages (e.g. Bash, Python)
                 </label>
                 <label for="sys-admin">
-                    <input type="checkbox" name="sys-admin" id="sys-admin" value="sys-admin">
+                    <input type="checkbox" name="sys-admin" id="sys-admin" value="3">
                     System administration skills
                 </label>
                 <label for="automation">
-                    <input type="checkbox" name="automation" id="automation" value="automation">
+                    <input type="checkbox" name="automation" id="automation" value="4">
                     Cloud automation proficiency
                 </label>
                 <label for="security">
-                    <input type="checkbox" name="security" id="security" value="security">
+                    <input type="checkbox" name="security" id="security" value="5">
                     Knowledge of cloud security best practices
                 </label>
             </div>

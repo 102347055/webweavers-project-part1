@@ -54,7 +54,7 @@ INSERT INTO Jobs (
     'Senior Cloud Engineer',
     'Why Cloud Engineering is Relevant',
     'With the rapid shift toward cloud infrastructure across industries, we are in need of skilled engineers to build and maintain our systems. This role offers a fantastic entry point for aspiring professionals looking to grow with evolving technologies.',
-    './apply.html'
+    './apply.php'
 ),
 (
     'COS02',
@@ -64,7 +64,7 @@ INSERT INTO Jobs (
     'Cloud Infrastructure Manager',
     'Importance of Cloud Systems Administration',
     'As our partners adopt hybrid and multi-cloud strategies, experienced administrators play a vital role in ensuring security, performance, and reliability. This role supports mission-critical operations and provides real-world experience in enterprise settings.',
-    './apply.html'
+    './apply.php'
 );
 
 -- For COS01 (JobsID = 1)

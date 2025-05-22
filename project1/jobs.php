@@ -26,122 +26,53 @@
                 <li><a href="#why_sign_up" class="button apply_link">Sign up Perks</a></li>
             </ol>
         </div>
+        
 
-        <!-- Gen Ai and seek.com assisted job entry content, used Junior cloud engineer position as a basis for the below.-->
-        <section id="cloud_engineer">
-            <h2 class="job_heading2">Cloud Engineer</h2>
-            <article>
-                <div class="job_descriptions">
-                    <p><strong>Reference No:</strong> COS01</p>
-                    <p><strong>Position Title:</strong> Junior Cloud Engineer</p>
-                    <p><strong>The Role:</strong> Join our cloud engineering team to assist with designing, implementing, and maintaining cloud-based infrastructure, with opportunities to grow and innovate in a supportive environment.</p>
-                    <p><strong>Salary Range:</strong> $70,000 - $90,000 AUD per annum</p>
-                    <p><strong>Reports To:</strong> Senior Cloud Engineer</p>
-                </div>
-                <!--Used h3 for the aside heading so that screen readers will not get confused by its positioning in the article.-->
-                <aside class="position_aside" aria-label="Why Cloud Engineering is Relevant">
-                    <h3 class="job_heading4">Why Cloud Engineering is Relevant</h3>
-                    <p>With the rapid shift toward cloud infrastructure across industries, we are in need of skilled engineers to build and maintain our systems. This role offers a fantastic entry point for aspiring professionals looking to grow with evolving technologies.</p>
-                </aside>
+        <?php
+session_start();
+require_once("settings.php");
 
-                <div class="key_responsibilities">
-                    <h3 class="job_heading3">Key Responsibilities</h3>
-                    <ul>
-                        <li>Assist in deploying and managing cloud services across AWS and Azure.</li>
-                        <li>Support senior engineers with troubleshooting and optimization tasks.</li>
-                        <li>Write scripts for cloud automation tasks and system monitoring.</li>
-                        <li>Ensure compliance with security policies and documentation standards.</li>
-                        <li>Participate in code reviews and team knowledge-sharing sessions.</li>
-                    </ul>
-                </div>
+// Connect to database
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
-                <h3 class="qualifications_heading">Required Qualifications & Skills</h3>
-                <!--Used a div container learnt from chatgpt so i could ensure the the essential skills and preferable could be split evenly in CSS-->
-                <div class="qualifications_container">
-                    <div class="essential_div">
-                        <h4 class="job_heading4">Essential</h4>
-                        <ul>
-                            <li>Basic knowledge of AWS and/or Azure platforms.</li>
-                            <li>Proficiency in a scripting language such as Python or Bash.</li>
-                            <li>Understanding of IAM and cloud security fundamentals.</li>
-                            <li>Strong analytical and communication skills.</li>
-                            <li>1+ year experience through coursework, internships, or personal projects.</li>
-                        </ul>
-                    </div>
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 
-                    <div class="preferable_div">
-                        <h4 class="job_heading4">Preferable</h4>
-                        <ul>
-                            <li>Experience with Infrastructure-as-Code tools like Terraform or CloudFormation.</li>
-                            <li>Exposure to DevOps tools like Docker or Jenkins.</li>
-                            <li>Azure Fundamentals or AWS Certified Cloud Practitioner certification.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-            <!--Apply now button adapted from Roses apply code with an id used instead of a class for the
-                buttons to ensure they can have their CSS set as priority-->
-            <div class="apply_now">
-                <a href="./apply.html" class="button apply_link" id="apply_button1">Apply Now</a>
-            </div>
-        </section>
+// Select all records from jobs tbale 
+$sql = "SELECT * FROM Jobs";
+$result = $conn->query($sql);
 
-        <!-- Gen Ai and seek.com assisted job entry, used Level 2 Systems Engineer position as a basis for the below.-->
-        <section id="cloud_systems_administrator">
-            <h2 class="job_heading2">Cloud Systems Administrator</h2>
-            <article>
-                <div class="job_descriptions">
-                    <p><strong>Reference No:</strong> COS02</p>
-                    <p><strong>Position Title:</strong> Cloud Systems Administrator (Level 2)</p>
-                    <p><strong>The Role:</strong> Manage hybrid cloud systems across AWS and Azure, ensuring their security, performance, and reliability while supporting mission-critical enterprise operations.</p>
-                    <p><strong>Salary Range:</strong> $95,000 - $120,000 AUD per annum</p>
-                    <p><strong>Reports To:</strong> Cloud Infrastructure Manager</p>
-                </div>
-
-                <!--Used h3 for the aside heading so that screen readers will not get confused by its positioning in the article.-->
-                <aside class="position_aside" aria-label="Importance of Cloud Systems Administration">
-                    <h3 class="job_heading4">Importance of Cloud Systems Administration</h3>
-                    <p>As our partners adopt hybrid and multi-cloud strategies, experienced administrators play a vital role in ensuring security, performance, and reliability. This role supports mission-critical operations and provides real-world experience in enterprise settings.</p>
-                </aside>
-
-                <h3 class="job_heading3">Key Responsibilities</h3>
-                <ul>
-                    <li>Monitor, maintain, and optimize cloud infrastructure.</li>
-                    <li>Provision and manage virtual machines, storage, and network resources.</li>
-                    <li>Automate system updates and deployments using Infrastructure-as-Code.</li>
-                    <li>Implement security configurations and perform risk assessments.</li>
-                    <li>Provide Tier 2 support for cloud-related service issues.</li>
-                </ul>
-
-                <h3 class="qualifications_heading2">Required Qualifications & Skills</h3>
-                <div class="qualifications_container">
-                    <div class="essential_div">
-                        <h4 class="job_heading4">Essential</h4>
-                        <ul>
-                            <li>3+ years in cloud or systems administration roles.</li>
-                            <li>Advanced knowledge of Microsoft Azure and AWS platforms.</li>
-                            <li>Experience managing Windows Server environments in cloud setups.</li>
-                            <li>Strong scripting skills and experience with Terraform or CloudFormation.</li>
-                            <li>Solid understanding of IAM, VPNs, firewalls, and data protection best practices.</li>
-                        </ul>
-                    </div>
-
-                    <div class="preferable_div">
-                        <h4 class="job_heading4">Preferable</h4>
-                        <ul>
-                            <li>Relevant certifications (e.g., AWS SysOps Administrator, Azure Administrator Associate).</li>
-                            <li>Experience with Kubernetes or container-based deployments.</li>
-                            <li>Familiarity with CI/CD pipelines and monitoring tools.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-
-            <div class="apply_now">
-                <a href="./apply.html" class="button apply_link" id="apply_button2">Apply Now</a>
-            </div>
-        </section>
-
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) { //A loop that iterates over each row in the result as an associative array
+        echo "<section id=\"" . strtolower(str_replace(' ', '_', $row['PositionTitle'])) . "\">";
+        echo "<h2 class='job_heading2'>" . htmlspecialchars($row['PositionTitle']) . "</h2>";
+        echo "<article>"; //Creates block for jobs information
+        echo "<div class='job_descriptions'>";
+        echo "<p><strong>Reference No:</strong> " . htmlspecialchars($row['JobReferenceNumber']) . "</p>";
+        echo "<p><strong>Position Title:</strong> " . htmlspecialchars($row['PositionTitle']) . "</p>";
+        echo "<p><strong>The Role:</strong> " . htmlspecialchars($row['Role']) . "</p>";
+        echo "<p><strong>Salary Range:</strong> " . htmlspecialchars($row['SalaryRange']) . "</p>";
+        echo "<p><strong>Reports To:</strong> " . htmlspecialchars($row['ReportsTo']) . "</p>";
+        echo "</div>";
+    
+        echo "<aside class='position_aside' aria-label='" . htmlspecialchars($row['RelevanceHeading']) . "'>";
+        echo "<h3 class='job_heading4'>" . htmlspecialchars($row['RelevanceHeading']) . "</h3>";
+        echo "<p>" . htmlspecialchars($row['RelevanceDescription']) . "</p>";
+        echo "</aside>";
+    
+        echo "<div class='apply_now'>"; //Add apply now button
+        echo "<a href='" . htmlspecialchars($row['ApplyHyperLink']) . "' class='button apply_link'>Apply Now</a>";
+        echo "</div>";
+        echo "</article>";
+        echo "</section>";
+    }
+} else {
+    echo "<p>No job listings available at this time.</p>"; //error message 
+}
+$conn->close();
+?>
+        
         <article id="why_sign_up">
             <h2 class="job_heading2">Why Sign Up?</h2>
             <ol>
