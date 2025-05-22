@@ -1,10 +1,8 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 session_start();
 require_once("settings.php");
 
+// Connect to database
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$conn) {
@@ -15,6 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize input
     $new_user = mysqli_real_escape_string($conn, $_POST["username"]);
     $new_pwd = mysqli_real_escape_string($conn, $_POST["user_password"]);
+
+    // Password rule: min 7 characters, at least 1 number
+    if (!preg_match('/^(?=.*\d).{7,}$/', $new_pwd)) {
+        echo "❌ Password must be at least 7 characters long and contain at least one number.";
+        exit;
+    }
 
     // Check if username already exists
     $sql = "SELECT * FROM `users` WHERE `username` = '$new_user'";
@@ -32,62 +36,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            echo "Account created successfully.";
+            echo "✅ Account created successfully.";
         } else {
-            echo "Error inserting user: " . mysqli_error($conn);
+            echo "❌ Error inserting user: " . mysqli_error($conn);
         }
     } else {
-        echo "Username not available";
+        echo "⚠️ Username not available.";
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Registration</title>
-    <!-- custom css link-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
   <link rel="stylesheet" href="styles/styles.css">
-  <!-- google fonts link-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Economica&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
-        <form action = "reg.php" method="post" >
-                <h5 class="p-4" style="font-weight: 700;">Create Your Account</h5>
+  <form action="reg.php" method="post">
+    <h2>Create Your Account</h2>
 
-            <div class="details">
-                <label for="username">User Name</label>
-                <input type="text" name="username" id="username"
-                  class="form-control" required>
-            </div>
+    <div class="details">
+      <label for="username">User Name</label>
+      <input type="text" name="username" id="username" class="form-control" required>
+    </div>
 
-            <div class="details">
-                <label for="user_password">Password</label>
-                <input type="text" name="user_password" id="user_password"
-                  class="form-control" required>
-            </div>
+    <div class="details">
+      <label for="user_password">Password: must contain 7-20 characters and 1 number</label>
+      <input type="text" name="user_password" id="user_password"
+        class="form-control" required
+        pattern="^(?=.*\d).{7,}$"
+        title="Password must be at least 7 characters long and contain at least one number">
+    </div>
 
-            <div class="mb-2 mt-3">
-                <button type="submit" 
-                  class="btn btn-success
-                bg-success" style="font-weight: 600;">Create
-                    Account</button>
-            </div>
+    <div>
+      <button type="submit">Create Account</button>
+    </div>
 
-            <div class="mb-2 mt-4">
-                <p id = "already_acc" style="font-weight: 600; 
-                color: navy;">I have an Account <a href="./login.php"
-                        style="text-decoration: none;">Login</a></p>
-            </div>
-        </form>
+    <div>
+      <p id="already_acc">
+        I have an Account <a href="./login.php" style="text-decoration: none;">Login</a>
+      </p>
+    </div>
+  </form>
 </body>
-
 </html>
