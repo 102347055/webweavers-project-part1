@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="password"></label>Password:
             <input type="text" name="password" id="password" required>
         </p>
-        <button type="submit" value="Submit" class="new_button">Log In</button>
+        <button type="submit" value="Submit" class="button">Log In</button>
     </form>
     <?php include 'footer.inc'; ?>
 </body>

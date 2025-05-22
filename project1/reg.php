@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div>
-      <button type="submit" class="new_button">Create Account</button>
+      <button type="submit" class="button">Create Account</button>
     </div>
 
     <div>
