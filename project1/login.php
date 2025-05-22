@@ -87,14 +87,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <form action="" method="post" id="eoi_search">
         <p>
-            <div id = "check">
+            <div class="form-row">
             <label for="username"></label>Username:
             <input type="text" name="username" id="username" required>
             </div>
         </p>
         <p>
+            <div class="form-row">
             <label for="password"></label>Password:
             <input type="text" name="password" id="password" required>
+            </div>
         </p>
         <button type="submit" value="Submit" class="button">Log In</button>
     </form>

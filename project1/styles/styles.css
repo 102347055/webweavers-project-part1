@@ -1106,16 +1106,28 @@ form {
     }
 }
 
-#check{
-    background-color: #5a3e71;
+/* Make the form elements span the full width and align labels inline */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    max-width: 100%;
 }
 
-#loginalreadyacc{
-    text-decoration: none;
+.form-row label {
+    width: 120px;
+    margin-right: 1em;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-#alreadyacc{
-    text-decoration: none;
+.form-row input[type="text"],
+.form-row input[type="password"] {
+    flex: 1;
+    padding: 0.5em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /***************************************************** manage.php **************************************************************/
