@@ -1079,6 +1079,75 @@ form {
     margin: 2em;
 }
 
+.button {
+    font-size: 0.75em;
+    width: 30%;
+    height: 4em;
+    align-self: center;
+    border-radius: 0.5em;
+    margin: 2em;
+}
+
+.button:hover {
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* adjustments for smaller screen size */
+
+@media only screen and (max-width: 800px) {
+    #apply-body {
+        padding-top: 0;
+    }
+
+    #apply-heading {
+        font-size: 2em; /* heading is smaller - more appropriate size in relation to screen */
+        text-align: center;
+        margin: 1em;
+    }
+
+    form {
+        margin: 0.75em; /* smaller margin so form fills more of the screen */
+        font-size: 0.75em; /*smaller font so content fits better */
+    }
+
+    label {
+        display: flex;
+        flex-direction: column; /* labels display on top of input instead of to the side */
+        text-align: center;
+    }
+
+    select, input[type="text"], textarea, input[type="date"] { /* inputs are taller and wider for easier use */
+        width: 95%;
+        height: 5em;
+    }
+
+    #gender-field legend {
+        float: none; /* stops legend from appearing inline */
+    }
+
+    textarea {
+        height: 10em; /* taller textarea so the input can be read */
+    }
+
+    .button {
+        height: 6em;
+        width: 95%;
+        margin: 0.5em;
+    }
+}
+
+#login_already_acc{
+    background-color:#cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration-style: none;
+}
+
 /***************************************************** manage.php **************************************************************/
 
 #manage-body {
