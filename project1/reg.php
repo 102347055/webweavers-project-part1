@@ -58,17 +58,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link href="https://fonts.googleapis.com/css2?family=Economica&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body id="apply-body">
+  <?php include 'header.inc'; ?>
+  <h1 id="apply-heading">Create Your Account</h1>
   <form action="reg.php" method="post">
-    <h2>Create Your Account</h2>
-
     <div class="details">
-      <label for="username">User Name</label>
+      <label for="username"></label>Username:
       <input type="text" name="username" id="username" class="form-control" required>
     </div>
 
     <div class="details">
-      <label for="user_password">Password: must contain 7-20 characters and 1 number</label>
+      <label for="user_password"></label>Password (7-20 characters and 1 number):
       <input type="text" name="user_password" id="user_password"
         class="form-control" required
         pattern="^(?=.*\d).{7,}$"
@@ -76,14 +76,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div>
-      <button type="submit">Create Account</button>
+      <button type="submit" class="button">Create Account</button>
     </div>
 
     <div>
-      <p id="already_acc">
-        I have an Account <a href="./login.php" style="text-decoration: none;">Login</a>
+      <p id="alreadyacc">
+        I have an Account <a href="./login.php" id ="loginalreadyacc">Login</a>
       </p>
     </div>
   </form>
+  <?php include 'footer.inc'; ?>
 </body>
 </html>
