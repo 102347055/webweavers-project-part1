@@ -261,8 +261,16 @@ h2 {
     margin: 20px;
 }
 
+
+
 #why_us_table{
-    border-spacing: 2rem 2rem
+    border-spacing: 2rem 2rem;
+    border: none;
+}
+
+#why_us_table tr td{
+    border-spacing: 2rem 2rem;
+    border: none;
 }
 
 /*plans*/
@@ -312,6 +320,7 @@ h2 {
     text-align: center;
     padding: 8px;
     min-height: 40px;
+    font-size: 1.25em;
 }
   
 /* styling of buttons in plan cards*/
@@ -1161,14 +1170,69 @@ form {
     }
 }
 
-#login_already_acc{
-    background-color:#cca7ea;
-    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-    border-radius: 10px;
-    transition: 0.3s;
-    cursor: pointer;
-    text-decoration-style: none;
+.form-row {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
 }
+
+.form-row label {
+    width: 120px; /* consistent label width */
+    text-align: right;
+}
+
+.form-row input[type="text"],
+.form-row input[type="password"] {
+    flex-grow: 1;
+    padding: 0.8em 1em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    height: 3em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.registration-form .reg-row {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.registration-form .reg-row label {
+  width: 200px;
+  text-align: right;
+}
+
+.registration-form .reg-row input {
+  flex: 1;
+  padding: 0.8em 1em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  height: 3em;
+  box-sizing: border-box;
+}
+
+#alreadyacc a {
+  text-decoration: none;
+  color: #5a3e71; /* or any color you prefer */
+  font-weight: bold;
+}
+
+#alreadyacc a:hover {
+  text-decoration: underline;
+}
+
+.registration-form .reg-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
 
 /***************************************************** manage.php **************************************************************/
 

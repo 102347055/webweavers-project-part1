@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="Home Page of Web Weavers; a tech company-" >
     <meta name="keywords" content="Web, Weavers, Technology, Cloud, Jobs, Innovative">
     <meta name="author" content="Rayan Arain">
-    <title>Manager's Log In</title>
+    <title>Log In</title>
     <!-- custom css link-->
   <link rel="stylesheet" href="styles/styles.css">
   <!-- google fonts link-->
@@ -85,21 +85,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include 'header.inc'; ?>
     <h1 id="apply-heading">Log In</h1>
 
-    <form action="" method="post" id="eoi_search">
-        <p>
-            <div class="form-row">
-            <label for="username"></label>Username:
-            <input type="text" name="username" id="username" required>
-            </div>
-        </p>
-        <p>
-            <div class="form-row">
-            <label for="password"></label>Password:
-            <input type="text" name="password" id="password" required>
-            </div>
-        </p>
-        <button type="submit" value="Submit" class="button">Log In</button>
-    </form>
+<form action="" method="post" id="login_form">
+    <div class="form-row">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div class="form-row">
+        <label for="password">Password: </label> 
+        <input type="password" name="password" id="password" required>
+    </div>
+    <button type="submit" class="button">Log In</button>
+
+</form>
     <?php include 'footer.inc'; ?>
 </body>
 </html>
