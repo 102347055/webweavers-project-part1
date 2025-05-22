@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="Home Page of Web Weavers; a tech company-" >
     <meta name="keywords" content="Web, Weavers, Technology, Cloud, Jobs, Innovative">
     <meta name="author" content="Rayan Arain">
-    <title>Manager's Log In</title>
+    <title>Log In</title>
     <!-- custom css link-->
   <link rel="stylesheet" href="styles/styles.css">
   <!-- google fonts link-->

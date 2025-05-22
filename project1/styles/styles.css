@@ -261,8 +261,16 @@ h2 {
     margin: 20px;
 }
 
+
+
 #why_us_table{
-    border-spacing: 2rem 2rem
+    border-spacing: 2rem 2rem;
+    border: none;
+}
+
+#why_us_table tr td{
+    border-spacing: 2rem 2rem;
+    border: none;
 }
 
 /*plans*/
@@ -312,6 +320,7 @@ h2 {
     text-align: center;
     padding: 8px;
     min-height: 40px;
+    font-size: 1.25em;
 }
   
 /* styling of buttons in plan cards*/
