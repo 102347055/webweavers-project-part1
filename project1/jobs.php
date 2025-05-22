@@ -16,19 +16,7 @@
 
 <body id="jobs_body">
     <main>
-        <?php include 'header.inc'; ?>
-
-        <div id="job_heading_links">
-            <h1 class="job_heading1">Position Vacancies</h1> 
-            <ol id="job_nav">
-                <li><a href="#cloud_engineer" class="button apply_link">Cloud Engineer</a></li>
-                <li><a href="#cloud_systems_administrator" class="button apply_link">Cloud Systems Administrator</a></li>
-                <li><a href="#why_sign_up" class="button apply_link">Sign up Perks</a></li>
-            </ol>
-        </div>
-        
-
-        <?php
+                <?php
 session_start();
 require_once("settings.php");
 
@@ -37,8 +25,29 @@ $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
-}
+} ?>
+        <?php include 'header.inc'; ?>
 
+        <div id="job_heading_links">
+            <h1 class="job_heading1">Position Vacancies</h1> 
+            <ol id="job_nav">
+<?php $nav_query = "SELECT PositionTitle FROM Jobs";
+$nav_result = $conn->query($nav_query);
+
+if ($nav_result->num_rows > 0) {
+    while ($nav_row = $nav_result->fetch_assoc()) {
+        $id = strtolower(str_replace(' ', '_', $nav_row['PositionTitle']));
+        echo "<li><a href=\"#$id\" class=\"button apply_link\">{$nav_row['PositionTitle']}</a></li>";
+    }
+}
+?>
+                <li><a href="#why_sign_up" class="button apply_link">Sign up Perks</a></li>
+            </ol>
+        </div>
+        
+
+
+<?php
 // Select all records from jobs tbale 
 $sql = "SELECT * FROM Jobs";
 $result = $conn->query($sql);

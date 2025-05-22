@@ -1049,9 +1049,28 @@ a.apply_link:hover {
         padding: 1em 0;
     }
 
-    .apply_link {
-        width: 80%;
+    a.apply_link {
+        display: inline-block;
+        background: linear-gradient(145deg, #e8e8ed, #ffffff);
+        color: #333;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        border: 1px solid #ccc;
+        border-radius: 0.75em;
+        padding: 0.75em 1.5em;
+        box-shadow: 0 4px 8px rgba(90, 62, 113, 0.1);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
         text-align: center;
+    }
+    
+    a.apply_link:hover {
+        background: #cca7ea;
+        color: white;
+        box-shadow: 0 6px 12px rgba(90, 62, 113, 0.2);
+        transform: translateY(-2px);
+        cursor: pointer;
     }
 }
 
