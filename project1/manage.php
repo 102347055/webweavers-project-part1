@@ -1,11 +1,6 @@
 <?php
 session_start();
 require_once('settings.php');
-
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-if (!$conn){
-    die("Unable to connect to the database: ".mysqli_connect_error());
-}
 ?>
 
 <!DOCTYPE html>
@@ -67,12 +62,12 @@ if (!$conn){
         <div id="eoi-table-container">
         <?php
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            // valuables from form input
-            $list_all = $_POST['list_all'];
-            $list_by_ref = $_POST['list_by_ref'];
-            $firstname = trim($_POST['firstname']);
-            $lastname = trim($_POST['lastname']);
-            $delete_by_ref = $_POST['delete_by_ref'];
+            // variables from form input
+            $list_all = sanitise_input($_POST['list_all']);
+            $list_by_ref = sanitise_input($_POST['list_by_ref']);
+            $firstname = sanitise_input($_POST['firstname']);
+            $lastname = sanitise_input($_POST['lastname']);
+            $delete_by_ref = sanitise_input($_POST['delete_by_ref']);
             
             // list all EOIs
             if ($list_all) {
