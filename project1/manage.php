@@ -56,8 +56,24 @@ require_once('settings.php');
                     <option value="COS02">COS02</option>
                 </select>
             </label>
-            <!-- add status change (once table appears?) -->
-            <input type="submit" value="Enter">
+            <!-- status change -->
+            <fieldset>
+                <legend>Update EOI status</legend>
+                <label for="eoi-num">
+                    Enter ID:
+                    <input type="text" name="eoi-num" id="eoi-num">
+                </label>
+                <label for="status">
+                    New status:
+                    <select name="status" id="status">
+                        <option value="">Please Select</option>
+                        <option value="New">New</option>
+                        <option value="Current">Current</option>
+                        <option value="Final">Final</option>
+                    </select>
+                </label>
+            </fieldset>
+            <input type="submit" value="Enter" class="button">
         </form>
         <div id="eoi-table-container">
         <?php
@@ -122,7 +138,6 @@ require_once('settings.php');
                 echo "<th>Postcode</th>";
                 echo "<th>Email Address</th>";
                 echo "<th>Phone Number</th>";
-                echo "<th>Technical Skills</th>";
                 echo "<th>Other Skills</th>";
                 echo "<th>Status</th>";
                 echo "</tr>";
@@ -140,7 +155,6 @@ require_once('settings.php');
                     echo "<td>" . $row['Postcode'] . "</td>";
                     echo "<td>" . $row['EmailAddress'] . "</td>";
                     echo "<td>" . $row['PhoneNumber'] . "</td>";
-                    echo "<td>" . $row['TechnicalSkills'] . "</td>";
                     echo "<td>" . $row['OtherSkills'] . "</td>";
                     echo "<td>" . $row['Status'] . "</td>";
                     echo "</tr>";
