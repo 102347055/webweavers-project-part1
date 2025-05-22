@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once('settings.php');
 
@@ -22,33 +26,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     VALUES ('$reference', '$firstname', '$lastname', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$number', '$otherskills')";
 
     if ($conn->query($new_eoi) === TRUE) {
-        echo "New record created successfully";
         $last_id = $conn->insert_id;    // get newly created ID to use for skills table input
+
+        // skills checkboxes variables - insert into skills table
+        if (isset($_POST['aws-azure'])) {
+            $skills_1 = 1;
+            $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_1')");
+        }
+        if (isset($_POST['script-lang'])) {
+            $skills_2 = 2;
+            $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_2')");
+        }
+        if (isset($_POST['sys-admin'])) {
+            $skills_3 = 3;
+            $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_3')");
+        }
+        if (isset($_POST['automation'])) {
+            $skills_4 = 4;
+            $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_4')");
+        }
+        if (isset($_POST['security'])) {
+            $skills_5 = 5;
+            $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_5')");
+        }
+
+        // create session variables to pass to confirmation page
+        $_SESSION['reference'] = $reference;
+        $_SESSION['last_id'] = $last_id;
+        
+        // divert user to confirmation page
+        header("Location: confirmation.php");
+        exit();
+
     } else {
         echo "Error: " . $new_eoi . "<br>" . $conn->error;
     }
 
-    // skills checkboxes variables - insert into skills table
 
-    if (isset($_POST['aws-azure'])) {
-        $skills_1 = 1;
-        $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_1')");
-    }
-    if (isset($_POST['script-lang'])) {
-        $skills_2 = 2;
-        $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_2')");
-    }
-    if (isset($_POST['sys-admin'])) {
-        $skills_3 = 3;
-        $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_3')");
-    }
-    if (isset($_POST['automation'])) {
-        $skills_4 = 4;
-        $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_4')");
-    }
-    if (isset($_POST['security'])) {
-        $skills_5 = 5;
-        $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_5')");
-    }
 }
 ?>
