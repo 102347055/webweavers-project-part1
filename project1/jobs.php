@@ -29,48 +29,49 @@
         
 
         <?php
-        start_session()
-        require_once('settings.php');
-        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+session_start();
+require_once("settings.php");
 
-        if (!$conn){
-            die("Unable to connect to the database: ".mysqli_connect_error());
-        }
-        
-        // Select all tch jobs
-        $sql = "SELECT * FROM Jobs";
-        $result = $conn->query($sql);
-      
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<section id=\"" . strtolower(str_replace(' ', '_', $row['PositionTitle'])) . "\">";
-                echo "<h2 class='job_heading2'>" . htmlspecialchars($row['PositionTitle']) . "</h2>";
-                echo "<article>";
-                echo "<div class='job_descriptions'>";
-                echo "<p><strong>Reference No:</strong> " . htmlspecialchars($row['JobReferenceNumber']) . "</p>";
-                echo "<p><strong>Position Title:</strong> " . htmlspecialchars($row['PositionTitle']) . "</p>";
-                echo "<p><strong>The Role:</strong> " . htmlspecialchars($row['Role']) . "</p>";
-                echo "<p><strong>Salary Range:</strong> " . htmlspecialchars($row['SalaryRange']) . "</p>";
-                echo "<p><strong>Reports To:</strong> " . htmlspecialchars($row['ReportsTo']) . "</p>";
-                echo "</div>";
-            
-                echo "<aside class='position_aside' aria-label='" . htmlspecialchars($row['RelevanceHeading']) . "'>";
-                echo "<h3 class='job_heading4'>" . htmlspecialchars($row['RelevanceHeading']) . "</h3>";
-                echo "<p>" . htmlspecialchars($row['RelevanceDescription']) . "</p>";
-                echo "</aside>";
-            
-                echo "<div class='apply_now'>";
-                echo "<a href='" . htmlspecialchars($row['ApplyHyperLink']) . "' class='button apply_link'>Apply Now</a>";
-                echo "</div>";
-                echo "</article>";
-                echo "</section>";
-            }
-        } else {
-            echo "<p>No job listings available at this time.</p>";
-        }
+// Connect to database
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
-        $conn->close();
-        ?>
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+// Select all records from jobs tbale 
+$sql = "SELECT * FROM Jobs";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) { //A loop that iterates over each row in the result as an associative array
+        echo "<section id=\"" . strtolower(str_replace(' ', '_', $row['PositionTitle'])) . "\">";
+        echo "<h2 class='job_heading2'>" . htmlspecialchars($row['PositionTitle']) . "</h2>";
+        echo "<article>"; //Creates block for jobs information
+        echo "<div class='job_descriptions'>";
+        echo "<p><strong>Reference No:</strong> " . htmlspecialchars($row['JobReferenceNumber']) . "</p>";
+        echo "<p><strong>Position Title:</strong> " . htmlspecialchars($row['PositionTitle']) . "</p>";
+        echo "<p><strong>The Role:</strong> " . htmlspecialchars($row['Role']) . "</p>";
+        echo "<p><strong>Salary Range:</strong> " . htmlspecialchars($row['SalaryRange']) . "</p>";
+        echo "<p><strong>Reports To:</strong> " . htmlspecialchars($row['ReportsTo']) . "</p>";
+        echo "</div>";
+    
+        echo "<aside class='position_aside' aria-label='" . htmlspecialchars($row['RelevanceHeading']) . "'>";
+        echo "<h3 class='job_heading4'>" . htmlspecialchars($row['RelevanceHeading']) . "</h3>";
+        echo "<p>" . htmlspecialchars($row['RelevanceDescription']) . "</p>";
+        echo "</aside>";
+    
+        echo "<div class='apply_now'>"; //Add apply now button
+        echo "<a href='" . htmlspecialchars($row['ApplyHyperLink']) . "' class='button apply_link'>Apply Now</a>";
+        echo "</div>";
+        echo "</article>";
+        echo "</section>";
+    }
+} else {
+    echo "<p>No job listings available at this time.</p>"; //error message 
+}
+$conn->close();
+?>
         
         <article id="why_sign_up">
             <h2 class="job_heading2">Why Sign Up?</h2>
