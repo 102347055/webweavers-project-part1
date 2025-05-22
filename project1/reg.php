@@ -76,12 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div>
-      <button type="submit" class="button">Create Account</button>
+      <button type="submit" class="new_button">Create Account</button>
     </div>
 
     <div>
       <p id="already_acc">
-        I have an Account <a href="./login.php" style="text-decoration: none;" id = "login_already_acc">Login</a>
+        I have an Account <a href="./login.php" id = "login_already_acc">Login</a>
       </p>
     </div>
   </form>

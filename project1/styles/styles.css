@@ -1074,7 +1074,7 @@ a.apply_link:hover {
     }
 }
 
-/***************************************************** login page **************************************************************/
+/***************************************************** login and reg page **************************************************************/
 
 #apply-body {
     padding-top: 1px;
@@ -1097,7 +1097,7 @@ form {
     margin: 2em;
 }
 
-.button {
+.new_button {
     font-size: 0.75em;
     width: 30%;
     height: 4em;
@@ -1106,7 +1106,7 @@ form {
     margin: 2em;
 }
 
-.button:hover {
+.new_button:hover {
     background-color: #cca7ea; /* buttons turn purple on hover */
     box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
     cursor: pointer;
@@ -1163,7 +1163,18 @@ form {
     border-radius: 10px;
     transition: 0.3s;
     cursor: pointer;
-    text-decoration-style: none;
+    text-decoration: none;
+    color: red;
+}
+
+#already_acc{
+    background-color:#cca7ea;
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: red;
 }
 
 /***************************************************** manage.php **************************************************************/
