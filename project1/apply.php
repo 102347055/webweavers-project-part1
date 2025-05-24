@@ -112,6 +112,7 @@
                 </label>
             </div>
             <label for="other-skills">Other Skills:
+                <input type="checkbox" name="other-skills-check" id="other-skills-check">
                 <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
             </label>
         </fieldset>
