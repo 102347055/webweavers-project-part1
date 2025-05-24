@@ -8,6 +8,7 @@ require_once('settings.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    // create eoi table if it doesn't exist
     $conn->query("CREATE TABLE IF NOT EXISTS `EOI` (
         `EoiID` smallint(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         `JobReferenceNumber` varchar(20) NOT NULL,
@@ -46,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($conn->query($new_eoi) === TRUE) {
         $last_id = $conn->insert_id;    // get newly created ID to use for skills table input
 
+        // create skills table if it doesn't exist
         $conn->query("CREATE TABLE IF NOT EXISTS `EoiSkills` (
             `EoiID` smallint(6) NOT NULL,
             `SkillID` smallint(6) NOT NULL,
@@ -87,5 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "Error: " . $new_eoi . "<br>" . $conn->error;
     }
+} else {
+    // redirects to apply page if page is accessed directly
+    header("Location: apply.php");
+        exit();
 }
 ?>
