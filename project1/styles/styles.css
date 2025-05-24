@@ -996,28 +996,64 @@ section {
     justify-content: center;
 }
 
-a.apply_link {
-    text-decoration: none;
+#job_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* align the buttons to the right */
+    gap: 0.4em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#job_nav li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#job_nav li a {
+    display: flex;                    /* Flexbox allows for proper centering */
+    justify-content: center;         /* Horizontally center text */
+    align-items: center;             /* Vertically center text */
     background-color: #e8e8ed;
     color: black;
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    box-shadow: 2px 2px 2px #aaa;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    width: 30%;
-    margin: 1em;
-    transition: 0.3s;
+    text-decoration: none;
+    padding: 0.5em 1.25em;
+    border-radius: 0.75em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    text-align: center;
+    width: fit-content;
+    min-width: 220px;                /* Ensures consistent button width */
 }
 
 
-a.apply_link:hover {
-    background-color: #cca7ea;
-    box-shadow: 2px 2px 6px #5a3e71;
+.apply_now .apply_link {
+    display: inline-block;
+    text-align: center;
+    background-color: #5a3e71;
     color: white;
-    transform: scale(1.03);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.75em 2em;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.apply_now .apply_link:hover {
+    background-color: #7c5ea1;
+    transform: translateY(-2px);
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
+
 
 /* Responsive Design */
 @media (max-width: 800px) {
@@ -1061,29 +1097,29 @@ a.apply_link:hover {
         padding: 1em 0;
     }
 
-    a.apply_link {
+    .apply_now .apply_link {
         display: inline-block;
-        background: linear-gradient(145deg, #e8e8ed, #ffffff);
-        color: #333;
+        text-align: center;
+        background-color: #5a3e71;
+        color: white;
         font-weight: 600;
         font-family: 'Poppins', sans-serif;
-        border: 1px solid #ccc;
-        border-radius: 0.75em;
-        padding: 0.75em 1.5em;
-        box-shadow: 0 4px 8px rgba(90, 62, 113, 0.1);
+        font-size: 1.1rem;
+        padding: 0.75em 2em;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
         text-decoration: none;
-        font-size: 1rem;
         transition: all 0.3s ease;
-        text-align: center;
     }
-    
-    a.apply_link:hover {
-        background: #cca7ea;
-        color: white;
-        box-shadow: 0 6px 12px rgba(90, 62, 113, 0.2);
+
+    .apply_now .apply_link:hover {
+        background-color: #7c5ea1;
         transform: translateY(-2px);
+        box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
         cursor: pointer;
     }
+
 }
 
 
