@@ -47,7 +47,7 @@
                     Male
                 </label>
                 <label for="other">
-                    <input type="radio" name="gender" id="other" value="other/unspecified">
+                    <input type="radio" name="gender" id="other" value="other">
                     Other/Unspecified
                 </label>
             </fieldset>

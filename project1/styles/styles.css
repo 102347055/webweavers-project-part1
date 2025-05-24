@@ -1174,12 +1174,21 @@ a.apply_link:hover {
 
 #eoi-table {
     font-size: 0.75em;
-    width: 95%;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 #eoi-table th, td{
     border: 1px solid;
     padding: 5px;
+}
+
+#eoi-table th {
+    background-color: #d8c9e4;
+}
+
+#eoi-table tr:hover {
+    background: #d8c9e4;
 }
 
 #status-form {
@@ -1192,14 +1201,14 @@ a.apply_link:hover {
 }
 
 #status-select {
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     width: 100%;
 }
 
 #status-button {
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     width: 100%;
 }
 

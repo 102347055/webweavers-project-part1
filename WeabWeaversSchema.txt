@@ -123,7 +123,7 @@ CREATE TABLE EOI (
     FirstName VARCHAR(20) Not Null,
     LastName VARCHAR(20) Not Null,
     DateOfBirth DATE Not Null,
-    Gender ENUM ('Female', 'Male', 'Other/Unspecified') Not Null,
+    Gender ENUM ('Female', 'Male', 'Other') Not Null,
     StreetAddress VARCHAR(40) Not Null,
     Suburb VARCHAR(40) Not Null,
     State ENUM ('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') Not Null,
@@ -178,7 +178,7 @@ CREATE TABLE Employee (
     Postcode VARCHAR(10) Not Null,
     EmailAddress VARCHAR(100) Not Null UNIQUE,
     PhoneNumber VARCHAR(20) Not Null UNIQUE,
-    Gender ENUM ('Female', 'Male', 'Other/Unspecified') Not Null,
+    Gender ENUM ('Female', 'Male', 'Other') Not Null,
     CompanyPosition ENUM ('Employee','Manager','Admin') NOT NULL DEFAULT 'Employee',
     PRIMARY KEY (EmployeeID)
 );

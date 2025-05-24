@@ -158,7 +158,7 @@ require_once('settings.php');
                     echo "<form method='post' id='status-form'>";
                     echo "<input type='hidden' name='eoi-num' value='" . $row['EoiID'] . "'>";
                     echo "<select name='status' id='status-select'required>
-                            <option value=''>Change Status</option>
+                            <option value=''>Select</option>
                             <option value='New'>New</option>
                             <option value='Current'>Current</option>
                             <option value='Final'>Final</option>

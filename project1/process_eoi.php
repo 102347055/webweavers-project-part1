@@ -8,6 +8,24 @@ require_once('settings.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $conn->query("CREATE TABLE IF NOT EXISTS `EOI` (
+        `EoiID` smallint(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        `JobReferenceNumber` varchar(20) NOT NULL,
+        `FirstName` varchar(20) NOT NULL,
+        `LastName` varchar(20) NOT NULL,
+        `DateOfBirth` date NOT NULL,
+        `Gender` enum('Female','Male','Other') NOT NULL,
+        `StreetAddress` varchar(40) NOT NULL,
+        `Suburb` varchar(40) NOT NULL,
+        `State` enum('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT NULL,
+        `Postcode` varchar(10) NOT NULL,
+        `EmailAddress` varchar(100) NOT NULL UNIQUE,
+        `PhoneNumber` varchar(20) NOT NULL UNIQUE,
+        `OtherSkills` text,
+        `Status` enum('New','Current','Final') NOT NULL DEFAULT 'New',
+        FOREIGN KEY (`JobReferenceNumber`) REFERENCES `Jobs` (`JobReferenceNumber`) ON DELETE CASCADE
+      ) ENGINE=InnoDB");
+
     // form variables
     $reference = sanitise_input($_POST['reference-no']);
     $firstname = sanitise_input($_POST['first-name']);
@@ -27,6 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($conn->query($new_eoi) === TRUE) {
         $last_id = $conn->insert_id;    // get newly created ID to use for skills table input
+
+        $conn->query("CREATE TABLE IF NOT EXISTS `EoiSkills` (
+            `EoiID` smallint(6) NOT NULL,
+            `SkillID` smallint(6) NOT NULL,
+            PRIMARY KEY (`EoiID`, `SkillID`),
+            FOREIGN KEY (`EoiID`) REFERENCES `EOI` (`EoiID`) ON DELETE CASCADE,
+            FOREIGN KEY (`SkillID`) REFERENCES `Skills` (`SkillID`) ON DELETE CASCADE
+          ) ENGINE=InnoDB");
 
         // skills checkboxes variables - insert into skills table
         if (isset($_POST['aws-azure'])) {
@@ -61,7 +87,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "Error: " . $new_eoi . "<br>" . $conn->error;
     }
-
-
 }
 ?>
