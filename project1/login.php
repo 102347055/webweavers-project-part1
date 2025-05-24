@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include 'header.inc'; ?>
     <h1 id="apply-heading">Log In</h1>
 
-<form action="" method="post" id="login_form">
+<form action="" method="post" id="login_form" class="ww-form">
     <div class="form-row">
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required>

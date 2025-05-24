@@ -24,7 +24,7 @@ require_once('settings.php');
         <h1 id="manage-h1">Manage</h1>
         <p>Welcome</p>
         <h2 id="manage-h2">View Expressions of Interest</h2>
-        <form action="" method="post" id="eoi_search">
+        <form action="" method="post" id="eoi_search" class="ww-form">
             <label for="list_all">
                 List all EOIs
                 <input type="radio" name="list_all" value="list_all" id="list_all">
@@ -56,23 +56,6 @@ require_once('settings.php');
                     <option value="COS02">COS02</option>
                 </select>
             </label>
-            <!-- status change -->
-            <fieldset>
-                <legend>Update EOI status</legend>
-                <label for="eoi-num">
-                    Enter ID:
-                    <input type="text" name="eoi-num" id="eoi-num">
-                </label>
-                <label for="status">
-                    New status:
-                    <select name="status" id="status">
-                        <option value="">Please Select</option>
-                        <option value="New">New</option>
-                        <option value="Current">Current</option>
-                        <option value="Final">Final</option>
-                    </select>
-                </label>
-            </fieldset>
             <input type="submit" value="Enter" class="button">
         </form>
         <div id="eoi-table-container">
@@ -152,6 +135,7 @@ require_once('settings.php');
                 echo "<th>Phone Number</th>";
                 echo "<th>Other Skills</th>";
                 echo "<th>Status</th>";
+                echo "<th>Edit Status</th>";
                 echo "</tr>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
@@ -169,6 +153,19 @@ require_once('settings.php');
                     echo "<td>" . $row['PhoneNumber'] . "</td>";
                     echo "<td>" . $row['OtherSkills'] . "</td>";
                     echo "<td>" . $row['Status'] . "</td>";
+                    // form for updating status on table column - select and button
+                    echo "<td>";
+                    echo "<form method='post' id='status-form'>";
+                    echo "<input type='hidden' name='eoi-num' value='" . $row['EoiID'] . "'>";
+                    echo "<select name='status' id='status-select'required>
+                            <option value=''>Change Status</option>
+                            <option value='New'>New</option>
+                            <option value='Current'>Current</option>
+                            <option value='Final'>Final</option>
+                          </select>";
+                    echo "<input type='submit' value='Update Status' id='status-button' class='button'>";
+                    echo "</form>";
+                    echo "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";

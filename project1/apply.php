@@ -17,7 +17,7 @@
     <?php include 'header.inc'; ?>
     
     <h1 id="apply-heading">Apply for a position</h1>
-    <form method="post" action="process_eoi.php" novalidate>     <!--Job application form-->
+    <form method="post" action="process_eoi.php" class="ww-form" novalidate>     <!--Job application form-->
         <label for="reference-no" class="apply-input">Job Reference Number:
             <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector-->
                 <option value=" ">Please Select</option>

@@ -409,7 +409,7 @@ summary::marker {
     margin: 0.5em;
 }
 
-form {
+.ww-form {
     background-color: #ebeffe;
     border-radius: 5px;
     box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
@@ -521,7 +521,7 @@ textarea {
         margin: 1em;
     }
 
-    form {
+    .ww-form {
         margin: 0.75em; /* smaller margin so form fills more of the screen */
         font-size: 0.75em; /*smaller font so content fits better */
     }
@@ -1089,87 +1089,6 @@ a.apply_link:hover {
 
 /***************************************************** login and reg page **************************************************************/
 
-#apply-body {
-    padding-top: 1px;
-}
-
-#apply-heading {
-    font-size: 4em;
-    font-family: "Economica", sans-serif;
-    margin: 0.5em;
-}
-
-form {
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
-    display: flex;
-    flex-direction: column; /* form items appear stacked on top of each other */
-    justify-content: space-evenly;
-    padding: 1em;
-    margin: 2em;
-}
-
-.button {
-    font-size: 0.75em;
-    width: 30%;
-    height: 4em;
-    align-self: center;
-    border-radius: 0.5em;
-    margin: 2em;
-}
-
-.button:hover {
-    background-color: #cca7ea; /* buttons turn purple on hover */
-    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* adjustments for smaller screen size */
-
-@media only screen and (max-width: 800px) {
-    #apply-body {
-        padding-top: 0;
-    }
-
-    #apply-heading {
-        font-size: 2em; /* heading is smaller - more appropriate size in relation to screen */
-        text-align: center;
-        margin: 1em;
-    }
-
-    form {
-        margin: 0.75em; /* smaller margin so form fills more of the screen */
-        font-size: 0.75em; /*smaller font so content fits better */
-    }
-
-    label {
-        display: flex;
-        flex-direction: column; /* labels display on top of input instead of to the side */
-        text-align: center;
-    }
-
-    select, input[type="text"], textarea, input[type="date"] { /* inputs are taller and wider for easier use */
-        width: 95%;
-        height: 5em;
-    }
-
-    #gender-field legend {
-        float: none; /* stops legend from appearing inline */
-    }
-
-    textarea {
-        height: 10em; /* taller textarea so the input can be read */
-    }
-
-    .button {
-        height: 6em;
-        width: 95%;
-        margin: 0.5em;
-    }
-}
-
 .form-row {
     flex: 1;
     display: flex;
@@ -1195,19 +1114,19 @@ form {
     box-sizing: border-box;
 }
 
-.registration-form .reg-row {
+#registration-form .reg-row {
   display: flex;
   align-items: center;
   gap: 1em;
   margin-bottom: 1em;
 }
 
-.registration-form .reg-row label {
+#registration-form .reg-row label {
   width: 200px;
   text-align: right;
 }
 
-.registration-form .reg-row input {
+#registration-form .reg-row input {
   flex: 1;
   padding: 0.8em 1em;
   font-size: 1em;
@@ -1227,7 +1146,7 @@ form {
   text-decoration: underline;
 }
 
-.registration-form .reg-button{
+#registration-form .reg-button{
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -1261,6 +1180,27 @@ form {
 #eoi-table th, td{
     border: 1px solid;
     padding: 5px;
+}
+
+#status-form {
+    border-radius: 0;
+    box-shadow: none;
+    display: inline;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+}
+
+#status-select {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#status-button {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 /***************************************************** confirmation page **************************************************************/
