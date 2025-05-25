@@ -24,7 +24,7 @@ require_once('settings.php');
         <h1 id="manage-h1">Manage</h1>
         <p>Welcome</p>
         <h2 id="manage-h2">View Expressions of Interest</h2>
-        <form action="" method="post" id="eoi_search" class="ww-form">
+        <form method="post" id="eoi_search" class="ww-form">
             <label for="list_all">
                 List all EOIs
                 <input type="radio" name="list_all" value="list_all" id="list_all">
@@ -48,6 +48,17 @@ require_once('settings.php');
                     <input type="text" name="lastname" id="lastname">
                 </label>
             </fieldset>
+            <label for="sort">
+                Sort by:
+                <select name="sort" id="sort">
+                    <option value="">Please Select</option>
+                    <option value="EoiID">ID</option>
+                    <option value="JobReferenceNumber">Job Reference</option>
+                    <option value="FirstName">First Name</option>
+                    <option value="LastName">Last Name</option>
+                    <option value="Status">Status</option>
+                </select>
+            </label>
             <label for="delete_by_ref">
                 Delete all EOIs for job:
                 <select name="delete_by_ref" id="delete_by_ref">
@@ -66,10 +77,11 @@ require_once('settings.php');
             $list_by_ref = sanitise_input($_POST['list_by_ref']);
             $firstname = sanitise_input($_POST['firstname']);
             $lastname = sanitise_input($_POST['lastname']);
+            $sort = sanitise_input($_POST['sort']);
             $delete_by_ref = sanitise_input($_POST['delete_by_ref']);
             $eoi_num = sanitise_input($_POST['eoi-num']);
             $status = sanitise_input($_POST['status']);
-            
+
             // list all EOIs
             if ($list_all) {
                 $query = "SELECT * FROM EOI";
@@ -96,6 +108,11 @@ require_once('settings.php');
                 $query = "SELECT * FROM EOI WHERE FirstName = '$firstname' AND LastName = '$lastname'";
             }
 
+            // sort by
+            if ($sort != "") {
+                $query = "$query ORDER BY $sort";
+            }
+
             // delete by reference number
             if ($delete_by_ref) {
                 $query = "DELETE FROM EOI WHERE JobReferenceNumber = '$delete_by_ref'";
@@ -107,7 +124,7 @@ require_once('settings.php');
             }
 
             // change status
-            if ($eoi_num and $status) {
+            if ($eoi_num && $status) {
                 $query = "UPDATE EOI SET Status='$status' WHERE EoiID='$eoi_num'";
                 if ($conn->query($query) === TRUE) {
                     echo "EOI status successfully updated";
@@ -118,7 +135,7 @@ require_once('settings.php');
 
             $result = mysqli_query($conn,$query);
 
-            if($result and (mysqli_num_rows($result) > 0)) {
+            if($result && (mysqli_num_rows($result) > 0)) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";
                 echo "<th>ID</th>";
@@ -155,15 +172,15 @@ require_once('settings.php');
                     echo "<td>" . $row['Status'] . "</td>";
                     // form for updating status on table column - select and button
                     echo "<td>";
-                    echo "<form method='post' id='status-form'>";
+                    echo "<form method='post' class='status-form'>";
                     echo "<input type='hidden' name='eoi-num' value='" . $row['EoiID'] . "'>";
-                    echo "<select name='status' id='status-select'required>
+                    echo "<select name='status' class='status-select' required>
                             <option value=''>Select</option>
                             <option value='New'>New</option>
                             <option value='Current'>Current</option>
                             <option value='Final'>Final</option>
                           </select>";
-                    echo "<input type='submit' value='Update Status' id='status-button' class='button'>";
+                    echo "<input type='submit' value='Update Status' class='status-button'>";
                     echo "</form>";
                     echo "</td>";
                     echo "</tr>";

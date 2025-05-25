@@ -1227,7 +1227,7 @@ section {
     background: #d8c9e4;
 }
 
-#status-form {
+.status-form {
     border-radius: 0;
     box-shadow: none;
     display: inline;
@@ -1236,16 +1236,24 @@ section {
     margin: 0;
 }
 
-#status-select {
+.status-select {
     margin: 2px;
     padding: 2px;
     width: 100%;
 }
 
-#status-button {
+.status-button {
     margin: 2px;
     padding: 2px;
+    height: 4em;
     width: 100%;
+    font-size: 0.75em;
+    border-radius: 0.5em;
 }
 
-/***************************************************** confirmation page **************************************************************/
+.status-button:hover {
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    cursor: pointer;
+    transition: 0.3s;
+}
