@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body id="apply-body">
   <?php include 'header.inc'; ?>
   <h1 id="apply-heading">Create Your Account</h1>
-  <form action="reg.php" method="post" class="registration-form">
+  <form action="reg.php" method="post" id="registration-form" class="ww-form">
   <div class="reg-row">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" class="form-control" required>

@@ -1,5 +1,5 @@
 <footer>
-        <a href="index.html"><img src="images/web_weavers_logo_only_pic.jpg" alt="Purple spiderweb from Web Weavers logo"></a>
+        <a href="index.php"><img src="images/web_weavers_logo_only_pic.jpg" alt="Purple spiderweb from Web Weavers logo"></a>
         <p>&copy;&nbsp;2025 Web Weavers</p>
         <p>Email: <a href="mailto:info@webweavers.edu.au">info@webweavers.edu.au</a></p>
         <p>Link:

@@ -409,7 +409,7 @@ summary::marker {
     margin: 0.5em;
 }
 
-form {
+.ww-form {
     background-color: #ebeffe;
     border-radius: 5px;
     box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
@@ -420,14 +420,14 @@ form {
     margin: 2em;
 }
 
-fieldset {
+.form-fieldset {
     border: none;
     border-top: 0.5px solid black; /* replace removed border with single line to separate form into relevant sections */
     display: flex;
     flex-direction: column;
 }
 
-fieldset legend {
+.form-fieldset legend {
     padding: 0.5em;
     margin: 0.5em;    
     text-align: center;
@@ -521,7 +521,7 @@ textarea {
         margin: 1em;
     }
 
-    form {
+    .ww-form {
         margin: 0.75em; /* smaller margin so form fills more of the screen */
         font-size: 0.75em; /*smaller font so content fits better */
     }
@@ -555,7 +555,24 @@ textarea {
 /***************************************************** about page **************************************************************/
 
 /* Styles for the favourites fieldset */
-#favourites_fieldset {
+/* General body and container fixes */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.about_page {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 9px;
+    border: none;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fieldset styling */
+.about-fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -564,84 +581,44 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-/* Styles for the interests fieldset */
-#interests_fieldset {
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
+/* Section-specific fieldset overrides */
+#photo_fieldset, #favourites_fieldset, #interests_fieldset, #profile_fieldset,
+#contributions_fieldset, #class_header, #student_id {
+    box-sizing: border-box;
 }
 
-/* Styles for the profile fieldset */
-#profile_fieldset {
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
-}
-
-/* Styles for the contributions fieldset */
-#contributions_fieldset {
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
-}
-
-/* Styles for the class header */
-#class_header {
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
-}
-
-/* Styles for the student id */
 #student_id{
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
+    flex-wrap: wrap;
 }
 
-#photo_fieldset{
-    border: 2px solid #5a3e71;
-    margin: 2em;
-    padding: 1em;
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71;
+#class_header ul, li{
+    flex-wrap: wrap;
+    list-style-type: none;
 }
 
-/* Move student id next to member contribution */
+
+
+/* Headings */
+h2, h3, h4 {
+    color: #5a3e71;
+}
+
+/* Layout for contributions + student ID */
 .id_rightside {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 20px;
     padding: 0 1em;
     max-width: 100%;
     box-sizing: border-box;
 }
 
-/* Ensure contribution content and student ID share space */
 #contributions_fieldset {
     flex: 2;
     min-width: 0;
 }
 
-/* Keep the student ID box to the right unless there's no space */
 #student_id {
     flex: 1;
     min-width: 250px;
@@ -651,40 +628,42 @@ textarea {
     box-sizing: border-box;
 }
 
-
-#id_heading{
+#id_heading {
     text-align: right;
 }
 
-/* Styles for headings */
-h2, h3, h4 {
-    color: #5a3e71;
-}
-
-/* Layout for interests and photo section */
+/* Interests and photo layout */
 .interests-and-photo {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    margin: 40px auto;
-    max-width: 1200px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1em;
 }
 
-/* Styles for interests content */
-.interests-content {
-    flex: 1;
-    flex-shrink: 0;
+@media (min-width: 768px) {
+    .interests-and-photo {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .group-photo-wrapper {
+        order: 2;
+        flex: 1 1 40%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .interests-content {
+        order: 1;
+        flex: 1 1 60%;
+    }
 }
 
-/* Styles for group photo wrapper */
-.group-photo-wrapper {
-    flex-shrink: 0;
-    text-align: center;
-}
-
-/* Styles for group image */
+/* Group image */
 #group_image {
     border: 2px solid #5a3e71;
     width: 300px;
@@ -692,32 +671,43 @@ h2, h3, h4 {
     border-radius: 10px;
 }
 
-/* Styles for photo heading */
 #photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
-/* Styles for about page */
-.about_page {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 9px;
-    border: none;
-}
-
-/* Additional styles for class header */
-#class_header {
+/* Table styling (no scroll) */
+#interests-table {
+    border-collapse: collapse;
+    width: 100%;
     background-color: #ebeffe;
-    padding: 10px;
-    border-radius: 15px;
-    border-style: solid;
-    color: black;
+    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
-/* Styles for class header list */
-#class_header ul {
-    list-style-type: none;
+#interests-table caption {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #5a3e71;
+}
+
+#interests-table th,
+#interests-table td {
+    border: 1px solid #5a3e71;
+    padding: 10px;
+    text-align: left;
+    word-break: break-word;
+    font-size: 0.95em;
+}
+
+#interests-table th {
+    background-color: #5a3e71;
+    color: #fff;
+}
+
+#interests-table tr:hover td {
+    background-color: #d0d0d0;
 }
 
 /* Favourites section layout */
@@ -729,14 +719,13 @@ h2, h3, h4 {
     margin-bottom: 30px;
 }
 
-/* Favourites list styles */
 .favourites ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Allow wrapping instead of one row overflow */
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
@@ -747,22 +736,20 @@ h2, h3, h4 {
     padding: 15px;
     border-radius: 10px;
     width: 100%;
-    max-width: 300px; /* Keeps width consistent but flexible */
+    max-width: 300px;
     box-shadow: 2px 2px 8px #000;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
 }
 
-/* Underlined text styles in favourites */
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 10px;
+    color: #5a3e71;
 }
 
-/* Nested list styles in favourites */
 .favourites li ul {
     margin-top: 10px;
     padding: 0;
@@ -781,102 +768,22 @@ h2, h3, h4 {
     width: 100%;
     box-sizing: border-box;
 }
-/* Styles for student ID list */
+
+/* Misc */
 #student_id ul {
     list-style-type: none;
 }
 
-/* Styles for underlined text in student ID, group jobs, and favourites */
-#student_id u, #group_jobs u, .favourites u {
+#student_id u, #group_jobs u {
     color: #5a3e71;
     font-weight: 600;
 }
 
-
-/* Styles for interests table */
-#interests-table {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #ebeffe;
-    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
-}
-
-/* Styles for interests table caption */
-#interests-table caption {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    color: #5a3e71;
-}
-
-/* Styles for interests table headers and cells */
-#interests-table th,
-#interests-table td {
-    border: 1px solid #5a3e71;
-    padding: 10px;
-    text-align: left;
-}
-
-/* Styles for interests table headers */
-#interests-table th {
-    background-color: #5a3e71;
-    color: #fff;
-}
-
-/* Hover effect for interests table rows */
-#interests-table tr:hover td {
-    background-color: #d0d0d0;
-}
-
-.about_page {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-.interests-and-photo {
-    flex-direction: column; /* stack on small screens */
-    align-items: center;
-    gap: 20px;
-}
-/* Make the container responsive and avoid horizontal scroll */
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Make table responsive on zoom-in */
-#interests-table {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
-    box-sizing: border-box;
-}
-
-/* Wrapper for the table to handle overflow gracefully */
-.interests-content {
-    width: 100%;
-    overflow-x: auto;
-    box-sizing: border-box;
-}
-
-/* When zoomed in, stack photo and table */
-.interests-and-photo {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    padding: 0 1em;
-}
-
-@media (min-width: 768px) {
-    .interests-and-photo {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-    }
-}
 /***************************************************** Jobs Page **************************************************************/
+
+
+
+
 
 #jobs_body {
     padding-top: 1vw;
@@ -943,11 +850,11 @@ section {
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0.5em;
-    line-height: 1.3;
+    line-height: 1.1;          /* ⬅️ FIXED: More vertical space between lines */
     list-style: none;
     transition: 0.3s;
-    font-size: clamp(.7rem, 2vw, 1.4rem);
-    gap: 2em;
+    font-size: clamp(.4rem, 2vw, 1.4rem);            
+    padding: 0;
 }
 
 #job_nav a:hover {
@@ -984,10 +891,32 @@ section {
     width: 40%;
     padding-left: 0.5rem;
     margin-left: 0.5rem;
-    box-shadow: inset 5px 0 4px -6px #5a3e71;
+    box-shadow: inset 5px 0 4px -5px #5a3e71;
     font-style: italic;
     color: #5a3e71;
     float: right;
+}
+
+.qualifications_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2vw;
+    margin: 1em 0;
+}
+
+.qualifications_heading {
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin-top: 1em;
+}
+
+.essential_div,
+.preferable_div,
+.key_responsibilities {
+    flex: 1 1 45%;
+    padding: 1em;
+    border-radius: 8px;
 }
 
 /* Apply Button */
@@ -996,28 +925,53 @@ section {
     justify-content: center;
 }
 
-a.apply_link {
-    text-decoration: none;
+#job_nav li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#job_nav li a {
+    display: flex;                    
+    justify-content: center;        
+    align-items: center;             
     background-color: #e8e8ed;
     color: black;
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    box-shadow: 2px 2px 2px #aaa;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    width: 30%;
-    margin: 1em;
-    transition: 0.3s;
+    text-decoration: none;
+    padding: 0.5em 1.25em;
+    border-radius: 0.75em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: center;
+    width: fit-content;
+    white-space: nowrap;
+    min-width: 220px;                
 }
 
-
-a.apply_link:hover {
-    background-color: #cca7ea;
-    box-shadow: 2px 2px 6px #5a3e71;
+.apply_now .apply_link {
+    display: inline-block;
+    text-align: center;
+    background-color: #5a3e71;
     color: white;
-    transform: scale(1.03);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.75em 2em;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.apply_now .apply_link:hover {
+    background-color: #7c5ea1;
+    transform: translateY(-2px);
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
+
 
 /* Responsive Design */
 @media (max-width: 800px) {
@@ -1047,7 +1001,10 @@ a.apply_link:hover {
     }
 
     #job_nav {
-        min-width: 95%;
+        display: flex;
+        justify-content: center;         
+        align-items: center; 
+        font-size: 0.9rem;
     }
 
     .position_aside {
@@ -1057,118 +1014,38 @@ a.apply_link:hover {
         padding-left: 0;
         box-shadow: none;
         color: #5a3e71;
-        border-left: 5px solid #5a3e71;
+        border-left: 2px solid #5a3e71;
         padding: 1em 0;
     }
 
-    a.apply_link {
-        display: inline-block;
-        background: linear-gradient(145deg, #e8e8ed, #ffffff);
-        color: #333;
+    .apply_now .apply_link {
+        display: flex;                    
+        justify-content: center;         
+        align-items: center;              
+        text-align: center;
+        background-color: #5a3e71;
+        color: white;
         font-weight: 600;
         font-family: 'Poppins', sans-serif;
-        border: 1px solid #ccc;
-        border-radius: 0.75em;
-        padding: 0.75em 1.5em;
-        box-shadow: 0 4px 8px rgba(90, 62, 113, 0.1);
+        font-size: 1.1rem;
+        padding: 0.75em 2em;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
         text-decoration: none;
-        font-size: 1rem;
         transition: all 0.3s ease;
-        text-align: center;
     }
-    
-    a.apply_link:hover {
-        background: #cca7ea;
-        color: white;
-        box-shadow: 0 6px 12px rgba(90, 62, 113, 0.2);
+
+    .apply_now .apply_link:hover {
+        background-color: #7c5ea1;
         transform: translateY(-2px);
+        box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
         cursor: pointer;
     }
-}
 
+}
 
 /***************************************************** login and reg page **************************************************************/
-
-#apply-body {
-    padding-top: 1px;
-}
-
-#apply-heading {
-    font-size: 4em;
-    font-family: "Economica", sans-serif;
-    margin: 0.5em;
-}
-
-form {
-    background-color: #ebeffe;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px 3px #5a3e71; /* adds shadow around form box */
-    display: flex;
-    flex-direction: column; /* form items appear stacked on top of each other */
-    justify-content: space-evenly;
-    padding: 1em;
-    margin: 2em;
-}
-
-.button {
-    font-size: 0.75em;
-    width: 30%;
-    height: 4em;
-    align-self: center;
-    border-radius: 0.5em;
-    margin: 2em;
-}
-
-.button:hover {
-    background-color: #cca7ea; /* buttons turn purple on hover */
-    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* adjustments for smaller screen size */
-
-@media only screen and (max-width: 800px) {
-    #apply-body {
-        padding-top: 0;
-    }
-
-    #apply-heading {
-        font-size: 2em; /* heading is smaller - more appropriate size in relation to screen */
-        text-align: center;
-        margin: 1em;
-    }
-
-    form {
-        margin: 0.75em; /* smaller margin so form fills more of the screen */
-        font-size: 0.75em; /*smaller font so content fits better */
-    }
-
-    label {
-        display: flex;
-        flex-direction: column; /* labels display on top of input instead of to the side */
-        text-align: center;
-    }
-
-    select, input[type="text"], textarea, input[type="date"] { /* inputs are taller and wider for easier use */
-        width: 95%;
-        height: 5em;
-    }
-
-    #gender-field legend {
-        float: none; /* stops legend from appearing inline */
-    }
-
-    textarea {
-        height: 10em; /* taller textarea so the input can be read */
-    }
-
-    .button {
-        height: 6em;
-        width: 95%;
-        margin: 0.5em;
-    }
-}
 
 .form-row {
     flex: 1;
@@ -1195,19 +1072,19 @@ form {
     box-sizing: border-box;
 }
 
-.registration-form .reg-row {
+#registration-form .reg-row {
   display: flex;
   align-items: center;
   gap: 1em;
   margin-bottom: 1em;
 }
 
-.registration-form .reg-row label {
+#registration-form .reg-row label {
   width: 200px;
   text-align: right;
 }
 
-.registration-form .reg-row input {
+#registration-form .reg-row input {
   flex: 1;
   padding: 0.8em 1em;
   font-size: 1em;
@@ -1227,7 +1104,7 @@ form {
   text-decoration: underline;
 }
 
-.registration-form .reg-button{
+#registration-form .reg-button{
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -1236,26 +1113,46 @@ form {
 
 /***************************************************** manage.php **************************************************************/
 
-#manage-body {
+/* generic styles for recently added php pages */
+.php-body {
     padding: 30px;
+    margin: 10px;
 }
 
-#manage-h1 {
+.php-heading {
     font-size: 4em;
 }
 
 #manage-h2 {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
-#eoi-table-container {
+/* form on manage page */
+
+#eoi-search {
+    gap: 0.5em;
+}
+
+#list_label {
+    align-self: center;
+}
+
+#applicant-field {
+    padding: 1em;
+    border-bottom: 0.5px solid black;
+}
+
+/* eoi table styling */
+
+#eoi-table-container {      /* make scrollable on small screens */
     overflow-x: auto;
     display: block;
 }
 
 #eoi-table {
     font-size: 0.75em;
-    width: 95%;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 #eoi-table th, td{
@@ -1263,4 +1160,34 @@ form {
     padding: 5px;
 }
 
-/***************************************************** confirmation page **************************************************************/
+#eoi-table th {
+    background-color: #d8c9e4;
+}
+
+#eoi-table tr:hover {       /* highlight selected row */
+    background: #d8c9e4;
+}
+
+/* status edit select & buttons styling */
+
+.status-select {
+    margin: 2px;
+    padding: 2px;
+    width: 100%;
+}
+
+.status-button {
+    margin: 2px;
+    padding: 2px;
+    height: 4em;
+    width: 100%;
+    font-size: 0.75em;
+    border-radius: 0.5em;
+}
+
+.status-button:hover {
+    background-color: #cca7ea; /* buttons turn purple on hover */
+    box-shadow: 2px 2px 3px #5a3e71; /* adds shadow around button */
+    cursor: pointer;
+    transition: 0.3s;
+}

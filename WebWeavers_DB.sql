@@ -40,7 +40,7 @@ CREATE TABLE `Employee` (
   `Postcode` varchar(10) NOT NULL,
   `EmailAddress` varchar(100) NOT NULL,
   `PhoneNumber` varchar(20) NOT NULL,
-  `Gender` enum('Female','Male','Other/Unspecified') NOT NULL,
+  `Gender` enum('Female','Male','Other') NOT NULL,
   `CompanyPosition` enum('Employee','Manager','Admin') NOT NULL DEFAULT 'Employee'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -63,7 +63,7 @@ CREATE TABLE `EOI` (
   `FirstName` varchar(20) NOT NULL,
   `LastName` varchar(20) NOT NULL,
   `DateOfBirth` date NOT NULL,
-  `Gender` enum('Female','Male','Other/Unspecified') NOT NULL,
+  `Gender` enum('Female','Male','Other') NOT NULL,
   `StreetAddress` varchar(40) NOT NULL,
   `Suburb` varchar(40) NOT NULL,
   `State` enum('VIC','NSW','QLD','NT','WA','SA','TAS','ACT') NOT NULL,

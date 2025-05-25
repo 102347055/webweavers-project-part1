@@ -20,13 +20,12 @@ require_once('settings.php');
 </head>
 <body>
     <?php include 'header.inc'; ?>
-    <div id="manage-body">
-        <h1 id="manage-h1">Manage</h1>
-        <p>Welcome</p>
+    <div class="php-body">
+        <h1 class="php-heading">Manage applications</h1>
         <h2 id="manage-h2">View Expressions of Interest</h2>
-        <form action="" method="post" id="eoi_search">
-            <label for="list_all">
-                List all EOIs
+        <form method="post" id="eoi-search" class="ww-form">
+            <label for="list_all" id="list_label">
+                List all EOIs:
                 <input type="radio" name="list_all" value="list_all" id="list_all">
             </label>
             <label for="list_by_ref">
@@ -37,7 +36,7 @@ require_once('settings.php');
                     <option value="COS02">COS02</option>
                 </select>
             </label>
-            <fieldset>
+            <fieldset id="applicant-field" class="form-fieldset">
                 <legend>Search by applicant</legend>
                 <label for="firstname">
                     First Name:
@@ -48,84 +47,127 @@ require_once('settings.php');
                     <input type="text" name="lastname" id="lastname">
                 </label>
             </fieldset>
+            <label for="sort">
+                Sort by:
+                <select name="sort" id="sort">
+                    <option value="">Please Select</option>
+                    <option value="EoiID">ID (Default)</option>
+                    <option value="JobReferenceNumber">Job Reference</option>
+                    <option value="FirstName">First Name</option>
+                    <option value="LastName">Last Name</option>
+                    <option value="Status">Status</option>
+                </select>
+            </label>
             <label for="delete_by_ref">
                 Delete all EOIs for job:
                 <select name="delete_by_ref" id="delete_by_ref">
-                    <option value=" ">Please Select</option>
+                    <option value="">Please Select</option>
                     <option value="COS01">COS01</option>
                     <option value="COS02">COS02</option>
                 </select>
             </label>
-            <!-- status change -->
-            <fieldset>
-                <legend>Update EOI status</legend>
-                <label for="eoi-num">
-                    Enter ID:
-                    <input type="text" name="eoi-num" id="eoi-num">
-                </label>
-                <label for="status">
-                    New status:
-                    <select name="status" id="status">
-                        <option value="">Please Select</option>
-                        <option value="New">New</option>
-                        <option value="Current">Current</option>
-                        <option value="Final">Final</option>
-                    </select>
-                </label>
-            </fieldset>
             <input type="submit" value="Enter" class="button">
         </form>
         <div id="eoi-table-container">
         <?php
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // variables from form input
-            $list_all = sanitise_input($_POST['list_all']);
-            $list_by_ref = sanitise_input($_POST['list_by_ref']);
-            $firstname = sanitise_input($_POST['firstname']);
-            $lastname = sanitise_input($_POST['lastname']);
-            $delete_by_ref = sanitise_input($_POST['delete_by_ref']);
-            
+            if (isset($_POST['list_all'])) {
+                $list_all = $_POST['list_all'];
+            }
+            if (isset($_POST['list_be_ref'])) {
+                $list_by_ref = $_POST['list_by_ref'];
+            }
+            if (isset($_POST['firstname'])) {
+                $firstname = $_POST['firstname'];
+            }
+            if (isset($_POST['lastname'])) {
+                $lastname = $_POST['lastname'];
+            }
+            if (isset($_POST['sort'])) {
+                $sort = $_POST['sort'];
+            }
+            if (isset($_POST['delete_by_ref'])) {
+                $delete_by_ref = $_POST['delete_by_ref'];
+            }
+            if (isset($_POST['eoi_num'])) {
+                $eoi_num = $_POST['eoi_num'];
+            }
+            if (isset($_POST['status'])) {
+                $status = $_POST['status'];
+            }
+
+            // build queries using prepared statements
             // list all EOIs
             if ($list_all) {
                 $query = "SELECT * FROM EOI";
+                $stmt = $conn->prepare($query);
             }
 
             // list by job reference number
             if ($list_by_ref) {
-                $query = "SELECT * FROM EOI WHERE JobReferenceNumber = '$list_by_ref'";
+                $query = "SELECT * FROM EOI WHERE JobReferenceNumber = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $list_by_ref);
             }
 
             // list by name
             // first name
             if ($firstname) {
-                $query = "SELECT * FROM EOI WHERE FirstName = '$firstname'";
+                $query = "SELECT * FROM EOI WHERE FirstName = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $firstname);
             }
 
             // last name
             if ($lastname) {
-                $query = "SELECT * FROM EOI WHERE LastName = '$lastname'";
+                $query = "SELECT * FROM EOI WHERE LastName = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $lastname);
             }
 
             // full name
-            if ($firstname and $lastname) {
-                $query = "SELECT * FROM EOI WHERE FirstName = '$firstname' AND LastName = '$lastname'";
+            if ($firstname && $lastname) {
+                $query = "SELECT * FROM EOI WHERE FirstName = ? AND LastName = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("ss", $firstname, $lastname);
+            }
+
+            // sort by
+            if ($sort != "") {
+                $query = "$query ORDER BY ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $sort);
             }
 
             // delete by reference number
             if ($delete_by_ref) {
-                $query = "DELETE FROM EOI WHERE JobReferenceNumber = '$delete_by_ref'";
-                if ($conn->query($query) === TRUE) {
+                $delete_query = "DELETE FROM EOI WHERE JobReferenceNumber = ?";
+                $delete_stmt = $conn->prepare($delete_query);
+                $delete_stmt->bind_param("s", $delete_by_ref);
+                if ($delete_stmt->execute() === TRUE) {
                     echo "Deletion of EOIs was successful";
                   } else {
-                    echo "Error deleting: " . $conn->error;
-                  }
+                    echo "There was an error deleting EOIs";
+                }
             }
 
-            // change status (TO DO)
+            // change status
+            if ($eoi_num && $status) {
+                $eoi_query = "UPDATE EOI SET Status = ? WHERE EoiID = ?";
+                $status_stmt = $conn->prepare($eoi_query);
+                $status_stmt->bind_param("si", $status, $eoi_num);
+                if ($status_stmt->execute() === TRUE) {
+                    echo "EOI status successfully updated";
+                  } else {
+                    echo "Error updating EOI";
+                }
+            }
+            
+            $exec = $stmt->execute();
+            $result = $stmt->get_result();
 
-            $result = mysqli_query($conn,$query);
-
-            if($result and mysqli_num_rows($result) > 0) {
+            if($result && $result->num_rows > 0) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";
                 echo "<th>ID</th>";
@@ -142,23 +184,37 @@ require_once('settings.php');
                 echo "<th>Phone Number</th>";
                 echo "<th>Other Skills</th>";
                 echo "<th>Status</th>";
+                echo "<th>Edit Status</th>";
                 echo "</tr>";
-                while ($row = mysqli_fetch_assoc($result)) {
+                while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row['EoiID'] . "</td>";
-                    echo "<td>" . $row['JobReferenceNumber'] . "</td>";
-                    echo "<td>" . $row['FirstName'] . "</td>";
-                    echo "<td>" . $row['LastName'] . "</td>";
-                    echo "<td>" . $row['DateOfBirth'] . "</td>";
-                    echo "<td>" . $row['Gender'] . "</td>";
-                    echo "<td>" . $row['StreetAddress'] . "</td>";
-                    echo "<td>" . $row['Suburb'] . "</td>";
-                    echo "<td>" . $row['State'] . "</td>";
-                    echo "<td>" . $row['Postcode'] . "</td>";
-                    echo "<td>" . $row['EmailAddress'] . "</td>";
-                    echo "<td>" . $row['PhoneNumber'] . "</td>";
-                    echo "<td>" . $row['OtherSkills'] . "</td>";
-                    echo "<td>" . $row['Status'] . "</td>";
+                    echo "<td>" . htmlspecialchars($row['EoiID']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['JobReferenceNumber']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['FirstName']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['LastName']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['DateOfBirth']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Gender']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['StreetAddress']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Suburb']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['State']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Postcode']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['EmailAddress']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['PhoneNumber']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['OtherSkills']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Status']) . "</td>";
+                    // form for updating status on table column - select and button
+                    echo "<td>";
+                    echo "<form method='post' class='status-form'>";
+                    echo "<input type='hidden' name='eoi_num' value='" . htmlspecialchars($row['EoiID']) . "'>";
+                    echo "<select name='status' class='status-select' required>
+                            <option value=''>Select</option>
+                            <option value='New'>New</option>
+                            <option value='Current'>Current</option>
+                            <option value='Final'>Final</option>
+                          </select>";
+                    echo "<input type='submit' value='Update Status' class='status-button'>";
+                    echo "</form>";
+                    echo "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
@@ -170,6 +226,7 @@ require_once('settings.php');
         ?>
         </div>
     </div>
+    <hr>
     <?php include 'footer.inc'; ?>
 </body>
 </html>

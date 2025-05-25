@@ -2,8 +2,13 @@
 session_start();
 require_once('settings.php');
 
-$last_id = $_SESSION['last_id'];
-$reference = $_SESSION['reference'];
+$errMsg = $_SESSION['errMsg'];
+
+// redirect if page is directly accessed and there are no form errors
+if (!$errMsg) {
+    header("Location: apply.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,19 +24,17 @@ $reference = $_SESSION['reference'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Application Confirmation</title>
+    <title>Error</title>
 </head>
 <body>
     <?php include 'header.inc'; ?>
     <div class="php-body">
-        <h1 class="php-heading">Confirmation</h1>
+        <h1 class="php-heading">Error</h1>
         <br>
-        <p>Thank you! Your application for position <?php echo"$reference" ?> at Web Weavers has been successfully submitted.</p>
-        <p>Your reference number is <?php echo"$last_id" ?>.</p>
+        <p>There was a problem submitting your application.</p>
+        <p>Please check the following and <a href="apply.php">resubmit</a>:</p>
         <br>
-        <p>If you have any questions about the hiring process please <a href="mailto:info@webweavers.edu.au">contact our team.</a></p>
-        <p>If you're interested in other positions read about our current opportunities <a href="jobs.php">here.</a></p>
-        <br><br><br><br><br>
+        <?php echo"$errMsg" ?>
     </div>
     <hr>
     <?php include 'footer.inc'; ?>
