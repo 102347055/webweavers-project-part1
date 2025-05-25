@@ -143,28 +143,28 @@ require_once('settings.php');
             // delete by reference number
             if ($delete_by_ref) {
                 $delete_query = "DELETE FROM EOI WHERE JobReferenceNumber = ?";
-                $stmt = $conn->prepare($delete_query);
-                $stmt->bind_param("s", $delete_by_ref);
-                if ($stmt->execute() === TRUE) {
+                $delete_stmt = $conn->prepare($delete_query);
+                $delete_stmt->bind_param("s", $delete_by_ref);
+                if ($delete_stmt->execute() === TRUE) {
                     echo "Deletion of EOIs was successful";
                   } else {
-                    echo "Error deleting: " . $conn->error;
+                    echo "There was an error deleting EOIs";
                 }
             }
 
             // change status
             if ($eoi_num && $status) {
-                $query = "UPDATE EOI SET Status = ? WHERE EoiID = ?";
-                $stmt = $conn->prepare($query);
-                $stmt->bind_param("ss", $eoi_num, $status);
-                if ($stmt->execute() === TRUE) {
+                $eoi_query = "UPDATE EOI SET Status = ? WHERE EoiID = ?";
+                $status_stmt = $conn->prepare($eoi_query);
+                $status_stmt->bind_param("si", $status, $eoi_num);
+                if ($status_stmt->execute() === TRUE) {
                     echo "EOI status successfully updated";
                   } else {
-                    echo "Error updating record: " . $conn->error;
+                    echo "Error updating EOI";
                 }
             }
             
-            $stmt->execute();
+            $exec = $stmt->execute();
             $result = $stmt->get_result();
 
             if($result && $result->num_rows > 0) {
@@ -188,24 +188,24 @@ require_once('settings.php');
                 echo "</tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row['EoiID'] . "</td>";
-                    echo "<td>" . $row['JobReferenceNumber'] . "</td>";
-                    echo "<td>" . $row['FirstName'] . "</td>";
-                    echo "<td>" . $row['LastName'] . "</td>";
-                    echo "<td>" . $row['DateOfBirth'] . "</td>";
-                    echo "<td>" . $row['Gender'] . "</td>";
-                    echo "<td>" . $row['StreetAddress'] . "</td>";
-                    echo "<td>" . $row['Suburb'] . "</td>";
-                    echo "<td>" . $row['State'] . "</td>";
-                    echo "<td>" . $row['Postcode'] . "</td>";
-                    echo "<td>" . $row['EmailAddress'] . "</td>";
-                    echo "<td>" . $row['PhoneNumber'] . "</td>";
-                    echo "<td>" . $row['OtherSkills'] . "</td>";
-                    echo "<td>" . $row['Status'] . "</td>";
+                    echo "<td>" . htmlspecialchars($row['EoiID']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['JobReferenceNumber']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['FirstName']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['LastName']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['DateOfBirth']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Gender']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['StreetAddress']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Suburb']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['State']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Postcode']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['EmailAddress']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['PhoneNumber']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['OtherSkills']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Status']) . "</td>";
                     // form for updating status on table column - select and button
                     echo "<td>";
                     echo "<form method='post' class='status-form'>";
-                    echo "<input type='hidden' name='eoi_num' value='" . $row['EoiID'] . "'>";
+                    echo "<input type='hidden' name='eoi_num' value='" . htmlspecialchars($row['EoiID']) . "'>";
                     echo "<select name='status' class='status-select' required>
                             <option value=''>Select</option>
                             <option value='New'>New</option>
