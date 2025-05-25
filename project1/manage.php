@@ -177,6 +177,7 @@ require_once('settings.php');
         ?>
         </div>
     </div>
+    <hr>
     <?php include 'footer.inc'; ?>
 </body>
 </html>

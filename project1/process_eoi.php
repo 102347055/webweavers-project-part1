@@ -53,68 +53,80 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($reference == "") {
         $errMsg .= "<p>Please select a job reference number.</p>";
     }
-    elseif ($firstname == "") {
+
+    if ($firstname == "") {
         $errMsg .= "<p>Please enter your first name.</p>";
     }
     elseif (!preg_match("/^([a-zA-Z]){1,20}$/", $firstname)) {
         $errMsg .= "<p>Maximum of 20 alpha characters allowed in your first name. Please check and enter again.</p>";
     }
-    elseif ($lastname == "") {
+
+    if ($lastname == "") {
         $errMsg .= "<p>Please enter your last name.</p>";
     }    
     elseif (!preg_match("/^([a-zA-Z'-]){1,20}$/", $lastname)) {
         $errMsg .= "<p>Only a maximum of 20 alpha characters, hyphens and dashes allowed in your last name. Please check and enter again.</p>";
     }
-    elseif ($dob == "") {
+
+    if ($dob == "") {
         $errMsg .= "<p>Please enter your date of birth.</p>";
     }
     elseif (!validateDate($dob)) {
         $errMsg .= "<p>Please enter a valid date of birth.</p>";
     }
 
-    elseif ($gender == "") {
+    if ($gender == "") {
         $errMsg .= "<p>Please select your gender.</p>";
     }
-    elseif ($address == "") {
+
+    if ($address == "") {
         $errMsg .= "<p>Please enter your address.</p>";
     }
     elseif (!preg_match("/^([a-zA-Z0-9 ]){0,40}$/", $address)) {
         $errMsg .= "<p>Maximum of 40 characters allowed in your address. Please check and enter again.</p>";
     }
-    elseif ($suburb == "") {
+
+    if ($suburb == "") {
         $errMsg .= "<p>Please enter your suburb.</p>";
     }
     elseif (!preg_match("/^([a-zA-Z0-9 ]){0,40}$/", $suburb)) {
         $errMsg .= "<p>Maximum of 40 characters allowed in your suburb. Please check and enter again.</p>";
     }
-    elseif ($state == "") {
+
+    if ($state == "") {
         $errMsg .= "<p>Please enter your state.</p>";
     }
-    elseif ($postcode == "") {
+
+    if ($postcode == "") {
         $errMsg .= "<p>Please enter your postcode.</p>";
     }
     elseif (!preg_match("/^(020[0-9]|02[1-9][0-9]|0[3-9][0-9]{2}|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-3][0-9]|994[0-4])$/", $postcode)) { // regex checks for valid australian postcode range
         $errMsg .= "<p>Please enter a valid postcode.</p>";
     }
-    elseif ($email == "") {
+
+    if ($email == "") {
         $errMsg .= "<p>Please enter your email address.</p>";
     }
     elseif (!preg_match("/^[A-Za-z\d]+@[A-Za-z\d]+\.[A-Za-z]{1,3}$/", $email)) {
         $errMsg .= "<p>Please enter a valid email address.</p>";
     }
-    elseif ($number == "") {
+
+    if ($number == "") {
         $errMsg .= "<p>Please enter your phone number.</p>";
     }
     elseif (!preg_match("/^[\d\s]{8,12}$/", $number)) {
         $errMsg .= "<p>Please enter a valid phone number between 8 and 12 characters.</p>";
     }
-    elseif ($otherskills_check && $otherskills == "") {
+
+    if ($otherskills_check && $otherskills == "") {
         $errMsg .= "<p>Please describe your skills.</p>";
     }
 
-    // ********* TO DO - create error page to display error message *********
+    // direct to error page if there are any errors
     if ($errMsg != "") {
-        echo "<p>$errMsg</p>";
+        $_SESSION['errMsg'] = $errMsg;
+        header("Location: error.php");
+        exit();
     }
     else {
         $new_eoi = "INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills) 

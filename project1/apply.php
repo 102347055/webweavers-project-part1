@@ -117,6 +117,7 @@
             </label>
         </fieldset>
         <div id="submit-reset">
+            <input type="hidden" name="apply-submitted" value="1">  <!-- to check whether apply form has been submitted for confirmation and error pages -->
             <input type="submit" value="Apply" class="button" id="submit">
             <input type="reset" value="Reset" class="button" id="reset">
         </div>
