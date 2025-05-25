@@ -8,8 +8,8 @@ require_once('settings.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Web Weavers manager page">
-    <meta name="keywords" content="Manage, Jobs, Interest">
+    <meta name="description" content="Manage expressions of interest from job applicants at Web Weavers.">
+    <meta name="keywords" content="Manage, Jobs, Interest, Web Weavers, Employee">
     <meta name="author" content="Rose Healy">
     <link rel="stylesheet" href="styles/styles.css">
     <!--Fonts-->
@@ -69,6 +69,7 @@ require_once('settings.php');
             <input type="submit" value="Enter" class="button">
         </form>
         <div id="eoi-table-container">
+    
         <?php
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // variables from form input
@@ -224,6 +225,7 @@ require_once('settings.php');
             }
         }
         ?>
+
         </div>
     </div>
     <hr>
