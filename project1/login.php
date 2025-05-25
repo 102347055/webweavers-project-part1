@@ -65,8 +65,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_stmt_bind_param($reset_stmt, "s", $username);
             mysqli_stmt_execute($reset_stmt);
 
-            // Redirect to the manage page
-            header("Location: manage.php");
+            // Redirect based on manager status
+            if ($db_user['manager']) {
+                header("Location: manage.php");
+            } else {
+                header("Location: index.php");
+            }
             exit();
 
         } else {
