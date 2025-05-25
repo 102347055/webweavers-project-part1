@@ -100,38 +100,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Home Page of Web Weavers; a tech company-" >
-    <meta name="keywords" content="Web, Weavers, Technology, Cloud, Jobs, Innovative">
-    <meta name="author" content="Rayan Arain">
-    <title>Log In</title>
-    <!-- custom css link-->
-  <link rel="stylesheet" href="styles/styles.css">
-  <!-- google fonts link-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-
-
-<body id="apply-body">
-    <?php include 'header.inc'; ?>
-    <h1 id="apply-heading">Log In</h1>
-
-<form action="" method="post" id="login_form" class="ww-form">
-    <div class="form-row">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-    </div>
-    <div class="form-row">
-        <label for="password">Password: </label> 
-        <input type="password" name="password" id="password" required>
-    </div>
-    <button type="submit" class="button">Log In</button>
-
-</form>
-    <?php include 'footer.inc'; ?>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Home Page of Web Weavers; a tech company-" >
+        <meta name="keywords" content="Web, Weavers, Technology, Cloud, Jobs, Innovative">
+        <meta name="author" content="Rayan Arain">
+        <title>Log In</title>
+        <!-- custom css link-->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- google fonts link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <body id="apply-body">
+        <?php include 'header.inc'; ?>
+        <h1 id="apply-heading">Log In</h1>
+        <form action="" method="post" id="login_form" class="ww-form">
+            <div class="form-row">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-row">
+                <label for="password">Password: </label> 
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit" class="button">Log In</button>
+        </form>
+        <?php include 'footer.inc'; ?>
+    </body>
 </html>

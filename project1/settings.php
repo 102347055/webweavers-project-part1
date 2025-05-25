@@ -1,7 +1,7 @@
 <?php
-$host = "localhost";         // because XAMPP runs the server locally
-$user = "root";          // default username for XAMPP's MySQL
-$pwd = "";              // default password is empty in XAMPP
+$host = "localhost";         
+$user = "root";        
+$pwd = "";          
 $sql_db = "WebWeavers_DB";
 
 // establish connection to database
