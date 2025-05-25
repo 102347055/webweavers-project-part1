@@ -134,6 +134,7 @@ require_once("settings.php");
         <h2 class="job_heading2">Why Sign Up?</h2>
         <ol>
             <?php
+            // Perks
             $perk_query = "SELECT Reasons FROM Perks ORDER BY PerkID";
             $perk_result = $conn->query($perk_query);
 
