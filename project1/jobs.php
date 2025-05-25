@@ -8,7 +8,7 @@ require_once("settings.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Job Openings - Cloud Engineer & Cloud Systems Administrator at Web Weavers">
+    <meta name="description" content="Current Job Openings at Web Weavers, sign up and become apart of our diverse and exceptional team.">
     <meta name="keywords" content="Cloud Engineer, Cloud Systems Administrator, Work from home, Hybrid work, Microsoft Azure, AWS, level 2 administrator, Web, Weavers, Technology, Cloud, Jobs, Innovative">
     <meta name="author" content="Web Weavers">
     <title>Current Job Openings - Web Weavers</title>
