@@ -18,7 +18,7 @@ if (!$conn) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Remove extra whitespace from the beginning and end of the input
     $username = trim($_POST["username"]);
-    $password = trim($_POST["password"]);
+    $password = trim($_POST["user_password"]);
 
     // Prepare a secure SQL query to find the user by username
     // Prepare a SQL query with a placeholder (?) for the username to avoid SQL injection.
@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($locked_until && $now < $locked_until) {
             // Format lockout message: date (dd/mm/yyyy) and 12-hour time with am/pm
             echo "❌ Account is locked until date " . $locked_until->format('d/m/Y h:i A');
-        } elseif ($password === $db_user['user_password']) {
+        // password_verify is a built-in PHP function used to check if a plain text password ($user_password, entered by the user) matches a hashed password ($db_user['user_password'], stored in database)
+        } elseif (password_verify($password, $db_user['user_password'])) {
             // ✅ Login successful: store username in session
             // Save username in the session, so you can remember the logged-in user across pages
             $_SESSION['username'] = $db_user['username'];
@@ -67,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirect to the manage page
             header("Location: manage.php");
             exit();
+
         } else {
             // ❌ Login failed: increase failed attempt count
             $attempts = $db_user['failed_attempts'] + 1;
@@ -124,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="form-row">
                 <label for="password">Password: </label> 
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="user_password" id="user_password" required>
             </div>
             <button type="submit" class="button">Log In</button>
         </form>
