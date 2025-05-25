@@ -9,6 +9,8 @@ if (!$errMsg) {
     header("Location: apply.php");
     exit();
 }
+// unset so error page cannot be accessed later
+unset($_SESSION['errMsg']);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,6 @@ if (!$errMsg) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Web Weavers manager page">
     <meta name="keywords" content="Manage, Jobs, Interest">
     <meta name="author" content="Rose Healy">
     <link rel="stylesheet" href="styles/styles.css">

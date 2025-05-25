@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Job Application Form">
-    <meta name="keywords" content="Job, Application, Form">
+    <meta name="description" content="Apply for a job at Web Weavers! Learn about our current positions and apply here if you're interested in joining our team.">
+    <meta name="keywords" content="Job, Application, Form, Web Weavers, Tech, Cloud">
     <meta name="author" content="Rose Healy">
     <link rel="stylesheet" href="styles/styles.css">
     <!--Fonts-->
@@ -110,9 +110,12 @@
                     <input type="checkbox" name="security" id="security" value="5">
                     Knowledge of cloud security best practices
                 </label>
+                <label for="other-skills-check">
+                    <input type="checkbox" name="other-skills-check" id="other-skills-check">
+                    Other (please describe below)
+            </label>
             </div>
             <label for="other-skills">Other Skills:
-                <input type="checkbox" name="other-skills-check" id="other-skills-check">
                 <textarea name="other-skills" id="other-skills" cols="50" rows="10" placeholder="Please describe any other relevant skills or experience"></textarea>
             </label>
         </fieldset>

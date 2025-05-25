@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Home Page of Web Weavers; a tech company-" >
+  <meta name="description" content="Watch this space! New features coming soon at Web Weavers.">
   <meta name="keywords" content="Web, Weavers, Technology, Cloud, Jobs, Innovative">
   <meta name="author" content="Rayan Arain">
 
