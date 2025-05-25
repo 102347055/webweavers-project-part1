@@ -18,7 +18,7 @@
 
             <!-- Class details -->
             <h3>Class Information</h3>
-            <ul>
+            <ul id="header_list">
                 <li>Web Technology
                     <ul>
                         <li>Thursday</li>
@@ -90,56 +90,56 @@
             </div>
 
             <!-- Image and Interests Table side by side -->
+            <!-- Image and Interests Table side by side -->
             <div class="interests-and-photo">
                 <div class="group-photo-wrapper">
-                <fieldset id="photo_fieldset">
-                    <h3 id="photoheading">Group Photo</h3>
+                    <fieldset id="photo_fieldset">
+                        <h3 id="photoheading">Group Photo</h3>
                         <img id="group_image" src="images/groupimage.jpg" alt="Photo of Web Weavers" width="300">
-                </fieldset>
+                    </fieldset>
                 </div>
 
                 <div class="interests-content">
                     <fieldset id="interests_fieldset">
-                    <table id="interests-table">
-                        <caption><strong>Members Interests</strong></caption>
-                        <thead>
-                            <tr>
-                                <th>Student Name</th>
-                                <th>Interests 1</th>
-                                <th>Interests 2</th>
-                                <th>Interests 3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Rayan Arain</td>
-                                <td>Watching daily life vlogs</td>
-                                <td>Designing flyers</td>
-                                <td>Trying new restaurants and foods</td>
-                            </tr>
-                            <tr>
-                                <td>Rose Healy</td>
-                                <td>Knitting & crocheting</td>
-                                <td>Reading</td>
-                                <td>Going to see musicals</td>
-                            </tr>
-                            <tr>
-                                <td>Damian Moisidis</td>
-                                <td>Bouldering/Rock-climbing</td>
-                                <td>Rollerblading</td>
-                                <td>Avid Movie watcher</td>
-                            </tr>
-                            <tr>
-                                <td>Tyler Graziano</td>
-                                <td>Working on my car</td>
-                                <td>Playing games</td>
-                                <td>Catching up with friends</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table id="interests-table">
+                            <caption><strong>Members Interests</strong></caption>
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Interests 1</th>
+                                    <th>Interests 2</th>
+                                    <th>Interests 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rayan Arain</td>
+                                    <td>Watching daily life vlogs</td>
+                                    <td>Designing flyers</td>
+                                    <td>Trying new restaurants and foods</td>
+                                </tr>
+                                <tr>
+                                    <td>Rose Healy</td>
+                                    <td>Knitting & crocheting</td>
+                                    <td>Reading</td>
+                                    <td>Going to see musicals</td>
+                                </tr>
+                                <tr>
+                                    <td>Damian Moisidis</td>
+                                    <td>Bouldering/Rock-climbing</td>
+                                    <td>Rollerblading</td>
+                                    <td>Avid Movie watcher</td>
+                                </tr>
+                                <tr>
+                                    <td>Tyler Graziano</td>
+                                    <td>Working on my car</td>
+                                    <td>Playing games</td>
+                                    <td>Catching up with friends</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </fieldset>
                 </div>
-                <br>
             </div>
 
             <!-- Group description section -->
