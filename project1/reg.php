@@ -11,17 +11,20 @@ if (!$conn) {
 
 // Check if someone has submitted the form
 // Only run this code when a form has been submitted, not when the page is just opened.
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user input
     // Remove extra whitespace from the beginning and end of the input
     $new_user = trim($_POST["username"]);
-    $new_pwd = trim($_POST["user_password"]);
+    $new_pwd_raw = trim($_POST["user_password"]); // Store the raw password temporarily
 
     // Password rule: 7 to 20 characters, and at least 1 number
-    if (!preg_match('/^(?=.*\d)[A-Za-z\d]{7,20}$/', $new_pwd)) {
+    if (!preg_match('/^(?=.*\d)[A-Za-z\d]{7,20}$/', $new_pwd_raw)) {
         echo "❌ Password must be 7–20 characters long and contain at least one number.";
         exit;
     }
+
+    // Hash the password for security before storing it
+    $new_pwd = password_hash($new_pwd_raw, PASSWORD_DEFAULT);
 
     // Check if username already exists
     // Use a placeholder `?` to prevent SQL injection
@@ -34,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_stmt_get_result($check_stmt);
 
     if (!$result) {
-        die("Error checking username: " . mysqli_error($conn));
+      die("Error checking username: " . mysqli_error($conn));
     }
 
     // Count how many rows were returned (how many users had that username)
