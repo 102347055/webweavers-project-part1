@@ -880,6 +880,8 @@ body {
 
 
 
+
+
 #jobs_body {
     padding-top: 1vw;
     overflow-x: hidden;
@@ -1028,9 +1030,9 @@ section {
 }
 
 #job_nav li a {
-    display: flex;                    /* Flexbox allows for proper centering */
-    justify-content: center;         /* Horizontally center text */
-    align-items: center;             /* Vertically center text */
+    display: flex;                    
+    justify-content: center;        
+    align-items: center;             
     background-color: #e8e8ed;
     color: black;
     text-decoration: none;
@@ -1041,7 +1043,8 @@ section {
     transition: all 0.2s ease;
     text-align: center;
     width: fit-content;
-    min-width: 220px;                /* Ensures consistent button width */
+    white-space: nowrap;
+    min-width: 220px;                
 }
 
 .apply_now .apply_link {
@@ -1100,7 +1103,7 @@ section {
         justify-content: center;         
         align-items: center; 
         gap: 0.5em;
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     .position_aside {
@@ -1115,7 +1118,9 @@ section {
     }
 
     .apply_now .apply_link {
-        display: inline-block;
+        display: flex;                    
+        justify-content: center;         
+        align-items: center;              
         text-align: center;
         background-color: #5a3e71;
         color: white;
