@@ -14,8 +14,8 @@ if (!$conn) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user input
     // Remove extra whitespace from the beginning and end of the input
-    $username = trim($_POST["username"]);
-    $password = trim($_POST["password"]);
+    $new_user = trim($_POST["username"]);
+    $new_pwd = trim($_POST["user_password"]);
 
     // Password rule: 7 to 20 characters, and at least 1 number
     if (!preg_match('/^(?=.*\d)[A-Za-z\d]{7,20}$/', $new_pwd)) {
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "⚠️ Username not available.";
     }
-    
+
     // Close the statement used for checking username (also cleanup)
     mysqli_stmt_close($check_stmt);
 }
