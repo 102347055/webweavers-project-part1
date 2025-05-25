@@ -878,6 +878,7 @@ body {
 }
 /***************************************************** Jobs Page **************************************************************/
 
+
 #jobs_body {
     padding-top: 1vw;
     overflow-x: hidden;
@@ -943,11 +944,12 @@ section {
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0.5em;
-    line-height: 1.3;
+    line-height: .5;
     list-style: none;
     transition: 0.3s;
-    font-size: clamp(.7rem, 2vw, 1.4rem);
-    gap: 2em;
+    font-size: clamp(.4rem, 2vw, 1.4rem);
+    gap: 0em;
+    padding: 0;
 }
 
 #job_nav a:hover {
@@ -984,26 +986,38 @@ section {
     width: 40%;
     padding-left: 0.5rem;
     margin-left: 0.5rem;
-    box-shadow: inset 5px 0 4px -6px #5a3e71;
+    box-shadow: inset 5px 0 4px -5px #5a3e71;
     font-style: italic;
     color: #5a3e71;
     float: right;
+}
+
+.qualifications_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2vw;
+    margin: 1em 0;
+}
+
+.qualifications_heading {
+    font-size: 2em;
+    font-family: "Economica", sans-serif;
+    margin-top: 1em;
+}
+
+.essential_div,
+.preferable_div,
+.key_responsibilities {
+    flex: 1 1 45%;
+    padding: 1em;
+    border-radius: 8px;
 }
 
 /* Apply Button */
 .apply_now {
     display: flex;
     justify-content: center;
-}
-
-#job_nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* align the buttons to the right */
-    gap: 0.4em;
-    padding: 0;
-    margin: 0;
-    list-style: none;
 }
 
 #job_nav li {
@@ -1023,13 +1037,11 @@ section {
     border-radius: 0.75em;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     font-weight: 500;
-    font-size: 1rem;
     transition: all 0.2s ease;
     text-align: center;
     width: fit-content;
     min-width: 220px;                /* Ensures consistent button width */
 }
-
 
 .apply_now .apply_link {
     display: inline-block;
@@ -1083,7 +1095,11 @@ section {
     }
 
     #job_nav {
-        min-width: 95%;
+        display: flex;
+        justify-content: center;         
+        align-items: center; 
+        gap: 0.5em;
+        font-size: 0.7rem;
     }
 
     .position_aside {
@@ -1093,7 +1109,7 @@ section {
         padding-left: 0;
         box-shadow: none;
         color: #5a3e71;
-        border-left: 5px solid #5a3e71;
+        border-left: 2px solid #5a3e71;
         padding: 1em 0;
     }
 
@@ -1121,7 +1137,6 @@ section {
     }
 
 }
-
 
 /***************************************************** login and reg page **************************************************************/
 
