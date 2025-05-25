@@ -55,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "❌ Account is locked until date " . $locked_until->format('d/m/Y h:i A');
         // password_verify is a built-in PHP function used to check if a plain text password ($user_password, entered by the user) matches a hashed password ($db_user['user_password'], stored in database)
         } elseif (password_verify($password, $db_user['user_password'])) {
+            //creates a new session ID and deletes the old one
+            session_regenerate_id(true);
             // ✅ Login successful: store username in session
             // Save username in the session, so you can remember the logged-in user across pages
             $_SESSION['username'] = $db_user['username'];
