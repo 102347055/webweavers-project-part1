@@ -9,40 +9,60 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
+// Check if someone has submitted the form
+// Only run this code when a form has been submitted, not when the page is just opened.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize input
-    $new_user = mysqli_real_escape_string($conn, $_POST["username"]);
-    $new_pwd = mysqli_real_escape_string($conn, $_POST["user_password"]);
+    // Get user input
+    // Remove extra whitespace from the beginning and end of the input
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
 
-    // Password rule: min 7 characters, at least 1 number
-    if (!preg_match('/^(?=.*\d).{7,}$/', $new_pwd)) {
-        echo "❌ Password must be at least 7 characters long and contain at least one number.";
+    // Password rule: 7 to 20 characters, and at least 1 number
+    if (!preg_match('/^(?=.*\d)[A-Za-z\d]{7,20}$/', $new_pwd)) {
+        echo "❌ Password must be 7–20 characters long and contain at least one number.";
         exit;
     }
 
     // Check if username already exists
-    $sql = "SELECT * FROM `users` WHERE `username` = '$new_user'";
-    $result = mysqli_query($conn, $sql);
+    // Use a placeholder `?` to prevent SQL injection
+    $check_stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE username = ?");
+    // Bind the user's $username to the placeholder in the SQL query
+    mysqli_stmt_bind_param($check_stmt, "s", $new_user); // "s" = string
+    mysqli_stmt_execute($check_stmt);
+    // Get the result of the query — this is like asking the database: "Did you find any rows with this username?"
+    // It gives us back a result set (which we can count or loop through)
+    $result = mysqli_stmt_get_result($check_stmt);
 
     if (!$result) {
         die("Error checking username: " . mysqli_error($conn));
     }
 
+    // Count how many rows were returned (how many users had that username)
     $num = mysqli_num_rows($result);
 
+    // If 0, the username is not taken
     if ($num == 0) {
-        // Insert new user
-        $sql = "INSERT INTO `users` (`username`, `user_password`) VALUES ('$new_user', '$new_pwd')";
-        $result = mysqli_query($conn, $sql);
+        // Insert new user using prepared INSERT
+        $insert_stmt = mysqli_prepare($conn, "INSERT INTO users (username, user_password) VALUES (?, ?)");
+        mysqli_stmt_bind_param($insert_stmt, "ss", $new_user, $new_pwd); // "ss" = 2 strings
+        // Run the query to insert the user into the database
+        $success = mysqli_stmt_execute($insert_stmt);
 
-        if ($result) {
+        // Check if the insertion was successful
+        if ($success) {
             echo "✅ Account created successfully.";
         } else {
-            echo "❌ Error inserting user: " . mysqli_error($conn);
+            echo "❌ Error inserting user: " . mysqli_stmt_error($insert_stmt);
         }
+
+        // Close the prepared statement to free up resources
+        mysqli_stmt_close($insert_stmt);
     } else {
         echo "⚠️ Username not available.";
     }
+    
+    // Close the statement used for checking username (also cleanup)
+    mysqli_stmt_close($check_stmt);
 }
 ?>
 
