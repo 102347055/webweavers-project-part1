@@ -420,14 +420,14 @@ summary::marker {
     margin: 2em;
 }
 
-fieldset {
+.form-fieldset {
     border: none;
     border-top: 0.5px solid black; /* replace removed border with single line to separate form into relevant sections */
     display: flex;
     flex-direction: column;
 }
 
-fieldset legend {
+.form-fieldset legend {
     padding: 0.5em;
     margin: 0.5em;    
     text-align: center;
@@ -572,7 +572,7 @@ body {
 }
 
 /* Fieldset styling */
-fieldset {
+.about-fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;

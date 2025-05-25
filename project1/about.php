@@ -13,7 +13,7 @@
     <body>
         <?php include 'header.inc'; ?>
         <div class="about_page">
-            <fieldset id="class_header">
+            <fieldset id="class_header" class="about-fieldset">
             <h2>Web Weavers</h2>
 
             <!-- Class details -->
@@ -31,7 +31,7 @@
 
             <div class="id_rightside">
             <!-- Group member tasks -->
-            <fieldset id="contributions_fieldset">
+            <fieldset id="contributions_fieldset" class="about-fieldset">
             <h3>Members' Contributions</h3>
             <dl id="group_jobs">
                 <dt><u>Rayan Arain</u></dt>
@@ -58,7 +58,7 @@
             </dl>
             </fieldset>
 
-            <fieldset id="student_id">
+            <fieldset id="student_id" class="about-fieldset">
                 <h3 id="id_heading">Student IDs</h3>
                 <ul>
                     <li><u>Rayan Arain</u>
@@ -93,14 +93,14 @@
             <!-- Image and Interests Table side by side -->
             <div class="interests-and-photo">
                 <div class="group-photo-wrapper">
-                    <fieldset id="photo_fieldset">
+                    <fieldset id="photo_fieldset" class="about-fieldset">
                         <h3 id="photoheading">Group Photo</h3>
                         <img id="group_image" src="images/groupimage.jpg" alt="Photo of Web Weavers" width="300">
                     </fieldset>
                 </div>
 
                 <div class="interests-content">
-                    <fieldset id="interests_fieldset">
+                    <fieldset id="interests_fieldset" class="about-fieldset">
                         <table id="interests-table">
                             <caption><strong>Members Interests</strong></caption>
                             <thead>
@@ -143,7 +143,7 @@
             </div>
 
             <!-- Group description section -->
-            <fieldset id="profile_fieldset">
+            <fieldset id="profile_fieldset" class="about-fieldset">
             <h3>Group Profile</h3>
             <p>Our group, Web Weavers, consists of four members with diverse interests and skills. We are passionate about web development and have experience in various programming languages and technologies </p>
             <br>
@@ -168,7 +168,7 @@
             </fieldset>
 
             <!-- Favourite books, music and films -->
-            <fieldset id="favourites_fieldset">
+            <fieldset id="favourites_fieldset" class="about-fieldset">
                 <h4>Favourite Books, Music, Films</h4>
                 <div class="favourites">
                     <ul>

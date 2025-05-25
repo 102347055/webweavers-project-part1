@@ -25,7 +25,7 @@
                 <option value="COS02">COS02</option>
             </select>
         </label>
-        <fieldset>
+        <fieldset class="form-fieldset">
             <legend>Personal Information</legend>
             <label for="first-name">First Name:
                 <input type="text" name="first-name" id="first-name" maxlength="20" pattern="[A-Za-z]+" required>   <!--Maxiumum of 20 alpha characters-->
@@ -36,7 +36,7 @@
             <label for="dob">Date of Birth:
                 <input type="date" name="dob" id="dob" required>
             </label>
-            <fieldset id="gender-field">
+            <fieldset id="gender-field" class="form-fieldset">
                 <legend>Gender:</legend>     <!--Gender radio buttons in fieldset-->
                 <label for="female">
                     <input type="radio" name="gender" id="female" value="female" required>
@@ -52,7 +52,7 @@
                 </label>
             </fieldset>
         </fieldset>
-        <fieldset>
+        <fieldset class="form-fieldset">
             <legend>Address</legend>    <!--Address details-->
             <label for="address">Street Address:
                 <input type="text" name="address" id="address" maxlength="40" required>     <!---Address limits of 40 characters achieved with maxlength attribute-->
@@ -77,7 +77,7 @@
                 <input type="text" name="postcode" id="postcode" maxlength="4" pattern="(020[0-9]|02[1-9][0-9]|0[3-9][0-9]{2}|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-3][0-9]|994[0-4])" required>    <!--regex for postcodes ranging 0200 - 9944 (generated on https://3widgets.com/), maxlength specified as well as regex so user can recognise limit-->
             </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="form-fieldset">
             <legend>Contact Details</legend>
             <label for="email">Email Address:
                 <input type="text" name="email" id="email" pattern="[A-Za-z\d]+@[A-Za-z\d]+\.[A-Za-z]{1,3}" required>   <!--Email entered with text input, verified with regex-->
@@ -86,7 +86,7 @@
                 <input type="text" name="number" id="number" maxlength="12" pattern="[\d\s]{8,12}" required>    <!--Phone number - only digits or spaces, 8 to 12 characters-->
             </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="form-fieldset">
             <legend>Skills</legend>
             <div id="tech-skills">   <!--Technical skills checkboxes-->
                 <p>Required technical skills:</p>
