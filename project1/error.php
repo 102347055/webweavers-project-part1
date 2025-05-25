@@ -28,10 +28,14 @@ if (!$errMsg) {
 </head>
 <body>
     <?php include 'header.inc'; ?>
-    <h1 id="error-heading">Error</h1>
-    <p>There was a problem submitting your application:</p>
-    <p><?php echo"$errMsg" ?></p>
-    <p>Please check your information and <a href="apply.php">resubmit.</a></p>
+    <div class="php-body">
+        <h1 class="php-heading">Error</h1>
+        <br>
+        <p>There was a problem submitting your application.</p>
+        <p>Please check the following and <a href="apply.php">resubmit</a>:</p>
+        <br>
+        <?php echo"$errMsg" ?>
+    </div>
     <hr>
     <?php include 'footer.inc'; ?>
 </body>

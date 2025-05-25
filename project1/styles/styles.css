@@ -1206,19 +1206,38 @@ section {
 
 /***************************************************** manage.php **************************************************************/
 
-#manage-body {
+/* generic styles for recently added php pages */
+.php-body {
     padding: 30px;
+    margin: 10px;
 }
 
-#manage-h1 {
+.php-heading {
     font-size: 4em;
 }
 
 #manage-h2 {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
-#eoi-table-container {
+/* form on manage page */
+
+#eoi-search {
+    gap: 0.5em;
+}
+
+#list_label {
+    align-self: center;
+}
+
+#applicant-field {
+    padding: 1em;
+    border-bottom: 0.5px solid black;
+}
+
+/* eoi table styling */
+
+#eoi-table-container {      /* make scrollable on small screens */
     overflow-x: auto;
     display: block;
 }
@@ -1238,18 +1257,11 @@ section {
     background-color: #d8c9e4;
 }
 
-#eoi-table tr:hover {
+#eoi-table tr:hover {       /* highlight selected row */
     background: #d8c9e4;
 }
 
-.status-form {
-    border-radius: 0;
-    box-shadow: none;
-    display: inline;
-    justify-content: space-evenly;
-    padding: 0;
-    margin: 0;
-}
+/* status edit select & buttons styling */
 
 .status-select {
     margin: 2px;

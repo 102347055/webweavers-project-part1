@@ -20,13 +20,12 @@ require_once('settings.php');
 </head>
 <body>
     <?php include 'header.inc'; ?>
-    <div id="manage-body">
-        <h1 id="manage-h1">Manage</h1>
-        <p>Welcome</p>
+    <div class="php-body">
+        <h1 class="php-heading">Manage applications</h1>
         <h2 id="manage-h2">View Expressions of Interest</h2>
-        <form method="post" id="eoi_search" class="ww-form">
-            <label for="list_all">
-                List all EOIs
+        <form method="post" id="eoi-search" class="ww-form">
+            <label for="list_all" id="list_label">
+                List all EOIs:
                 <input type="radio" name="list_all" value="list_all" id="list_all">
             </label>
             <label for="list_by_ref">
@@ -37,7 +36,7 @@ require_once('settings.php');
                     <option value="COS02">COS02</option>
                 </select>
             </label>
-            <fieldset>
+            <fieldset id="applicant-field">
                 <legend>Search by applicant</legend>
                 <label for="firstname">
                     First Name:
@@ -52,7 +51,7 @@ require_once('settings.php');
                 Sort by:
                 <select name="sort" id="sort">
                     <option value="">Please Select</option>
-                    <option value="EoiID">ID</option>
+                    <option value="EoiID">ID (Default)</option>
                     <option value="JobReferenceNumber">Job Reference</option>
                     <option value="FirstName">First Name</option>
                     <option value="LastName">Last Name</option>

@@ -18,8 +18,14 @@
 
 <body>
   <?php include 'header.inc'; ?>
-
-  <h2>Coming Soon...</h2>
-  
+  <div class="php-body" id="coming-soon-body">
+    <h1 class="php-heading">Coming Soon...</h1>
+    <br>
+    <p>We are working on building a better website for our Web Weavers Customers.</p>
+    <br>
+    <p>Please check back here soon.</p>
+    <br><br><br><br><br><br><br><br><br>
+  </div>
+  <hr>
   <?php include 'footer.inc'; ?>
 </body>
