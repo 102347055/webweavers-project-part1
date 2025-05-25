@@ -879,6 +879,7 @@ body {
 /***************************************************** Jobs Page **************************************************************/
 
 
+
 #jobs_body {
     padding-top: 1vw;
     overflow-x: hidden;
@@ -944,11 +945,11 @@ section {
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0.5em;
-    line-height: .5;
+    line-height: 1.1;          /* ⬅️ FIXED: More vertical space between lines */
     list-style: none;
     transition: 0.3s;
     font-size: clamp(.4rem, 2vw, 1.4rem);
-    gap: 0em;
+    gap: 0.5em;             
     padding: 0;
 }
 
