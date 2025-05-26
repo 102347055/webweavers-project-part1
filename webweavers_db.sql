@@ -258,8 +258,6 @@ INSERT INTO `Skills` (`SkillID`, `SkillType`) VALUES
 (4, 'Cloud automation proficiency'),
 (5, 'Knowledge of cloud security best practices');
 
--- --------------------------------------------------------
-
 --
 -- Table structure for table `users`
 --
@@ -279,6 +277,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`username`, `user_password`, `failed_attempts`, `locked_until`, `manager`) VALUES
 ('nick', '$2y$10$C1k/Z0VyR6WXbQiiuOhnx.guapfLccjhRaNp8jNjtCgqQfUFT02q2', 0, NULL, 1),
 ('totoro', '$2y$10$QKXZDd9GqP8UD5zmxdemJOQAI6EvpRy2XMnOEdA1IwPwDtiKi71O6', 0, NULL, 0);
+
 
 --
 -- Indexes for dumped tables
@@ -344,13 +343,15 @@ ALTER TABLE `Skills`
   ADD PRIMARY KEY (`SkillID`);
 
 --
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`);
 
-
 --
+
 -- AUTO_INCREMENT for dumped tables
 --
 
