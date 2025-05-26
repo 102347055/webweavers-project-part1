@@ -175,6 +175,7 @@ require_once('settings.php');
                     echo "Error updating EOI";
                 }
             }
+
             
             $exec = $stmt->execute();
             $result = $stmt->get_result();
@@ -194,6 +195,7 @@ require_once('settings.php');
                 echo "<th>Postcode</th>";
                 echo "<th>Email Address</th>";
                 echo "<th>Phone Number</th>";
+                echo "<th>Required Skills</th>";
                 echo "<th>Other Skills</th>";
                 echo "<th>Status</th>";
                 echo "<th>Edit Status</th>";
@@ -212,6 +214,22 @@ require_once('settings.php');
                     echo "<td>" . htmlspecialchars($row['Postcode']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['EmailAddress']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['PhoneNumber']) . "</td>";
+
+                    // link to skills table
+                    $skills_query = "SELECT Skills.SkillType FROM EOI JOIN EoiSkills ON EOI.EoiID = EoiSkills.EoiID JOIN Skills 
+                    ON EoiSkills.SkillID = Skills.SkillID WHERE EOI.EoiID = ?";
+                    $skills_stmt = $conn->prepare($skills_query);
+                    $skills_stmt->bind_param("i", $row['EoiID']);
+                    $skills_stmt->execute();
+                    $skills_result = $skills_stmt->get_result();
+
+                    // list required skills in one cell
+                    echo "<td><ul>";
+                    while ($skills_row = $skills_result->fetch_assoc()) {
+                        echo "<li>" . htmlspecialchars($skills_row['SkillType']) . "</li>";
+                    }
+                    echo "</ul></td>";
+
                     echo "<td>" . htmlspecialchars($row['OtherSkills']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['Status']) . "</td>";
                     // form for updating status on table column - select and button
