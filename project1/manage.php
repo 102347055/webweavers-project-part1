@@ -229,7 +229,7 @@ require_once('settings.php');
                         echo "<li>" . htmlspecialchars($skills_row['SkillType']) . "</li>";
                     }
                     echo "</ul></td>";
-
+                    
                     echo "<td>" . htmlspecialchars($row['OtherSkills']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['Status']) . "</td>";
                     // form for updating status on table column - select and button
