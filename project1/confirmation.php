@@ -24,13 +24,13 @@ $reference = $_SESSION['reference'];
     <?php include 'header.inc'; ?>
     <div class="php-body">
         <h1 class="php-heading">Confirmation</h1>
-        <br>
-        <p>Thank you! Your application for position <?php echo "". htmlspecialchars($reference) ."" ?> at Web Weavers has been successfully submitted.</p>
-        <p>Your reference number is <?php echo "". htmlspecialchars($last_id) ."" ?>.</p>
-        <br>
-        <p>If you have any questions about the hiring process please <a href="mailto:info@webweavers.edu.au">contact our team.</a></p>
-        <p>If you're interested in other positions read about our current opportunities <a href="jobs.php">here.</a></p>
-        <br><br><br><br><br>
+        <div class="php-inner-div">
+            <p>Thank you! Your application for position <?php echo "". htmlspecialchars($reference) ."" ?> at Web Weavers has been successfully submitted.</p>
+            <p>Your reference number is <?php echo "". htmlspecialchars($last_id) ."" ?>.</p>
+            <br>
+            <p>If you have any questions about the hiring process please <a href="mailto:info@webweavers.edu.au">contact our team.</a></p>
+            <p>If you're interested in other positions read about our current opportunities <a href="jobs.php">here.</a></p>
+        </div>
     </div>
     <hr>
     <?php include 'footer.inc'; ?>

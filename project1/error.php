@@ -31,11 +31,12 @@ unset($_SESSION['errMsg']);
     <?php include 'header.inc'; ?>
     <div class="php-body">
         <h1 class="php-heading">Error</h1>
-        <br>
-        <p>There was a problem submitting your application.</p>
-        <p>Please check the following and <a href="apply.php">resubmit</a>:</p>
-        <br>
-        <?php echo"$errMsg" ?>
+        <div class="php-inner-div">
+            <p>There was a problem submitting your application.</p><br><br>
+            <p>Please check the following and <a href="apply.php">resubmit</a>:</p>
+            <br>
+            <?php echo"$errMsg" ?>
+        </div>
     </div>
     <hr>
     <?php include 'footer.inc'; ?>
