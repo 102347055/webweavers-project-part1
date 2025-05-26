@@ -20,7 +20,7 @@
     <form method="post" action="process_eoi.php" class="ww-form" novalidate>     <!--Job application form-->
         <label for="reference-no" class="apply-input">Job Reference Number:
             <select name="reference-no" id="reference-no">      <!--Reference number dropdown selector-->
-                <option value=" ">Please Select</option>
+                <option value="">Please Select</option>
                 <option value="COS01">COS01</option>
                 <option value="COS02">COS02</option>
             </select>
@@ -62,7 +62,7 @@
             </label>
             <label for="state">State:
                 <select name="state" id="state">    <!--State dropdown selector-->
-                    <option value=" ">Please Select</option>
+                    <option value="">Please Select</option>
                     <option value="vic">VIC</option>
                     <option value="nsw">NSW</option>
                     <option value="qld">QLD</option>

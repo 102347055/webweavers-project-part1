@@ -1181,6 +1181,10 @@ section {
     background-color: #d8c9e4;
 }
 
+#eoi-table ul {
+    margin-left: 1em;
+}
+
 #eoi-table tr:hover {       /* highlight selected row */
     background: #d8c9e4;
 }

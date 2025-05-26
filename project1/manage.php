@@ -32,7 +32,7 @@ require_once('settings.php');
     <?php include 'header.inc'; ?>
     <div class="php-body">
         <h1 class="php-heading">Manage applications</h1>
-        <?php echo"<br><p>Welcome, ". htmlspecialchars($_SESSION['username']) ."!</p>" ?>
+        <?php echo"<p>Welcome, ". htmlspecialchars($_SESSION['username']) ."!</p>" ?>
         <h2 id="manage-h2">View Expressions of Interest</h2>
         <form method="post" id="eoi-search" class="ww-form">
             <label for="list_all" id="list_label">
