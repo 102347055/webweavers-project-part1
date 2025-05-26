@@ -576,8 +576,8 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-/* Fieldset styling */
-fieldset {
+/* Styles for the profile fieldset */
+#profile_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -792,6 +792,91 @@ h2, h3, h4 {
 #student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
+}
+
+
+/* Styles for interests table */
+#interests-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ebeffe;
+    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
+}
+
+/* Styles for interests table caption */
+#interests-table caption {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #5a3e71;
+}
+
+/* Styles for interests table headers and cells */
+#interests-table th,
+#interests-table td {
+    border: 1px solid #5a3e71;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Styles for interests table headers */
+#interests-table th {
+    background-color: #5a3e71;
+    color: #fff;
+}
+
+/* Hover effect for interests table rows */
+#interests-table tr:hover td {
+    background-color: #d0d0d0;
+}
+
+.about_page {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.interests-and-photo {
+    flex-direction: column; /* stack on small screens */
+    align-items: center;
+    gap: 20px;
+}
+/* Make the container responsive and avoid horizontal scroll */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make table responsive on zoom-in */
+#interests-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Wrapper for the table to handle overflow gracefully */
+.interests-content {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+/* When zoomed in, stack photo and table */
+.interests-and-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 0 1em;
+}
+
+@media (min-width: 768px) {
+    .interests-and-photo {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
 }
 
 /***************************************************** Jobs Page **************************************************************/
