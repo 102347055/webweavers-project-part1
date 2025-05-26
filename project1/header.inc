@@ -7,6 +7,7 @@
         <li class="page-links"><a href="jobs.php">Current Opportunities</a></li>
         <li class="page-links"><a href="apply.php">Apply Now</a></li> 
         <li class="page-links"><a href="about.php">About Us</a></li> 
+        <li class="page-links"><a href="enhancements.php">Enhancements</a></li> 
       </ul>
       <ul class="nav_buttons">
         <li><a href="reg.php">Get Started</a></li>

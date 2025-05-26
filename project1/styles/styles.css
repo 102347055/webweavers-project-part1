@@ -576,8 +576,8 @@ textarea {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-/* Styles for the profile fieldset */
-#profile_fieldset {
+/* Fieldset styling */
+fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -1217,10 +1217,12 @@ section {
 .php-body {
     padding: 30px;
     margin: 10px;
+    margin-bottom: 7em;
 }
 
 .php-heading {
     font-size: 4em;
+    margin-bottom: 0.5em;
 }
 
 #manage-h2 {
@@ -1262,6 +1264,10 @@ section {
 
 #eoi-table th {
     background-color: #d8c9e4;
+}
+
+#eoi-table ul {
+    margin-left: 1em;
 }
 
 #eoi-table tr:hover {       /* highlight selected row */
