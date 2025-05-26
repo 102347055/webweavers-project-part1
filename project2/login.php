@@ -126,13 +126,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <body id="apply-body">
         <?php include 'header.inc'; ?>
         <h1 id="apply-heading">Log In</h1>
-        <form action="" method="post" id="login_form" class="ww-form">
+        <form action="login.php" method="post" id="login_form" class="ww-form">
             <div class="form-row">
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" required>
             </div>
             <div class="form-row">
-                <label for="password">Password: </label> 
+                <label for="user_password">Password: </label> 
                 <input type="password" name="user_password" id="user_password" required>
             </div>
             <button type="submit" class="button">Log In</button>

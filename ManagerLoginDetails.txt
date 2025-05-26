@@ -1,0 +1,3 @@
+To access manage.php log in with:
+Username: nick
+Password: nick123

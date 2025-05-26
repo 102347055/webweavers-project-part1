@@ -24,14 +24,14 @@ require_once('settings.php');
         <h1 class="php-heading">Enhancements</h1>
         <div class="php-inner-div">
             <p>The Web Weavers team have implemented the following enhancements on our website:</p>
-            <p><br>
+            <br>
             <ul id="enhancements-ul">
                 <li>On the <a href="manage.php">manage</a> page, the EOI table is able to be sorted by various fields by selecting from a dropdown list on the form.</li>
                 <li>There is a <a href="reg.php">registration</a> and <a href="login.php">login</a> page, allowing users to create an account.</li>
-                <li>Manager credentials are also stored in our users table, allowing specific users to gain access to the manage page upon logging in.</li>
+                <li>Manager credentials are also stored in our users table, allowing specific users to gain access to the manage page upon logging in. 
+                    <br>(Manager account for testing purposes - Username: nick Password: nick123)</li>
                 <li>Users are warned after each unsuccessful login attempt. After 3 attempts, user accounts will lock for a period of 10 minutes.</li>
             </ul>
-            </p>
         </div>
     </div>
     <hr>

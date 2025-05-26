@@ -261,8 +261,6 @@ INSERT INTO `Skills` (`SkillID`, `SkillType`) VALUES
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD:webweavers_db.sql
-=======
 -- Table structure for table `users`
 --
 
@@ -283,7 +281,6 @@ INSERT INTO `users` (`username`, `user_password`, `failed_attempts`, `locked_unt
 ('totoro', '$2y$10$QKXZDd9GqP8UD5zmxdemJOQAI6EvpRy2XMnOEdA1IwPwDtiKi71O6', 0, NULL, 0);
 
 --
->>>>>>> 28b090c22730ae5275ecc677c435d16379b5ad96:WebWeaversSchema.sql
 -- Indexes for dumped tables
 --
 
@@ -347,15 +344,12 @@ ALTER TABLE `Skills`
   ADD PRIMARY KEY (`SkillID`);
 
 --
-<<<<<<< HEAD:webweavers_db.sql
-=======
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`);
 
 --
->>>>>>> 28b090c22730ae5275ecc677c435d16379b5ad96:WebWeaversSchema.sql
 -- AUTO_INCREMENT for dumped tables
 --
 

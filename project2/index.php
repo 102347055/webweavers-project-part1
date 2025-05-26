@@ -105,7 +105,7 @@
               <li></li>
               <li></li>
               <li><strong>$9.99/month</strong></li>
-              <li><a href="comingsoon.php"><button class = plan_button>Upgrade</button></a></li>
+              <li><a href="comingsoon.php"><button class="plan_button">Upgrade</button></a></li>
             </ul>
         </section>
 
@@ -122,7 +122,7 @@
               <li>24/7 dedicated support team</li>
               <li></li>
               <li><strong>$49.99/month</strong></li>
-              <li><a href="comingsoon.php"><button class = plan_button>Contact Sales</button></a></li>
+              <li><a href="comingsoon.php"><button class="plan_button">Contact Sales</button></a></li>
             </ul>
         </section>
       </div>
