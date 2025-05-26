@@ -259,27 +259,6 @@ INSERT INTO `Skills` (`SkillID`, `SkillType`) VALUES
 (5, 'Knowledge of cloud security best practices');
 
 --
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `username` varchar(30) NOT NULL,
-  `user_password` varchar(300) NOT NULL,
-  `failed_attempts` tinyint(1) NOT NULL DEFAULT 0,
-  `locked_until` datetime DEFAULT NULL,
-  `manager` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`username`, `user_password`, `failed_attempts`, `locked_until`, `manager`) VALUES
-('nick', '$2y$10$C1k/Z0VyR6WXbQiiuOhnx.guapfLccjhRaNp8jNjtCgqQfUFT02q2', 0, NULL, 1),
-('totoro', '$2y$10$QKXZDd9GqP8UD5zmxdemJOQAI6EvpRy2XMnOEdA1IwPwDtiKi71O6', 0, NULL, 0);
-
-
---
 -- Indexes for dumped tables
 --
 
@@ -343,16 +322,6 @@ ALTER TABLE `Skills`
   ADD PRIMARY KEY (`SkillID`);
 
 --
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`username`);
-
---
-
-
 -- AUTO_INCREMENT for dumped tables
 --
 

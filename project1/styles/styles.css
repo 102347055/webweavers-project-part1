@@ -577,7 +577,7 @@ textarea {
 }
 
 /* Fieldset styling */
-fieldset {
+.about-fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -1132,10 +1132,12 @@ section {
 .php-body {
     padding: 30px;
     margin: 10px;
+    margin-bottom: 7em;
 }
 
 .php-heading {
     font-size: 4em;
+    margin-bottom: 0.5em;
 }
 
 #manage-h2 {
