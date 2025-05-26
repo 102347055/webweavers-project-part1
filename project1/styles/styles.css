@@ -577,7 +577,7 @@ textarea {
 }
 
 /* Fieldset styling */
-fieldset {
+.about-fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
