@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 require_once('settings.php');
 
@@ -34,19 +30,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       ) ENGINE=InnoDB");
 
     // form variables
-    $reference = sanitise_input($_POST['reference-no']);
-    $firstname = sanitise_input($_POST['first-name']);
-    $lastname = sanitise_input($_POST['last-name']);
-    $dob = sanitise_input($_POST['dob']);
-    $gender = sanitise_input($_POST['gender']);
-    $address = sanitise_input($_POST['address']);
-    $suburb = sanitise_input($_POST['suburb']);
-    $state = sanitise_input($_POST['state']);
-    $postcode = sanitise_input($_POST['postcode']);
-    $email = sanitise_input($_POST['email']);
-    $number = sanitise_input($_POST['number']);
-    $otherskills_check = sanitise_input($_POST['other-skills-check']);
-    $otherskills = sanitise_input($_POST['other-skills']);
+    if (isset($_POST['reference-no'])) {
+        $reference = $_POST['reference-no'];
+    }
+    if (isset($_POST['first-name'])) {
+        $firstname = $_POST['first-name'];
+    }
+    if (isset($_POST['last-name'])) {
+        $lastname = $_POST['last-name'];
+    }
+    if (isset($_POST['dob'])) {
+        $dob = $_POST['dob'];
+    }
+    if (isset($_POST['gender'])) {
+        $gender = $_POST['gender'];
+    }
+    if (isset($_POST['address'])) {
+        $address = $_POST['address'];
+    }
+    if (isset($_POST['suburb'])) {
+        $suburb = $_POST['suburb'];
+    }
+    if (isset($_POST['state'])) {
+        $state = $_POST['state'];
+    }
+    if (isset($_POST['postcode'])) {
+        $postcode = $_POST['postcode'];
+    }
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+    }
+    if (isset($_POST['number'])) {
+        $number = $_POST['number'];
+    }
+    if (isset($_POST['other-skills-check'])) {
+        $otherskills_check = $_POST['other-skills-check'];
+    }
+    if (isset($_POST['other-skills'])) {
+        $otherskills = $_POST['other-skills'];
+    }
 
     // validate input data and set error message if required
     $errMsg = "";
@@ -129,10 +151,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
     else {
-        $new_eoi = "INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills) 
-        VALUES ('$reference', '$firstname', '$lastname', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$number', '$otherskills')";
+        // $new_eoi = "INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills) 
+        // VALUES ('$reference', '$firstname', '$lastname', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$number', '$otherskills')";
     
-        if ($conn->query($new_eoi) === TRUE) {
+        $new_eoi = "INSERT INTO EOI (JobReferenceNumber, FirstName, LastName, DateOfBirth, Gender, StreetAddress, Suburb, State, Postcode, EmailAddress, PhoneNumber, OtherSkills) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($new_eoi);
+        $stmt->bind_param("ssssssssssss", $reference, $firstname, $lastname, $dob, $gender, $address, $suburb, $state, $postcode, $email, $number, $otherskills);
+        $exec = $stmt->execute();
+
+        if ($exec) {
             $last_id = $conn->insert_id;    // get newly created ID to use for skills table input
     
             // create skills table if it doesn't exist
@@ -147,23 +175,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // skills checkboxes variables - insert into skills table
             if (isset($_POST['aws-azure'])) {
                 $skills_1 = 1;
-                $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_1')");
+                $query = "INSERT INTO EoiSkills (EoiID, SkillID) VALUES (?, ?)";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("ii", $last_id, $skills_1);
+                $stmt->execute();
             }
             if (isset($_POST['script-lang'])) {
                 $skills_2 = 2;
-                $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_2')");
+                $query = "INSERT INTO EoiSkills (EoiID, SkillID) VALUES (?, ?)";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("ii", $last_id, $skills_2);
+                $stmt->execute();
             }
             if (isset($_POST['sys-admin'])) {
                 $skills_3 = 3;
-                $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_3')");
+                $query = "INSERT INTO EoiSkills (EoiID, SkillID) VALUES (?, ?)";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("ii", $last_id, $skills_3);
+                $stmt->execute();
             }
             if (isset($_POST['automation'])) {
                 $skills_4 = 4;
-                $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_4')");
+                $query = "INSERT INTO EoiSkills (EoiID, SkillID) VALUES (?, ?)";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("ii", $last_id, $skills_4);
+                $stmt->execute();
             }
             if (isset($_POST['security'])) {
                 $skills_5 = 5;
-                $conn->query("INSERT INTO EoiSkills (EoiID, SkillID) VALUES ('$last_id', '$skills_5')");
+                $query = "INSERT INTO EoiSkills (EoiID, SkillID) VALUES (?, ?)";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("ii", $last_id, $skills_5);
+                $stmt->execute();
             }
     
             // create session variables to pass to confirmation page
