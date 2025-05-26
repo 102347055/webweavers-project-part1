@@ -556,26 +556,8 @@ textarea {
 }
 
 /***************************************************** about page **************************************************************/
-
 /* Styles for the favourites fieldset */
-/* General body and container fixes */
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
-}
-
-.about_page {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 9px;
-    border: none;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Fieldset styling */
-.about-fieldset {
+#favourites_fieldset {
     border: 2px solid #5a3e71;
     margin: 2em;
     padding: 1em;
@@ -584,44 +566,84 @@ body {
     box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-/* Section-specific fieldset overrides */
-#photo_fieldset, #favourites_fieldset, #interests_fieldset, #profile_fieldset,
-#contributions_fieldset, #class_header, #student_id {
-    box-sizing: border-box;
+/* Styles for the interests fieldset */
+#interests_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
+/* Fieldset styling */
+fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the contributions fieldset */
+#contributions_fieldset {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the class header */
+#class_header {
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
+}
+
+/* Styles for the student id */
 #student_id{
-    flex-wrap: wrap;
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-#class_header ul, li{
-    flex-wrap: wrap;
-    list-style-type: none;
+#photo_fieldset{
+    border: 2px solid #5a3e71;
+    margin: 2em;
+    padding: 1em;
+    background-color: #ebeffe;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px 3px #5a3e71;
 }
 
-
-
-/* Headings */
-h2, h3, h4 {
-    color: #5a3e71;
-}
-
-/* Layout for contributions + student ID */
+/* Move student id next to member contribution */
 .id_rightside {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 20px;
     padding: 0 1em;
     max-width: 100%;
     box-sizing: border-box;
 }
 
+/* Ensure contribution content and student ID share space */
 #contributions_fieldset {
     flex: 2;
     min-width: 0;
 }
 
+/* Keep the student ID box to the right unless there's no space */
 #student_id {
     flex: 1;
     min-width: 250px;
@@ -631,42 +653,40 @@ h2, h3, h4 {
     box-sizing: border-box;
 }
 
-#id_heading {
+
+#id_heading{
     text-align: right;
 }
 
-/* Interests and photo layout */
+/* Styles for headings */
+h2, h3, h4 {
+    color: #5a3e71;
+}
+
+/* Layout for interests and photo section */
 .interests-and-photo {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 1em;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
-@media (min-width: 768px) {
-    .interests-and-photo {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .group-photo-wrapper {
-        order: 2;
-        flex: 1 1 40%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .interests-content {
-        order: 1;
-        flex: 1 1 60%;
-    }
+/* Styles for interests content */
+.interests-content {
+    flex: 1;
+    flex-shrink: 0;
 }
 
-/* Group image */
+/* Styles for group photo wrapper */
+.group-photo-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+/* Styles for group image */
 #group_image {
     border: 2px solid #5a3e71;
     width: 300px;
@@ -674,43 +694,32 @@ h2, h3, h4 {
     border-radius: 10px;
 }
 
+/* Styles for photo heading */
 #photoheading {
     margin-bottom: 10px;
     color: #5a3e71;
 }
 
-/* Table styling (no scroll) */
-#interests-table {
-    border-collapse: collapse;
-    width: 100%;
+/* Styles for about page */
+.about_page {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 9px;
+    border: none;
+}
+
+/* Additional styles for class header */
+#class_header {
     background-color: #ebeffe;
-    box-shadow: 0 2px 8px rgba(90, 62, 113, 0.1);
-    table-layout: fixed;
-    word-wrap: break-word;
-}
-
-#interests-table caption {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    color: #5a3e71;
-}
-
-#interests-table th,
-#interests-table td {
-    border: 1px solid #5a3e71;
     padding: 10px;
-    text-align: left;
-    word-break: break-word;
-    font-size: 0.95em;
+    border-radius: 15px;
+    border-style: solid;
+    color: black;
 }
 
-#interests-table th {
-    background-color: #5a3e71;
-    color: #fff;
-}
-
-#interests-table tr:hover td {
-    background-color: #d0d0d0;
+/* Styles for class header list */
+#class_header ul {
+    list-style-type: none;
 }
 
 /* Favourites section layout */
@@ -722,13 +731,14 @@ h2, h3, h4 {
     margin-bottom: 30px;
 }
 
+/* Favourites list styles */
 .favourites ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow wrapping instead of one row overflow */
     justify-content: center;
     gap: 20px;
 }
@@ -739,20 +749,22 @@ h2, h3, h4 {
     padding: 15px;
     border-radius: 10px;
     width: 100%;
-    max-width: 300px;
+    max-width: 300px; /* Keeps width consistent but flexible */
     box-shadow: 2px 2px 8px #000;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
 }
 
+/* Underlined text styles in favourites */
 .favourites u {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 10px;
-    color: #5a3e71;
 }
 
+/* Nested list styles in favourites */
 .favourites li ul {
     margin-top: 10px;
     padding: 0;
@@ -771,18 +783,23 @@ h2, h3, h4 {
     width: 100%;
     box-sizing: border-box;
 }
-
-/* Misc */
+/* Styles for student ID list */
 #student_id ul {
     list-style-type: none;
 }
 
-#student_id u, #group_jobs u {
+/* Styles for underlined text in student ID, group jobs, and favourites */
+#student_id u, #group_jobs u, .favourites u {
     color: #5a3e71;
     font-weight: 600;
 }
 
 /***************************************************** Jobs Page **************************************************************/
+
+
+
+
+
 #jobs_body {
     padding-top: 1vw;
     overflow-x: hidden;
