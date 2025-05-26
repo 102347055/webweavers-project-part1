@@ -69,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Redirect based on manager status
             if ($db_user['manager']) {
+                $_SESSION['manager'] = true;
                 header("Location: manage.php");
             } else {
                 header("Location: index.php");

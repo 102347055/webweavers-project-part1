@@ -139,7 +139,10 @@ nav ul li {
     }
 
     .nav_buttons {
-        display: none;  /* removes login buttons */
+       /* display: none;  /* removes login buttons */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     nav {

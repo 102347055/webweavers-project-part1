@@ -9,8 +9,9 @@
         <li class="page-links"><a href="about.php">About Us</a></li> 
       </ul>
       <ul class="nav_buttons">
-        <li><a href="login.php">Log In</a></li>
         <li><a href="reg.php">Get Started</a></li>
+        <li><a href="login.php">Log In</a></li>
+        <li><a href="logout.php">Log Out</a></li>
       </ul>
     </nav>
 </header>

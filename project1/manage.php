@@ -1,5 +1,15 @@
 <?php
 session_start();
+// redirect to login page if user not logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+// redirect to home if not a manager
+if (!isset($_SESSION['manager'])) {
+    header("Location: index.php");
+    exit();
+}
 require_once('settings.php');
 ?>
 
@@ -22,6 +32,7 @@ require_once('settings.php');
     <?php include 'header.inc'; ?>
     <div class="php-body">
         <h1 class="php-heading">Manage applications</h1>
+        <?php echo"<br><p>Welcome, ". htmlspecialchars($_SESSION['username']) ."!</p>" ?>
         <h2 id="manage-h2">View Expressions of Interest</h2>
         <form method="post" id="eoi-search" class="ww-form">
             <label for="list_all" id="list_label">
