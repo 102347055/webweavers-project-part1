@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 21, 2025 at 07:55 AM
+-- Generation Time: May 26, 2025 at 04:10 AM
 -- Server version: 10.11.11-MariaDB-0+deb12u1
 -- PHP Version: 8.2.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `WebWeavers_DB`
+-- Database: `WebWeaversSchema`
 --
 
 -- --------------------------------------------------------
@@ -81,10 +81,10 @@ CREATE TABLE `EOI` (
 INSERT INTO `EOI` (`EoiID`, `JobReferenceNumber`, `FirstName`, `LastName`, `DateOfBirth`, `Gender`, `StreetAddress`, `Suburb`, `State`, `Postcode`, `EmailAddress`, `PhoneNumber`, `OtherSkills`, `Status`) VALUES
 (1, 'COS01', 'Alice', 'Nguyen', '1998-04-15', 'Female', '123 Cloud St', 'Richmond', 'VIC', '3121', 'alice.nguyen@example.com', '0412345678', 'Participated in a student DevOps club and built a mock CI/CD pipeline.', 'New'),
 (2, 'COS01', 'Bob', 'Smith', '1997-08-22', 'Male', '456 Script Rd', 'Hawthorn', 'VIC', '3122', 'bob.smith@example.com', '0412123456', 'Completed an internship with cloud infrastructure management.', 'New'),
-(3, 'COS02', 'Carol', 'Jones', '1992-02-11', 'Female', '789 Admin Ave', 'Melbourne', 'VIC', '3000', 'carol.jones@example.com', '0412765432', 'Certified AWS SysOps Administrator.', 'New'),
-(4, 'COS02', 'David', 'Lee', '1990-12-01', 'Male', '101 Engineer Blvd', 'Geelong', 'VIC', '3220', 'david.lee@example.com', '0412987654', 'Experience with Kubernetes and container orchestration.', 'New'),
-(5, 'COS01', 'Jake', 'Lee', '2000-11-22', 'Male', '456 Dev Rd', 'Southbank', 'VIC', '3006', 'jake.lee@example.com', '0409876543', 'Completed Azure Fundamentals certification.', 'Current'),
-(6, 'COS01', 'Priya', 'Singh', '1999-02-10', 'Female', '88 Cloudway', 'Fitzroy', 'VIC', '3065', 'priya.singh@example.com', '0422333444', 'Interned with a startup using Terraform and AWS.', 'New'),
+(3, 'COS01', 'Jake', 'Lee', '2000-11-22', 'Male', '456 Dev Rd', 'Southbank', 'VIC', '3006', 'jake.lee@example.com', '0409876543', 'Completed Azure Fundamentals certification.', 'Current'),
+(4, 'COS01', 'Priya', 'Singh', '1999-02-10', 'Female', '88 Cloudway', 'Fitzroy', 'VIC', '3065', 'priya.singh@example.com', '0422333444', 'Interned with a startup using Terraform and AWS.', 'New'),
+(5, 'COS02', 'Carol', 'Jones', '1992-02-11', 'Female', '789 Admin Ave', 'Melbourne', 'VIC', '3000', 'carol.jones@example.com', '0412765432', 'Certified AWS SysOps Administrator.', 'New'),
+(6, 'COS02', 'David', 'Lee', '1990-12-01', 'Male', '101 Engineer Blvd', 'Geelong', 'VIC', '3220', 'david.lee@example.com', '0412987654', 'Experience with Kubernetes and container orchestration.', 'New'),
 (7, 'COS02', 'Tariq', 'Hassan', '1989-09-30', 'Male', '321 System St', 'Carlton', 'VIC', '3053', 'tariq.hassan@example.com', '0499123456', 'Managed Kubernetes clusters and Azure AD policies.', 'New'),
 (8, 'COS02', 'Lucas', 'Martin', '1990-07-05', 'Male', '555 Network Blvd', 'Hawthorn', 'VIC', '3122', 'lucas.martin@example.com', '0455667788', 'Experience with hybrid cloud monitoring tools and log aggregation systems.', 'Current');
 
@@ -109,16 +109,16 @@ INSERT INTO `EoiSkills` (`EoiID`, `SkillID`) VALUES
 (2, 1),
 (2, 3),
 (3, 1),
-(3, 3),
-(3, 5),
+(3, 4),
 (4, 1),
+(4, 2),
 (4, 4),
-(4, 5),
 (5, 1),
-(5, 4),
+(5, 3),
+(5, 5),
 (6, 1),
-(6, 2),
 (6, 4),
+(6, 5),
 (7, 1),
 (7, 3),
 (7, 4),
@@ -258,7 +258,32 @@ INSERT INTO `Skills` (`SkillID`, `SkillType`) VALUES
 (4, 'Cloud automation proficiency'),
 (5, 'Knowledge of cloud security best practices');
 
+-- --------------------------------------------------------
+
 --
+<<<<<<< HEAD:webweavers_db.sql
+=======
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(30) NOT NULL,
+  `user_password` varchar(300) NOT NULL,
+  `failed_attempts` tinyint(1) NOT NULL DEFAULT 0,
+  `locked_until` datetime DEFAULT NULL,
+  `manager` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `user_password`, `failed_attempts`, `locked_until`, `manager`) VALUES
+('nick', '$2y$10$C1k/Z0VyR6WXbQiiuOhnx.guapfLccjhRaNp8jNjtCgqQfUFT02q2', 0, NULL, 1),
+('totoro', '$2y$10$QKXZDd9GqP8UD5zmxdemJOQAI6EvpRy2XMnOEdA1IwPwDtiKi71O6', 0, NULL, 0);
+
+--
+>>>>>>> 40b3e0ef12a1d742d8e99efc043fc9e177507c15:WebWeaversSchema.sql
 -- Indexes for dumped tables
 --
 
@@ -322,6 +347,15 @@ ALTER TABLE `Skills`
   ADD PRIMARY KEY (`SkillID`);
 
 --
+<<<<<<< HEAD:webweavers_db.sql
+=======
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`);
+
+--
+>>>>>>> 40b3e0ef12a1d742d8e99efc043fc9e177507c15:WebWeaversSchema.sql
 -- AUTO_INCREMENT for dumped tables
 --
 
