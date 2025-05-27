@@ -28,8 +28,20 @@ require_once('settings.php');
             <ul id="enhancements-ul">
                 <li>On the <a href="manage.php">manage</a> page, the EOI table is able to be sorted by various fields by selecting from a dropdown list on the form.</li>
                 <li>There is a <a href="reg.php">registration</a> and <a href="login.php">login</a> page, allowing users to create an account.</li>
-                <li>Manager credentials are also stored in our users table, allowing specific users to gain access to the manage page upon logging in. 
-                    <br>(Manager account for testing purposes - Username: nick Password: nick123)</li>
+                <li>Manager credentials are also stored in our users table, allowing specific users to gain access to the manage page upon logging in.
+                    <ul id = "sample_logins">
+                        <li>Manager account for testing purposes:</li>
+                        <ul class = "un-and-pw">
+                            <li>Username: nick </li>
+                            <li>Password: nick123</li>
+                        </ul>
+                        <li>Other user account for testing purposes:</li>
+                        <ul class = "un-and-pw">
+                            <li>Username: totoro </li>
+                            <li>Password: totoro123</li>
+                        </ul>
+                    </ul>
+                </li>
                 <li>Users are warned after each unsuccessful login attempt. After 3 attempts, user accounts will lock for a period of 10 minutes.</li>
             </ul>
         </div>

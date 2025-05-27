@@ -1244,6 +1244,14 @@ section {
     list-style-type: circle;
 }
 
+#sample_logins {
+    margin-left: 2em; /* You can increase this for more indentation */
+}
+
+.un-and-pw{
+    margin-left: 4em;
+}
+
 #manage-h2 {
     font-size: 2.5em;
 }
