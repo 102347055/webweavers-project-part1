@@ -2,13 +2,6 @@
 session_start();
 require_once("settings.php");
 
-// Connect to database
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
-
 $feedback = ""; // Store any feedback message here
 
 // Check if someone has submitted the form

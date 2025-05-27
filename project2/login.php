@@ -6,14 +6,6 @@ require_once("settings.php");
 // Set the default timezone to Melbourne, VIC, Australia
 date_default_timezone_set('Australia/Melbourne');
 
-// Establish a connection to MySQL database
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-
-// If connection fails, stop script and show error
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
-
 // Check if form submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Remove extra whitespace from the beginning and end of the input

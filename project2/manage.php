@@ -176,10 +176,10 @@ require_once('settings.php');
                 }
             }
 
-            
             $exec = $stmt->execute();
             $result = $stmt->get_result();
 
+            // display EOI table
             if($result && $result->num_rows > 0) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";
