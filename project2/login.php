@@ -30,7 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Parse and compile the SQL statement, keep a placeholder (?) for later input, return a prepared statement object to PHP ($stmt).
     // Basically telling MySQL server: "here's my query. I'll tell you the ? value later, but it is data and NOT SQL code"
     $stmt = mysqli_prepare($conn, $query);
+    if (!$stmt) {
+        die("SQL prepare failed: " . mysqli_error($conn));
+    }
     // Bind the actual $username value to the ? in the SQL query ("s" means you're binding a string value)
+    mysqli_stmt_bind_param($stmt, "s", $username);
     mysqli_stmt_bind_param($stmt, "s", $username);
     // Runs query
     mysqli_stmt_execute($stmt); 
