@@ -108,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       I have an Account <a href="./login.php" id="loginalreadyacc">Login</a>
     </p>
   </form>
+  <hr>
   <?php include 'footer.inc'; ?>
 </body>
 </html>

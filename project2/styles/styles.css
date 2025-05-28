@@ -28,7 +28,7 @@ html {
 
 body {
     font-size: 1.25em; /*kept body font larger than 16px for accessibility purposes and used em units for better adjustibility across devices of varying sizes*/
-    margin-top: 15vh;
+    margin-top: 12vh;
 }
 
 /* Navbar layout */
@@ -1208,6 +1208,10 @@ section {
   display: flex;
   justify-content: center;
   margin-top: 1em;
+}
+
+.login-error {
+    margin: 20px;
 }
 
 
