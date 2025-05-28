@@ -2,7 +2,7 @@
 session_start();
 require_once("settings.php");
 
-$feedback = ""; // Store any feedback message here
+$feedback = "";
 
 // Check if someone has submitted the form
 // Only run this code when a form has been submitted, not when the page is just opened.
