@@ -28,7 +28,7 @@ html {
 
 body {
     font-size: 1.25em; /*kept body font larger than 16px for accessibility purposes and used em units for better adjustibility across devices of varying sizes*/
-    margin-top: 12vh;
+    margin-top: 15vh;
 }
 
 /* Navbar layout */
