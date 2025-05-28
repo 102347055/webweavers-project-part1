@@ -30,16 +30,18 @@ require_once('settings.php');
                 <li>There is a <a href="reg.php">registration</a> and <a href="login.php">login</a> page, allowing users to create an account.</li>
                 <li>Manager credentials are also stored in our users table, allowing specific users to gain access to the manage page upon logging in.
                     <ul id = "sample_logins">
-                        <li>Manager account for testing purposes:</li>
-                        <ul class = "un-and-pw">
-                            <li>Username: nick </li>
-                            <li>Password: nick123</li>
-                        </ul>
-                        <li>Other user account for testing purposes:</li>
-                        <ul class = "un-and-pw">
-                            <li>Username: totoro </li>
-                            <li>Password: totoro123</li>
-                        </ul>
+                        <li>Manager account for testing purposes:
+                            <ul class = "un-and-pw">
+                                <li>Username: nick </li>
+                                <li>Password: nick123</li>
+                            </ul>
+                        </li>
+                        <li>Other user account for testing purposes:
+                            <ul class = "un-and-pw">
+                                <li>Username: totoro </li>
+                                <li>Password: totoro123</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li>Users are warned after each unsuccessful login attempt. After 3 attempts, user accounts will lock for a period of 10 minutes.</li>

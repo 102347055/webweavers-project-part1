@@ -87,7 +87,7 @@ require_once('settings.php');
             if (isset($_POST['list_all'])) {
                 $list_all = $_POST['list_all'];
             }
-            if (isset($_POST['list_be_ref'])) {
+            if (isset($_POST['list_by_ref'])) {
                 $list_by_ref = $_POST['list_by_ref'];
             }
             if (isset($_POST['firstname'])) {
@@ -97,7 +97,11 @@ require_once('settings.php');
                 $lastname = $_POST['lastname'];
             }
             if (isset($_POST['sort'])) {
-                $sort = $_POST['sort'];
+                // check for valid sort value to avoid sql injection
+                $sort_options = ['EoiID', 'JobReferenceNumber', 'FirstName', 'LastName', 'Status'];
+                if (in_array(($_POST['sort']), $sort_options)) {
+                    $sort = $_POST['sort'];
+                }
             }
             if (isset($_POST['delete_by_ref'])) {
                 $delete_by_ref = $_POST['delete_by_ref'];
@@ -113,12 +117,19 @@ require_once('settings.php');
             // list all EOIs
             if ($list_all) {
                 $query = "SELECT * FROM EOI";
+                // check if sort is set
+                if ($sort != "") {
+                    $query = "$query ORDER BY $sort";
+                }
                 $stmt = $conn->prepare($query);
             }
 
             // list by job reference number
             if ($list_by_ref) {
                 $query = "SELECT * FROM EOI WHERE JobReferenceNumber = ?";
+                if ($sort != "") {
+                    $query = "$query ORDER BY $sort";
+                }
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("s", $list_by_ref);
             }
@@ -127,6 +138,9 @@ require_once('settings.php');
             // first name
             if ($firstname) {
                 $query = "SELECT * FROM EOI WHERE FirstName = ?";
+                if ($sort != "") {
+                    $query = "$query ORDER BY $sort";
+                }
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("s", $firstname);
             }
@@ -134,6 +148,9 @@ require_once('settings.php');
             // last name
             if ($lastname) {
                 $query = "SELECT * FROM EOI WHERE LastName = ?";
+                if ($sort != "") {
+                    $query = "$query ORDER BY $sort";
+                }
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("s", $lastname);
             }
@@ -141,15 +158,11 @@ require_once('settings.php');
             // full name
             if ($firstname && $lastname) {
                 $query = "SELECT * FROM EOI WHERE FirstName = ? AND LastName = ?";
+                if ($sort != "") {
+                    $query = "$query ORDER BY $sort";
+                }
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param("ss", $firstname, $lastname);
-            }
-
-            // sort by
-            if ($sort != "") {
-                $query = "$query ORDER BY ?";
-                $stmt = $conn->prepare($query);
-                $stmt->bind_param("s", $sort);
             }
 
             // delete by reference number
@@ -176,10 +189,14 @@ require_once('settings.php');
                 }
             }
 
-            
             $exec = $stmt->execute();
+            if (!$stmt->execute()) {
+                echo "<p>Error: " . $stmt->error . "</p>";
+            }            
+
             $result = $stmt->get_result();
 
+            // display EOI table
             if($result && $result->num_rows > 0) {
                 echo "<table id='eoi-table'>";
                 echo "<tr>";

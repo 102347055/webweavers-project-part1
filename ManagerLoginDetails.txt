@@ -1,3 +1,7 @@
 To access manage.php log in with:
 Username: nick
 Password: nick123
+
+Generic user account:
+Username: totoro
+Password: totoro123
