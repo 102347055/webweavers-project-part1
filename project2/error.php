@@ -32,7 +32,7 @@ unset($_SESSION['errMsg']);
     <div class="php-body">
         <h1 class="php-heading">Error</h1>
         <div class="php-inner-div">
-            <p>There was a problem submitting your application.</p><br><br>
+            <p>There was a problem submitting your application.</p>
             <p>Please check the following and <a href="apply.php">resubmit</a>:</p>
             <br>
             <?php echo"$errMsg" ?>
