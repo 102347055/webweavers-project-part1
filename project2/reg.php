@@ -80,16 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Economica&family=Poppins&display=swap" rel="stylesheet">
-  <style>
-    .feedback-message {
-      margin: 10px 0;
-      font-weight: bold;
-      color: #d9534f;
-    }
-    .feedback-message.success {
-      color: #28a745;
-    }
-  </style>
 </head>
 
 <body id="apply-body">
